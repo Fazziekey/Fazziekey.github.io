@@ -110,11 +110,11 @@
 			
 			
 			<div>
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=66"></iframe>
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=1577725418&auto=0&height=66"></iframe>
 			</div>
 			
 				
-				<p style="font-size: 12px;">这似乎是首纯音乐，请尽情的欣赏它吧！<p>
+				<p style="font-size: 12px;">Avicii forever<p>
 			
 		
 		</nav>
@@ -252,7 +252,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2020 <a href="https://Fazziekey.github.io/" target="_blank">Fazzie</a>
+    		&copy; 2020 <a href="https://Fazziekey.github.io/" target="_blank">Fazzie</a>
     	</div>
       	<div class="footer-right">
 			
@@ -307,10 +307,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      document.title = "(つェ⊂) 上勾拳！！！ " + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      document.title = "(*´∇｀*) 你倒是跑啊！ " + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);
@@ -553,7 +553,7 @@
     	<section class="tools-section tools-section-me" q-show="aboutme">
         
           
-  	  		<div class="aboutme-wrap" id="aboutme">网瘾少年<br>OW2000分鱼塘主T<br>电音鬼才<br>鼓手，喜欢金属、摇滚、电子<br><br>撸代码焊板子两年半的电科练习生<br>坐标ZJU<br>不想被大数据所预测的ITPer<br>联系:1240419984@qq.com<br><br></div>
+  	  		<div class="aboutme-wrap" id="aboutme">网瘾少年<br>OW2000分鱼塘主T<br>电音鬼才<br>鼓手，喜欢金属、摇滚、电子<br><br>撸代码焊板子两年半的电科练习生<br>坐标ZJU<br>不想被大数据所预测的ITPer<br><br>联系:1240419984@qq.com<br><br></div>
   	  	
     	</section>
     
@@ -633,63 +633,13 @@
 <script type="text/javascript" src="/plugins/activate-power-mode/activate-power-mode.js"></script>
 <script>
   POWERMODE.colorful = true; // make power mode colorful
-  POWERMODE.shake = true; // turn off shake
+  POWERMODE.shake = false; // turn off shake
   document.body.addEventListener('input', POWERMODE);
 </script>
 
   
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
-  
-    <script type="text/javascript" src="/plugins/live2d-widget.js/L2Dwidget.min.js"></script>
-<script type="text/javascript">
-  /**
-   * 完整配置请参考：https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
-   */
-  var pluginModelPath = "assets/", // 模型的文件路径，无需更改
-    pluginRootPath = "/live2d_models/"; // 插件的路径，无需更改
-  //特定的模型json文件名称
-  var modelPathJson = {
-    "epsilon2_1": "Epsilon2.1",
-    "gf": "Gantzert_Felixander",
-    "haru/01": "haru01",
-    "haru/02": "haru02",
-    "nietzsche": "nietzche"
-  }
-
-  
-    var modelName = "hibiki";
-  
-
-  var modelJsonPath = "";
-  if (modelPathJson[modelName]) {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelPathJson[modelName] +
-      ".model.json";
-  } else {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelName + ".model.json";
-  }
-  L2Dwidget.init({
-    model: {
-      jsonPath: modelJsonPath
-    },
-    display: {
-       position: "right", 
-       width: 145, 
-       height: 315, 
-       hOffset: 50, 
-      
-    },
-    mobile: {
-       show: false, 
-       scale: 0.6 
-    },
-    react: {
-       opacity: 0.8 
-    }
-  })
-
-</script>
-
   
   
   <script type="text/javascript" src="/lib/snow.js"></script>
