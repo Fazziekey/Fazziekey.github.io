@@ -211,6 +211,166 @@
             
 
   
+    <article id="post-Mark-Down语法从入门到放弃" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/04/16/Mark-Down%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" target="_blank">Mark Down语法从入门到放弃</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/04/16/Mark-Down%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="archive-article-date">
+        <time datetime="2020-04-16T00:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h2><p>1.使用#表示标题，其中#号必须在行首</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>2.或者用’=====’ ‘—-‘表示</p>
+<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><hr>
+<h2 id="二、分割线"><a href="#二、分割线" class="headerlink" title="二、分割线"></a>二、分割线</h2><p>使用三个以上’-‘或‘ * ’ 表示</p>
+<h2 id="三、斜体和粗体"><a href="#三、斜体和粗体" class="headerlink" title="三、斜体和粗体"></a>三、斜体和粗体</h2><p>使用‘ * ’和‘* ’分别表示斜体和粗体<br><em>斜体</em> <strong>粗体</strong> <strong><em>又斜有粗</em></strong></p>
+<h2 id="四、超链接和图片"><a href="#四、超链接和图片" class="headerlink" title="四、超链接和图片"></a>四、超链接和图片</h2><p>写法1：[第一种写法]（<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>)<br>写法2：[第二种写法][1]<br>[1]:<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>图片插入：在超链接前+一个‘！’<br><img src="http://i2.tiimg.com/716502/c981609de1b23f6e.jpg" alt="echo"></p>
+<h2 id="五、无序列表"><a href="#五、无序列表" class="headerlink" title="五、无序列表"></a>五、无序列表</h2><p>使用‘+ ’ ‘- ’ ‘* ’</p>
+<ul>
+<li>一层<ul>
+<li>两层<ul>
+<li>三层<ul>
+<li>四层</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="六、有序列表"><a href="#六、有序列表" class="headerlink" title="六、有序列表"></a>六、有序列表</h2><p>使用‘ 1. ’点号后有空格</p>
+<ol>
+<li>你在第一层<ol>
+<li>我在第五层</li>
+</ol>
+</li>
+</ol>
+<h2 id="七、文字引用"><a href="#七、文字引用" class="headerlink" title="七、文字引用"></a>七、文字引用</h2><p>使用‘&gt; ’ 表示</p>
+<blockquote>
+<p>第一层</p>
+<blockquote>
+<p>第二层</p>
+<blockquote>
+<p>第三层</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="八、行内代码块"><a href="#八、行内代码块" class="headerlink" title="八、行内代码块"></a>八、行内代码块</h2><p>使用`表示<code>\</code>为转义字符</p>
+<h2 id="九、代码块"><a href="#九、代码块" class="headerlink" title="九、代码块"></a>九、代码块</h2><p>使用四个空格缩进表示代码块</p>
+<pre><code>str=&apos;hello world&apos;
+for i in range(11): 
+    print(str[i])</code></pre><h2 id="十、表格"><a href="#十、表格" class="headerlink" title="十、表格"></a>十、表格</h2><p>第二行表示对齐方式<br><code>|---|---:|:---:|</code><br>默认左对齐</p>
+<table>
+<thead>
+<tr>
+<th>X</th>
+<th>Y</th>
+<th>与</th>
+<th align="right">或</th>
+<th align="center">非X</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td align="right">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td align="right">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td align="right">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td align="right">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<h2 id="十一、流程图"><a href="#十一、流程图" class="headerlink" title="十一、流程图"></a>十一、流程图</h2><p>主要的语法为 <code>name=&gt;type: describe，</code>其中 type 主要有以下几种：<br>1.开始和结束：<code>start end</code><br>2.输入输出：<code>inputoutput</code><br>3.操作：<code>operation</code><br>4.条件：<code>condition</code><br>5.子程序：<code>subroutine</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">st&#x3D;&gt;start: Start</span><br><span class="line">io&#x3D;&gt;inputoutput: input your nuber</span><br><span class="line">op&#x3D;&gt;operation: operate</span><br><span class="line">cond&#x3D;&gt;condition: right or no</span><br><span class="line">sub&#x3D;&gt;subroutine: you choice</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;io-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;sub-&gt;io</span><br></pre></td></tr></table></figure>
+
+<h2 id="十二、数学公式"><a href="#十二、数学公式" class="headerlink" title="十二、数学公式"></a>十二、数学公式</h2><p>使用 <code>$</code> 表示，其中一个 $ 表示在行内，两个 $ 表示独占一行。</p>
+<p><code>eg : $\sum_{i=1}^n a_i=0$</code></p>
+<p>$$\sum_{i=1}^n a_i=0$$</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/04/16/Mark-Down%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-“不知道该写什么的第一篇blog”" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -219,7 +379,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/04/14/%E2%80%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E2%80%9D/" target="_blank">“不知道该写什么的第一篇blog”</a>
+	  <a class="article-title" href="/2020/04/14/%E2%80%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E2%80%9D/" target="_blank">“Mark dowm语法从入门到放弃”</a>
   
     </h1>
   
@@ -242,7 +402,7 @@
     
     <h2 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h2><p>1.使用#表示标题，其中#号必须在行首</p>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>2.或者用===== —-表示</p>
-<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><h2 id="二、分割线"><a href="#二、分割线" class="headerlink" title="二、分割线"></a>二、分割线</h2>
+<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><h2 id="二、分割线"><a href="#二、分割线" class="headerlink" title="二、分割线"></a>二、分割线</h2><h2 id="使用三个以上——或-表示"><a href="#使用三个以上——或-表示" class="headerlink" title="使用三个以上——或*表示"></a>使用三个以上——或*表示</h2>
     
 
     
