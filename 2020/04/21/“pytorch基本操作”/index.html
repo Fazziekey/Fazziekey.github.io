@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>“pytorch基本操作” | Hexo</title>
+  <title>“pytorch矩阵基本操作” | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
-<meta property="og:title" content="“pytorch基本操作”">
+  <meta name="description" content="导入 pytorch库from __future__ import print_function import torch需要配置好环境 创建矩阵构造5*3未初始化的矩阵x &#x3D; torch.empty(5, 3) print(x)输出        tensor([[2.1030e-18, 4.5559e-41, 4.0441e+10],        [3.0767e-41, 0.0000e+0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“pytorch矩阵基本操作”">
 <meta property="og:url" content="https://fazziekey.github.io/2020/04/21/%E2%80%9Cpytorch%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%9D/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="导入 pytorch库from __future__ import print_function import torch需要配置好环境 创建矩阵构造5*3未初始化的矩阵x &#x3D; torch.empty(5, 3) print(x)输出        tensor([[2.1030e-18, 4.5559e-41, 4.0441e+10],        [3.0767e-41, 0.0000e+0">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-21T00:56:46.000Z">
-<meta property="article:modified_time" content="2020-04-21T00:56:46.467Z">
+<meta property="article:modified_time" content="2020-04-21T01:44:50.384Z">
 <meta property="article:author" content="Fazzie">
 <meta name="twitter:card" content="summary">
   
@@ -213,7 +215,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      “pytorch基本操作”
+      “pytorch矩阵基本操作”
     </h1>
   
 
@@ -239,7 +241,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">618字</span>
     </span>
   </span>
 
@@ -248,7 +250,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -259,7 +261,51 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h2 id="导入-pytorch库"><a href="#导入-pytorch库" class="headerlink" title="导入 pytorch库"></a>导入 pytorch库</h2><pre><code>from __future__ import print_function
+import torch</code></pre><p>需要配置好环境</p>
+<h2 id="创建矩阵"><a href="#创建矩阵" class="headerlink" title="创建矩阵"></a>创建矩阵</h2><h3 id="构造5-3未初始化的矩阵"><a href="#构造5-3未初始化的矩阵" class="headerlink" title="构造5*3未初始化的矩阵"></a>构造5*3未初始化的矩阵</h3><pre><code>x = torch.empty(5, 3)
+print(x)</code></pre><p>输出<br>        tensor([[2.1030e-18, 4.5559e-41, 4.0441e+10],<br>        [3.0767e-41, 0.0000e+00, 1.4013e-45],<br>        [0.0000e+00, 0.0000e+00, 0.0000e+00],<br>        [0.0000e+00, 0.0000e+00, 0.0000e+00],<br>        [0.0000e+00, 0.0000e+00, 0.0000e+00]])</p>
+<h3 id="构建一个随机初始化矩阵"><a href="#构建一个随机初始化矩阵" class="headerlink" title="构建一个随机初始化矩阵"></a>构建一个随机初始化矩阵</h3><pre><code>x = torch.rand(5, 3)
+print(x)</code></pre><h3 id="构造一个填充零且dtype-long的矩阵，长整形"><a href="#构造一个填充零且dtype-long的矩阵，长整形" class="headerlink" title="构造一个填充零且dtype long的矩阵，长整形"></a>构造一个填充零且dtype long的矩阵，长整形</h3><pre><code>x = torch.zeros(5, 3, dtype=torch.long)
+print(x)</code></pre><h3 id="从数据构造张量"><a href="#从数据构造张量" class="headerlink" title="从数据构造张量"></a>从数据构造张量</h3><pre><code>x = torch.tensor([5.5, 3])
+print(x)</code></pre><h3 id="基于现有张量创建张量。这些方法将重用输入张量的属性，例如dtype，除非用户提供新值"><a href="#基于现有张量创建张量。这些方法将重用输入张量的属性，例如dtype，除非用户提供新值" class="headerlink" title="基于现有张量创建张量。这些方法将重用输入张量的属性，例如dtype，除非用户提供新值"></a>基于现有张量创建张量。这些方法将重用输入张量的属性，例如dtype，除非用户提供新值</h3><pre><code>x = x.new_ones(5, 3, dtype=torch.double)      # new_* methods take in sizes
+print(x)
+
+x = torch.randn_like(x, dtype=torch.float)    # override dtype!
+print(x)                                     # result has the same size</code></pre><h3 id="矩阵大小函数"><a href="#矩阵大小函数" class="headerlink" title="矩阵大小函数"></a>矩阵大小函数</h3><pre><code>print(x.size())
+#torch.size 为一个元组</code></pre><h2 id="矩阵基本运算"><a href="#矩阵基本运算" class="headerlink" title="矩阵基本运算"></a>矩阵基本运算</h2><h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><pre><code>y = torch.rand(5, 3)
+print(x + y)</code></pre><h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><pre><code>print(torch.add(x, y))</code></pre><h3 id="加法：提供输出张量作为参数"><a href="#加法：提供输出张量作为参数" class="headerlink" title="加法：提供输出张量作为参数"></a>加法：提供输出张量作为参数</h3><pre><code>result = torch.empty(5, 3)
+torch.add(x, y, out=result)
+print(result)</code></pre><h3 id="地板加"><a href="#地板加" class="headerlink" title="地板加"></a>地板加</h3><pre><code># adds x to y
+y.add_(x)
+print(y)</code></pre><p>注意<br>任何使张量就地变化的操作都用固定<em>。例如：x.copy</em>(y)，x.t_()，将改变x。</p>
+<h2 id="矩阵索引"><a href="#矩阵索引" class="headerlink" title="矩阵索引"></a>矩阵索引</h2><pre><code>print(x[:, 1]) 
+#索引第二列，所有矩阵从0算起
+冒号表示范围 如1:3索引第二行到第三行</code></pre><h2 id="矩阵大小调整"><a href="#矩阵大小调整" class="headerlink" title="矩阵大小调整"></a>矩阵大小调整</h2><pre><code>x = torch.randn(4, 4)
+y = x.view(16)
+z = x.view(-1, 8)  # the size -1 is inferred from other dimensions
+print(x.size(), y.size(), z.size())</code></pre><p>输出结果<br>torch.Size([4, 4]) torch.Size([16]) torch.Size([2, 8])</p>
+<h3 id="特殊情况，只有一个元素"><a href="#特殊情况，只有一个元素" class="headerlink" title="特殊情况，只有一个元素"></a>特殊情况，只有一个元素</h3><pre><code>如果您具有一个元素张量，请使用.item()将该值作为Python数字获取</code></pre><h2 id="与numpy之间转换"><a href="#与numpy之间转换" class="headerlink" title="与numpy之间转换"></a>与numpy之间转换</h2><h3 id="torch转numpy"><a href="#torch转numpy" class="headerlink" title="torch转numpy"></a>torch转numpy</h3><pre><code>a = torch.ones(5) #元素全为1矩阵创建
+print(a)</code></pre><p>tensor([1., 1., 1., 1., 1.])</p>
+<pre><code>b = a.numpy()
+print(b)</code></pre><p>[1. 1. 1. 1. 1.]</p>
+<pre><code>a.add_(1)
+print(a)
+print(b)</code></pre><p>tensor([2., 2., 2., 2., 2.])<br>[2. 2. 2. 2. 2.]</p>
+<h3 id="numpy转torch"><a href="#numpy转torch" class="headerlink" title="numpy转torch"></a>numpy转torch</h3><pre><code>import numpy as np
+a = np.ones(5)
+b = torch.from_numpy(a)
+np.add(a, 1, out=a)
+print(a)
+print(b)</code></pre><h2 id="CUDA张量"><a href="#CUDA张量" class="headerlink" title="CUDA张量"></a>CUDA张量</h2><h3 id="使用该-to方法可以将张量移动到任何设备上。"><a href="#使用该-to方法可以将张量移动到任何设备上。" class="headerlink" title="使用该.to方法可以将张量移动到任何设备上。"></a>使用该.to方法可以将张量移动到任何设备上。</h3><pre><code># let us run this cell only if CUDA is available
+# We will use ``torch.device`` objects to move tensors in and out of GPU
+if torch.cuda.is_available():
+     device = torch.device(&quot;cuda&quot;)          # a CUDA device object
+     y = torch.ones_like(x, device=device)  # directly create a tensor on GPU
+     x = x.to(device)                       # or just use strings ``.to(&quot;cuda&quot;)``
+     z = x + y
+     print(z)
+     print(z.to(&quot;cpu&quot;, torch.double))       # ``.to`` can also change dtype together!</code></pre>
     
 
     
@@ -273,7 +319,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/04/21/“pytorch基本操作”/" title="“pytorch基本操作”" target="_blank">https://Fazziekey.github.io/2020/04/21/“pytorch基本操作”/</a>
+          <a href="https://Fazziekey.github.io/2020/04/21/“pytorch基本操作”/" title="“pytorch矩阵基本操作”" target="_blank">https://Fazziekey.github.io/2020/04/21/“pytorch基本操作”/</a>
         </li>
         
         <li>
