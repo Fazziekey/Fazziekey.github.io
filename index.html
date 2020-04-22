@@ -211,6 +211,129 @@
             
 
   
+    <article id="post-grad" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/04/22/grad/" target="_blank">使用pytorch进行梯度运算</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/04/22/grad/" class="archive-article-date">
+        <time datetime="2020-04-22T03:00:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>torch.Tensor是程序包的中心类。如果将其属性设置 .requires_grad为True，它将开始跟踪对其的所有操作。完成计算后，可以调用.backward()并自动计算所有梯度。该张量的梯度将累加到.grad属性中。</p>
+<h3 id="创建一个张量并设置requires-grad-True为跟踪张量"><a href="#创建一个张量并设置requires-grad-True为跟踪张量" class="headerlink" title="创建一个张量并设置requires_grad=True为跟踪张量"></a>创建一个张量并设置requires_grad=True为跟踪张量</h3><pre><code>import torch
+x = torch.ones(2, 2, requires_grad=True)
+print(x)</code></pre><h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><pre><code>y = x + 2
+print(y)
+print(y.grad_fn)</code></pre><p>输出</p>
+<pre><code>tensor([[3., 3.],
+[3., 3.]], grad_fn=&lt;AddBackward0&gt;)</code></pre><p>y是运算产生，存在梯度</p>
+<pre><code>z = y * y * 3
+out = z.mean()
+print(z, out)</code></pre><p>结果</p>
+<pre><code>tensor([[27., 27.],
+[27., 27.]], grad_fn=&lt;MulBackward0&gt;)
+tensor(27., grad_fn=&lt;MeanBackward0&gt;)</code></pre><p>.requires_grad_( … )requires_grad 可以更改现有Tensor的标志。如果未给出输入，则默认为False。</p>
+<pre><code>a = torch.randn(2, 2)
+a = ((a * 3) / (a - 1))
+print(a.requires_grad)
+a.requires_grad_(True)
+print(a.requires_grad)
+b = (a * a).sum()
+print(b.grad_fn)</code></pre><p>输出</p>
+<pre><code>False
+True
+&lt;SumBackward0 object at 0x7fc4a70d31d0&gt;</code></pre><h2 id="梯度计算"><a href="#梯度计算" class="headerlink" title="梯度计算"></a>梯度计算</h2><p>使用反向传播</p>
+<pre><code>out.backward()</code></pre><p><code>$out=\frac{1}{4}\sum_{i=1}^4 z_i,z=3(x+2)^2,\frac{\partial out}{\partial x}=\frac{3}{2}(x+2)=4.5|_{x=1},$</code></p>
+<p>数学上，如果具有向量值函数 <code>$\overrightarrow{y} =f(\overrightarrow{x})$</code>，然后是 <code>$\overrightarrow{y}$</code>关于<code>$\overrightarrow{x}$</code>是雅可比矩阵：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">J&#x3D;\begin&#123;pmatrix&#125;</span><br><span class="line">  \frac&#123;\partial y_1&#125;&#123;\partial x_1&#125; &amp; ...&amp; \frac&#123;\partial y_1&#125;&#123;\partial x_n&#125; \\...&amp; &amp;...\\</span><br><span class="line">   \frac&#123;\partial y_1&#125;&#123;\partial x_n&#125; &amp; ... &amp; \frac&#123;\partial y_n&#125;&#123;\partial x_n&#125;</span><br><span class="line">\end&#123;pmatrix&#125;</span><br></pre></td></tr></table></figure>
+<p>一般来说，torch.autograd是用于计算向量雅可比积的引擎。给定向量<code>$v=(v_1,v_2...v_n)^T$</code>，计算<code>$J*v^T$</code>,如果v 恰好是标量函数的梯度<code>$l=g(\overrightarrow{y})$</code>,则<code>$v=( \frac{\partial l}{\partial y_1}... \frac{\partial l}{\partial y_n})^T$</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">J^T\cdot v&#x3D;\begin&#123;pmatrix&#125;</span><br><span class="line">  \frac&#123;\partial l&#125;&#123;\partial x_1&#125; \\...\\</span><br><span class="line">    \frac&#123;\partial l&#125;&#123;\partial x_n&#125;</span><br><span class="line">\end&#123;pmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>x = torch.randn(3, requires_grad=True)
+
+y = x * 2
+while y.data.norm() &lt; 1000:
+y = y * 2
+
+print(y)</code></pre><p>输出</p>
+<pre><code>tensor([1030.3691,  653.3950, -535.1644], grad_fn=&lt;MulBackward0&gt;)</code></pre><p>输入</p>
+<pre><code>v = torch.tensor([0.1, 1.0, 0.0001], dtype=torch.float)
+y.backward(v)
+print(x.grad)</code></pre><p>输出</p>
+<pre><code>tensor([5.1200e+01, 5.1200e+02, 5.1200e-02])</code></pre><p><code>.requires_grad=True</code>可以通过将代码块包装在 <code>with torch.no_grad():</code></p>
+<pre><code>print(x.requires_grad)
+print((x ** 2).requires_grad)
+
+with torch.no_grad():
+print((x ** 2).requires_grad)</code></pre><p>输出</p>
+<pre><code>True
+True
+False</code></pre>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/04/22/grad/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-“pytorch基本操作”" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
