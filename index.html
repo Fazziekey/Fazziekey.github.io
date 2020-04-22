@@ -266,7 +266,7 @@ True
 &lt;SumBackward0 object at 0x7fc4a70d31d0&gt;</code></pre><h2 id="梯度计算"><a href="#梯度计算" class="headerlink" title="梯度计算"></a>梯度计算</h2><p>使用反向传播</p>
 <pre><code>out.backward()</code></pre><p>$out=\frac{1}{4}\sum_{i=1}^4 z_i,z=3(x+2)^2,\frac{\partial out}{\partial x}=\frac{3}{2}(x+2)=4.5|_{x=1},$<br>数学上，如果具有向量值函数 $\overrightarrow{y} =f(\overrightarrow{x})$，然后是 $\overrightarrow{y}$关于$\overrightarrow{x}$是雅可比矩阵：</p>
 <p>$$J=\begin{pmatrix}<br>  \frac{\partial y_1}{\partial x_1} &amp; …&amp; \frac{\partial y_1}{\partial x_n} \ \ …&amp; &amp;…\ \<br>   \frac{\partial y_1}{\partial x_n} &amp; … &amp; \frac{\partial y_n}{\partial x_n}<br>\end{pmatrix}$$</p>
-<p>一般来说，torch.autograd是用于计算向量雅可比积的引擎。给定向量<code>$v=(v_1,v_2...v_n)^T$</code>，计算<code>$J*v^T$</code>,如果v 恰好是标量函数的梯度$l=g(\overrightarrow{y})$<code>,则</code>$v=( \frac{\partial l}{\partial y_1}… \frac{\partial l}{\partial y_n})^T$</p>
+<p>一般来说，torch.autograd是用于计算向量雅可比积的引擎。给定向量$v=(v_1,v_2…v_n)^T$，计算$J*v^T$,如果v 恰好是标量函数的梯度$l=g(\overrightarrow{y})$,则$v=( \frac{\partial l}{\partial y_1}… \frac{\partial l}{\partial y_n})^T$</p>
 <p>$$<br>J^T\cdot v=\begin{pmatrix}<br>  \frac{\partial l}{\partial x_1} \ \ …\ \<br>    \frac{\partial l}{\partial x_n}<br>\end{pmatrix}<br>$$</p>
 <pre><code>x = torch.randn(3, requires_grad=True)
 
