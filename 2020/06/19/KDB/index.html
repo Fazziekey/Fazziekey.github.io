@@ -18,10 +18,9 @@
 <meta property="og:description" content="wave vector k的引入由亥姆霍兹方程$$(\nabla^2+w^2\mu\epsilon)\overrightarrow{E}&#x3D;0$$">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/7f514c4e54efa24936472b15f0fd5750/xmlnote/B695952BC99648E18FEA991051D1F96E/1622">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619213636.png">
 <meta property="article:published_time" content="2020-06-19T12:04:10.000Z">
-<meta property="article:modified_time" content="2020-06-19T14:20:40.802Z">
+<meta property="article:modified_time" content="2020-06-19T15:06:53.091Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="手撕麦克斯韦">
 <meta name="twitter:card" content="summary">
@@ -237,8 +236,8 @@
     <h2 id="wave-vector-k的引入"><a href="#wave-vector-k的引入" class="headerlink" title="wave vector k的引入"></a>wave vector k的引入</h2><p>由亥姆霍兹方程<br>$$<br>(\nabla^2+w^2\mu\epsilon)\overrightarrow{E}=0<br>$$</p>
 <a id="more"></a>
 <p>解得</p>
-<p>$$<br>\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i(k_xx+k_yy+k_zz)}<br>$$<br>$$<br>k_x^2+k_y^2+k_z^2=w^2\mu\epsilon=k^2<br>$$<br>定义wave vector k<br>$$<br>\overrightarrow{k}=\hat{x}k_x+\hat{y}k_y+\hat{z}k_z<br>$$<br>position vector<br>$$<br>\overrightarrow{r}=\hat{x}x+\hat{y}y+\hat{z}z<br>$$<br>则<br>$$<br>\overrightarrow{k}\cdot\overrightarrow{r}=k_xx+k_yy+k_zz<br>$$<br>则<br>$$<br>\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i\overrightarrow{k}\cdot\overrightarrow{r}}<br>$$<br>代回麦克斯韦方程<br>$$<br>\begin{cases}<br>\overrightarrow{k}\times\overrightarrow{E}=w\mu\overrightarrow{H}\<br>\overrightarrow{k}\times\overrightarrow{H}=-w\epsilon\overrightarrow{E}\<br>\overrightarrow{k}\cdot\overrightarrow{E}=0\<br>\overrightarrow{k}\cdot\overrightarrow{H}=0<br>\end{cases}<br>$$<br>波印廷矢量</p>
-<p>$$<br>&lt; \overrightarrow{S} &gt;=\frac{1}{2}Re<br>\begin{cases}\frac{\overrightarrow{k}}{w\epsilon}|\overrightarrow{H}|^2\\frac{\overrightarrow{k^<em>}}{w\mu^</em>}|\overrightarrow{E}|^2<br>\end{cases}<br>$$</p>
+<p>$$<br>\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i(k_xx+k_yy+k_zz)}<br>$$<br>$$<br>k_x^2+k_y^2+k_z^2=w^2\mu\epsilon=k^2<br>$$<br>定义wave vector k<br>$$<br>\overrightarrow{k}=\hat{x}k_x+\hat{y}k_y+\hat{z}k_z<br>$$<br>position vector<br>$$<br>\overrightarrow{r}=\hat{x}x+\hat{y}y+\hat{z}z<br>$$<br>则<br>$$<br>\overrightarrow{k}\cdot\overrightarrow{r}=k_xx+k_yy+k_zz<br>$$<br>则<br>$$<br>\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i\overrightarrow{k}\cdot\overrightarrow{r}}<br>$$<br>代回麦克斯韦方程<br>$$<br>    \begin{cases}<br>    \overrightarrow{k}\times\overrightarrow{E}=w\mu\overrightarrow{H}\<br>    \overrightarrow{k}\times\overrightarrow{H}=-w\epsilon\overrightarrow{E}\<br>    \overrightarrow{k}\cdot\overrightarrow{E}=0\<br>    \overrightarrow{k}\cdot\overrightarrow{H}=0<br>    \end{cases}<br>$$<br>波印廷矢量</p>
+<p>$$<br>        \overrightarrow{S}=\frac{1}{2}Re<br>        \begin{cases}\frac{\overrightarrow{k}}{w\epsilon}|\overrightarrow{H}|^2\\frac{\overrightarrow{k^<em>}}{w\mu^</em>}|\overrightarrow{E}|^2<br>        \end{cases}<br>$$</p>
 <p><strong>k矢量的意义</strong></p>
 <ul>
 <li>波是平面波</li>
@@ -251,9 +250,9 @@
 </blockquote>
 <p>定义三个单位向量$\hat{e_1},\hat{e_2},\hat{e_3}$,$\hat{e_3}$和k方向相同<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png" alt=""></p>
 <p><strong>转换矩阵</strong>（将xyz坐标系转换到KDB坐标系）<br>$$<br>    \bar{T}=\begin{bmatrix}<br>    sin\varPhi&amp;-cos\varPhi&amp;0，\<br>    cos\theta cos\varPhi&amp;cos\theta sin\varPhi&amp;-sin\theta，\<br>    sin\theta cos\varPhi&amp;sin\theta sin\varPhi &amp;cos\theta<br>    \end{bmatrix}<br>$$</p>
-<p>$$<br>\bar{T}^{-1}=\begin{bmatrix}<br>sin\varPhi&amp;cos\theta cos\varPhi&amp;sin\theta cos\varPhi\<br>-cos\varPhi&amp;cos\theta sin\varPhi&amp;sin\theta sin\varPhi\<br>0&amp;-sin\theta&amp;cos\theta<br>\end{bmatrix}<br>$$</p>
-<p>对于任意矢量<br>$$<br>\overrightarrow{A}=<br>\begin{bmatrix}<br>A_x\<br>A_y\<br>A_z<br>\end{bmatrix}<br>$$</p>
-<p>$$<br>\overrightarrow{A_k}=<br>\begin{bmatrix}<br>A_1\<br>A_2\<br>A_3<br>\end{bmatrix}<br>$$<br>存在</p>
+<p>$$<br>    \bar{T}^{-1}=\begin{bmatrix}<br>    sin\varPhi&amp;cos\theta cos\varPhi&amp;sin\theta cos\varPhi,\<br>    -cos\varPhi&amp;cos\theta sin\varPhi&amp;sin\theta sin\varPhi,\<br>    0&amp;-sin\theta&amp;cos\theta<br>    \end{bmatrix}<br>$$</p>
+<p>对于任意矢量<br>$$<br>        \overrightarrow{A}=<br>        \begin{bmatrix}<br>        A_x\<br>        A_y\<br>        A_z<br>        \end{bmatrix}<br>$$</p>
+<p>$$<br>        \overrightarrow{A_k}=<br>        \begin{bmatrix}<br>        A_1\<br>        A_2\<br>        A_3<br>        \end{bmatrix}<br>$$<br>存在</p>
 <p>$$<br>\overrightarrow{A_k}=\bar{T}\cdot\overrightarrow{A}<br>$$</p>
 <p>对于任意场量<br>$$<br>\overrightarrow{E}=\bar\kappa\cdot\overrightarrow{D}+\bar\chi\cdot\overrightarrow{B}<br>$$<br>$$<br>\overrightarrow{H}=\bar\nu\cdot\overrightarrow{B}+\bar\gamma\cdot\overrightarrow{D}<br>$$<br>$$<br>\overrightarrow{D}=\bar\epsilon\overrightarrow{E}+\bar\xi\overrightarrow{H}<br>$$<br>$$<br>\overrightarrow{B}=\bar\mu\overrightarrow{H}+\bar\zeta\overrightarrow{E}<br>$$<br>转化为KDB坐标系<br>$$<br>\overrightarrow{E}=(\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1})\cdot\overrightarrow{D}+(\bar{T}\cdot\bar\chi\cdot \bar{T}^{-1})\cdot\overrightarrow{B}<br>$$<br>$$<br>\overrightarrow{H}=(\bar{T}\cdot\bar\nu\cdot \bar{T}^{-1})\overrightarrow{D}+(\bar{T}\cdot\bar\gamma\cdot \bar{T}^{-1})\cdot\overrightarrow{B}<br>$$<br>$$<br>\overrightarrow{D}=(\bar{T}\cdot\bar\epsilon\cdot \bar{T}^{-1})\cdot\overrightarrow{E}+(\bar{T}\cdot\bar\xi\cdot \bar{T}^{-1})\cdot\overrightarrow{H}<br>$$<br>$$<br>\overrightarrow{B}=(\bar{T}\cdot\bar\mu\cdot \bar{T}^{-1})\cdot\overrightarrow{H}+(\bar{T}\cdot\bar\zeta\cdot \bar{T}^{-1})\cdot\overrightarrow{E}<br>$$<br>我们可以得到</p>
 <p>$$<br>\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}<br>$$<br>$$<br>\bar\chi_k=\bar{T}\cdot\bar\chi\cdot \bar{T}^{-1}<br>$$<br>$$<br>\bar\nu_k=\bar{T}\cdot\bar\nu\cdot \bar{T}^{-1}<br>$$<br>$$<br>\bar\gamma_k=\bar{T}\cdot\bar\gamma\cdot \bar{T}^{-1}<br>$$<br>$$<br>\bar\epsilon_k=\bar{T}\cdot\bar\epsilon\cdot \bar{T}^{-1}<br>$$<br>$$<br>\bar\xi_k=\bar{T}\cdot\bar\xi\cdot \bar{T}^{-1}<br>$$<br>$$<br>\bar\mu_k=\bar{T}\cdot\bar\mu\cdot \bar{T}^{-1}<br>$$<br>$$<br>\bar\zeta_k=\bar{T}\cdot\bar\zeta\cdot \bar{T}^{-1}<br>$$<br>在KDB坐标系的物质本构方程<br>$$<br>\overrightarrow{E}=\bar\kappa_k\cdot\overrightarrow{D}+\bar\chi_k\cdot\overrightarrow{B}<br>$$<br>$$<br>\overrightarrow{H}=\bar\nu_k\cdot\overrightarrow{D}+\bar\gamma_k\cdot\overrightarrow{B}<br>$$<br>$$<br>\overrightarrow{D}=\bar\epsilon_k\overrightarrow{E}+\bar\xi_k\overrightarrow{H}<br>$$<br>$$<br>\overrightarrow{B}=\bar\mu_k\overrightarrow{H}+\bar\zeta_k\overrightarrow{E}<br>$$</p>
@@ -264,7 +263,7 @@
 </blockquote>
 </blockquote>
 <h2 id="Maxwell-Equation-in-KDB-System"><a href="#Maxwell-Equation-in-KDB-System" class="headerlink" title="Maxwell Equation in KDB System"></a>Maxwell Equation in KDB System</h2><p>下面我们将运用KDB坐标系解决麦克斯韦方程</p>
-<p>KDB坐标系麦克斯韦方程组<br>$$<br>\begin{cases}<br>\overrightarrow{k}\times\overrightarrow{E}_k=w\overrightarrow{B}_k\<br>\overrightarrow{k}\times\overrightarrow{H}_k=-w\overrightarrow{D}_k\<br>\overrightarrow{k}\cdot\overrightarrow{B}_k=0\<br>\overrightarrow{k}\cdot\overrightarrow{D}_k=0<br>\end{cases}<br>$$<br>由<br>$$<br>\overrightarrow{k}\cdot\overrightarrow{B}_k=0\<br>\overrightarrow{k}\cdot\overrightarrow{D}_k=0<br>$$<br>知</p>
+<p>KDB坐标系麦克斯韦方程组<br>$$<br>        \begin{cases}<br>        \overrightarrow{k}\times\overrightarrow{E}_k=w\overrightarrow{B}_k\<br>        \overrightarrow{k}\times\overrightarrow{H}_k=-w\overrightarrow{D}_k\<br>        \overrightarrow{k}\cdot\overrightarrow{B}_k=0\<br>        \overrightarrow{k}\cdot\overrightarrow{D}_k=0<br>        \end{cases}<br>$$<br>由<br>$$<br>\overrightarrow{k}\cdot\overrightarrow{B}_k=0\<br>\overrightarrow{k}\cdot\overrightarrow{D}_k=0<br>$$<br>知</p>
 <p>$$<br>B_3,D_3=0<br>$$</p>
 <p>因为<br>$$<br>\bar k=\hat{e_3}k<br>$$<br>所以<br>$$<br>w\bar B_k=k\hat{e_3}\times(\hat{e_1}E_1+\hat{e_2}E_2+\hat{e_3}E_3)<br>$$</p>
 <p>$$<br>-w\bar D_k=k\hat{e_3}\times(\hat{e_1}H_1+\hat{e_2}H_2+\hat{e_3}H_3)<br>$$<br>全部转化为DB的线性方程</p>
@@ -272,27 +271,13 @@
 <p>$$<br>wB_1=kE_2=-k(\kappa_{21} D+\kappa_{22} D+\chi_{21} B+\chi_{22} B)<br>$$</p>
 <p>$$<br>wD_2=-kH_1=-k(\nu_{11}B_1+\nu_{12}B_2+\gamma_{11}D_1+\gamma_{12}D_2)<br>$$</p>
 <p>$$<br>wD_1=-kH_2=-k(\nu_{21}B_1+\nu_{22}B_2+\gamma_{21}D_1+\gamma_{22}D_2)<br>$$</p>
-<p>令u=w/k<br>移项可以化简为<br>$$<br>    \begin{pmatrix}<br>    \kappa_{11}&amp;\kappa_{22}\<br>    \kappa_{21}&amp;\kappa_{22}<br>    \end{pmatrix}<br>    \begin{pmatrix}<br>    D_1\<br>    D_2<br>    \end{pmatrix}=-<br>    \begin{pmatrix}<br>    \chi_{11}&amp;\chi_{12}-u\<br>    \chi_{21}+u&amp;\chi_{22}<br>    \end{pmatrix}<br>    \begin{pmatrix}<br>    B_1\<br>    B_2<br>    \end{pmatrix}<br>$$<br>$$<br>    \begin{pmatrix}<br>    \nu_{11}&amp;\nu_{22}\<br>    \nu_{21}&amp;\nu_{22}<br>    \end{pmatrix}<br>    \begin{pmatrix}<br>    B_1\<br>    B_2<br>    \end{pmatrix}<br>    =-\begin{pmatrix}<br>    \gamma_{11}&amp;\gamma_{12}+u\<br>    \gamma_{21}-u&amp;\gamma_{22}<br>    \end{pmatrix}<br>    \begin{pmatrix}<br>    D_1\<br>    D_2<br>    \end{pmatrix}<br>$$</p>
+<p>令u=w/k<br>移项可以化简为<br>$$<br>        \begin{pmatrix}<br>        \kappa_{11}&amp;\kappa_{22},\<br>        \kappa_{21}&amp;\kappa_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        D_1,\<br>        D_2<br>        \end{pmatrix}=-<br>        \begin{pmatrix}<br>        \chi_{11}&amp;\chi_{12}-u,\<br>        \chi_{21}+u&amp;\chi_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        B_1,\<br>        B_2<br>        \end{pmatrix}<br>$$<br>$$<br>        \begin{pmatrix}<br>        \nu_{11}&amp;\nu_{22},\<br>        \nu_{21}&amp;\nu_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        B_1,\<br>        B_2<br>        \end{pmatrix}<br>        =-\begin{pmatrix}<br>        \gamma_{11}&amp;\gamma_{12}+u,\<br>        \gamma_{21}-u&amp;\gamma_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        D_1,\<br>        D_2<br>        \end{pmatrix}<br>$$</p>
 <blockquote>
 <p>可以得到均匀介质色散关系</p>
 </blockquote>
 <h2 id="各向同性介质中的波"><a href="#各向同性介质中的波" class="headerlink" title="各向同性介质中的波"></a>各向同性介质中的波</h2><p>现在用KDB坐标系去推导最简单的介质，各向同性介质的麦克斯韦方程<br>$$<br>\bar E=\kappa\bar D<br>$$<br>$$<br>\bar H=\nu\bar B<br>$$<br>在KDB坐标系下<br>$$<br>\bar E_k=\kappa\bar D_k<br>$$<br>$$<br>\bar H_k=\nu\bar B_k<br>$$</p>
-<p>代入KDB矩阵方程<br>$$</p>
-<pre><code>\kappa
-\begin{pmatrix}
-D_1\\
-D_2
-\end{pmatrix}=
-\begin{pmatrix}
-0&amp;u\\
--u&amp;0
-\end{pmatrix}
-\begin{pmatrix}
-B_1\\
-B_2
-\end{pmatrix}
-
-\nu
+<p>代入KDB矩阵方程<br>$$<br>        \kappa<br>        \begin{pmatrix}<br>        D_1\<br>        D_2<br>        \end{pmatrix}=<br>        \begin{pmatrix}<br>        0&amp;u\<br>        -u&amp;0<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        B_1\<br>        B_2<br>        \end{pmatrix}</p>
+<pre><code>\nu
 \begin{pmatrix}
 B_1\\
 B_2
@@ -305,7 +290,7 @@ u&amp;0
 D_1\\
 D_2
 \end{pmatrix}</code></pre><p>$$<br>消去B得到</p>
-<p>$$<br>    \begin{pmatrix}<br>    u^2-\kappa\nu&amp;0\<br>    0&amp;u^2-\kappa\nu<br>    \end{pmatrix}<br>    \begin{pmatrix}<br>    D_1\<br>    D_2<br>    \end{pmatrix}=0<br>$$<br>解得</p>
+<p>$$<br>        \begin{pmatrix}<br>        u^2-\kappa\nu&amp;0,\<br>        0&amp;u^2-\kappa\nu<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        D_1,\<br>        D_2<br>        \end{pmatrix}=0<br>$$<br>解得</p>
 <p>$$<br>u^2-\kappa\nu=0<br>$$</p>
 <ul>
 <li>$D_1=D_2=0$<ul>
@@ -326,16 +311,16 @@ D_2
 </li>
 </ul>
 <h2 id="Wave-in-uniaxial-Media单各向异性介质"><a href="#Wave-in-uniaxial-Media单各向异性介质" class="headerlink" title="Wave in uniaxial Media单各向异性介质"></a>Wave in uniaxial Media单各向异性介质</h2><p>加入磁场后的plasma media，手机通讯</p>
-<p>物质本构方程<br>$$<br>\bar E=\bar\kappa\bar D<br>$$<br>$$<br>\bar H=\nu\bar B<br>$$<br>其中<br>$$<br>\bar\kappa=<br>    \begin{pmatrix}<br>    \kappa&amp;0&amp;0\<br>    0&amp;\kappa&amp;0\<br>    0&amp;0&amp;\kappa_z<br>    \end{pmatrix}<br>$$</p>
-<p>$$<br>\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=<br>\bar\kappa=<br>    \begin{pmatrix}<br>    \kappa&amp;0&amp;0\<br>    0&amp;\kappa cos^2\theta+\kappa_zsin^2\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta\<br>    0&amp;(\kappa-\kappa_z)sin\theta cos\theta&amp;\kappa sin^2\theta+\kappa_zcos^2\theta<br>    \end{pmatrix}<br>$$<br>$$<br>    \begin{pmatrix}<br>    u^2-\kappa_{11}\nu&amp;0\<br>    0&amp;u^2-\kappa_{22}\nu<br>    \end{pmatrix}<br>    \begin{pmatrix}<br>    D_1\<br>    D_2<br>    \end{pmatrix}=0<br>$$<br>解得</p>
+<p>物质本构方程<br>$$<br>\bar E=\bar\kappa\bar D<br>$$<br>$$<br>\bar H=\nu\bar B<br>$$<br>其中<br>$$<br>\bar\kappa=<br>        \begin{pmatrix}<br>        \kappa&amp;0&amp;0,\<br>        0&amp;\kappa&amp;0,\<br>        0&amp;0&amp;\kappa_z<br>        \end{pmatrix}<br>$$</p>
+<p>$$<br>\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=<br>\bar\kappa=<br>    \begin{pmatrix}<br>    \kappa&amp;0&amp;0,\<br>    0&amp;\kappa cos^2\theta+\kappa_zsin^2\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta,\<br>    0&amp;(\kappa-\kappa_z)sin\theta cos\theta&amp;\kappa sin^2\theta+\kappa_zcos^2\theta<br>    \end{pmatrix}<br>$$<br>$$<br>    \begin{pmatrix}<br>    u^2-\kappa_{11}\nu&amp;0,\<br>    0&amp;u^2-\kappa_{22}\nu<br>    \end{pmatrix}<br>    \begin{pmatrix}<br>    D_1,\<br>    D_2<br>    \end{pmatrix}=0<br>$$<br>解得</p>
 <ul>
 <li>$D_1=D_2=0$<ul>
 <li>没有场</li>
 </ul>
 </li>
-<li>$D_ 1  =\not 0, D_2=0，u^2-\kappa_{11}\nu=0$<ul>
+<li>$D_ 1  \not= 0, D_2=0，u^2-\kappa_{11}\nu=0$<ul>
 <li>e1方向极化波</li>
-<li>$u=\pm \sqrt{\nu\kappa_{11}}=\pm \sqrt{\nu\kappa}$<br><img src="https://note.youdao.com/yws/public/resource/7f514c4e54efa24936472b15f0fd5750/xmlnote/B695952BC99648E18FEA991051D1F96E/1622" alt="image"></li>
+<li>$u=\pm \sqrt{\nu\kappa_{11}}=\pm \sqrt{\nu\kappa}$</li>
 </ul>
 </li>
 </ul>
@@ -344,11 +329,14 @@ D_2
 <li>$D_1=0,D_2\not=0,u^2-\kappa_{22}\nu=0$<ul>
 <li>e2方向极化波</li>
 <li>$u=\pm \sqrt{\nu\kappa_{22}}=\pm \sqrt{\nu(\kappa cos^2\theta+\kappa_zsin^2\theta)}$<blockquote>
-<p>速度和角度相关，称为非寻常波,相位和k传播方向相反<br>$$<br>\bar D_k=\hat{e}<em>2D_2<br>$$<br>$$<br>\bar B_k=\hat{e}_1\frac{u}{\nu}D_2<br>$$<br>$$<br>\bar H_k=-\hat{e}_2uD_2<br>$$<br>$$<br>\bar E_k=\hat{e}_2\kappa</em>{22} D_2+\hat{e}<em>3(\kappa-\kappa</em>{z})sin\theta cos\theta D_2<br>$$<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619213636.png" alt=""></p>
+<p>速度和角度相关，称为非寻常波,相位和k传播方向相反</p>
 </blockquote>
 </li>
 </ul>
 </li>
+</ul>
+<p>$$<br>\bar D_k=\hat{e}<em>2D_2<br>$$<br>$$<br>\bar B_k=\hat{e}_1\frac{u}{\nu}D_2<br>$$<br>$$<br>\bar H_k=-\hat{e}_2uD_2<br>$$<br>$$<br>\bar E_k=\hat{e}_2\kappa</em>{22} D_2+\hat{e}<em>3(\kappa-\kappa</em>{z})sin\theta cos\theta D_2<br>$$<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619213636.png" alt=""></p>
+<ul>
 <li>$D_1\not=0,D_2\not=0,u^2-\kappa_{11}\nu=u^2-\kappa_{22}\nu=0$<ul>
 <li>则$\kappa_{11}=\kappa_{22}$,不满足</li>
 </ul>
@@ -360,61 +348,43 @@ D_2
 <p>当电磁波进入单轴介质中时，将会分解为两种速度不同的线性极化特征波，分别对应2,3两种情况</p>
 </blockquote>
 </blockquote>
-<h2 id="wave-in-Gyrotropic-Media-陀螺介质中的波"><a href="#wave-in-Gyrotropic-Media-陀螺介质中的波" class="headerlink" title="wave in Gyrotropic Media 陀螺介质中的波"></a>wave in Gyrotropic Media 陀螺介质中的波</h2><p>物质本构方程<br>$$<br>\bar E=\bar\kappa\bar D</p>
-<p>\bar H=\nu\bar B<br>$$<br>其中<br>$$<br>\bar\kappa=<br>\begin{pmatrix}<br>\kappa&amp;ik_g&amp;0\<br>-ik_g&amp;\kappa&amp;0\<br>0&amp;0&amp;\kappa_z<br>\end{pmatrix}<br>$$</p>
-<p>$$<br>\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=<br>\bar\kappa=<br>\begin{pmatrix}<br>\kappa&amp;ik_gcos\theta&amp;ik_gsin\theta\<br>-ik_gcos\theta&amp;\kappa cos^2\theta+\kappa_zsin^2\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta\<br>ik_gsin\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta&amp;\kappa sin^2\theta+\kappa_zcos^2\theta<br>\end{pmatrix}<br>$$<br>$$<br>\begin{pmatrix}<br>u^2-\kappa\nu&amp;-i\nu\kappa_gcos\theta\<br>i\nu\kappa_gcos\theta&amp;u^2-\nu(\kappa cos^2\theta+\kappa_zsin^2\theta)<br>\end{pmatrix}<br>\begin{pmatrix}<br>D_1\<br>D_2<br>\end{pmatrix}=0<br>$$</p>
-<h3 id="Faraday-Rotation"><a href="#Faraday-Rotation" class="headerlink" title="Faraday Rotation"></a>Faraday Rotation</h3><p>当波向z方向传播时，$\theta$=0<br>$$<br>\begin{pmatrix}<br>u^2-\kappa\nu&amp;-i\nu\kappa_g\<br>i\nu\kappa_g&amp;u^2-\nu\kappa<br>\end{pmatrix}<br>\begin{pmatrix}<br>D_1\<br>D_2<br>\end{pmatrix}=0<br>$$<br>我们得到<br>$$<br>\frac{D_2}{D_1}=\frac{u^2-\nu\kappa}{i\nu\kappa_g}=-\frac{i\nu\kappa_g}{u^2-\nu\kappa}<br>$$<br>$$<br>u^2-\nu\kappa=\pm\nu\kappa_g<br>$$<br>$$<br>u=w/k=\sqrt{\nu(\kappa\pm\kappa_g)}<br>$$<br>$$<br>\frac{D_2}{D_1}=\pm i<br>$$<br>波可以分解为两个垂直的线性极化波，所以波为圆极化波</p>
+<h2 id="wave-in-Gyrotropic-Media-陀螺介质中的波"><a href="#wave-in-Gyrotropic-Media-陀螺介质中的波" class="headerlink" title="wave in Gyrotropic Media 陀螺介质中的波"></a>wave in Gyrotropic Media 陀螺介质中的波</h2><p>物质本构方程</p>
+<p>$$<br>\bar E=\bar\kappa\bar D<br>$$<br>$$<br>\bar H=\nu\bar B<br>$$<br>其中<br>$$<br>        \bar\kappa=<br>        \begin{pmatrix}<br>        \kappa&amp;ik_g&amp;0,\<br>        -ik_g&amp;\kappa&amp;0,\<br>        0&amp;0&amp;\kappa_z<br>        \end{pmatrix}<br>$$</p>
+<p>$$<br>\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=<br>\bar\kappa=<br>        \begin{pmatrix}<br>        \kappa&amp;ik_gcos\theta&amp;ik_gsin\theta,\<br>        -ik_gcos\theta&amp;\kappa cos^2\theta+\kappa_zsin^2\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta,\<br>        ik_gsin\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta&amp;\kappa sin^2\theta+\kappa_zcos^2\theta<br>        \end{pmatrix}<br>$$<br>$$<br>        \begin{pmatrix}<br>        u^2-\kappa\nu&amp;-i\nu\kappa_gcos\theta,\<br>        i\nu\kappa_gcos\theta&amp;u^2-\nu(\kappa cos^2\theta+\kappa_zsin^2\theta)<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        D_1,\<br>        D_2<br>        \end{pmatrix}=0<br>$$</p>
+<h3 id="Faraday-Rotation"><a href="#Faraday-Rotation" class="headerlink" title="Faraday Rotation"></a>Faraday Rotation</h3><p>当波向z方向传播时，$\theta$=0<br>$$<br>        \begin{pmatrix}<br>        u^2-\kappa\nu&amp;-i\nu\kappa_g,\<br>        i\nu\kappa_g&amp;u^2-\nu\kappa<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        D_1,\<br>        D_2<br>        \end{pmatrix}=0<br>$$<br>我们得到<br>$$<br>\frac{D_2}{D_1}=\frac{u^2-\nu\kappa}{i\nu\kappa_g}=-\frac{i\nu\kappa_g}{u^2-\nu\kappa}<br>$$<br>$$<br>u^2-\nu\kappa=\pm\nu\kappa_g<br>$$<br>$$<br>u=w/k=\sqrt{\nu(\kappa\pm\kappa_g)}<br>$$<br>$$<br>\frac{D_2}{D_1}=\pm i<br>$$<br>波可以分解为两个垂直的线性极化波，所以波为圆极化波</p>
 <ul>
 <li>左旋</li>
 </ul>
-<p>$$<br>k^{I}=w/\sqrt{\nu(\kappa+\kappa_g)}</p>
-<p>\frac{D_2}{D_1}=-i</p>
-<p>\bar D=\hat{e_1}D_1-i\hat{e_2}D_1</p>
-<p>=\bar D_R+iD_I<br>$$</p>
+<p>$$<br>k^{I}=w/\sqrt{\nu(\kappa+\kappa_g)}<br>$$<br>$$<br>\frac{D_2}{D_1}=-i<br>$$<br>$$<br>\bar D=\hat{e_1}D_1-i\hat{e_2}D_1<br>$$<br>$$<br>=\bar D_R+iD_I<br>$$</p>
 <ul>
 <li>右旋</li>
 </ul>
-<p>$$<br>k^{II}=w/\sqrt{\nu(\kappa-\kappa_g)}</p>
-<p>\frac{D_2}{D_1}=i<br>$$</p>
-<p>当线性极化波$\bar D=\hat{e}_12D_0$,z的正方向入射该介质时，将波分解成<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)<br>$$<br>假设介质厚度为d<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}</p>
-<p>=\hat{e}<em>1D_0(e^{i\Phi_I}+e^{i\Phi</em>{II}})+\hat{e}<em>2D_0(e^{i\Phi_I}-e^{i\Phi</em>{II}})</p>
-<p>\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa+\kappa_g)}}</p>
-<p>\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa-\kappa_g)}}</p>
-<p>\rArr \frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}<br>$$</p>
+<p>$$<br>k^{II}=w/\sqrt{\nu(\kappa-\kappa_g)}<br>$$<br>$$<br>\frac{D_2}{D_1}=i<br>$$</p>
+<p>当线性极化波$\bar D=\hat{e}<em>12D_0$,z的正方向入射该介质时，将波分解成<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)<br>$$<br>假设介质厚度为d<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}<br>$$<br>$$<br>=\hat{e}_1D_0(e^{i\Phi_I}+e^{i\Phi</em>{II}})+\hat{e}<em>2D_0(e^{i\Phi_I}-e^{i\Phi</em>{II}})<br>$$<br>$$<br>\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa+\kappa_g)}}<br>$$<br>$$<br>\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa-\kappa_g)}}<br>$$<br>$$<br>\rArr \frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}<br>$$</p>
 <blockquote>
 <p>经过该介质后线极化波方向发生改变，称为法拉第旋转，z方向+负号</p>
 </blockquote>
-<h2 id="Wave-in-Bianisotropic-Media"><a href="#Wave-in-Bianisotropic-Media" class="headerlink" title="Wave in Bianisotropic Media"></a>Wave in Bianisotropic Media</h2><p>$$<br>\bar E=<br>\begin{pmatrix}<br>\kappa&amp;0&amp;0\<br>0&amp;\kappa&amp;0\<br>0&amp;0&amp;\kappa_z<br>\end{pmatrix}<br>\cdot\bar D<br>+\begin{pmatrix}<br>\chi&amp;0&amp;0\<br>0&amp;\chi&amp;0\<br>0&amp;0&amp;\chi_z<br>\end{pmatrix}<br>\cdot\bar B</p>
-<p>\bar H=<br>\begin{pmatrix}<br>\gamma&amp;0&amp;0\<br>0&amp;\gamma&amp;0\<br>0&amp;0&amp;\gamma_z<br>\end{pmatrix}<br>\cdot\bar D<br>+\begin{pmatrix}<br>\nu&amp;0&amp;0\<br>0&amp;\nu&amp;0\<br>0&amp;0&amp;\nu_z<br>\end{pmatrix}<br>\cdot\bar B<br>$$<br>其中<br>$$<br>\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=<br>\bar\kappa=<br>\begin{pmatrix}<br>\kappa&amp;0&amp;0\<br>0&amp;\kappa cos^2\theta+\kappa_zsin^2\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta\<br>0&amp;(\kappa-\kappa_z)sin\theta cos\theta&amp;\kappa sin^2\theta+\kappa_zcos^2\theta<br>\end{pmatrix}<br>$$</p>
-<h2 id="Chiral-Media（手性介质）"><a href="#Chiral-Media（手性介质）" class="headerlink" title="Chiral Media（手性介质）"></a>Chiral Media（手性介质）</h2><p>$$<br>\overrightarrow{E}=\kappa\overrightarrow{D}-i\chi\overrightarrow{B}</p>
-<p>\overrightarrow{B}=i\chi\overrightarrow{D}+\nu\overrightarrow{B}<br>$$</p>
-<p>$$<br>\frac{D_2}{D_1}=\frac{u^2-\nu\kappa+\chi^2}{2i\chi\mu}=-\frac{2i\chi\mu}{u^2-\nu\kappa+\chi^2}</p>
-<p>u=\sqrt{\nu\kappa}\pm\chi</p>
-<p>\frac{D_2}{D_1}=\pm i<br>$$</p>
+<h2 id="Wave-in-Bianisotropic-Media"><a href="#Wave-in-Bianisotropic-Media" class="headerlink" title="Wave in Bianisotropic Media"></a>Wave in Bianisotropic Media</h2><p>$$<br>\bar E=<br>        \begin{pmatrix}<br>        \kappa&amp;0&amp;0,\<br>        0&amp;\kappa&amp;0,\<br>        0&amp;0&amp;\kappa_z<br>        \end{pmatrix}<br>        \cdot\bar D<br>        +\begin{pmatrix}<br>        \chi&amp;0&amp;0,\<br>        0&amp;\chi&amp;0,\<br>        0&amp;0&amp;\chi_z<br>        \end{pmatrix}<br>        \cdot\bar B<br>$$<br>$$<br>\bar H=<br>        \begin{pmatrix}<br>        \gamma&amp;0&amp;0,\<br>        0&amp;\gamma&amp;0,\<br>        0&amp;0&amp;\gamma_z<br>        \end{pmatrix}<br>        \cdot\bar D<br>        +\begin{pmatrix}<br>        \nu&amp;0&amp;0,\<br>        0&amp;\nu&amp;0,\<br>        0&amp;0&amp;\nu_z<br>        \end{pmatrix}<br>        \cdot\bar B<br>$$<br>其中<br>$$<br>\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=<br>\bar\kappa=<br>        \begin{pmatrix}<br>        \kappa&amp;0&amp;0\<br>        0&amp;\kappa cos^2\theta+\kappa_zsin^2\theta&amp;(\kappa-\kappa_z)sin\theta cos\theta\<br>        0&amp;(\kappa-\kappa_z)sin\theta cos\theta&amp;\kappa sin^2\theta+\kappa_zcos^2\theta<br>        \end{pmatrix}<br>$$</p>
+<h2 id="Chiral-Media（手性介质）"><a href="#Chiral-Media（手性介质）" class="headerlink" title="Chiral Media（手性介质）"></a>Chiral Media（手性介质）</h2><p>$$<br>\overrightarrow{E}=\kappa\overrightarrow{D}-i\chi\overrightarrow{B}<br>$$<br>$$<br>\overrightarrow{B}=i\chi\overrightarrow{D}+\nu\overrightarrow{B}<br>$$</p>
+<p>$$<br>\frac{D_2}{D_1}=\frac{u^2-\nu\kappa+\chi^2}{2i\chi\mu}=-\frac{2i\chi\mu}{u^2-\nu\kappa+\chi^2}<br>$$<br>$$<br>u=\sqrt{\nu\kappa}\pm\chi<br>$$<br>$$<br>\frac{D_2}{D_1}=\pm i<br>$$</p>
 <ul>
 <li>左旋</li>
 </ul>
-<p>$$<br>k^{I}=w/(\sqrt{\nu\kappa}+\chi)</p>
-<p>\frac{D_2}{D_1}=-i<br>$$</p>
+<p>$$<br>k^{I}=w/(\sqrt{\nu\kappa}+\chi)<br>$$<br>$$<br>\frac{D_2}{D_1}=-i<br>$$</p>
 <ul>
 <li>右旋</li>
 </ul>
-<p>$$<br>k^{II}=w/(\sqrt{\nu\kappa}-\chi)</p>
-<p>\frac{D_2}{D_1}=i<br>$$</p>
-<p>当线性极化波$\bar D=\hat{e}_12D_0$入射该介质时，将波分解成<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)<br>$$<br>假设介质厚度为d<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}</p>
-<p>=\hat{e}<em>1D_0(e^{i\Phi_I}+e^{i\Phi</em>{II}})+\hat{e}<em>2D_0(e^{i\Phi_I}-e^{i\Phi</em>{II}})</p>
-<p>\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}+\chi}</p>
-<p>\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}-\chi}</p>
-<p>\rArr \frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}<br>$$</p>
+<p>$$<br>k^{II}=w/(\sqrt{\nu\kappa}-\chi)<br>$$<br>$$<br>\frac{D_2}{D_1}=i<br>$$</p>
+<p>当线性极化波$\bar D=\hat{e}<em>12D_0$入射该介质时，将波分解成<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)<br>$$<br>假设介质厚度为d<br>$$<br>\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}<br>$$<br>$$<br>=\hat{e}_1D_0(e^{i\Phi_I}+e^{i\Phi</em>{II}})+\hat{e}<em>2D_0(e^{i\Phi_I}-e^{i\Phi</em>{II}})<br>$$<br>$$<br>\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}+\chi}<br>$$<br>$$<br>\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}-\chi}<br>$$<br>$$<br>\rArr \frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}<br>$$</p>
 <blockquote>
 <p>optical activity:旋光性，旋光性和法拉第旋转有本质区别</p>
 </blockquote>
 <h2 id="重点归纳"><a href="#重点归纳" class="headerlink" title="重点归纳"></a>重点归纳</h2><p>如何解任意介质的麦克斯韦方程？</p>
 <ol>
 <li><strong>根据物质本构关系确定对于KDB坐标系下的本构关系</strong><br>$$<br>\bar{T}=\begin{bmatrix}<br>sin\varPhi&amp;-cos\varPhi&amp;0\<br>cos\theta cos\varPhi&amp;cos\theta sin\varPhi&amp;-sin\theta\<br>sin\theta cos\varPhi&amp;sin\theta sin\varPhi &amp;cos\theta<br>\end{bmatrix}<br>$$</li>
-<li><strong>代入以下矩阵方程</strong><br>$$<br>\begin{pmatrix}<br>\kappa_{11}&amp;\kappa_{22}\<br>\kappa_{21}&amp;\kappa_{22}<br>\end{pmatrix}<br>\begin{pmatrix}<br>D_1\<br>D_2<br>\end{pmatrix}=-<br>\begin{pmatrix}<br>\chi_{11}&amp;\chi_{12}-u\<br>\chi_{21}+u&amp;\chi_{22}<br>\end{pmatrix}<br>\begin{pmatrix}<br>B_1\<br>B_2<br>\end{pmatrix}</li>
+<li><strong>代入以下矩阵方程</strong></li>
 </ol>
-<p>\begin{pmatrix}<br>\nu_{11}&amp;\nu_{22}\<br>\nu_{21}&amp;\nu_{22}<br>\end{pmatrix}<br>\begin{pmatrix}<br>B_1\<br>B_2<br>\end{pmatrix}<br>=-\begin{pmatrix}<br>\gamma_{11}&amp;\gamma_{12}+u\<br>\gamma_{21}-u&amp;\gamma_{22}<br>\end{pmatrix}<br>\begin{pmatrix}<br>D_1\<br>D_2<br>\end{pmatrix}<br>$$<br>3.<strong>分类讨论</strong></p>
+<p>$$<br>        \begin{pmatrix}<br>        \kappa_{11}&amp;\kappa_{22},\<br>        \kappa_{21}&amp;\kappa_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        D_1\<br>        D_2<br>        \end{pmatrix}=-<br>        \begin{pmatrix}<br>        \chi_{11}&amp;\chi_{12}-u,\<br>        \chi_{21}+u&amp;\chi_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        B_1\<br>        B_2<br>        \end{pmatrix}<br>$$<br>$$<br>        \begin{pmatrix}<br>        \nu_{11}&amp;\nu_{22},\<br>        \nu_{21}&amp;\nu_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        B_1\<br>        B_2<br>        \end{pmatrix}<br>        =-\begin{pmatrix}<br>        \gamma_{11}&amp;\gamma_{12}+u,\<br>        \gamma_{21}-u&amp;\gamma_{22}<br>        \end{pmatrix}<br>        \begin{pmatrix}<br>        D_1\<br>        D_2<br>        \end{pmatrix}<br>$$<br>3.<strong>分类讨论</strong></p>
 <ul>
 <li>反对角元素为0直接解方程</li>
 <li>反对角元素不为0用D1，D2之比解方程</li>
