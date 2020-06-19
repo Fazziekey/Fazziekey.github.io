@@ -211,7 +211,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">409字</span>
+      <span class="post-count">399字</span>
     </span>
   </span>
 
@@ -233,11 +233,12 @@
     
     <h2 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h2><p>1.使用#表示标题，其中#号必须在行首</p>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><a id="more"></a>
-<p>2.或者用’=====’ ‘—-‘表示</p>
+<p>2.或者用’=====’ ‘——‘表示</p>
 <h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><hr>
 <h2 id="二、分割线"><a href="#二、分割线" class="headerlink" title="二、分割线"></a>二、分割线</h2><p>使用三个以上’-‘或‘ * ’ 表示</p>
-<h2 id="三、斜体和粗体"><a href="#三、斜体和粗体" class="headerlink" title="三、斜体和粗体"></a>三、斜体和粗体</h2><p>使用‘ * ’和‘* ’分别表示斜体和粗体<br><em>斜体</em> <strong>粗体</strong> <strong><em>又斜有粗</em></strong></p>
-<h2 id="四、超链接和图片"><a href="#四、超链接和图片" class="headerlink" title="四、超链接和图片"></a>四、超链接和图片</h2><p>写法1：[第一种写法]（<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>)<br>写法2：[第二种写法][1]<br>[1]:<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>图片插入：在超链接前+一个‘！’<br><img src="http://i2.tiimg.com/716502/c981609de1b23f6e.jpg" alt="echo"></p>
+<h2 id="三、斜体和粗体"><a href="#三、斜体和粗体" class="headerlink" title="三、斜体和粗体"></a>三、斜体和粗体</h2><p>使用‘ <em> ’和‘</em> ’分别表示斜体和粗体<br><em>斜体</em> <strong>粗体</strong> <strong><em>又斜有粗</em></strong></p>
+<h2 id="四、超链接和图片"><a href="#四、超链接和图片" class="headerlink" title="四、超链接和图片"></a>四、超链接和图片</h2><p>写法1：[第一种写法]（www.baidu.com)<br>写法2：<a href="www.baidu.com">第二种写法</a></p>
+<p>图片插入：在超链接前+一个‘！’<br><img src="http://i2.tiimg.com/716502/c981609de1b23f6e.jpg" alt="echo"></p>
 <h2 id="五、无序列表"><a href="#五、无序列表" class="headerlink" title="五、无序列表"></a>五、无序列表</h2><p>使用‘+ ’ ‘- ’ ‘* ’</p>
 <ul>
 <li>一层<ul>
@@ -270,56 +271,68 @@
 </blockquote>
 <h2 id="八、行内代码块"><a href="#八、行内代码块" class="headerlink" title="八、行内代码块"></a>八、行内代码块</h2><p>使用`表示<code>\</code>为转义字符</p>
 <h2 id="九、代码块"><a href="#九、代码块" class="headerlink" title="九、代码块"></a>九、代码块</h2><p>使用四个空格缩进表示代码块</p>
-<pre><code>str=&apos;hello world&apos;
+<pre><code>str=&#39;hello world&#39;
 for i in range(11): 
-    print(str[i])</code></pre><h2 id="十、表格"><a href="#十、表格" class="headerlink" title="十、表格"></a>十、表格</h2><p>第二行表示对齐方式<br><code>|---|---:|:---:|</code><br>默认左对齐</p>
+    print(str[i])
+</code></pre><h2 id="十、表格"><a href="#十、表格" class="headerlink" title="十、表格"></a>十、表格</h2><p>第二行表示对齐方式<br><code>|---|---:|:---:|</code><br>默认左对齐</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>X</th>
 <th>Y</th>
 <th>与</th>
-<th align="right">或</th>
-<th align="center">非X</th>
+<th style="text-align:right">或</th>
+<th style="text-align:center">非X</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td align="right">0</td>
-<td align="center">1</td>
+<td style="text-align:right">0</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
 <td>0</td>
 <td>1</td>
 <td>0</td>
-<td align="right">1</td>
-<td align="center">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td align="right">1</td>
-<td align="center">0</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">0</td>
 </tr>
 <tr>
 <td>1</td>
 <td>1</td>
 <td>1</td>
-<td align="right">1</td>
-<td align="center">0</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">0</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="十一、流程图"><a href="#十一、流程图" class="headerlink" title="十一、流程图"></a>十一、流程图</h2><p>主要的语法为 <code>name=&gt;type: describe，</code>其中 type 主要有以下几种：<br>1.开始和结束：<code>start end</code><br>2.输入输出：<code>inputoutput</code><br>3.操作：<code>operation</code><br>4.条件：<code>condition</code><br>5.子程序：<code>subroutine</code></p>
-<p>$$</p>
-<p>st=&gt;start: Start<br>io=&gt;inputoutput: input your nuber<br>op=&gt;operation: operate<br>cond=&gt;condition: right or no<br>sub=&gt;subroutine: you choice<br>e=&gt;end</p>
-<p>st-&gt;io-&gt;op-&gt;cond<br>cond(yes)-&gt;e<br>cond(no)-&gt;sub-&gt;io<br>$$</p>
-<h2 id="十二、数学公式"><a href="#十二、数学公式" class="headerlink" title="十二、数学公式"></a>十二、数学公式</h2><p>使用 $ 表示，其中一个 $ 表示在行内，两个 $ 表示独占一行。</p>
-<p>`eg : $\sum_{i=1}^n a_i=0$</p>
-<p>$$\sum_{i=1}^n a_i=0$$</p>
+<script type="math/tex; mode=display">
 
+st=>start: Start
+io=>inputoutput: input your nuber
+op=>operation: operate
+cond=>condition: right or no
+sub=>subroutine: you choice
+e=>end
+
+st->io->op->cond
+cond(yes)->e
+cond(no)->sub->io</script><h2 id="十二、数学公式"><a href="#十二、数学公式" class="headerlink" title="十二、数学公式"></a>十二、数学公式</h2><p>使用 $ 表示，其中一个 $ 表示在行内，两个 $ 表示独占一行。</p>
+<p>`eg : $\sum_{i=1}^n a_i=0$</p>
+<script type="math/tex; mode=display">\sum_{i=1}^n a_i=0</script>
     
 
     
@@ -656,11 +669,11 @@ for i in range(11):
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CV</a>
+                <a href="javascript:void(0)" class="js-tag color2">手撕麦克斯韦</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">手撕麦克斯韦</a>
+                <a href="javascript:void(0)" class="js-tag color3">CV</a>
               </li>
             
             <div class="clearfix"></div>

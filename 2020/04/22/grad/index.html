@@ -209,7 +209,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">496字</span>
+      <span class="post-count">490字</span>
     </span>
   </span>
 
@@ -232,52 +232,71 @@
     <p>torch.Tensor是程序包的中心类。如果将其属性设置 .requires_grad为True，它将开始跟踪对其的所有操作。完成计算后，可以调用.backward()并自动计算所有梯度。该张量的梯度将累加到.grad属性中。</p>
 <h3 id="创建一个张量并设置requires-grad-True为跟踪张量"><a href="#创建一个张量并设置requires-grad-True为跟踪张量" class="headerlink" title="创建一个张量并设置requires_grad=True为跟踪张量"></a>创建一个张量并设置requires_grad=True为跟踪张量</h3><pre><code>import torch
 x = torch.ones(2, 2, requires_grad=True)
-print(x)</code></pre><a id="more"></a>    
+print(x)
+</code></pre><a id="more"></a>    
 <h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><pre><code>y = x + 2
 print(y)
-print(y.grad_fn)</code></pre><p>输出</p>
+print(y.grad_fn)
+</code></pre><p>输出</p>
 <pre><code>tensor([[3., 3.],
-[3., 3.]], grad_fn=&lt;AddBackward0&gt;)</code></pre><p>y是运算产生，存在梯度</p>
+[3., 3.]], grad_fn=&lt;AddBackward0&gt;)
+</code></pre><p>y是运算产生，存在梯度</p>
 <pre><code>z = y * y * 3
 out = z.mean()
-print(z, out)</code></pre><p>结果</p>
+print(z, out)
+</code></pre><p>结果</p>
 <pre><code>tensor([[27., 27.],
 [27., 27.]], grad_fn=&lt;MulBackward0&gt;)
-tensor(27., grad_fn=&lt;MeanBackward0&gt;)</code></pre><p>.requires_grad_( … )requires_grad 可以更改现有Tensor的标志。如果未给出输入，则默认为False。</p>
+tensor(27., grad_fn=&lt;MeanBackward0&gt;)
+</code></pre><p>.requires_grad_( … )requires_grad 可以更改现有Tensor的标志。如果未给出输入，则默认为False。</p>
 <pre><code>a = torch.randn(2, 2)
 a = ((a * 3) / (a - 1))
 print(a.requires_grad)
 a.requires_grad_(True)
 print(a.requires_grad)
 b = (a * a).sum()
-print(b.grad_fn)</code></pre><p>输出</p>
+print(b.grad_fn)
+</code></pre><p>输出</p>
 <pre><code>False
 True
-&lt;SumBackward0 object at 0x7fc4a70d31d0&gt;</code></pre><h2 id="梯度计算"><a href="#梯度计算" class="headerlink" title="梯度计算"></a>梯度计算</h2><p>使用反向传播</p>
-<pre><code>out.backward()</code></pre><p>$out=\frac{1}{4}\sum_{i=1}^4 z_i,z=3(x+2)^2,\frac{\partial out}{\partial x}=\frac{3}{2}(x+2)=4.5|_{x=1},$<br>数学上，如果具有向量值函数 $\overrightarrow{y} =f(\overrightarrow{x})$，然后是 $\overrightarrow{y}$关于$\overrightarrow{x}$是雅可比矩阵：</p>
-<p>$$J=\begin{pmatrix}<br>  \frac{\partial y_1}{\partial x_1} &amp; …&amp; \frac{\partial y_1}{\partial x_n} \ \ …&amp; &amp;…\ \<br>   \frac{\partial y_1}{\partial x_n} &amp; … &amp; \frac{\partial y_n}{\partial x_n}<br>\end{pmatrix}$$</p>
-<p>一般来说，torch.autograd是用于计算向量雅可比积的引擎。给定向量$v=(v_1,v_2…v_n)^T$，计算$J*v^T$,如果v 恰好是标量函数的梯度$l=g(\overrightarrow{y})$,则$v=( \frac{\partial l}{\partial y_1}… \frac{\partial l}{\partial y_n})^T$</p>
-<p>$$<br>J^T\cdot v=\begin{pmatrix}<br>  \frac{\partial l}{\partial x_1} \ \ …\ \<br>    \frac{\partial l}{\partial x_n}<br>\end{pmatrix}<br>$$</p>
-<pre><code>x = torch.randn(3, requires_grad=True)
+&lt;SumBackward0 object at 0x7fc4a70d31d0&gt;
+</code></pre><h2 id="梯度计算"><a href="#梯度计算" class="headerlink" title="梯度计算"></a>梯度计算</h2><p>使用反向传播</p>
+<pre><code>out.backward()
+</code></pre><p>$out=\frac{1}{4}\sum_{i=1}^4 z_i,z=3(x+2)^2,\frac{\partial out}{\partial x}=\frac{3}{2}(x+2)=4.5|_{x=1},$<br>数学上，如果具有向量值函数 $\overrightarrow{y} =f(\overrightarrow{x})$，然后是 $\overrightarrow{y}$关于$\overrightarrow{x}$是雅可比矩阵：</p>
+<script type="math/tex; mode=display">J=\begin{pmatrix}
+  \frac{\partial y_1}{\partial x_1} & ...& \frac{\partial y_1}{\partial x_n} \ \ ...& &...\ \ 
+   \frac{\partial y_1}{\partial x_n} & ... & \frac{\partial y_n}{\partial x_n}
+\end{pmatrix}</script><p>一般来说，torch.autograd是用于计算向量雅可比积的引擎。给定向量$v=(v_1,v_2…v_n)^T$，计算$J*v^T$,如果v 恰好是标量函数的梯度$l=g(\overrightarrow{y})$,则$v=( \frac{\partial l}{\partial y_1}… \frac{\partial l}{\partial y_n})^T$</p>
+<script type="math/tex; mode=display">
+J^T\cdot v=\begin{pmatrix}
+  \frac{\partial l}{\partial x_1} \ \ ...\ \ 
+    \frac{\partial l}{\partial x_n}
+\end{pmatrix}</script><pre><code>x = torch.randn(3, requires_grad=True)
 
 y = x * 2
 while y.data.norm() &lt; 1000:
 y = y * 2
 
-print(y)</code></pre><p>输出</p>
-<pre><code>tensor([1030.3691,  653.3950, -535.1644], grad_fn=&lt;MulBackward0&gt;)</code></pre><p>输入</p>
+print(y)
+</code></pre><p>输出</p>
+<pre><code>tensor([1030.3691,  653.3950, -535.1644], grad_fn=&lt;MulBackward0&gt;)
+</code></pre><p>输入</p>
 <pre><code>v = torch.tensor([0.1, 1.0, 0.0001], dtype=torch.float)
 y.backward(v)
-print(x.grad)</code></pre><p>输出</p>
-<pre><code>tensor([5.1200e+01, 5.1200e+02, 5.1200e-02])</code></pre><p><code>.requires_grad=True</code>可以通过将代码块包装在 <code>with torch.no_grad():</code></p>
+print(x.grad)
+</code></pre><p>输出</p>
+<pre><code>tensor([5.1200e+01, 5.1200e+02, 5.1200e-02])
+</code></pre><p><code>.requires_grad=True</code>可以通过将代码块包装在 <code>with torch.no_grad():</code></p>
 <pre><code>print(x.requires_grad)
 print((x ** 2).requires_grad)
 
 with torch.no_grad():
-print((x ** 2).requires_grad)</code></pre><p>输出</p>
+print((x ** 2).requires_grad)
+</code></pre><p>输出</p>
 <pre><code>True
 True
-False</code></pre>
+False
+</code></pre>
     
 
     
@@ -614,11 +633,11 @@ False</code></pre>
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CV</a>
+                <a href="javascript:void(0)" class="js-tag color2">手撕麦克斯韦</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">手撕麦克斯韦</a>
+                <a href="javascript:void(0)" class="js-tag color3">CV</a>
               </li>
             
             <div class="clearfix"></div>
