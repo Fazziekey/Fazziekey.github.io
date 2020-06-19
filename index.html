@@ -79,7 +79,7 @@
 		<nav class="header-smart-menu">
 			
 				
-					<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+					<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索文章</a>
 				
 			
 				
@@ -97,6 +97,8 @@
 					<a class="github" href="https://github.com/Fazziekey" title="GitHub" target="_blank"><i class="icon-github"></i></a>
 				
 					<a class="csdn" href="https://blog.csdn.net/weixin_43821447" title="CSDN" target="_blank"><i class="icon-csdn"></i></a>
+				
+					<a class="mail" href="/1240419984@qq.com" title="NULL" target="_blank"><i class="icon-mail"></i></a>
 				
 			</div>
 		
@@ -118,12 +120,6 @@
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      
-      
-      <a class="forkMe" style="position:absolute;z-index:999;top:0;right:0.5em;" 
-        href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">
-        <img src="/img/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
       
       
 <nav id="mobile-nav">
@@ -156,6 +152,8 @@
 						<a class="github" target="_blank" href="https://github.com/Fazziekey" title="GitHub"><i class="icon-github"></i></a>
 			        
 						<a class="csdn" target="_blank" href="https://blog.csdn.net/weixin_43821447" title="CSDN"><i class="icon-csdn"></i></a>
+			        
+						<a class="mail" target="_blank" href="/1240419984@qq.com" title="NULL"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -1087,7 +1085,7 @@ print(x)</code></pre><p>输出<br>        tensor([[2.1030e-18, 4.5559e-41, 4.044
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索文章</a></li>
       
         
       
@@ -1423,6 +1421,16 @@ print(x)</code></pre><p>输出<br>        tensor([[2.1030e-18, 4.5559e-41, 4.044
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
   
+  
+  <script type="text/javascript" src="/lib/snow.js"></script>
+  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
+  <script>
+    snow.down();
+    $(window).resize(function() {
+      $("canvas").css("z-index","500").remove();
+      snow.down();
+    });
+  </script>
   
 </body>
 
