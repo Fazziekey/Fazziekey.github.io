@@ -100,9 +100,9 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" href="#" title="GitHub" target="_blank"><i class="icon-github"></i></a>
+					<a class="github" href="https://github.com/Fazzieke" title="GitHub" target="_blank"><i class="icon-github"></i></a>
 				
-					<a class="csdn" href="#" title="CSDN" target="_blank"><i class="icon-csdn"></i></a>
+					<a class="csdn" href="https://blog.csdn.net/weixin_43821447" title="CSDN" target="_blank"><i class="icon-csdn"></i></a>
 				
 			</div>
 		
@@ -165,9 +165,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="GitHub"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Fazzieke" title="GitHub"><i class="icon-github"></i></a>
 			        
-						<a class="csdn" target="_blank" href="#" title="CSDN"><i class="icon-csdn"></i></a>
+						<a class="csdn" target="_blank" href="https://blog.csdn.net/weixin_43821447" title="CSDN"><i class="icon-csdn"></i></a>
 			        
 				</div>
 			</nav>
@@ -423,6 +423,19 @@ if torch.cuda.is_available():
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入-pytorch库"><span class="toc-number">1.</span> <span class="toc-text">导入 pytorch库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建矩阵"><span class="toc-number">2.</span> <span class="toc-text">创建矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造5-3未初始化的矩阵"><span class="toc-number">2.1.</span> <span class="toc-text">构造5*3未初始化的矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建一个随机初始化矩阵"><span class="toc-number">2.2.</span> <span class="toc-text">构建一个随机初始化矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造一个填充零且dtype-long的矩阵，长整形"><span class="toc-number">2.3.</span> <span class="toc-text">构造一个填充零且dtype long的矩阵，长整形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从数据构造张量"><span class="toc-number">2.4.</span> <span class="toc-text">从数据构造张量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于现有张量创建张量。这些方法将重用输入张量的属性，例如dtype，除非用户提供新值"><span class="toc-number">2.5.</span> <span class="toc-text">基于现有张量创建张量。这些方法将重用输入张量的属性，例如dtype，除非用户提供新值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵大小函数"><span class="toc-number">2.6.</span> <span class="toc-text">矩阵大小函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵基本运算"><span class="toc-number">3.</span> <span class="toc-text">矩阵基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加法"><span class="toc-number">3.1.</span> <span class="toc-text">加法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法1"><span class="toc-number">3.1.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法2"><span class="toc-number">3.1.2.</span> <span class="toc-text">方法2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加法：提供输出张量作为参数"><span class="toc-number">3.2.</span> <span class="toc-text">加法：提供输出张量作为参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#地板加"><span class="toc-number">3.3.</span> <span class="toc-text">地板加</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵索引"><span class="toc-number">4.</span> <span class="toc-text">矩阵索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵大小调整"><span class="toc-number">5.</span> <span class="toc-text">矩阵大小调整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊情况，只有一个元素"><span class="toc-number">5.1.</span> <span class="toc-text">特殊情况，只有一个元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与numpy之间转换"><span class="toc-number">6.</span> <span class="toc-text">与numpy之间转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#torch转numpy"><span class="toc-number">6.1.</span> <span class="toc-text">torch转numpy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy转torch"><span class="toc-number">6.2.</span> <span class="toc-text">numpy转torch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CUDA张量"><span class="toc-number">7.</span> <span class="toc-text">CUDA张量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用该-to方法可以将张量移动到任何设备上。"><span class="toc-number">7.1.</span> <span class="toc-text">使用该.to方法可以将张量移动到任何设备上。</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
