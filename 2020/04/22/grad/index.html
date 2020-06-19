@@ -100,13 +100,9 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" href="#" title="GitHub" target="_blank"><i class="icon-github"></i></a>
+					<a class="github" href="https://github.com/Fazziekey" title="GitHub" target="_blank"><i class="icon-github"></i></a>
 				
-					<a class="gitee" href="#" title="gitee" target="_blank"><i class="icon-gitee"></i></a>
-				
-					<a class="jianshu" href="#" title="jianshu" target="_blank"><i class="icon-jianshu"></i></a>
-				
-					<a class="cnblog" href="#" title="cnblog" target="_blank"><i class="icon-cnblog"></i></a>
+					<a class="csdn" href="https://blog.csdn.net/weixin_43821447" title="CSDN" target="_blank"><i class="icon-csdn"></i></a>
 				
 			</div>
 		
@@ -169,13 +165,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="GitHub"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Fazziekey" title="GitHub"><i class="icon-github"></i></a>
 			        
-						<a class="gitee" target="_blank" href="#" title="gitee"><i class="icon-gitee"></i></a>
-			        
-						<a class="jianshu" target="_blank" href="#" title="jianshu"><i class="icon-jianshu"></i></a>
-			        
-						<a class="cnblog" target="_blank" href="#" title="cnblog"><i class="icon-cnblog"></i></a>
+						<a class="csdn" target="_blank" href="https://blog.csdn.net/weixin_43821447" title="CSDN"><i class="icon-csdn"></i></a>
 			        
 				</div>
 			</nav>
@@ -457,6 +449,30 @@ False</code></pre>
 
 
 
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "使用pytorch进行梯度运算" -->
+  var giteement = new Giteement({
+    id: '20200422110003',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io/hexo-blog',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
 
 
 
@@ -544,10 +560,10 @@ False</code></pre>
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 上勾拳！！！ " + originTitle;
+      document.title = "(つェ⊂)  " + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 你倒是跑啊！ " + originTitle;
+      document.title = "(*´∇｀*)  " + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);
