@@ -6,25 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>KDB | Hexo</title>
+  <title>MySQL | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="wave vector k的引入由亥姆霍兹方程  (\nabla^2+w^2\mu\epsilon)\overrightarrow{E}&#x3D;0">
+  <meta name="description" content="连接命令行cd到目录 C:\Program Files\MySQL\MySQL Server 8.0\bin mysql -u root -p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KDB">
-<meta property="og:url" content="https://fazziekey.github.io/2020/06/19/KDB/index.html">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="https://fazziekey.github.io/2020/07/25/MySQL/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="wave vector k的引入由亥姆霍兹方程  (\nabla^2+w^2\mu\epsilon)\overrightarrow{E}&#x3D;0">
+<meta property="og:description" content="连接命令行cd到目录 C:\Program Files\MySQL\MySQL Server 8.0\bin mysql -u root -p">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619213636.png">
-<meta property="article:published_time" content="2020-06-19T12:04:10.000Z">
-<meta property="article:modified_time" content="2020-06-21T15:30:54.072Z">
+<meta property="article:published_time" content="2020-07-25T13:40:41.000Z">
+<meta property="article:modified_time" content="2020-07-25T14:24:32.642Z">
 <meta property="article:author" content="Fazzie">
-<meta property="article:tag" content="手撕麦克斯韦">
+<meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -184,14 +181,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-KDB" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      KDB
+      MySQL
     </h1>
   
 
@@ -203,8 +200,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/06/19/KDB/" class="archive-article-date">
-        <time datetime="2020-06-19T12:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
+<a href="/2020/07/25/MySQL/" class="archive-article-date">
+        <time datetime="2020-07-25T13:40:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
 </a>
 
   
@@ -217,7 +214,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.6k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -226,7 +223,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">14分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -237,461 +234,301 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="wave-vector-k的引入"><a href="#wave-vector-k的引入" class="headerlink" title="wave vector k的引入"></a>wave vector k的引入</h2><p>由亥姆霍兹方程</p>
-<script type="math/tex; mode=display">
-(\nabla^2+w^2\mu\epsilon)\overrightarrow{E}=0</script><a id="more"></a>
-<p>解得</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i(k_xx+k_yy+k_zz)}</script><script type="math/tex; mode=display">
-k_x^2+k_y^2+k_z^2=w^2\mu\epsilon=k^2</script><p>定义wave vector k</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}=\hat{x}k_x+\hat{y}k_y+\hat{z}k_z</script><p>position vector</p>
-<script type="math/tex; mode=display">
-\overrightarrow{r}=\hat{x}x+\hat{y}y+\hat{z}z</script><p>则</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}\cdot\overrightarrow{r}=k_xx+k_yy+k_zz</script><p>则</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i\overrightarrow{k}\cdot\overrightarrow{r}}</script><p>代回麦克斯韦方程</p>
-<script type="math/tex; mode=display">
-    \begin{cases}
-    \overrightarrow{k}\times\overrightarrow{E}=w\mu\overrightarrow{H}\\
-    \overrightarrow{k}\times\overrightarrow{H}=-w\epsilon\overrightarrow{E}\\
-    \overrightarrow{k}\cdot\overrightarrow{E}=0\\
-    \overrightarrow{k}\cdot\overrightarrow{H}=0
-    \end{cases}</script><p>波印廷矢量</p>
-<script type="math/tex; mode=display">
-        \overrightarrow{S}=\frac{1}{2}Re
-        \begin{cases}\frac{\overrightarrow{k}}{w\epsilon}|\overrightarrow{H}|^2\\\frac{\overrightarrow{k^*}}{w\mu^*}|\overrightarrow{E}|^2
-        \end{cases}</script><p><strong>k矢量的意义</strong></p>
-<ul>
-<li>波是平面波</li>
-<li>波的方向确定</li>
-<li>$k=2\pi/\lambda$可以计算波长，频率<h2 id="KDB坐标系"><a href="#KDB坐标系" class="headerlink" title="KDB坐标系"></a>KDB坐标系</h2></li>
-</ul>
-<p>对于平面波</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}\times\overrightarrow{E}=w\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{k}\times\overrightarrow{H}=-w\overrightarrow{D}</script><script type="math/tex; mode=display">
-\overrightarrow{k}\cdot\overrightarrow{B}=0
-\overrightarrow{k}\cdot\overrightarrow{D}=0</script><blockquote>
-<p>可得k垂直于BD构成的平面，BD不一定互相垂直，EH也不一定在BD平面内(垂直：perpendicular)</p>
+    <h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>命令行cd到目录</p>
+<p><code>C:\Program Files\MySQL\MySQL Server 8.0\bin</code></p>
+<pre><code>mysql -u root -p
+</code></pre><a id="more"></a>
+<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="添加删除数据"><a href="#添加删除数据" class="headerlink" title="添加删除数据"></a>添加删除数据</h3><h4 id="查看DB"><a href="#查看DB" class="headerlink" title="查看DB"></a>查看DB</h4><pre><code>show databases
+</code></pre><h4 id="添加DB"><a href="#添加DB" class="headerlink" title="添加DB"></a>添加DB</h4><pre><code>create database gc
+</code></pre><h4 id="删除DB"><a href="#删除DB" class="headerlink" title="删除DB"></a>删除DB</h4><pre><code>drop database gc
+</code></pre><blockquote>
+<p>gc 为数据库名</p>
 </blockquote>
-<p>定义三个单位向量$\hat{e_1},\hat{e_2},\hat{e_3}$,$\hat{e_3}$和k方向相同<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png" alt=""></p>
-<p><strong>转换矩阵</strong>（将xyz坐标系转换到KDB坐标系）</p>
-<script type="math/tex; mode=display">
-    \bar{T}=\begin{bmatrix}
-    sin\varPhi&-cos\varPhi&0，\\
-    cos\theta cos\varPhi&cos\theta sin\varPhi&-sin\theta\\
-    sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
-    \end{bmatrix}</script><script type="math/tex; mode=display">
-    \bar{T}^{-1}=\begin{bmatrix}
-    sin\varPhi&cos\theta cos\varPhi&sin\theta cos\varPhi\\
-    -cos\varPhi&cos\theta sin\varPhi&sin\theta sin\varPhi\\
-    0&-sin\theta&cos\theta
-    \end{bmatrix}</script><p>对于任意矢量</p>
-<script type="math/tex; mode=display">
-        \overrightarrow{A}=
-        \begin{bmatrix}
-        A_x\\
-        A_y\\
-        A_z
-        \end{bmatrix}</script><script type="math/tex; mode=display">
-        \overrightarrow{A_k}=
-        \begin{bmatrix}
-        A_1\\
-        A_2\\
-        A_3
-        \end{bmatrix}</script><p>存在</p>
-<script type="math/tex; mode=display">
-\overrightarrow{A_k}=\bar{T}\cdot\overrightarrow{A}</script><p>对于任意场量</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}=\bar\kappa\cdot\overrightarrow{D}+\bar\chi\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{H}=\bar\nu\cdot\overrightarrow{B}+\bar\gamma\cdot\overrightarrow{D}</script><script type="math/tex; mode=display">
-\overrightarrow{D}=\bar\epsilon\overrightarrow{E}+\bar\xi\overrightarrow{H}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=\bar\mu\overrightarrow{H}+\bar\zeta\overrightarrow{E}</script><p>转化为KDB坐标系</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}=(\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1})\cdot\overrightarrow{D}+(\bar{T}\cdot\bar\chi\cdot \bar{T}^{-1})\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{H}=(\bar{T}\cdot\bar\nu\cdot \bar{T}^{-1})\overrightarrow{D}+(\bar{T}\cdot\bar\gamma\cdot \bar{T}^{-1})\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{D}=(\bar{T}\cdot\bar\epsilon\cdot \bar{T}^{-1})\cdot\overrightarrow{E}+(\bar{T}\cdot\bar\xi\cdot \bar{T}^{-1})\cdot\overrightarrow{H}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=(\bar{T}\cdot\bar\mu\cdot \bar{T}^{-1})\cdot\overrightarrow{H}+(\bar{T}\cdot\bar\zeta\cdot \bar{T}^{-1})\cdot\overrightarrow{E}</script><p>我们可以得到</p>
-<script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\chi_k=\bar{T}\cdot\bar\chi\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\nu_k=\bar{T}\cdot\bar\nu\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\gamma_k=\bar{T}\cdot\bar\gamma\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\epsilon_k=\bar{T}\cdot\bar\epsilon\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\xi_k=\bar{T}\cdot\bar\xi\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\mu_k=\bar{T}\cdot\bar\mu\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\zeta_k=\bar{T}\cdot\bar\zeta\cdot \bar{T}^{-1}</script><p>在KDB坐标系的物质本构方程</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}=\bar\kappa_k\cdot\overrightarrow{D}+\bar\chi_k\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{H}=\bar\nu_k\cdot\overrightarrow{D}+\bar\gamma_k\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{D}=\bar\epsilon_k\overrightarrow{E}+\bar\xi_k\overrightarrow{H}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=\bar\mu_k\overrightarrow{H}+\bar\zeta_k\overrightarrow{E}</script><blockquote>
-<p><strong>为什么引入KDB坐标系？</strong></p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="文本类型"><a href="#文本类型" class="headerlink" title="文本类型"></a>文本类型</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR(size)</td>
+<td>保存固定长度的字符串(可包含字母、数字以及特殊字符)●在括号中指定字符串的长度。最多255个字符。</td>
+</tr>
+<tr>
+<td>VARCHAR(size)</td>
+<td>保存可变长度的字符串(可包含字母、数字以及特殊字符)。在括号中指定字符串的最大长度。最多255个字符。注释:如果值的长度大于255，则被转换为TEXT类型。</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>存放最大长度为255个字符的字符串。</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>存放最大长度为65,535个字符的字符串。</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>用于BLOBs (Binary Large OBjects).存放最多65,535字节的数据。</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>存放最大长度为16,777,215 个字符的字符串。</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>用于BLOBs (Binary Large OBjects)。存放最多16,777,215 字节的数据。</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>存放最大长度为4,294,967,295个字符的字符串。</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>用于BLOBs (Binary Large OBjects).存放最多4,294,967,295字节的数据。</td>
+</tr>
+<tr>
+<td>ENUM(x,y,z,etc.)</td>
+<td>允许你输入可能值的列表。可以在ENUM列表中列出最大65535个值。如果列表中不存在插入的值，则插入空值。注释:这些值是按照你输入的顺序存储的。可以按照此格式输入可能的值: ENUM(‘X’,”Y’,;Z’)</td>
+</tr>
+<tr>
+<td>SET</td>
+<td>与ENUM类似，SET最多只能包含64个列表项，不过SET可存储一个以上的值。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT(size)</td>
+<td>-128到127常规。0到255无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>SMALLINT(size)</td>
+<td>-32768到32767常规。0到65535无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>MEDIUMINT(size)</td>
+<td>-8388608到8388607普通。0 to 16777215无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>INT(size)</td>
+<td>-2147483648到2147483647常规。0到4294967295无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>BIGINT(size)</td>
+<td>-9223372036854775808到9223372036854775807常规。0到18446744073709551615无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>FLOAT(size,d)</td>
+<td>带有浮动小数点的小数字。在括号中规定最大位数。在d参数中规定小数点右侧的最大位数。</td>
+</tr>
+<tr>
+<td>DOUBLE(size,d)</td>
+<td>带有浮动小数点的大数字。在括号中规定最大位数。在d参数中规定小数点右侧的最大位数。</td>
+</tr>
+<tr>
+<td>DECIMAL(size,d)</td>
+<td>作为字符串存储的DOUBLE类型，允许固定的小数点。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATE()</td>
+<td>日期。格式: YYYY-MM-DD注释:支持的范围是从*1000-01-01’到’9999-12-31’</td>
+</tr>
+<tr>
+<td>DATETIME()</td>
+<td>*日期和时间的组合。格式: YYYY-MM-DD HH:MM:SS注释:支持的范围是从’1000-01-01 00:00:00’到’9999-12-31 23:59:59’</td>
+</tr>
+<tr>
+<td>TIMESTAMP()</td>
+<td><em>时间戳。TIMESTAMP值使用Unix纪元(‘1970-01-01 00:00:00 UTC)至今的描述来存储。格式: YYYY-MM-DD HH:MM:SS注释:支持的范围是从 </em>1970-01-0100:00:01 UTC到’2038-01 -0903:14:07’ utC</td>
+</tr>
+<tr>
+<td>TIME()</td>
+<td>时间。格式: HH:MM:SS注释:支持的范围是从’-838:59:59’到’838:59:59’</td>
+</tr>
+<tr>
+<td>YEAR()</td>
+<td>2位或4位格式的年。注释: 4位格式所允许的值: 1901到2155。2位格式所允许的值: 70到69，表示从1970到2069.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre><code>create table table_ name (
+colum_ name data_ _type,
+colum_ name data_ type,
+.
+colum_ name data_type
+);
+</code></pre><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre><code>CREATE TABLE account (
+id bigint(20)
+create Time datetime,
+ip varchar(255),
+mobile varchar(255),
+nickname varchar(255),
+passwd varchar(255)，
+username varchar(255),
+avatar varchar(255),
+brief text,
+job varchar(255),
+location varchar(255),
+qq varchar(255), 
+gender int(11)，
+city varchar(255),
+province varchar(255)
+);
+</code></pre><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><pre><code>use gc;#使用数据库
+show tables;#展示数据表
+create account(colum type);#创建数据表
+describe account#查看数据表
+drop account;#删除数据表
+</code></pre><h2 id="增加删除行列"><a href="#增加删除行列" class="headerlink" title="增加删除行列"></a>增加删除行列</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p><code>alter table [ table_ name ] add [ column_ name][ data_ _type ]
+[not null] [default ]</code></p>
+<p>例子:</p>
+<pre><code>alter table account add c1 int(11) not null default 1;
+</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><code>alter table[ table_ name ] drop[ column_ name ]</code></p>
+<p>例子:</p>
+<pre><code>alter table account drop c1;
+</code></pre><h2 id="修改列信息"><a href="#修改列信息" class="headerlink" title="修改列信息"></a>修改列信息</h2><p><code>alter table[ table_ name ] change [ old_ column_ name ] [ new_ column_ name ]
+[data_ type ]</code></p>
+<p>1.只改列名:<br>data_ type和原来一样，old_ _column_ name != new_ column_ name</p>
+<p>2.只改数据类型:<br>old_ column_ name == new_ column_ name, data_ type改变</p>
+<p>3.列名和数据类型都改了</p>
+<h2 id="插入和查看表的数据"><a href="#插入和查看表的数据" class="headerlink" title="插入和查看表的数据"></a>插入和查看表的数据</h2><h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><p><code>select * from table_ name;</code></p>
+<p><code>select col_ name 1 ,col_ name2, ... from table_ name;</code></p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p><code>insert into[ tabte_ name ] values(值1, 值....</code></p>
+<p><code>insert into [table_ name] (列1， 列2...) values(值1,值...</code></p>
+<h2 id="where-条件"><a href="#where-条件" class="headerlink" title="where 条件"></a>where 条件</h2><p><code>select * from table_ name where col_ name运算符值</code></p>
+<p>例子:</p>
+<pre><code>select * from book where title = = t’ ;
+</code></pre><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于.</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>between</td>
+<td>在两个值范围内</td>
+</tr>
+<tr>
+<td>like</td>
+<td>按某个模式查找</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="组合条件"><a href="#组合条件" class="headerlink" title="组合条件"></a>组合条件</h3><p>where后面可以通过and与or运算符组合多个条件筛选</p>
+<p>语法:</p>
+<p><code>select * from table_ name
+where toll
+=XXXandcol2=XXorcol3&gt;XX</code></p>
+<h2 id="null字段的判断"><a href="#null字段的判断" class="headerlink" title="null字段的判断"></a>null字段的判断</h2><p>NULL字段无法直接查询</p>
+<ul>
+<li>正确 </li>
+</ul>
+<p>select * from book where id is null</p>
+<ul>
+<li>错误 </li>
+</ul>
+<p>select * from book where id = null</p>
+<h2 id="distinct语句"><a href="#distinct语句" class="headerlink" title="distinct语句"></a>distinct语句</h2><p><code>select distinct col_ name from table_ name ;</code></p>
+<p>例子:</p>
+<pre><code>select distinct title from book;
+</code></pre><blockquote>
+<p>select 语句可以去除重复的语句</p>
+</blockquote>
+<h2 id="order-by对查询结果进行排序"><a href="#order-by对查询结果进行排序" class="headerlink" title="order by对查询结果进行排序"></a>order by对查询结果进行排序</h2><p><strong>1.按单一列名排序:</strong></p>
+<p>select * from table_ name [where子句] order by col_ name [asc/desc]</p>
+<p><strong>2.按多列排序:</strong></p>
+<p>select * from table_ name [where子句] order by coll [asc/desc]，col2<br>[asc,desc]</p>
 <blockquote>
-<p>把微分方程转化为线性方程，讲话运算，解决双各向异性这样最复杂的介质的麦克斯韦方程，将所有的介质归一化</p>
+<p>asc升序<br>desc降序</p>
 </blockquote>
-</blockquote>
-<h2 id="Maxwell-Equation-in-KDB-System"><a href="#Maxwell-Equation-in-KDB-System" class="headerlink" title="Maxwell Equation in KDB System"></a>Maxwell Equation in KDB System</h2><p>下面我们将运用KDB坐标系解决麦克斯韦方程</p>
-<p>KDB坐标系麦克斯韦方程组</p>
-<script type="math/tex; mode=display">
-        \begin{cases}
-        \overrightarrow{k}\times\overrightarrow{E}_k=w\overrightarrow{B}_k\\
-        \overrightarrow{k}\times\overrightarrow{H}_k=-w\overrightarrow{D}_k\\
-        \overrightarrow{k}\cdot\overrightarrow{B}_k=0\\
-        \overrightarrow{k}\cdot\overrightarrow{D}_k=0
-        \end{cases}</script><p>由</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}\cdot\overrightarrow{B}_k=0\\
-\overrightarrow{k}\cdot\overrightarrow{D}_k=0</script><p>知</p>
-<script type="math/tex; mode=display">
-B_3,D_3=0</script><p>因为</p>
-<script type="math/tex; mode=display">
-\bar k=\hat{e_3}k</script><p>所以</p>
-<script type="math/tex; mode=display">
-w\bar B_k=k\hat{e_3}\times(\hat{e_1}E_1+\hat{e_2}E_2+\hat{e_3}E_3)</script><script type="math/tex; mode=display">
--w\bar D_k=k\hat{e_3}\times(\hat{e_1}H_1+\hat{e_2}H_2+\hat{e_3}H_3)</script><p>全部转化为DB的线性方程</p>
-<script type="math/tex; mode=display">
-wB_2=kE_1=k(\kappa_{11} D+\kappa_{22} D+\chi _{11}B+\chi_{12} B)</script><script type="math/tex; mode=display">
-wB_1=kE_2=-k(\kappa_{21} D+\kappa_{22} D+\chi_{21} B+\chi_{22} B)</script><script type="math/tex; mode=display">
-wD_2=-kH_1=-k(\nu_{11}B_1+\nu_{12}B_2+\gamma_{11}D_1+\gamma_{12}D_2)</script><script type="math/tex; mode=display">
-wD_1=-kH_2=-k(\nu_{21}B_1+\nu_{22}B_2+\gamma_{21}D_1+\gamma_{22}D_2)</script><p>令u=w/k<br>移项可以化简为</p>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \kappa_{11}&\kappa_{22}\\
-        \kappa_{21}&\kappa_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1,\\
-        D_2
-        \end{pmatrix}=-
-        \begin{pmatrix}
-        \chi_{11}&\chi_{12}-u\\
-        \chi_{21}+u&\chi_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1,\\
-        B_2
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \nu_{11}&\nu_{22}\\
-        \nu_{21}&\nu_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1,\\
-        B_2
-        \end{pmatrix}
-        =-\begin{pmatrix}
-        \gamma_{11}&\gamma_{12}+u\\
-        \gamma_{21}-u&\gamma_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1,\\
-        D_2
-        \end{pmatrix}</script><blockquote>
-<p>可以得到均匀介质色散关系</p>
-</blockquote>
-<h2 id="各向同性介质中的波"><a href="#各向同性介质中的波" class="headerlink" title="各向同性介质中的波"></a>各向同性介质中的波</h2><p>现在用KDB坐标系去推导最简单的介质，各向同性介质的麦克斯韦方程</p>
-<script type="math/tex; mode=display">
-\bar E=\kappa\bar D</script><script type="math/tex; mode=display">
-\bar H=\nu\bar B</script><p>在KDB坐标系下</p>
-<script type="math/tex; mode=display">
-\bar E_k=\kappa\bar D_k</script><script type="math/tex; mode=display">
-\bar H_k=\nu\bar B_k</script><p>代入KDB矩阵方程</p>
-<script type="math/tex; mode=display">
-        \kappa
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=
-        \begin{pmatrix}
-        0&u\\
-        -u&0
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \nu
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}
-        =\begin{pmatrix}
-        0&-u\\
-        u&0
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}</script><p>消去B得到</p>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        u^2-\kappa\nu&0\\
-        0&u^2-\kappa\nu
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1,\\
-        D_2
-        \end{pmatrix}=0</script><p>解得</p>
-<script type="math/tex; mode=display">
-u^2-\kappa\nu=0</script><ul>
-<li>$D_1=D_2=0$<ul>
-<li>没有场</li>
-</ul>
-</li>
-<li>$D_ 1 \not= 0, D_2=0$<ul>
-<li>e1方向极化波</li>
-</ul>
-</li>
-<li>$D_1=0,D_2\not= 0$<ul>
-<li>e2方向极化波</li>
-</ul>
-</li>
-<li>$D_1\not= 0,D_2\not= 0$<ul>
-<li>任意方向极化波</li>
-</ul>
-</li>
-</ul>
-<h2 id="Wave-in-uniaxial-Media单各向异性介质"><a href="#Wave-in-uniaxial-Media单各向异性介质" class="headerlink" title="Wave in uniaxial Media单各向异性介质"></a>Wave in uniaxial Media单各向异性介质</h2><p>加入磁场后的plasma media，手机通讯</p>
-<p>物质本构方程</p>
-<script type="math/tex; mode=display">
-\bar E=\bar\kappa\bar D</script><script type="math/tex; mode=display">
-\bar H=\nu\bar B</script><p>其中</p>
-<script type="math/tex; mode=display">
-\bar\kappa=
-        \begin{pmatrix}
-        \kappa&0&0\\
-        0&\kappa&0\\
-        0&0&\kappa_z
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=
-\bar\kappa=
-    \begin{pmatrix}
-    \kappa&0&0\\
-    0&\kappa cos^2\theta+\kappa_zsin^2\theta&(\kappa-\kappa_z)sin\theta cos\theta\\
-    0&(\kappa-\kappa_z)sin\theta cos\theta&\kappa sin^2\theta+\kappa_zcos^2\theta
-    \end{pmatrix}</script><script type="math/tex; mode=display">
-    \begin{pmatrix}
-    u^2-\kappa_{11}\nu&0\\
-    0&u^2-\kappa_{22}\nu
-    \end{pmatrix}
-    \begin{pmatrix}
-    D_1\\
-    D_2
-    \end{pmatrix}=0</script><p>解得</p>
-<ul>
-<li>$D_1=D_2=0$<ul>
-<li>没有场</li>
-</ul>
-</li>
-<li>$D_ 1  \not= 0, D_2=0，u^2-\kappa_{11}\nu=0$<ul>
-<li>e1方向极化波</li>
-<li>$u=\pm \sqrt{\nu\kappa_{11}}=\pm \sqrt{\nu\kappa}$</li>
-</ul>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\bar D_k=\hat{e}_1D_1</script><script type="math/tex; mode=display">
-\bar B_k=\hat{e}_2\frac{u}{\nu}D_1</script><script type="math/tex; mode=display">
-\bar H_k=\hat{e}_2uD_1</script><script type="math/tex; mode=display">
-\bar E_k=\hat{e}_1\kappa D_1</script><ul>
-<li>$D_1=0,D_2\not=0,u^2-\kappa_{22}\nu=0$<ul>
-<li>e2方向极化波</li>
-<li>$u=\pm \sqrt{\nu\kappa_{22}}=\pm \sqrt{\nu(\kappa cos^2\theta+\kappa_zsin^2\theta)}$<blockquote>
-<p>速度和角度相关，称为非寻常波,相位和k传播方向相反</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\bar D_k=\hat{e}_2D_2</script><script type="math/tex; mode=display">
-\bar B_k=\hat{e}_1\frac{u}{\nu}D_2</script><script type="math/tex; mode=display">
-\bar H_k=-\hat{e}_2uD_2</script><script type="math/tex; mode=display">
-\bar E_k=\hat{e}_2\kappa_{22} D_2+\hat{e}_3(\kappa-\kappa_{z})sin\theta cos\theta D_2</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619213636.png" alt=""></p>
-<ul>
-<li>$D_1\not=0,D_2\not=0,u^2-\kappa_{11}\nu=u^2-\kappa_{22}\nu=0$<ul>
-<li>则$\kappa_{11}=\kappa_{22}$,不满足</li>
-</ul>
-</li>
-</ul>
+<h2 id="limit截取查询结果"><a href="#limit截取查询结果" class="headerlink" title="limit截取查询结果"></a>limit截取查询结果</h2><p><code>select * from table_ name [where子句] [order by子句] limit [offset,] rowCount</code></p>
+<p>offset:查询结果的起始位置，第一 条记录的其实是0<br>rowCount:从offset位置开始，获取的记录条数</p>
+<p>注意<br>limit rowCount = limit 0,rowCount</p>
 <blockquote>
-<p>双折射现象</p>
+<p>作用：截取页面</p>
+</blockquote>
+<h2 id="插入命令和查询命令select的组合使用"><a href="#插入命令和查询命令select的组合使用" class="headerlink" title="插入命令和查询命令select的组合使用"></a>插入命令和查询命令select的组合使用</h2><p><strong>一般用法:</strong></p>
+<p><code>insert into [表名] values(值1, 值.....</code></p>
+<p><code>insert into[表名] (列1 ，列2...) values(值1,值....</code></p>
+<p><strong>Insert into与select的组合用法</strong></p>
+<p><code>insert into [表名1] select 列1，列2 from [表名2]</code></p>
+<p><code>insert into 
+[表名1]
+(列1，列2)
+select列3，列4 from
+[表名2]</code></p>
 <blockquote>
-<p>当电磁波进入单轴介质中时，将会分解为两种速度不同的线性极化特征波，分别对应2,3两种情况</p>
+<p>作用：数据迁移</p>
 </blockquote>
-</blockquote>
-<h2 id="wave-in-Gyrotropic-Media-陀螺介质中的波"><a href="#wave-in-Gyrotropic-Media-陀螺介质中的波" class="headerlink" title="wave in Gyrotropic Media 陀螺介质中的波"></a>wave in Gyrotropic Media 陀螺介质中的波</h2><p>物质本构方程</p>
-<script type="math/tex; mode=display">
-\bar E=\bar\kappa\bar D</script><script type="math/tex; mode=display">
-\bar H=\nu\bar B</script><p>其中</p>
-<script type="math/tex; mode=display">
-        \bar\kappa=
-        \begin{pmatrix}
-        \kappa&ik_g&0\\
-        -ik_g&\kappa&0\\
-        0&0&\kappa_z
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=
-\bar\kappa=
-        \begin{pmatrix}
-        \kappa&ik_gcos\theta&ik_gsin\theta\\
-        -ik_gcos\theta&\kappa cos^2\theta+\kappa_zsin^2\theta&(\kappa-\kappa_z)sin\theta cos\theta\\
-        ik_gsin\theta&(\kappa-\kappa_z)sin\theta cos\theta&\kappa sin^2\theta+\kappa_zcos^2\theta
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \begin{pmatrix}
-        u^2-\kappa\nu&-i\nu\kappa_gcos\theta\\
-        i\nu\kappa_gcos\theta&u^2-\nu(\kappa cos^2\theta+\kappa_zsin^2\theta)
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=0</script><h3 id="Faraday-Rotation"><a href="#Faraday-Rotation" class="headerlink" title="Faraday Rotation"></a>Faraday Rotation</h3><p>当波向z方向传播时，$\theta$=0</p>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        u^2-\kappa\nu&-i\nu\kappa_g\\
-        i\nu\kappa_g&u^2-\nu\kappa 
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=0</script><p>我们得到</p>
-<script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\frac{u^2-\nu\kappa}{i\nu\kappa_g}=-\frac{i\nu\kappa_g}{u^2-\nu\kappa}</script><script type="math/tex; mode=display">
-u^2-\nu\kappa=\pm\nu\kappa_g</script><script type="math/tex; mode=display">
-u=w/k=\sqrt{\nu(\kappa\pm\kappa_g)}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\pm i</script><p>波可以分解为两个垂直的线性极化波，所以波为圆极化波</p>
-<ul>
-<li>左旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{I}=w/\sqrt{\nu(\kappa+\kappa_g)}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=-i</script><script type="math/tex; mode=display">
-\bar D=\hat{e_1}D_1-i\hat{e_2}D_1</script><script type="math/tex; mode=display">
-=\bar D_R+iD_I</script><ul>
-<li>右旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{II}=w/\sqrt{\nu(\kappa-\kappa_g)}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=i</script><p>当线性极化波$\bar D=\hat{e}_12D_0$,z的正方向入射该介质时，将波分解成</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)</script><p>假设介质厚度为d</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}</script><script type="math/tex; mode=display">
-    =\hat{e}_1D_0(e^{i\Phi_I}+e^{i\Phi_{II}})+\hat{e}_2D_0(e^{i\Phi_I}-e^{i\Phi_{II}})</script><script type="math/tex; mode=display">
-\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa+\kappa_g)}}</script><script type="math/tex; mode=display">
-\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa-\kappa_g)}}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}</script><blockquote>
-<p>经过该介质后线极化波方向发生改变，称为法拉第旋转，z方向+负号</p>
-</blockquote>
-<h2 id="Wave-in-Bianisotropic-Media"><a href="#Wave-in-Bianisotropic-Media" class="headerlink" title="Wave in Bianisotropic Media"></a>Wave in Bianisotropic Media</h2><script type="math/tex; mode=display">
-\bar E=
-        \begin{pmatrix}
-        \kappa&0&0\\
-        0&\kappa&0\\
-        0&0&\kappa_z
-        \end{pmatrix}
-        \cdot\bar D
-        +\begin{pmatrix}
-        \chi&0&0\\
-        0&\chi&0\\
-        0&0&\chi_z
-        \end{pmatrix}
-        \cdot\bar B</script><script type="math/tex; mode=display">
-\bar H=
-        \begin{pmatrix}
-        \gamma&0&0\\
-        0&\gamma&0\\
-        0&0&\gamma_z
-        \end{pmatrix}
-        \cdot\bar D
-        +\begin{pmatrix}
-        \nu&0&0\\
-        0&\nu&0\\
-        0&0&\nu_z
-        \end{pmatrix}
-        \cdot\bar B</script><p>其中</p>
-<script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=
-\bar\kappa=
-        \begin{pmatrix}
-        \kappa&0&0\\
-        0&\kappa cos^2\theta+\kappa_zsin^2\theta&(\kappa-\kappa_z)sin\theta cos\theta\\
-        0&(\kappa-\kappa_z)sin\theta cos\theta&\kappa sin^2\theta+\kappa_zcos^2\theta
-        \end{pmatrix}</script><h2 id="Chiral-Media（手性介质）"><a href="#Chiral-Media（手性介质）" class="headerlink" title="Chiral Media（手性介质）"></a>Chiral Media（手性介质）</h2><script type="math/tex; mode=display">
-\overrightarrow{E}=\kappa\overrightarrow{D}-i\chi\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=i\chi\overrightarrow{D}+\nu\overrightarrow{B}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\frac{u^2-\nu\kappa+\chi^2}{2i\chi\mu}=-\frac{2i\chi\mu}{u^2-\nu\kappa+\chi^2}</script><script type="math/tex; mode=display">
-u=\sqrt{\nu\kappa}\pm\chi</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\pm i</script><ul>
-<li>左旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{I}=w/(\sqrt{\nu\kappa}+\chi)</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=-i</script><ul>
-<li>右旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{II}=w/(\sqrt{\nu\kappa}-\chi)</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=i</script><p>当线性极化波$\bar D=\hat{e}_12D_0$入射该介质时，将波分解成</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)</script><p>假设介质厚度为d</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}</script><script type="math/tex; mode=display">
-=\hat{e}_1D_0(e^{i\Phi_I}+e^{i\Phi_{II}})+\hat{e}_2D_0(e^{i\Phi_I}-e^{i\Phi_{II}})</script><script type="math/tex; mode=display">
-\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}+\chi}</script><script type="math/tex; mode=display">
-\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}-\chi}</script><script type="math/tex; mode=display">
-\to \frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}</script><blockquote>
-<p>optical activity:旋光性，旋光性和法拉第旋转有本质区别</p>
-</blockquote>
-<h2 id="重点归纳"><a href="#重点归纳" class="headerlink" title="重点归纳"></a>重点归纳</h2><p>如何解任意介质的麦克斯韦方程？</p>
-<ol>
-<li><strong>根据物质本构关系确定对于KDB坐标系下的本构关系</strong><script type="math/tex; mode=display">
-\bar{T}=\begin{bmatrix}
-sin\varPhi&-cos\varPhi&0\\
-cos\theta cos\varPhi&cos\theta sin\varPhi&-sin\theta\\
-sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
-\end{bmatrix}</script>2.<strong>代入以下矩阵方程</strong></li>
-</ol>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \kappa_{11}&\kappa_{22}\\
-        \kappa_{21}&\kappa_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=-
-        \begin{pmatrix}
-        \chi_{11}&\chi_{12}-u\\
-        \chi_{21}+u&\chi_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \nu_{11}&\nu_{22}\\
-        \nu_{21}&\nu_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}
-        =-\begin{pmatrix}
-        \gamma_{11}&\gamma_{12}+u\\
-        \gamma_{21}-u&\gamma_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}</script><p>3.<strong>分类讨论</strong></p>
-<ul>
-<li>反对角元素为0直接解方程</li>
-<li>反对角元素不为0用D1，D2之比解方程</li>
-</ul>
+<h2 id="更新表的数据"><a href="#更新表的数据" class="headerlink" title="更新表的数据"></a>更新表的数据</h2><p><strong>修改单列:</strong></p>
+<p><code>update表名set列名= XXX [where字句]</code></p>
+<p><strong>修改多列:</strong></p>
+<p><code>update表名set列名1 = xxx,列名2 = xxX... [where 字句]</code></p>
+<h2 id="where语句中in-like-between的使用"><a href="#where语句中in-like-between的使用" class="headerlink" title="where语句中in,like,between的使用"></a>where语句中in,like,between的使用</h2><h3 id="in"><a href="#in" class="headerlink" title="in"></a>in</h3><p><code>select * from表名where列名in (value1 ,value2..)</code></p>
+<p><code>select * from表名where列名in (select 列名from表名)</code></p>
+<p>例子</p>
+<pre><code>select * from book where title in(&#39;sun&#39;,&#39;color&#39;)
+</code></pre><h3 id="betweeen"><a href="#betweeen" class="headerlink" title="betweeen"></a>betweeen</h3><p><code>select * from表名where列名between值1 and值2</code></p>
+<p><code>select * from表名where列名not between值1 and值2</code></p>
+<h3 id="like"><a href="#like" class="headerlink" title="like"></a>like</h3><p><strong>作用：字符模糊匹配</strong></p>
+<p><code>select * from表名where列名[not] like pattern</code></p>
+<p><strong>pattern:匹配模式</strong></p>
+<p>比如<br><code>&#39;abc&#39;%abc’,‘abc%’,&#39;%abc%&#39;</code> ;<br>“<code>%</code>” 是一个通配符，理解_上可以把他当成任何字符串</p>
+<p><strong>例子:</strong></p>
+<p><code>&#39;%abc&#39;</code><br>能匹配<br><code>&#39;erttsabc&#39;</code></p>
 
     
 
@@ -706,7 +543,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/06/19/KDB/" title="KDB" target="_blank">https://Fazziekey.github.io/2020/06/19/KDB/</a>
+          <a href="https://Fazziekey.github.io/2020/07/25/MySQL/" title="MySQL" target="_blank">https://Fazziekey.github.io/2020/07/25/MySQL/</a>
         </li>
         
         <li>
@@ -728,7 +565,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
         		</li>
       		
 		</ul>
@@ -784,7 +621,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/06/19/KDB/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/07/25/MySQL/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -799,18 +636,9 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
 
 <nav id="article-nav">
   
-    <a href="/2020/06/21/Reflection-and-Transmission/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Reflection and Transmission
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/19/Bianisotropic-media/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Bianisotropic media</div>
+    <a href="/2020/07/18/note-of-deeplearning/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">note of deeplearning </div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -837,7 +665,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#wave-vector-k的引入"><span class="toc-number">1.</span> <span class="toc-text">wave vector k的引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KDB坐标系"><span class="toc-number">2.</span> <span class="toc-text">KDB坐标系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maxwell-Equation-in-KDB-System"><span class="toc-number">3.</span> <span class="toc-text">Maxwell Equation in KDB System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各向同性介质中的波"><span class="toc-number">4.</span> <span class="toc-text">各向同性介质中的波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wave-in-uniaxial-Media单各向异性介质"><span class="toc-number">5.</span> <span class="toc-text">Wave in uniaxial Media单各向异性介质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wave-in-Gyrotropic-Media-陀螺介质中的波"><span class="toc-number">6.</span> <span class="toc-text">wave in Gyrotropic Media 陀螺介质中的波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Faraday-Rotation"><span class="toc-number">6.1.</span> <span class="toc-text">Faraday Rotation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wave-in-Bianisotropic-Media"><span class="toc-number">7.</span> <span class="toc-text">Wave in Bianisotropic Media</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chiral-Media（手性介质）"><span class="toc-number">8.</span> <span class="toc-text">Chiral Media（手性介质）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重点归纳"><span class="toc-number">9.</span> <span class="toc-text">重点归纳</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#连接"><span class="toc-number">1.</span> <span class="toc-text">连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据操作"><span class="toc-number">2.</span> <span class="toc-text">数据操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加删除数据"><span class="toc-number">2.1.</span> <span class="toc-text">添加删除数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看DB"><span class="toc-number">2.1.1.</span> <span class="toc-text">查看DB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加DB"><span class="toc-number">2.1.2.</span> <span class="toc-text">添加DB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除DB"><span class="toc-number">2.1.3.</span> <span class="toc-text">删除DB</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">3.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文本类型"><span class="toc-number">3.1.</span> <span class="toc-text">文本类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字类型"><span class="toc-number">3.2.</span> <span class="toc-text">数字类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日期类型"><span class="toc-number">3.3.</span> <span class="toc-text">日期类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数据表"><span class="toc-number">4.</span> <span class="toc-text">创建数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">4.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本操作"><span class="toc-number">4.2.</span> <span class="toc-text">基本操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加删除行列"><span class="toc-number">5.</span> <span class="toc-text">增加删除行列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#增加"><span class="toc-number">5.1.</span> <span class="toc-text">增加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">5.2.</span> <span class="toc-text">删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改列信息"><span class="toc-number">6.</span> <span class="toc-text">修改列信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入和查看表的数据"><span class="toc-number">7.</span> <span class="toc-text">插入和查看表的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看"><span class="toc-number">7.1.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入"><span class="toc-number">7.2.</span> <span class="toc-text">插入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#where-条件"><span class="toc-number">8.</span> <span class="toc-text">where 条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符"><span class="toc-number">8.1.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合条件"><span class="toc-number">8.2.</span> <span class="toc-text">组合条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null字段的判断"><span class="toc-number">9.</span> <span class="toc-text">null字段的判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#distinct语句"><span class="toc-number">10.</span> <span class="toc-text">distinct语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#order-by对查询结果进行排序"><span class="toc-number">11.</span> <span class="toc-text">order by对查询结果进行排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#limit截取查询结果"><span class="toc-number">12.</span> <span class="toc-text">limit截取查询结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入命令和查询命令select的组合使用"><span class="toc-number">13.</span> <span class="toc-text">插入命令和查询命令select的组合使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新表的数据"><span class="toc-number">14.</span> <span class="toc-text">更新表的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#where语句中in-like-between的使用"><span class="toc-number">15.</span> <span class="toc-text">where语句中in,like,between的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#in"><span class="toc-number">15.1.</span> <span class="toc-text">in</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#betweeen"><span class="toc-number">15.2.</span> <span class="toc-text">betweeen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#like"><span class="toc-number">15.3.</span> <span class="toc-text">like</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -850,7 +678,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
 
 
 
-<div id="SOHUCS" sid="KDB" ></div> 
+<div id="SOHUCS" sid="MySQL" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -871,9 +699,9 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "KDB" -->
+  <!-- id: "MySQL" -->
   var giteement = new Giteement({
-    id: '20200619200410',
+    id: '20200725214041',
     owner: 'Fazzie',
     repo: 'hexo-blog',
     backcall_uri: 'https://Fazziekey.github.io',
