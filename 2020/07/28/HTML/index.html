@@ -6,25 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>KDB | Hexo</title>
+  <title>HTML | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="wave vector k的引入由亥姆霍兹方程  (\nabla^2+w^2\mu\epsilon)\overrightarrow{E}&#x3D;0">
+  <meta name="description" content="HTML基础HTML和CSS关系 css是用来修饰html样式的 html本身是有一些默认样式,如果我们想改变html标签的样式,就需要借助css html+css构成了我们网页的基本页面结构和样式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KDB">
-<meta property="og:url" content="https://fazziekey.github.io/2020/06/19/KDB/index.html">
+<meta property="og:title" content="HTML">
+<meta property="og:url" content="https://fazziekey.github.io/2020/07/28/HTML/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="wave vector k的引入由亥姆霍兹方程  (\nabla^2+w^2\mu\epsilon)\overrightarrow{E}&#x3D;0">
+<meta property="og:description" content="HTML基础HTML和CSS关系 css是用来修饰html样式的 html本身是有一些默认样式,如果我们想改变html标签的样式,就需要借助css html+css构成了我们网页的基本页面结构和样式">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619213636.png">
-<meta property="article:published_time" content="2020-06-19T12:04:10.000Z">
-<meta property="article:modified_time" content="2020-06-21T15:30:54.072Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/28/632bd87adb5745d95e801801a74e9b49.png">
+<meta property="article:published_time" content="2020-07-28T07:30:15.000Z">
+<meta property="article:modified_time" content="2020-07-28T07:31:58.674Z">
 <meta property="article:author" content="Fazzie">
-<meta property="article:tag" content="手撕麦克斯韦">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/28/632bd87adb5745d95e801801a74e9b49.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -184,14 +184,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-KDB" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HTML" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      KDB
+      HTML
     </h1>
   
 
@@ -203,8 +203,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/06/19/KDB/" class="archive-article-date">
-        <time datetime="2020-06-19T12:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
+<a href="/2020/07/28/HTML/" class="archive-article-date">
+        <time datetime="2020-07-28T07:30:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
 </a>
 
   
@@ -217,7 +217,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.6k字</span>
+      <span class="post-count">4.4k字</span>
     </span>
   </span>
 
@@ -226,7 +226,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">14分</span>
+      <span class="post-count">18分</span>
     </span>
   </span>
 </div>
@@ -237,461 +237,353 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="wave-vector-k的引入"><a href="#wave-vector-k的引入" class="headerlink" title="wave vector k的引入"></a>wave vector k的引入</h2><p>由亥姆霍兹方程</p>
-<script type="math/tex; mode=display">
-(\nabla^2+w^2\mu\epsilon)\overrightarrow{E}=0</script><a id="more"></a>
-<p>解得</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i(k_xx+k_yy+k_zz)}</script><script type="math/tex; mode=display">
-k_x^2+k_y^2+k_z^2=w^2\mu\epsilon=k^2</script><p>定义wave vector k</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}=\hat{x}k_x+\hat{y}k_y+\hat{z}k_z</script><p>position vector</p>
-<script type="math/tex; mode=display">
-\overrightarrow{r}=\hat{x}x+\hat{y}y+\hat{z}z</script><p>则</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}\cdot\overrightarrow{r}=k_xx+k_yy+k_zz</script><p>则</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}(\overrightarrow{r})=\overrightarrow{E}e^{i\overrightarrow{k}\cdot\overrightarrow{r}}</script><p>代回麦克斯韦方程</p>
-<script type="math/tex; mode=display">
-    \begin{cases}
-    \overrightarrow{k}\times\overrightarrow{E}=w\mu\overrightarrow{H}\\
-    \overrightarrow{k}\times\overrightarrow{H}=-w\epsilon\overrightarrow{E}\\
-    \overrightarrow{k}\cdot\overrightarrow{E}=0\\
-    \overrightarrow{k}\cdot\overrightarrow{H}=0
-    \end{cases}</script><p>波印廷矢量</p>
-<script type="math/tex; mode=display">
-        \overrightarrow{S}=\frac{1}{2}Re
-        \begin{cases}\frac{\overrightarrow{k}}{w\epsilon}|\overrightarrow{H}|^2\\\frac{\overrightarrow{k^*}}{w\mu^*}|\overrightarrow{E}|^2
-        \end{cases}</script><p><strong>k矢量的意义</strong></p>
+    <h1 id="HTML基础"><a href="#HTML基础" class="headerlink" title="HTML基础"></a>HTML基础</h1><h2 id="HTML和CSS关系"><a href="#HTML和CSS关系" class="headerlink" title="HTML和CSS关系"></a>HTML和CSS关系</h2><ul>
+<li>css是用来修饰html样式的</li>
+<li>html本身是有一些默认样式,如果我们想改变html标签的样式,就需要借助css</li>
+<li>html+css构成了我们网页的基本页面结构和样式</li>
+</ul>
+<a id="more"></a>
+<h2 id="标签的使用"><a href="#标签的使用" class="headerlink" title="标签的使用"></a>标签的使用</h2><ul>
+<li>标签由英文尖括号&lt;和&gt;括起来，如<html>就是一个标签。</li>
+<li>html中的标签一般都是成对出现的，分开始标签和结束标签。结束标签比开始标签多了一个/。</li>
+</ul>
+<p>如：</p>
 <ul>
-<li>波是平面波</li>
-<li>波的方向确定</li>
-<li>$k=2\pi/\lambda$可以计算波长，频率<h2 id="KDB坐标系"><a href="#KDB坐标系" class="headerlink" title="KDB坐标系"></a>KDB坐标系</h2></li>
-</ul>
-<p>对于平面波</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}\times\overrightarrow{E}=w\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{k}\times\overrightarrow{H}=-w\overrightarrow{D}</script><script type="math/tex; mode=display">
-\overrightarrow{k}\cdot\overrightarrow{B}=0
-\overrightarrow{k}\cdot\overrightarrow{D}=0</script><blockquote>
-<p>可得k垂直于BD构成的平面，BD不一定互相垂直，EH也不一定在BD平面内(垂直：perpendicular)</p>
-</blockquote>
-<p>定义三个单位向量$\hat{e_1},\hat{e_2},\hat{e_3}$,$\hat{e_3}$和k方向相同<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619201317.png" alt=""></p>
-<p><strong>转换矩阵</strong>（将xyz坐标系转换到KDB坐标系）</p>
-<script type="math/tex; mode=display">
-    \bar{T}=\begin{bmatrix}
-    sin\varPhi&-cos\varPhi&0，\\
-    cos\theta cos\varPhi&cos\theta sin\varPhi&-sin\theta\\
-    sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
-    \end{bmatrix}</script><script type="math/tex; mode=display">
-    \bar{T}^{-1}=\begin{bmatrix}
-    sin\varPhi&cos\theta cos\varPhi&sin\theta cos\varPhi\\
-    -cos\varPhi&cos\theta sin\varPhi&sin\theta sin\varPhi\\
-    0&-sin\theta&cos\theta
-    \end{bmatrix}</script><p>对于任意矢量</p>
-<script type="math/tex; mode=display">
-        \overrightarrow{A}=
-        \begin{bmatrix}
-        A_x\\
-        A_y\\
-        A_z
-        \end{bmatrix}</script><script type="math/tex; mode=display">
-        \overrightarrow{A_k}=
-        \begin{bmatrix}
-        A_1\\
-        A_2\\
-        A_3
-        \end{bmatrix}</script><p>存在</p>
-<script type="math/tex; mode=display">
-\overrightarrow{A_k}=\bar{T}\cdot\overrightarrow{A}</script><p>对于任意场量</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}=\bar\kappa\cdot\overrightarrow{D}+\bar\chi\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{H}=\bar\nu\cdot\overrightarrow{B}+\bar\gamma\cdot\overrightarrow{D}</script><script type="math/tex; mode=display">
-\overrightarrow{D}=\bar\epsilon\overrightarrow{E}+\bar\xi\overrightarrow{H}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=\bar\mu\overrightarrow{H}+\bar\zeta\overrightarrow{E}</script><p>转化为KDB坐标系</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}=(\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1})\cdot\overrightarrow{D}+(\bar{T}\cdot\bar\chi\cdot \bar{T}^{-1})\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{H}=(\bar{T}\cdot\bar\nu\cdot \bar{T}^{-1})\overrightarrow{D}+(\bar{T}\cdot\bar\gamma\cdot \bar{T}^{-1})\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{D}=(\bar{T}\cdot\bar\epsilon\cdot \bar{T}^{-1})\cdot\overrightarrow{E}+(\bar{T}\cdot\bar\xi\cdot \bar{T}^{-1})\cdot\overrightarrow{H}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=(\bar{T}\cdot\bar\mu\cdot \bar{T}^{-1})\cdot\overrightarrow{H}+(\bar{T}\cdot\bar\zeta\cdot \bar{T}^{-1})\cdot\overrightarrow{E}</script><p>我们可以得到</p>
-<script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\chi_k=\bar{T}\cdot\bar\chi\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\nu_k=\bar{T}\cdot\bar\nu\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\gamma_k=\bar{T}\cdot\bar\gamma\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\epsilon_k=\bar{T}\cdot\bar\epsilon\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\xi_k=\bar{T}\cdot\bar\xi\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\mu_k=\bar{T}\cdot\bar\mu\cdot \bar{T}^{-1}</script><script type="math/tex; mode=display">
-\bar\zeta_k=\bar{T}\cdot\bar\zeta\cdot \bar{T}^{-1}</script><p>在KDB坐标系的物质本构方程</p>
-<script type="math/tex; mode=display">
-\overrightarrow{E}=\bar\kappa_k\cdot\overrightarrow{D}+\bar\chi_k\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{H}=\bar\nu_k\cdot\overrightarrow{D}+\bar\gamma_k\cdot\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{D}=\bar\epsilon_k\overrightarrow{E}+\bar\xi_k\overrightarrow{H}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=\bar\mu_k\overrightarrow{H}+\bar\zeta_k\overrightarrow{E}</script><blockquote>
-<p><strong>为什么引入KDB坐标系？</strong></p>
-<blockquote>
-<p>把微分方程转化为线性方程，讲话运算，解决双各向异性这样最复杂的介质的麦克斯韦方程，将所有的介质归一化</p>
-</blockquote>
-</blockquote>
-<h2 id="Maxwell-Equation-in-KDB-System"><a href="#Maxwell-Equation-in-KDB-System" class="headerlink" title="Maxwell Equation in KDB System"></a>Maxwell Equation in KDB System</h2><p>下面我们将运用KDB坐标系解决麦克斯韦方程</p>
-<p>KDB坐标系麦克斯韦方程组</p>
-<script type="math/tex; mode=display">
-        \begin{cases}
-        \overrightarrow{k}\times\overrightarrow{E}_k=w\overrightarrow{B}_k\\
-        \overrightarrow{k}\times\overrightarrow{H}_k=-w\overrightarrow{D}_k\\
-        \overrightarrow{k}\cdot\overrightarrow{B}_k=0\\
-        \overrightarrow{k}\cdot\overrightarrow{D}_k=0
-        \end{cases}</script><p>由</p>
-<script type="math/tex; mode=display">
-\overrightarrow{k}\cdot\overrightarrow{B}_k=0\\
-\overrightarrow{k}\cdot\overrightarrow{D}_k=0</script><p>知</p>
-<script type="math/tex; mode=display">
-B_3,D_3=0</script><p>因为</p>
-<script type="math/tex; mode=display">
-\bar k=\hat{e_3}k</script><p>所以</p>
-<script type="math/tex; mode=display">
-w\bar B_k=k\hat{e_3}\times(\hat{e_1}E_1+\hat{e_2}E_2+\hat{e_3}E_3)</script><script type="math/tex; mode=display">
--w\bar D_k=k\hat{e_3}\times(\hat{e_1}H_1+\hat{e_2}H_2+\hat{e_3}H_3)</script><p>全部转化为DB的线性方程</p>
-<script type="math/tex; mode=display">
-wB_2=kE_1=k(\kappa_{11} D+\kappa_{22} D+\chi _{11}B+\chi_{12} B)</script><script type="math/tex; mode=display">
-wB_1=kE_2=-k(\kappa_{21} D+\kappa_{22} D+\chi_{21} B+\chi_{22} B)</script><script type="math/tex; mode=display">
-wD_2=-kH_1=-k(\nu_{11}B_1+\nu_{12}B_2+\gamma_{11}D_1+\gamma_{12}D_2)</script><script type="math/tex; mode=display">
-wD_1=-kH_2=-k(\nu_{21}B_1+\nu_{22}B_2+\gamma_{21}D_1+\gamma_{22}D_2)</script><p>令u=w/k<br>移项可以化简为</p>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \kappa_{11}&\kappa_{22}\\
-        \kappa_{21}&\kappa_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1,\\
-        D_2
-        \end{pmatrix}=-
-        \begin{pmatrix}
-        \chi_{11}&\chi_{12}-u\\
-        \chi_{21}+u&\chi_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1,\\
-        B_2
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \nu_{11}&\nu_{22}\\
-        \nu_{21}&\nu_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1,\\
-        B_2
-        \end{pmatrix}
-        =-\begin{pmatrix}
-        \gamma_{11}&\gamma_{12}+u\\
-        \gamma_{21}-u&\gamma_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1,\\
-        D_2
-        \end{pmatrix}</script><blockquote>
-<p>可以得到均匀介质色散关系</p>
-</blockquote>
-<h2 id="各向同性介质中的波"><a href="#各向同性介质中的波" class="headerlink" title="各向同性介质中的波"></a>各向同性介质中的波</h2><p>现在用KDB坐标系去推导最简单的介质，各向同性介质的麦克斯韦方程</p>
-<script type="math/tex; mode=display">
-\bar E=\kappa\bar D</script><script type="math/tex; mode=display">
-\bar H=\nu\bar B</script><p>在KDB坐标系下</p>
-<script type="math/tex; mode=display">
-\bar E_k=\kappa\bar D_k</script><script type="math/tex; mode=display">
-\bar H_k=\nu\bar B_k</script><p>代入KDB矩阵方程</p>
-<script type="math/tex; mode=display">
-        \kappa
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=
-        \begin{pmatrix}
-        0&u\\
-        -u&0
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \nu
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}
-        =\begin{pmatrix}
-        0&-u\\
-        u&0
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}</script><p>消去B得到</p>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        u^2-\kappa\nu&0\\
-        0&u^2-\kappa\nu
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1,\\
-        D_2
-        \end{pmatrix}=0</script><p>解得</p>
-<script type="math/tex; mode=display">
-u^2-\kappa\nu=0</script><ul>
-<li>$D_1=D_2=0$<ul>
-<li>没有场</li>
-</ul>
+<li><p><code>&lt;p&gt;&lt;/p&gt;</code></p>
 </li>
-<li>$D_ 1 \not= 0, D_2=0$<ul>
-<li>e1方向极化波</li>
-</ul>
+<li><p><code>&lt;div&gt;&lt;/div&gt;</code></p>
 </li>
-<li>$D_1=0,D_2\not= 0$<ul>
-<li>e2方向极化波</li>
-</ul>
+<li><p><code>&lt;span&gt;&lt;/span&gt;</code></p>
 </li>
-<li>$D_1\not= 0,D_2\not= 0$<ul>
-<li>任意方向极化波</li>
+<li>标签与标签之间是可以嵌套的，但先后顺序必须保持一致，如：<code>&lt;div&gt;</code>里嵌套<code>&lt;p&gt;</code>，那么<code>&lt;/p&gt;</code>必须放在<code>&lt;/div&gt;</code>的前面。</li>
+<li>HTML标签不区分大小写，<code>&lt;h1&gt;</code>和<code>&lt;H1&gt;</code>是一样的，但建议小写，因为大部分程序员都以小写为准。</li>
 </ul>
-</li>
-</ul>
-<h2 id="Wave-in-uniaxial-Media单各向异性介质"><a href="#Wave-in-uniaxial-Media单各向异性介质" class="headerlink" title="Wave in uniaxial Media单各向异性介质"></a>Wave in uniaxial Media单各向异性介质</h2><p>加入磁场后的plasma media，手机通讯</p>
-<p>物质本构方程</p>
-<script type="math/tex; mode=display">
-\bar E=\bar\kappa\bar D</script><script type="math/tex; mode=display">
-\bar H=\nu\bar B</script><p>其中</p>
-<script type="math/tex; mode=display">
-\bar\kappa=
-        \begin{pmatrix}
-        \kappa&0&0\\
-        0&\kappa&0\\
-        0&0&\kappa_z
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=
-\bar\kappa=
-    \begin{pmatrix}
-    \kappa&0&0\\
-    0&\kappa cos^2\theta+\kappa_zsin^2\theta&(\kappa-\kappa_z)sin\theta cos\theta\\
-    0&(\kappa-\kappa_z)sin\theta cos\theta&\kappa sin^2\theta+\kappa_zcos^2\theta
-    \end{pmatrix}</script><script type="math/tex; mode=display">
-    \begin{pmatrix}
-    u^2-\kappa_{11}\nu&0\\
-    0&u^2-\kappa_{22}\nu
-    \end{pmatrix}
-    \begin{pmatrix}
-    D_1\\
-    D_2
-    \end{pmatrix}=0</script><p>解得</p>
-<ul>
-<li>$D_1=D_2=0$<ul>
-<li>没有场</li>
-</ul>
-</li>
-<li>$D_ 1  \not= 0, D_2=0，u^2-\kappa_{11}\nu=0$<ul>
-<li>e1方向极化波</li>
-<li>$u=\pm \sqrt{\nu\kappa_{11}}=\pm \sqrt{\nu\kappa}$</li>
-</ul>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\bar D_k=\hat{e}_1D_1</script><script type="math/tex; mode=display">
-\bar B_k=\hat{e}_2\frac{u}{\nu}D_1</script><script type="math/tex; mode=display">
-\bar H_k=\hat{e}_2uD_1</script><script type="math/tex; mode=display">
-\bar E_k=\hat{e}_1\kappa D_1</script><ul>
-<li>$D_1=0,D_2\not=0,u^2-\kappa_{22}\nu=0$<ul>
-<li>e2方向极化波</li>
-<li>$u=\pm \sqrt{\nu\kappa_{22}}=\pm \sqrt{\nu(\kappa cos^2\theta+\kappa_zsin^2\theta)}$<blockquote>
-<p>速度和角度相关，称为非寻常波,相位和k传播方向相反</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\bar D_k=\hat{e}_2D_2</script><script type="math/tex; mode=display">
-\bar B_k=\hat{e}_1\frac{u}{\nu}D_2</script><script type="math/tex; mode=display">
-\bar H_k=-\hat{e}_2uD_2</script><script type="math/tex; mode=display">
-\bar E_k=\hat{e}_2\kappa_{22} D_2+\hat{e}_3(\kappa-\kappa_{z})sin\theta cos\theta D_2</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619213636.png" alt=""></p>
-<ul>
-<li>$D_1\not=0,D_2\not=0,u^2-\kappa_{11}\nu=u^2-\kappa_{22}\nu=0$<ul>
-<li>则$\kappa_{11}=\kappa_{22}$,不满足</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>双折射现象</p>
-<blockquote>
-<p>当电磁波进入单轴介质中时，将会分解为两种速度不同的线性极化特征波，分别对应2,3两种情况</p>
-</blockquote>
-</blockquote>
-<h2 id="wave-in-Gyrotropic-Media-陀螺介质中的波"><a href="#wave-in-Gyrotropic-Media-陀螺介质中的波" class="headerlink" title="wave in Gyrotropic Media 陀螺介质中的波"></a>wave in Gyrotropic Media 陀螺介质中的波</h2><p>物质本构方程</p>
-<script type="math/tex; mode=display">
-\bar E=\bar\kappa\bar D</script><script type="math/tex; mode=display">
-\bar H=\nu\bar B</script><p>其中</p>
-<script type="math/tex; mode=display">
-        \bar\kappa=
-        \begin{pmatrix}
-        \kappa&ik_g&0\\
-        -ik_g&\kappa&0\\
-        0&0&\kappa_z
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=
-\bar\kappa=
-        \begin{pmatrix}
-        \kappa&ik_gcos\theta&ik_gsin\theta\\
-        -ik_gcos\theta&\kappa cos^2\theta+\kappa_zsin^2\theta&(\kappa-\kappa_z)sin\theta cos\theta\\
-        ik_gsin\theta&(\kappa-\kappa_z)sin\theta cos\theta&\kappa sin^2\theta+\kappa_zcos^2\theta
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \begin{pmatrix}
-        u^2-\kappa\nu&-i\nu\kappa_gcos\theta\\
-        i\nu\kappa_gcos\theta&u^2-\nu(\kappa cos^2\theta+\kappa_zsin^2\theta)
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=0</script><h3 id="Faraday-Rotation"><a href="#Faraday-Rotation" class="headerlink" title="Faraday Rotation"></a>Faraday Rotation</h3><p>当波向z方向传播时，$\theta$=0</p>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        u^2-\kappa\nu&-i\nu\kappa_g\\
-        i\nu\kappa_g&u^2-\nu\kappa 
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=0</script><p>我们得到</p>
-<script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\frac{u^2-\nu\kappa}{i\nu\kappa_g}=-\frac{i\nu\kappa_g}{u^2-\nu\kappa}</script><script type="math/tex; mode=display">
-u^2-\nu\kappa=\pm\nu\kappa_g</script><script type="math/tex; mode=display">
-u=w/k=\sqrt{\nu(\kappa\pm\kappa_g)}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\pm i</script><p>波可以分解为两个垂直的线性极化波，所以波为圆极化波</p>
-<ul>
-<li>左旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{I}=w/\sqrt{\nu(\kappa+\kappa_g)}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=-i</script><script type="math/tex; mode=display">
-\bar D=\hat{e_1}D_1-i\hat{e_2}D_1</script><script type="math/tex; mode=display">
-=\bar D_R+iD_I</script><ul>
-<li>右旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{II}=w/\sqrt{\nu(\kappa-\kappa_g)}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=i</script><p>当线性极化波$\bar D=\hat{e}_12D_0$,z的正方向入射该介质时，将波分解成</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)</script><p>假设介质厚度为d</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}</script><script type="math/tex; mode=display">
-    =\hat{e}_1D_0(e^{i\Phi_I}+e^{i\Phi_{II}})+\hat{e}_2D_0(e^{i\Phi_I}-e^{i\Phi_{II}})</script><script type="math/tex; mode=display">
-\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa+\kappa_g)}}</script><script type="math/tex; mode=display">
-\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{v(\kappa-\kappa_g)}}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}</script><blockquote>
-<p>经过该介质后线极化波方向发生改变，称为法拉第旋转，z方向+负号</p>
-</blockquote>
-<h2 id="Wave-in-Bianisotropic-Media"><a href="#Wave-in-Bianisotropic-Media" class="headerlink" title="Wave in Bianisotropic Media"></a>Wave in Bianisotropic Media</h2><script type="math/tex; mode=display">
-\bar E=
-        \begin{pmatrix}
-        \kappa&0&0\\
-        0&\kappa&0\\
-        0&0&\kappa_z
-        \end{pmatrix}
-        \cdot\bar D
-        +\begin{pmatrix}
-        \chi&0&0\\
-        0&\chi&0\\
-        0&0&\chi_z
-        \end{pmatrix}
-        \cdot\bar B</script><script type="math/tex; mode=display">
-\bar H=
-        \begin{pmatrix}
-        \gamma&0&0\\
-        0&\gamma&0\\
-        0&0&\gamma_z
-        \end{pmatrix}
-        \cdot\bar D
-        +\begin{pmatrix}
-        \nu&0&0\\
-        0&\nu&0\\
-        0&0&\nu_z
-        \end{pmatrix}
-        \cdot\bar B</script><p>其中</p>
-<script type="math/tex; mode=display">
-\bar\kappa_k=\bar{T}\cdot\bar\kappa\cdot \bar{T}^{-1}=
-\bar\kappa=
-        \begin{pmatrix}
-        \kappa&0&0\\
-        0&\kappa cos^2\theta+\kappa_zsin^2\theta&(\kappa-\kappa_z)sin\theta cos\theta\\
-        0&(\kappa-\kappa_z)sin\theta cos\theta&\kappa sin^2\theta+\kappa_zcos^2\theta
-        \end{pmatrix}</script><h2 id="Chiral-Media（手性介质）"><a href="#Chiral-Media（手性介质）" class="headerlink" title="Chiral Media（手性介质）"></a>Chiral Media（手性介质）</h2><script type="math/tex; mode=display">
-\overrightarrow{E}=\kappa\overrightarrow{D}-i\chi\overrightarrow{B}</script><script type="math/tex; mode=display">
-\overrightarrow{B}=i\chi\overrightarrow{D}+\nu\overrightarrow{B}</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\frac{u^2-\nu\kappa+\chi^2}{2i\chi\mu}=-\frac{2i\chi\mu}{u^2-\nu\kappa+\chi^2}</script><script type="math/tex; mode=display">
-u=\sqrt{\nu\kappa}\pm\chi</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=\pm i</script><ul>
-<li>左旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{I}=w/(\sqrt{\nu\kappa}+\chi)</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=-i</script><ul>
-<li>右旋</li>
-</ul>
-<script type="math/tex; mode=display">
-k^{II}=w/(\sqrt{\nu\kappa}-\chi)</script><script type="math/tex; mode=display">
-\frac{D_2}{D_1}=i</script><p>当线性极化波$\bar D=\hat{e}_12D_0$入射该介质时，将波分解成</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)+D_0(\hat{e}_1-\hat{e}_2i)</script><p>假设介质厚度为d</p>
-<script type="math/tex; mode=display">
-\bar D=D_0(\hat{e}_1+\hat{e}_2i)e^{ik^Iz}+D_0(\hat{e}_1-\hat{e}_2i)e^{ik^{II}z}</script><script type="math/tex; mode=display">
-=\hat{e}_1D_0(e^{i\Phi_I}+e^{i\Phi_{II}})+\hat{e}_2D_0(e^{i\Phi_I}-e^{i\Phi_{II}})</script><script type="math/tex; mode=display">
-\Phi_I=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}+\chi}</script><script type="math/tex; mode=display">
-\Phi_{II}=k^Iz_0=\frac{wz_0}{\sqrt{\nu\kappa}-\chi}</script><script type="math/tex; mode=display">
-\to \frac{D_2}{D_1}=i\frac{e^{i\Phi_I}-e^{i\Phi_{II}}}{e^{i\Phi_I}+e^{i\Phi_{II}}}=-tan\frac{\Phi_{II}-\Phi_I}{2}</script><blockquote>
-<p>optical activity:旋光性，旋光性和法拉第旋转有本质区别</p>
-</blockquote>
-<h2 id="重点归纳"><a href="#重点归纳" class="headerlink" title="重点归纳"></a>重点归纳</h2><p>如何解任意介质的麦克斯韦方程？</p>
+<h2 id="HTML基本结构"><a href="#HTML基本结构" class="headerlink" title="HTML基本结构"></a>HTML基本结构</h2><p>技术点的解释：</p>
 <ol>
-<li><strong>根据物质本构关系确定对于KDB坐标系下的本构关系</strong><script type="math/tex; mode=display">
-\bar{T}=\begin{bmatrix}
-sin\varPhi&-cos\varPhi&0\\
-cos\theta cos\varPhi&cos\theta sin\varPhi&-sin\theta\\
-sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
-\end{bmatrix}</script>2.<strong>代入以下矩阵方程</strong></li>
+<li><p><code>&lt;!DOCTYPE html&gt;</code>:文档类型声明，表示该文件为 HTML5文件。<code>&lt;!DOCTYPE&gt;</code> 声明必须是 HTML 文档的第一行，位于 <code>&lt;html&gt;</code> 标签之前</p>
+</li>
+<li><p><code>&lt;html&gt;&lt;/html&gt;</code>标签对：<code>&lt;html&gt;</code>标签位于HTML文档的最前面，用来标识HTML文档的开始；<code>&lt;/html&gt;</code>标签位于HTML文档的最后面，用来标识HTML 文档的结束；这两个标签对成对存在，中间的部分是文档的头部和主题。</p>
+</li>
 </ol>
-<script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \kappa_{11}&\kappa_{22}\\
-        \kappa_{21}&\kappa_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}=-
-        \begin{pmatrix}
-        \chi_{11}&\chi_{12}-u\\
-        \chi_{21}+u&\chi_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}</script><script type="math/tex; mode=display">
-        \begin{pmatrix}
-        \nu_{11}&\nu_{22}\\
-        \nu_{21}&\nu_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        B_1\\
-        B_2
-        \end{pmatrix}
-        =-\begin{pmatrix}
-        \gamma_{11}&\gamma_{12}+u\\
-        \gamma_{21}-u&\gamma_{22}
-        \end{pmatrix}
-        \begin{pmatrix}
-        D_1\\
-        D_2
-        \end{pmatrix}</script><p>3.<strong>分类讨论</strong></p>
+<p>3.<code>&lt;head&gt;&lt;/head&gt;</code>标签对：标签包含有关HTML文档的信息，可以包含一些辅助性标签。如<code>&lt;title&gt;&lt;/title&gt;，&lt;link /&gt;&lt;meta /&gt;，&lt;style&gt;&lt;/style&gt;，&lt;script&gt;&lt;/script&gt;</code>等，但是浏览器除了会在标题栏显示<code>&lt;title&gt;</code>元素的内容外，不会向用户显示head元素内的其他任何内容。</p>
+<p>4.<code>&lt;body&gt;&lt;/body&gt;</code>标签对：它是HTML文档的主体部分，在此标签中可以包含<code>&lt;p&gt;&lt;h1&gt;&lt;br&gt;</code>等众多标签，<code>&lt;body&gt;</code>标签出现在<code>&lt;/head&gt;</code>标签之后，且必须在闭标签<code>&lt;/html&gt;</code>之前闭合。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;html文件基本结构&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello world&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><strong>效果</strong></p>
+<h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><h1>Hello world</h1></h2><h2 id="head标签"><a href="#head标签" class="headerlink" title="head标签"></a>head标签</h2><p>文档的头部描述了文档的各种属性和信息，包括文档的标题等，绝大多数文档头部包含的数据都不会真正作为内容显示给读者。</p>
+<p>下面这些标签可用在 head 部分：</p>
+<p>1、head标签为双标签，有尾标签，<code>&lt;head&gt;&lt;/head&gt;</code>。</p>
+<p>2、head标签表示头部标签,通常用来嵌套meta、title、style等标签。</p>
+<p>3、<code>&lt;title&gt;</code>标签：在<code>&lt;title&gt;</code>和<code>&lt;/title&gt;</code>标签之间的文字内容是网页的标题信息，它会出现在浏览器的标题栏中。网页的title标签用于告诉用户和搜索引擎这个网页的主要内容是什么，搜索引擎可以通过网页标题，迅速的判断出网页的主题。每个网页的内容都是不同的，每个网页都应该有一个独一无二的title。</p>
+<p>4、<code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code>设置当前文件字符编码</p>
+<p>5、style标签：双标签中设置当前文件样式</p>
+<p>例如title标签：</p>
+<pre><code>&lt;head&gt;
+    &lt;title&gt;hello world&lt;/title&gt;
+&lt;/head&gt;
+&lt;title&gt;
+</code></pre><p>标签的内容“hello world”会在浏览器中的标题栏上显示出来.</p>
+<h2 id="body标签"><a href="#body标签" class="headerlink" title="body标签"></a>body标签</h2><h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;了不起的盖茨比&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- 标题标签 --&gt;
+    &lt;h1&gt;了不起的盖茨比&lt;/h1&gt;
+    &lt;!-- 段落标签 --&gt;
+    &lt;p&gt;1922年的春天，一个想要成名名叫尼克•卡拉威（托比•马奎尔Tobey Maguire 饰）的作家，离开了美国中西部，来到了纽约。那是一个道德感渐失，爵士乐流行，走私为王，股票飞涨的时代。为了追寻他的&lt;span&gt;美国梦&lt;/span&gt;，他搬入纽约附近一海湾居住。&lt;/p&gt;
+    &lt;!-- 段落标签 --&gt;
+    &lt;p&gt;菲茨杰拉德，二十世纪美国文学巨擘之一，兼具作家和编剧双重身份。他以诗人的敏感和戏剧家的想象为&quot;爵士乐时代&quot;吟唱华丽挽歌，其诗人和梦想家的气质亦为那个奢靡年代的不二注解。&lt;/p&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h2 id="HTML代码注释"><a href="#HTML代码注释" class="headerlink" title="HTML代码注释"></a>HTML代码注释</h2><p><code>&lt;!--注释文字--&gt;</code></p>
+<h1 id="HTML5语义化标签"><a href="#HTML5语义化标签" class="headerlink" title="HTML5语义化标签"></a>HTML5语义化标签</h1><p><strong>标签的用途</strong></p>
+<p>我们学习网页制作时，常常会听到一个词，语义化。那么什么叫做语义化呢，说的通俗点就是：明白每个标签的用途（在什么情况下使用此标签合理）比如，网页上的文章的标题就可以用标题标签，网页上的各个栏目的栏目名称也可以使用标题标签。文章中内容的段落就得放在段落标签中等等</p>
+<p><strong>语义化的好处</strong></p>
+<ol>
+<li><p>更容易被搜索引擎收录。</p>
+</li>
+<li><p>更容易让屏幕阅读器读出网页内容。</p>
+</li>
+</ol>
+<h2 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><code>&lt;p&gt;</code></th>
+<th>段落标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;span&gt;</code></td>
+<td>自定义文字样式</td>
+</tr>
+<tr>
+<td><code>&lt;hx&gt;</code></td>
+<td>标题标签</td>
+</tr>
+<tr>
+<td><code>&lt;div&gt;</code></td>
+<td>分块标签</td>
+</tr>
+<tr>
+<td><code>&lt;header&gt;</code></td>
+<td>头部标签</td>
+</tr>
+<tr>
+<td><code>&lt;footer&gt;</code></td>
+<td>底部标签</td>
+</tr>
+<tr>
+<td><code>&lt;section&gt;</code></td>
+<td>区段标签</td>
+</tr>
+<tr>
+<td><code>&lt;aside&gt;</code></td>
+<td>侧边栏</td>
+</tr>
+<tr>
+<td><code>&lt;br&gt;</code></td>
+<td>换行</td>
+</tr>
+<tr>
+<td><code>&amp;nbsp</code></td>
+<td>空格</td>
+</tr>
+<tr>
+<td><code>&lt;hr&gt;</code></td>
+<td>分隔线标签</td>
+</tr>
+<tr>
+<td><code>&lt;ul&gt;,&lt;li&gt;</code></td>
+<td>列表标签</td>
+</tr>
+<tr>
+<td><code>&lt;ol&gt;,&lt;li&gt;</code></td>
+<td>有序列表</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h2><p>语法：</p>
+<p><code>&lt;p&gt;段落文本&lt;/p&gt;</code></p>
+<p> 注意一段文字一个<code>&lt;p&gt;</code>标签，如在一篇新闻文章中有3段文字，就要把这3个段落分别放到3个<code>&lt;p&gt;</code>标签中。</p>
+<h2 id="diy文字：-lt-span-gt"><a href="#diy文字：-lt-span-gt" class="headerlink" title="diy文字：&lt;span&gt;"></a>diy文字：<code>&lt;span&gt;</code></h2><p> <code>&lt;span&gt;</code>标签是没有语义的，它的作用就是为了设置单独的样式用 的。</p>
+<h2 id="lt-div-gt-自定义块"><a href="#lt-div-gt-自定义块" class="headerlink" title="&lt;div&gt;自定义块"></a><code>&lt;div&gt;</code>自定义块</h2><p>在网页制作过程过中，可以把一些独立的逻辑部分划分出来，放在一个<code>&lt;div&gt;</code>标签中，这个<code>&lt;div&gt;</code>标签的作用就相当于一个容器。</p>
+<p>语法：</p>
+<p><code>&lt;div&gt;…&lt;/div&gt;</code></p>
+<h2 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h2><p><strong>语法</strong></p>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;信息&lt;/li&gt;
+  &lt;li&gt;信息&lt;/li&gt;
+   ......
+&lt;/ul&gt;
+</code></pre><p><strong>效果</strong>  </p>
 <ul>
-<li>反对角元素为0直接解方程</li>
-<li>反对角元素不为0用D1，D2之比解方程</li>
+  <li>信息</li>
+  <li>信息</li>
+   ......
 </ul>
+
+<h1 id="插入图片链接"><a href="#插入图片链接" class="headerlink" title="插入图片链接"></a>插入图片链接</h1><h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p><strong>语法：</strong></p>
+<pre><code>&lt;img src=&quot;图片地址&quot; alt=&quot;下载失败时的替换文本&quot; title = &quot;提示文本&quot;&gt;
+</code></pre><p><strong>举例：</strong></p>
+<pre><code>&lt;img src = &quot;myimage.gif&quot; alt = &quot;My Image&quot; title = &quot;My Image&quot; /&gt;
+</code></pre><p>1、src：标识图像的位置；</p>
+<p>2、alt：指定图像的描述性文本，当图像不可见时（下载不成功时），可看到该属性指定的文本；</p>
+<p>3、title：提供在图像可见时对图像的描述(鼠标滑过图片时显示的文本)；</p>
+<p>4、图像可以是GIF，PNG，JPEG格式的图像文件。</p>
+<h2 id="插入超链接"><a href="#插入超链接" class="headerlink" title="插入超链接"></a>插入超链接</h2><p>使用<code>&lt;a&gt;</code>标签可实现超链接，它在网页制作中可以说是无处不在，只要有链接的地方，就会有这个标签。</p>
+<p>语法：</p>
+<p><code>&lt;a  href=&quot;目标网址&quot;  title=&quot;鼠标滑过显示的文本&quot;&gt;</code>链接显示的文本<code>&lt;/a&gt;</code></p>
+<p><strong>例如：</strong></p>
+<pre><code>&lt;a  href=&quot;http://www.fazzie-key.cool&quot;  title=&quot;点击进入慕课网&quot;&gt;click here!&lt;/a&gt;
+</code></pre><p>上面例子作用是单击click here!文字，网页链接到<a href="http://www.fazzie-key.cool这个网页。" target="_blank" rel="noopener">http://www.fazzie-key.cool这个网页。</a></p>
+<p><strong>效果</strong></p>
+<p>  <a  href="http://www.fazzie-key.cool" target="_blank" rel="noopener"  title="点击进入慕课网">click here!</a></p>
+<blockquote>
+<p>title属性的作用，鼠标滑过链接文字时会显示这个属性的文本内容。这个属性在实际网页开发中作用很大，主要方便搜索引擎了解链接地址的内容（语义化更友好），）。</p>
+</blockquote>
+<h3 id="打开新窗口"><a href="#打开新窗口" class="headerlink" title="打开新窗口"></a>打开新窗口</h3><p>a标签有的target属性，代表打开网页的方式。可选值为”_self和_blank”，默认值为_self，代表在当前页面打开链接，_blank代表在新窗口打开链接。</p>
+<h2 id="插入表格"><a href="#插入表格" class="headerlink" title="插入表格"></a>插入表格</h2><p>创建表格的四个元素：table、tr、th、td</p>
+<p>1、<table>…</table>：整个表格以<table>标记开始、</table>标记结束。</p>
+<p>2、<tr>…</tr>：表格的一行，所以有几对tr 表格就有几行。</p>
+<p>3、<td>…</td>：表格的一个单元格，一行中包含几对<td>...</td>，说明一行中就有几列。</p>
+<p>4、<th>…</th>：表格的头部的一个单元格，表格表头。</p>
+<p>5、表格中列的个数，取决于一行中数据单元格的个数。</p>
+<p>6、border属性可以为表格添加边框，属性值为数字。</p>
+<p><strong>注意：</strong></p>
+<p>1、table标签用来定义整个表格，为双标签，必须有结束标签。</p>
+<p>2、table标签里面可以放caption标签和tr标签。</p>
+<p>3、caption标签用来定义表格的标题。</p>
+<p>4、tr标签用来设置表格的行，tr里面只能放th或者td标签，一组tr标签代表一行。</p>
+<p>5、th用来设置表格的标题，会加粗居中显示。也就是th标签中的文本默认为粗体并且居中显示。</p>
+<p>6、td同来设置表格的列，一组td标签代表一列。</p>
+<p>7、table表格在没有添加border属性之前, 在浏览器中显示是没有表格线的。</p>
+<p><strong>案例：</strong></p>
+<pre><code>&lt;table border =&quot;1&quot;&gt;
+    &lt;caption&gt; 前端三件套&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th&gt;语言&lt;/th&gt;
+        &lt;th&gt;难度&lt;/th&gt;
+    &lt;/tr&gt;
+     &lt;tr&gt;
+        &lt;td&gt;HTML&lt;/td&gt;
+        &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;CSS&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;JavaScript&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><p><strong>效果</strong></p>
+<table border ="1">
+    <caption> 前端三件套</caption>
+    <tr>
+        <th>语言</th>
+        <th>难度</th>
+    </tr>
+     <tr>
+        <td>HTML</td>
+        <td>7</td>
+    </tr>
+      <tr>
+        <td>CSS</td>
+        <td>8</td>
+    </tr>
+      <tr>
+        <td>JavaScript</td>
+        <td>9</td>
+    </tr>
+</table>
+
+<p>1、<code>&lt;thead&gt;</code> 标签定义表格的表头。该标签用于组合 HTML 表格的表头内容。</p>
+<p>2、<code>&lt;tbody&gt;…&lt;/tbody&gt;</code>：如果不加<code>&lt;thead&gt;&lt;tbody&gt;&lt;tfooter&gt;</code> , table表格加载完后才显示。加上这些表格结构， tbody包含行的内容下载完优先显示，不必等待表格结束后在显示，同时如果表格很长，用tbody分段，可以一部分一部分地显示。（通俗理解table 可以按结构一块块的显示，不在等整个表格加载完后显示。）</p>
+<p>3、<code>&lt;tfoot&gt;</code> 元素用于对 HTML 表格中的表注（页脚）内容进行分组。</p>
+<p>4、thead、tfoot 以及 tbody 元素使您有能力对表格中的行进行分组。当您创建某个表格时，您也许希望拥有一个标题行，一些带有数据的行，以及位于底部的一个总计行。这种划分使浏览器有能力支持独立于表格标题和页脚的表格正文滚动。当长的表格被打印时，表格的表头和页脚可被打印在包含表格数据的每张页面上。</p>
+<h1 id="网站与用户交互"><a href="#网站与用户交互" class="headerlink" title="网站与用户交互"></a>网站与用户交互</h1><p>网站怎样与用户进行交互？答案是使用HTML表单(form)。表单是可以把浏览者输入的数据传送到服务器端，这样服务器端程序就可以处理表单传过来的数据。</p>
+<p><strong>语法：</strong></p>
+<p><code>&lt;form   method=&quot;传送方式&quot;   action=&quot;服务器文件&quot;&gt;</code><br>讲解：</p>
+<p>1.<code>&lt;form&gt;</code> ：<code>&lt;form&gt;</code>标签是成对出现的，以<code>&lt;form&gt;</code>开始，以<code>&lt;/form&gt;</code>结束。</p>
+<p>2.action ：浏览者输入的数据被传送到的地方,比如一个PHP页面(save.php)。</p>
+<p>3.method ： 数据传送的方式（get/post）。</p>
+<pre><code>&lt;form    method=&quot;post&quot;   action=&quot;save.php&quot;&gt;
+        &lt;label for=&quot;username&quot;&gt;用户名:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;
+        &lt;label for=&quot;pass&quot;&gt;密码:&lt;/label&gt;
+        &lt;input type=&quot;password&quot; name=&quot;pass&quot; /&gt;
+&lt;/form&gt;
+</code></pre><p><strong>效果</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/28/632bd87adb5745d95e801801a74e9b49.png" alt=""></p>
+<h2 id="输入方式"><a href="#输入方式" class="headerlink" title="输入方式"></a>输入方式</h2><p>当用户要在表单中键入字母、数字等内容时，就会用到文本输入框。文本框也可以转化为密码输入框。<br><strong><br>语法：</strong></p>
+<pre><code>&lt;form&gt;
+   &lt;input type=&quot;text/password&quot; name=&quot;名称&quot; value=&quot;文本&quot; /&gt;
+&lt;/form&gt;
+</code></pre><p><strong>1、type：</strong></p>
+<p>   当type=”text”时，输入框为文本输入框;<br>   当type=”password”时, 输入框为密码输入框。</p>
+<p><strong>2、name</strong>：</p>
+<p>为文本框命名，以备后台程序ASP 、PHP使用。</p>
+<p><strong>3、value</strong>：</p>
+<p>为文本输入框设置默认值。(一般起到提示作用)</p>
+<p>举例：</p>
+<pre><code>&lt;form&gt;
+  姓名：
+  &lt;input type=&quot;text&quot; name=&quot;myName&quot;&gt;
+  &lt;br/&gt;
+  密码：
+  &lt;input type=&quot;password&quot; name=&quot;pass&quot;&gt;
+&lt;/form&gt;
+</code></pre><h2 id="placeholder属性"><a href="#placeholder属性" class="headerlink" title="placeholder属性"></a>placeholder属性</h2><p>input标签中占位符placeholder,属性，有时候需要提示用户输入框需要输入框的内容，</p>
+<pre><code>&lt;input type=&quot;password&quot; placeholder=&quot;请输入密码&quot; name=&quot;pass&quot;&gt;
+</code></pre><h2 id="数字输入框"><a href="#数字输入框" class="headerlink" title="数字输入框"></a>数字输入框</h2><p>1、input的type属性设置为number,则表示该输入框的类型为数字。</p>
+<p>2、数字框只能输入数字，输入其他字符无效。</p>
+<p>3、数字框最右侧会有一个加减符号,可以调整输入数字的大小,不同浏览器表现不一致。</p>
+<pre><code>&lt;input type=&quot;number&quot;&gt;
+</code></pre><h2 id="网址输入框"><a href="#网址输入框" class="headerlink" title="网址输入框"></a>网址输入框</h2><p>1、input的type属性设置为url,则表示该输入框的类型为网址。</p>
+<p>2、数字框的值需以<a href="http://或者https://开头,且后面必须有内容,否则表单提交的时候会报错误提示。" target="_blank" rel="noopener">http://或者https://开头,且后面必须有内容,否则表单提交的时候会报错误提示。</a></p>
+<pre><code>&lt;input type=&quot;url&quot;&gt;
+</code></pre><h2 id="邮箱输入框"><a href="#邮箱输入框" class="headerlink" title="邮箱输入框"></a>邮箱输入框</h2><p>1、Input的type属性设置为email,则表示该输入框的类型为邮箱。</p>
+<p>2、数字框的值必须包含@。</p>
+<p>3、数字框的值@之后必须有内容,否则会报错误提示。</p>
+<pre><code> &lt;input type=&quot;email&quot;&gt;
+</code></pre><h2 id="文本框（评论系统）"><a href="#文本框（评论系统）" class="headerlink" title="文本框（评论系统）"></a>文本框（评论系统）</h2><p>当用户需要在表单中输入大段文字时，需要用到文本输入域。</p>
+<p>语法：</p>
+<p><code>&lt;textarea  rows=&quot;行数&quot; cols=&quot;列数&quot;&gt;</code>文本<code>&lt;/textarea&gt;</code><br>1、<code>&lt;textarea&gt;</code>标签是成对出现的，以<code>&lt;textarea&gt;</code>开始，以<code>&lt;/textarea&gt;</code>结束。</p>
+<p>2、cols ：多行输入域的列数。</p>
+<p>3、rows ：多行输入域的行数。</p>
+<p>4、在<code>&lt;textarea&gt;&lt;/textarea&gt;</code>标签之间可以输入默认值。</p>
+<p>举例：</p>
+<pre><code>&lt;form  method=&quot;post&quot; action=&quot;save.php&quot;&gt;
+        &lt;label&gt;联系我们&lt;/label&gt;
+        &lt;textarea cols=&quot;50&quot; rows=&quot;10&quot; &gt;在这里输入内容...&lt;/textarea&gt;
+&lt;/form&gt;
+</code></pre><h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2><p>label标签不会向用户呈现任何特殊效果，它的作用是为鼠标用户改进了可用性。如果你在 label 标签内点击文本，就会触发此控件。就是说，当用户单击选中该label标签时，浏览器就会自动将焦点转到和标签相关的表单控件上（就自动选中和该label标签相关连的表单控件上）。</p>
+<p><strong>语法：</strong></p>
+<p><code>&lt;label for=&quot;控件id名称&quot;&gt;</code><br>注意：标签的 for 属性中的值应当与相关控件的 id 属性值一定要相同。</p>
+<p><strong>例子：</strong></p>
+<pre><code>&lt;form
+  &lt;label for=&quot;email&quot;&gt;输入你的邮箱地址&lt;/label&gt;
+  &lt;input type=&quot;email&quot; id=&quot;email&quot; placeholder=&quot;Enter email&quot;&gt;
+&lt;/form&gt;
+</code></pre><h2 id="选框"><a href="#选框" class="headerlink" title="选框"></a>选框</h2><p>在使用表单设计调查表时，为了减少用户的操作，使用选择框是一个好主意，html中有两种选择框，即单选框和复选框，两者的区别是单选框中的选项用户只能选择一项，而复选框中用户可以任意选择多项，甚至全选。请看下面的例子:</p>
+<p><strong>语法：</strong></p>
+<pre><code>&lt;input   type=&quot;radio/checkbox&quot;   value=&quot;值&quot;    name=&quot;名称&quot;   checked=&quot;checked&quot;/&gt;
+</code></pre><p>1、<strong>type</strong>:</p>
+<p>   当 type=”radio” 时，控件为单选框</p>
+<p>   当 type=”checkbox” 时，控件为复选框</p>
+<p>2、<strong>value</strong>：提交数据到服务器的值（后台程序PHP使用）</p>
+<p>3、<strong>name</strong>：为控件命名，以备后台程序 ASP、PHP 使用</p>
+<p>4、<strong>checked</strong>：当设置 checked=”checked” 时，该选项被默认选中</p>
+<p>如下面代码：</p>
+<pre><code>&lt;form action=&quot;save.php&quot; method=&quot;post&quot;&gt;
+        &lt;label&gt;性别:&lt;/label&gt;
+        &lt;label&gt;男&lt;/label&gt;
+        &lt;input type=&quot;radio&quot; value=&quot;1&quot; name=&quot;gender&quot; /&gt;
+        &lt;label&gt;女&lt;/label&gt;
+        &lt;input type=&quot;radio&quot; value=&quot;2&quot; name=&quot;gender&quot; /&gt;
+    &lt;/form&gt;
+</code></pre><h2 id="下拉框"><a href="#下拉框" class="headerlink" title="下拉框"></a>下拉框</h2><p>下拉列表在网页中也常会用到，它可以有效的节省网页空间。既可以单选、又可以多选。如下代码：</p>
+<pre><code>&lt;form&gt;
+        &lt;select&gt;
+            &lt;option value=&quot;看书&quot;&gt;看书&lt;/option&gt;
+            &lt;option value=&quot;旅游&quot;&gt;旅游&lt;/option&gt;
+            &lt;option value=&quot;运动&quot;&gt;运动&lt;/option&gt;
+            &lt;option value=&quot;购物&quot;&gt;购物&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+</code></pre><h2 id="提交按钮"><a href="#提交按钮" class="headerlink" title="提交按钮"></a>提交按钮</h2><p>在表单中有两种按钮可以使用，分别为：提交按钮、重置。这一小节讲解提交按钮：当用户需要提交表单信息到服务器时，需要用到提交按钮。</p>
+<p><strong>语法：</strong></p>
+<p><code>&lt;input   type=&quot;submit&quot;   value=&quot;提交&quot;&gt;</code></p>
+<p><strong>type</strong>：只有当type值设置为submit时，按钮才有提交作用</p>
+<p><strong>value</strong>：按钮上显示的文字</p>
+<pre><code>    &lt;form method=&quot;post&quot; action=&quot;save.php&quot;&gt;
+        &lt;label for=&quot;myName&quot;&gt;姓名：&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot; &quot; name=&quot;myName &quot; /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;提交&quot; name=&quot;submitBtn&quot; /&gt;
+    &lt;/form&gt;
+</code></pre><h2 id="重置"><a href="#重置" class="headerlink" title="重置"></a>重置</h2><p>当用户需要重置表单信息到初始时的状态时，比如用户输入“用户名”后，发现书写有误，可以使用重置按钮使输入框恢复到初始状态。只需要把type设置为”reset”就可以。</p>
+<p>语法：</p>
+<pre><code>&lt;input type=&quot;reset&quot; value=&quot;重置&quot;&gt;
+</code></pre><p><strong>type</strong>：只有当type值设置为reset时，按钮才有重置作用</p>
+<p><strong>value</strong>：按钮上显示的文字</p>
 
     
 
@@ -706,7 +598,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/06/19/KDB/" title="KDB" target="_blank">https://Fazziekey.github.io/2020/06/19/KDB/</a>
+          <a href="https://Fazziekey.github.io/2020/07/28/HTML/" title="HTML" target="_blank">https://Fazziekey.github.io/2020/07/28/HTML/</a>
         </li>
         
         <li>
@@ -728,7 +620,11 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
         		</li>
       		
 		</ul>
@@ -784,7 +680,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/06/19/KDB/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/07/28/HTML/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -799,18 +695,9 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
 
 <nav id="article-nav">
   
-    <a href="/2020/06/21/Reflection-and-Transmission/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Reflection and Transmission
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/19/Bianisotropic-media/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Bianisotropic media</div>
+    <a href="/2020/07/25/MySQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -837,7 +724,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#wave-vector-k的引入"><span class="toc-number">1.</span> <span class="toc-text">wave vector k的引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KDB坐标系"><span class="toc-number">2.</span> <span class="toc-text">KDB坐标系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maxwell-Equation-in-KDB-System"><span class="toc-number">3.</span> <span class="toc-text">Maxwell Equation in KDB System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各向同性介质中的波"><span class="toc-number">4.</span> <span class="toc-text">各向同性介质中的波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wave-in-uniaxial-Media单各向异性介质"><span class="toc-number">5.</span> <span class="toc-text">Wave in uniaxial Media单各向异性介质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wave-in-Gyrotropic-Media-陀螺介质中的波"><span class="toc-number">6.</span> <span class="toc-text">wave in Gyrotropic Media 陀螺介质中的波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Faraday-Rotation"><span class="toc-number">6.1.</span> <span class="toc-text">Faraday Rotation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wave-in-Bianisotropic-Media"><span class="toc-number">7.</span> <span class="toc-text">Wave in Bianisotropic Media</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chiral-Media（手性介质）"><span class="toc-number">8.</span> <span class="toc-text">Chiral Media（手性介质）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重点归纳"><span class="toc-number">9.</span> <span class="toc-text">重点归纳</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML基础"><span class="toc-number">1.</span> <span class="toc-text">HTML基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML和CSS关系"><span class="toc-number">1.1.</span> <span class="toc-text">HTML和CSS关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签的使用"><span class="toc-number">1.2.</span> <span class="toc-text">标签的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML基本结构"><span class="toc-number">1.3.</span> <span class="toc-text">HTML基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">1.3.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-world"><span class="toc-number">1.4.</span> <span class="toc-text">Hello world</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello-world"><span class="toc-number">2.</span> <span class="toc-text">Hello world</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#head标签"><span class="toc-number">2.1.</span> <span class="toc-text">head标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#body标签"><span class="toc-number">2.2.</span> <span class="toc-text">body标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML代码注释"><span class="toc-number">2.3.</span> <span class="toc-text">HTML代码注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML5语义化标签"><span class="toc-number">3.</span> <span class="toc-text">HTML5语义化标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用标签"><span class="toc-number">3.1.</span> <span class="toc-text">常用标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#段落标签"><span class="toc-number">3.2.</span> <span class="toc-text">段落标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diy文字：-lt-span-gt"><span class="toc-number">3.3.</span> <span class="toc-text">diy文字：&lt;span&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lt-div-gt-自定义块"><span class="toc-number">3.4.</span> <span class="toc-text">&lt;div&gt;自定义块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表标签"><span class="toc-number">3.5.</span> <span class="toc-text">列表标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入图片链接"><span class="toc-number">4.</span> <span class="toc-text">插入图片链接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插入图片"><span class="toc-number">4.1.</span> <span class="toc-text">插入图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入超链接"><span class="toc-number">4.2.</span> <span class="toc-text">插入超链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#打开新窗口"><span class="toc-number">4.2.1.</span> <span class="toc-text">打开新窗口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入表格"><span class="toc-number">4.3.</span> <span class="toc-text">插入表格</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网站与用户交互"><span class="toc-number">5.</span> <span class="toc-text">网站与用户交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#输入方式"><span class="toc-number">5.1.</span> <span class="toc-text">输入方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#placeholder属性"><span class="toc-number">5.2.</span> <span class="toc-text">placeholder属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字输入框"><span class="toc-number">5.3.</span> <span class="toc-text">数字输入框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网址输入框"><span class="toc-number">5.4.</span> <span class="toc-text">网址输入框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邮箱输入框"><span class="toc-number">5.5.</span> <span class="toc-text">邮箱输入框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本框（评论系统）"><span class="toc-number">5.6.</span> <span class="toc-text">文本框（评论系统）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label标签"><span class="toc-number">5.7.</span> <span class="toc-text">label标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选框"><span class="toc-number">5.8.</span> <span class="toc-text">选框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下拉框"><span class="toc-number">5.9.</span> <span class="toc-text">下拉框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交按钮"><span class="toc-number">5.10.</span> <span class="toc-text">提交按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重置"><span class="toc-number">5.11.</span> <span class="toc-text">重置</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -850,7 +737,7 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
 
 
 
-<div id="SOHUCS" sid="KDB" ></div> 
+<div id="SOHUCS" sid="HTML" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -871,9 +758,9 @@ sin\theta cos\varPhi&sin\theta sin\varPhi &cos\theta
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "KDB" -->
+  <!-- id: "HTML" -->
   var giteement = new Giteement({
-    id: '20200619200410',
+    id: '20200728153015',
     owner: 'Fazzie',
     repo: 'hexo-blog',
     backcall_uri: 'https://Fazziekey.github.io',
