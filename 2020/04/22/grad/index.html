@@ -252,6 +252,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+
+    
     <p>torch.Tensor是程序包的中心类。如果将其属性设置 .requires_grad为True，它将开始跟踪对其的所有操作。完成计算后，可以调用.backward()并自动计算所有梯度。该张量的梯度将累加到.grad属性中。</p>
 <h3 id="创建一个张量并设置requires-grad-True为跟踪张量"><a href="#创建一个张量并设置requires-grad-True为跟踪张量" class="headerlink" title="创建一个张量并设置requires_grad=True为跟踪张量"></a>创建一个张量并设置requires_grad=True为跟踪张量</h3><pre><code>import torch
 x = torch.ones(2, 2, requires_grad=True)
