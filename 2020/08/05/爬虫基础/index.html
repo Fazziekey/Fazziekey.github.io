@@ -6,16 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Archives: 2020 | Hexo</title>
+  <title>爬虫基础-正则表达匹配 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/archives/2020/page/2/index.html">
+  <meta name="description" content="网页结构网页由HTML组成，用JS和CSS修饰，爬虫会根据html中的标签来搜索合适的信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫基础-正则表达匹配">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网页结构网页由HTML组成，用JS和CSS修饰，爬虫会根据html中的标签来搜索合适的信息">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-05T06:31:28.000Z">
+<meta property="article:modified_time" content="2020-08-05T06:33:45.550Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="Statistic Analysis">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -176,456 +182,440 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-爬虫基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/21/Wave-Guide/" class="archive-article-date">
-        <time datetime="2020-06-21T05:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/21/Wave-Guide/" target="_blank">Wave Guide</a>
   
+    <h1 class="article-title" itemprop="name">
+      爬虫基础-正则表达匹配
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+        <time datetime="2020-08-05T06:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.6k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="网页结构"><a href="#网页结构" class="headerlink" title="网页结构"></a>网页结构</h1><p>网页由HTML组成，用JS和CSS修饰，爬虫会根据html中的标签来搜索合适的信息<br><a id="more"></a></p>
+<h2 id="用python登录网页"><a href="#用python登录网页" class="headerlink" title="用python登录网页"></a>用python登录网页</h2><pre><code>from urllib.request import urlopen
+html = urlopen(&quot;https://fazzie-key.cool.html&quot;).read().decode(&#39;utf-8&#39;)
+print(html)
+</code></pre><h2 id="利用python搜索内容"><a href="#利用python搜索内容" class="headerlink" title="利用python搜索内容"></a>利用python搜索内容</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>正则表达式 (Regular Expression) 又称 RegEx, 是用来匹配字符的一种工具. </p>
+<pre><code>import re #导入模块
+# regular expression
+pattern1 = &quot;cat&quot;
+pattern2 = &quot;bird&quot;
+string = &quot;dog runs to cat&quot;
+print(re.search(pattern1, string)) 
+print(re.search(pattern2, string))  
+</code></pre><p>打印结果    </p>
+<pre><code>  &lt;_sre.SRE_Match object; span=(12, 15), match=&#39;cat&#39;&gt;
+ None
+</code></pre><h4 id="匹配多种可能"><a href="#匹配多种可能" class="headerlink" title="匹配多种可能"></a>匹配多种可能</h4><p> <code>[]</code>可以匹配多种结果</p>
+<pre><code>print(re.search(r&quot;r[au]n&quot;,&quot;dog runs to cat&quot;)
+print(re.search(r&quot;r[A-Z]n&quot;,&quot;dog runs to cat&quot;)
+print(re.search(r&quot;r[a-z]n&quot;,&quot;dog runs to cat&quot;)
+print(re.search(r&quot;r[0-9a-z]n&quot;,&quot;dog runs to cat&quot;)
+</code></pre><h4 id="特殊匹配"><a href="#特殊匹配" class="headerlink" title="特殊匹配"></a>特殊匹配</h4><p> 一些特殊字符可以利用<code>\</code>转义进行匹配</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> \d</td>
+<td>任何数字</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>不是数字</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>任何 white space, 如 [\t\n\r\f\v]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>不是 white space</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>任何大小写字母, 数字和 _ [a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>不是 \w</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>空白字符 (只在某个字的开头或结尾)</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>空白字符 (不在某个字的开头或结尾)</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>匹配 \</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配任何字符 (除了 \n)</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配结尾</td>
+</tr>
+<tr>
+<td>?</td>
+<td>前面的字符可有可无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码案例</strong></p>
+<pre><code># \d : decimal digit
+print(re.search(r&quot;r\dn&quot;, &quot;run r4n&quot;))           # &lt;_sre.SRE_Match object; span=(4, 7), match=&#39;r4n&#39;&gt;
+# \D : any non-decimal digit
+print(re.search(r&quot;r\Dn&quot;, &quot;run r4n&quot;))           # &lt;_sre.SRE_Match object; span=(0, 3), match=&#39;run&#39;&gt;
+# \s : any white space [\t\n\r\f\v]
+print(re.search(r&quot;r\sn&quot;, &quot;r\nn r4n&quot;))          # &lt;_sre.SRE_Match object; span=(0, 3), match=&#39;r\nn&#39;&gt;
+# \S : opposite to \s, any non-white space
+print(re.search(r&quot;r\Sn&quot;, &quot;r\nn r4n&quot;))          # &lt;_sre.SRE_Match object; span=(4, 7), match=&#39;r4n&#39;&gt;
+# \w : [a-zA-Z0-9_]
+print(re.search(r&quot;r\wn&quot;, &quot;r\nn r4n&quot;))          # &lt;_sre.SRE_Match object; span=(4, 7), match=&#39;r4n&#39;&gt;
+# \W : opposite to \w
+print(re.search(r&quot;r\Wn&quot;, &quot;r\nn r4n&quot;))          # &lt;_sre.SRE_Match object; span=(0, 3), match=&#39;r\nn&#39;&gt;
+# \b : empty string (only at the start or end of the word)
+print(re.search(r&quot;\bruns\b&quot;, &quot;dog runs to cat&quot;))    # &lt;_sre.SRE_Match object; span=(4, 8), match=&#39;runs&#39;&gt;
+# \B : empty string (but not at the start or end of a word)
+print(re.search(r&quot;\B runs \B&quot;, &quot;dog   runs  to cat&quot;))  # &lt;_sre.SRE_Match object; span=(8, 14), match=&#39; runs &#39;&gt;
+# \\ : match \
+print(re.search(r&quot;runs\\&quot;, &quot;runs\ to me&quot;))     # &lt;_sre.SRE_Match object; span=(0, 5), match=&#39;runs\\&#39;&gt;
+# . : match anything (except \n)
+print(re.search(r&quot;r.n&quot;, &quot;r[ns to me&quot;))         # &lt;_sre.SRE_Match object; span=(0, 3), match=&#39;r[n&#39;&gt;
+# ^ : match line beginning
+print(re.search(r&quot;^dog&quot;, &quot;dog runs to cat&quot;))   # &lt;_sre.SRE_Match object; span=(0, 3), match=&#39;dog&#39;&gt;
+# $ : match line ending
+print(re.search(r&quot;cat$&quot;, &quot;dog runs to cat&quot;))   # &lt;_sre.SRE_Match object; span=(12, 15), match=&#39;cat&#39;&gt;
+# ? : may or may not occur
+print(re.search(r&quot;Mon(day)?&quot;, &quot;Monday&quot;))       # &lt;_sre.SRE_Match object; span=(0, 6), match=&#39;Monday&#39;&gt;
+print(re.search(r&quot;Mon(day)?&quot;, &quot;Mon&quot;))          # &lt;_sre.SRE_Match object; span=(0, 3), match=&#39;Mon&#39;&gt;
+</code></pre><h4 id="重复匹配"><a href="#重复匹配" class="headerlink" title="重复匹配"></a>重复匹配</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>重复零次或多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复一次或多次</td>
+</tr>
+<tr>
+<td>{n, m}</td>
+<td>重复 n 至 m 次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复 n 次</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码案例</strong></p>
+<pre><code># * : occur 0 or more times
+print(re.search(r&quot;ab*&quot;, &quot;a&quot;))             # &lt;_sre.SRE_Match object; span=(0, 1), match=&#39;a&#39;&gt;
+print(re.search(r&quot;ab*&quot;, &quot;abbbbb&quot;))        # &lt;_sre.SRE_Match object; span=(0, 6), match=&#39;abbbbb&#39;&gt;
+
+# + : occur 1 or more times
+print(re.search(r&quot;ab+&quot;, &quot;a&quot;))             # None
+print(re.search(r&quot;ab+&quot;, &quot;abbbbb&quot;))        # &lt;_sre.SRE_Match object; span=(0, 6), match=&#39;abbbbb&#39;&gt;
+
+# {n, m} : occur n to m times
+print(re.search(r&quot;ab{2,10}&quot;, &quot;a&quot;))        # None
+print(re.search(r&quot;ab{2,10}&quot;, &quot;abbbbb&quot;))   # &lt;_sre.SRE_Match object; span=(0, 6), match=&#39;abbbbb&#39;&gt;
+</code></pre><h4 id="分组匹配"><a href="#分组匹配" class="headerlink" title="分组匹配"></a>分组匹配</h4><p>使用（）可以进行分组匹配<br> 比如在这个 (\d+) 组里, 需要找到的是一些数字, 在 (.+) 这个组里, 我们会找到 Date: 后面的所有内容. 当使用 match.group() 时, 他会返回所有组里的内容, 而如果给 .group(2) 里加一个数, 它就能定位你需要返回哪个组里的信息.</p>
+<pre><code>match = re.search(r&quot;(\d+), Date: (.+)&quot;, &quot;ID: 021523, Date: Feb/12/2017&quot;)
+print(match.group())                   # 021523, Date: Feb/12/2017
+print(match.group(1))                  # 021523
+print(match.group(2))                  # Date: Feb/12/2017
+</code></pre><p>有时候, 组会很多, 光用数字可能比较难找到自己想要的组, 这时候, 如果有一个名字当做索引, 会是一件很容易的事. 我们字需要在括号的开头写上这样的形式 <code>?P&lt;名字&gt;</code> 就给这个组定义了一个名字. 然后就能用这个名字找到这个组的内容.</p>
+<pre><code>match = re.search(r&quot;(?P&lt;id&gt;\d+), Date: (?P&lt;date&gt;.+)&quot;, &quot;ID: 021523, Date: Feb/12/2017&quot;)
+print(match.group(&#39;id&#39;))                # 021523
+print(match.group(&#39;date&#39;))              # Date: Feb/12/2017
+</code></pre><h4 id="寻找所有匹配"><a href="#寻找所有匹配" class="headerlink" title="寻找所有匹配"></a>寻找所有匹配</h4><pre><code>    # findall
+print(re.findall(r&quot;r[ua]n&quot;, &quot;run ran ren&quot;))    # [&#39;run&#39;, &#39;ran&#39;]
+
+# | : or
+print(re.findall(r&quot;(run|ran)&quot;, &quot;run ran ren&quot;)) # [&#39;run&#39;, &#39;ran&#39;]
+</code></pre><h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><p>我们还能通过正则表达式匹配上一些形式的字符串然后再替代掉这些字符串. 使用这种匹配 re.sub(), 将会比 python 自带的 string.replace() 要灵活多变.</p>
+<pre><code>print(re.sub(r&quot;r[au]ns&quot;, &quot;catches&quot;, &quot;dog runs to cat&quot;))     # dog catches to cat
+</code></pre><h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p>split方法可以分解句子中的单词</p>
+<pre><code>print(re.split(r&quot;[,;\.]&quot;, &quot;a;b,c.d;e&quot;))             
+
+# [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+</code></pre><h4 id="compile"><a href="#compile" class="headerlink" title="compile"></a>compile</h4><p>compile方法，可以对一个正则匹配重复使用</p>
+<pre><code>compiled_re = re.compile(r&quot;r[ua]n&quot;)
+print(compiled_re.search(&quot;dog ran to cat&quot;))  # &lt;_sre.SRE_Match object; span=(4, 7), match=&#39;ran&#39;&gt;
+</code></pre><hr>
+<h3 id="利用正则表达式在网页中获取关键信息"><a href="#利用正则表达式在网页中获取关键信息" class="headerlink" title="利用正则表达式在网页中获取关键信息"></a>利用正则表达式在网页中获取关键信息</h3><h4 id="匹配title"><a href="#匹配title" class="headerlink" title="匹配title"></a>匹配title</h4><pre><code>res = re.findall(r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;, html)
+print(&quot;\nPage title is: &quot;, res[0])
+</code></pre><h4 id="匹配段落"><a href="#匹配段落" class="headerlink" title="匹配段落"></a>匹配段落</h4><pre><code>res = re.findall(r&quot;&lt;p&gt;(.*?)&lt;/p&gt;&quot;, html, flags=re.DOTALL)    # re.DOTALL if multi line
+print(&quot;\nPage paragraph is: &quot;, res[0])
+</code></pre><blockquote>
+<p>因为这个段落在 HTML 中还夹杂着 tab, new line, 所以我们给一个 flags=re.DOTALL 来对这些 tab, new line 不敏感.</p>
+</blockquote>
+<h4 id="匹配链接"><a href="#匹配链接" class="headerlink" title="匹配链接"></a>匹配链接</h4><pre><code>res = re.findall(r&#39;href=&quot;(.*?)&quot;&#39;, html)
+print(&quot;\nAll links: &quot;, res)
+# All links:
+</code></pre>
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/08/05/爬虫基础/" title="爬虫基础-正则表达匹配" target="_blank">https://Fazziekey.github.io/2020/08/05/爬虫基础/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/21/Reflection-and-Transmission/" class="archive-article-date">
-        <time datetime="2020-06-21T05:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/21/Reflection-and-Transmission/" target="_blank">Reflection and Transmission</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/KDB/" class="archive-article-date">
-        <time datetime="2020-06-19T12:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/04/pytorch-basic/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pytorch basic</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/KDB/" target="_blank">KDB</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网页结构"><span class="toc-number">1.</span> <span class="toc-text">网页结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用python登录网页"><span class="toc-number">1.1.</span> <span class="toc-text">用python登录网页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用python搜索内容"><span class="toc-number">1.2.</span> <span class="toc-text">利用python搜索内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.2.1.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#匹配多种可能"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">匹配多种可能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特殊匹配"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">特殊匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重复匹配"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">重复匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分组匹配"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">分组匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#寻找所有匹配"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">寻找所有匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#替换"><span class="toc-number">1.2.1.6.</span> <span class="toc-text">替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#split"><span class="toc-number">1.2.1.7.</span> <span class="toc-text">split</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#compile"><span class="toc-number">1.2.1.8.</span> <span class="toc-text">compile</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用正则表达式在网页中获取关键信息"><span class="toc-number">1.2.2.</span> <span class="toc-text">利用正则表达式在网页中获取关键信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#匹配title"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">匹配title</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#匹配段落"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">匹配段落</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#匹配链接"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">匹配链接</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+
+
+<div id="SOHUCS" sid="爬虫基础" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/Bianisotropic-media/" class="archive-article-date">
-        <time datetime="2020-06-19T12:02:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/Bianisotropic-media/" target="_blank">Bianisotropic media</a>
-  
-    </h1>
-  
+  <script>
+  <!-- id: "爬虫基础-正则表达匹配" -->
+  var giteement = new Giteement({
+    id: '20200805143128',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/Media/" class="archive-article-date">
-        <time datetime="2020-06-19T07:45:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/Media/" target="_blank">Media</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/maxwell/" class="archive-article-date">
-        <time datetime="2020-06-19T03:26:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/maxwell/" target="_blank">从0开始手撕麦克斯韦</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" class="archive-article-date">
-        <time datetime="2020-06-19T03:26:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" target="_blank">maxwell</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/SIFT/" class="archive-article-date">
-        <time datetime="2020-06-19T00:05:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/SIFT/" target="_blank">SIFT</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/18/Maxwell-s-Theory/" class="archive-article-date">
-        <time datetime="2020-06-18T13:42:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/18/Maxwell-s-Theory/" target="_blank">Maxwell&#39;s Theory</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/22/grad/" class="archive-article-date">
-        <time datetime="2020-04-22T03:00:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/22/grad/" target="_blank">使用pytorch进行梯度运算</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -666,8 +656,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
