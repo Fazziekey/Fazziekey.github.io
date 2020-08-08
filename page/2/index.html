@@ -78,7 +78,7 @@
 			
 				<li><a href="/tags" target="_blank">tags</a></li>
 			
-				<li><a href="/nn" target="_blank">Learning nn</a></li>
+				<li><a href="/nn" target="_blank">Knowledge nn</a></li>
 			
 			</ul>
 		</nav>
@@ -182,7 +182,7 @@
 		        
 					<li style="width: 20%"><a href="/tags">tags</a></li>
 		        
-					<li style="width: 20%"><a href="/nn">Learning nn</a></li>
+					<li style="width: 20%"><a href="/nn">Knowledge nn</a></li>
 		        
 				</ul>
 			</nav>
@@ -205,6 +205,111 @@
   <script>
     Oauthcallback();
   </script>
+
+
+  
+    <article id="post-CNN“" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/07/18/CNN%E2%80%9C/" target="_blank">CNN“</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/07/18/CNN%E2%80%9C/" class="archive-article-date">
+        <time datetime="2020-07-17T16:05:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><h2 id="Computer-Version"><a href="#Computer-Version" class="headerlink" title="Computer Version"></a>Computer Version</h2><p>传统的机器视觉的特征提取算法大都基于梯度实现，卷积神经网络为解决视觉问题提供了一个新的方法<br>
+    
+    <a class="article-more-a" href="/2020/07/18/CNN%E2%80%9C/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/07/18/CNN%E2%80%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
 
 
   
@@ -1146,111 +1251,6 @@
 
 
   
-    <article id="post-grad" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/22/grad/" target="_blank">使用pytorch进行梯度运算</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/22/grad/" class="archive-article-date">
-        <time datetime="2020-04-22T03:00:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-
-    
-    <p>torch.Tensor是程序包的中心类。如果将其属性设置 .requires_grad为True，它将开始跟踪对其的所有操作。完成计算后，可以调用.backward()并自动计算所有梯度。该张量的梯度将累加到.grad属性中。</p>
-<h3 id="创建一个张量并设置requires-grad-True为跟踪张量"><a href="#创建一个张量并设置requires-grad-True为跟踪张量" class="headerlink" title="创建一个张量并设置requires_grad=True为跟踪张量"></a>创建一个张量并设置requires_grad=True为跟踪张量</h3><pre><code>import torch
-x = torch.ones(2, 2, requires_grad=True)
-print(x)
-</code></pre>
-    
-    <a class="article-more-a" href="/2020/04/22/grad/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/22/grad/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1450,6 +1450,10 @@ print(x)
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Statistic Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
