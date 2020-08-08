@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>nn | Hexo</title>
+  <title>建立你的知识神经网络 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="加入新html子页面 首先，在博客根目录的source文件夹下，新建文件夹用于存放HTML文件    在博客根目录的配置文件_config.yml文件里，跳过渲染  #跳过文件夹下所有文件 skip_render:    - &quot;文件夹名&#x2F;*&quot;   Echart制作神经网络&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;     &amp;l">
+  <meta name="description" content="早在6月份学习深度学习的时候就有想在自己的博客中加入一张神经网络图记录学习的知识体系，一直拖到现在（主要是看门狗2太好玩了，不是）。这篇文章将详细的介绍如何在hexo博客中加入一张神经网络图。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nn">
+<meta property="og:title" content="建立你的知识神经网络">
 <meta property="og:url" content="https://fazziekey.github.io/2020/08/08/nn/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="加入新html子页面 首先，在博客根目录的source文件夹下，新建文件夹用于存放HTML文件    在博客根目录的配置文件_config.yml文件里，跳过渲染  #跳过文件夹下所有文件 skip_render:    - &quot;文件夹名&#x2F;*&quot;   Echart制作神经网络&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;     &amp;l">
+<meta property="og:description" content="早在6月份学习深度学习的时候就有想在自己的博客中加入一张神经网络图记录学习的知识体系，一直拖到现在（主要是看门狗2太好玩了，不是）。这篇文章将详细的介绍如何在hexo博客中加入一张神经网络图。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/05/a19e058aacfc62f785cfd69176e78296.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/08/af24bcbd2f1e99a78dca8b7228e0c9fc.png">
 <meta property="article:published_time" content="2020-08-08T07:20:11.000Z">
-<meta property="article:modified_time" content="2020-08-08T07:21:22.577Z">
+<meta property="article:modified_time" content="2020-08-08T08:11:50.757Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="hexo">
@@ -74,13 +75,11 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/" target="_blank">index</a></li>
+				<li><a href="/" target="_blank">Home</a></li>
 			
-				<li><a href="/archives/index.html" target="_blank">archives</a></li>
+				<li><a href="/archives/index.html" target="_blank">Archives</a></li>
 			
-				<li><a href="/categories" target="_blank">categories</a></li>
-			
-				<li><a href="/tags" target="_blank">tags</a></li>
+				<li><a href="/categories" target="_blank">Categories</a></li>
 			
 				<li><a href="/nn" target="_blank">Knowledge nn</a></li>
 			
@@ -158,8 +157,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -178,15 +175,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">index</a></li>
+					<li style="width: 25%"><a href="/">Home</a></li>
 		        
-					<li style="width: 20%"><a href="/archives/index.html">archives</a></li>
+					<li style="width: 25%"><a href="/archives/index.html">Archives</a></li>
 		        
-					<li style="width: 20%"><a href="/categories">categories</a></li>
+					<li style="width: 25%"><a href="/categories">Categories</a></li>
 		        
-					<li style="width: 20%"><a href="/tags">tags</a></li>
-		        
-					<li style="width: 20%"><a href="/nn">Knowledge nn</a></li>
+					<li style="width: 25%"><a href="/nn">Knowledge nn</a></li>
 		        
 				</ul>
 			</nav>
@@ -209,7 +204,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      nn
+      建立你的知识神经网络
     </h1>
   
 
@@ -235,7 +230,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -244,7 +239,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -257,28 +252,55 @@
     
 
     
-    <h1 id="加入新html子页面"><a href="#加入新html子页面" class="headerlink" title="加入新html子页面"></a>加入新html子页面</h1><ul>
+    <p>早在6月份学习深度学习的时候就有想在自己的博客中加入一张神经网络图记录学习的知识体系，一直拖到现在（主要是看门狗2太好玩了，不是）。这篇文章将详细的介绍如何在hexo博客中加入一张神经网络图。</p>
+<a id="more"></a>
+<h1 id="在博客中加入新页面"><a href="#在博客中加入新页面" class="headerlink" title="在博客中加入新页面"></a>在博客中加入新页面</h1><p>在博客中加入新页面的方式有两种，一种是直接创建html文件，自己做一个网页，令一种是新建一个md格式的page，，最后考虑到博客的整体性，我选择了后者，下面是两种方法的具体过程</p>
+<h2 id="加入新html子页面"><a href="#加入新html子页面" class="headerlink" title="加入新html子页面"></a>加入新html子页面</h2><ul>
 <li>首先，在博客根目录的source文件夹下，新建文件夹用于存放HTML文件</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/05/a19e058aacfc62f785cfd69176e78296.png" alt=""></p>
+<p>hexo会对source文件夹中所有的页面进行渲染，所以我们自己的HTML文件需要跳过渲染。</p>
 <ul>
-<li>在博客根目录的配置文件_config.yml文件里，跳过渲染</li>
+<li><p>在博客根目录的配置文件_config.yml文件里，跳过渲染</p>
+<h1 id="跳过文件夹下所有文件"><a href="#跳过文件夹下所有文件" class="headerlink" title="跳过文件夹下所有文件"></a>跳过文件夹下所有文件</h1><p>  skip_render: </p>
+<pre><code>- &quot;文件夹名/*&quot;  
+</code></pre><h2 id="新建一个page"><a href="#新建一个page" class="headerlink" title="新建一个page"></a>新建一个page</h2></li>
 </ul>
-<pre><code>#跳过文件夹下所有文件
-skip_render: 
-  - &quot;文件夹名/*&quot;  
-</code></pre><h2 id="Echart制作神经网络"><a href="#Echart制作神经网络" class="headerlink" title="Echart制作神经网络"></a>Echart制作神经网络</h2><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;学习神经网络&lt;/title&gt;
-    &lt;script src=&quot;echarts.min.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-&lt;div id=&quot;main&quot; style=&quot;width:1000px;height:800px&quot;&gt;&lt;/div&gt;
+<p>cmd+win调出命令行，在博客对应目录输入</p>
+<pre><code>hexo new page &quot;页面名称&quot;
+</code></pre><p>hexo 会在source文件夹下创建一个对应的文件夹，里面有一个<code>index.md</code>的文件，在配置文件<code>_config.yml</code>中的<code>menu</code>下加入<code>/创建页面名称</code>，这样就创建好了新页面。</p>
+<pre><code># Header-菜单
+menu:
+Home: /
+Archives:  /archives/index.html
+Categories : /categories
+Knowledge nn : /nn
+</code></pre><h1 id="Echart框架下载"><a href="#Echart框架下载" class="headerlink" title="Echart框架下载"></a>Echart框架下载</h1><p>第二步我们需要建立我们的神经图，这里我选择的JS的图表框架<a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener">Echart</a>，一个功能非常强大的框架，图表非常的美观<br>在这里我们总共需要两个js文件</p>
+<ul>
+<li>echarts.min.js 主要的js文件，echart的压缩版本<ul>
+<li>因为我们只用到关系图，所以也可以在官网通过定制只下载关系图的代码</li>
+</ul>
+</li>
+<li>jquery.js 当要用jquery调用json文件时加入</li>
+</ul>
+<p><strong>下载地址</strong></p>
+<p><strong>echarts.min.js</strong>：<a href="https://echarts.apache.org/zh/download.html" target="_blank" rel="noopener">https://echarts.apache.org/zh/download.html</a></p>
+<p><strong>jquery.js</strong>：<a href="http://blog.jquery.com/" target="_blank" rel="noopener">http://blog.jquery.com/</a></p>
+<p>也可以访问我的github直接下载所有源码文件<br><a href="https://github.com/Fazziekey/Echart-nn" target="_blank" rel="noopener">https://github.com/Fazziekey/Echart-nn</a></p>
+<p>下载完成后将这两个文件放在Hexo\themes\<theme~name>\source\js下  </p>
+<h1 id="Echart制作神经网络"><a href="#Echart制作神经网络" class="headerlink" title="Echart制作神经网络"></a>Echart制作神经网络</h1><p>接下来在我们刚刚创建的md文件中直接插入下面的代码，我们需要给这个关系图提供一个容器</p>
+<pre><code>&lt;div id=&quot;main&quot; style=&quot;width:100%;height:500px&quot;&gt;&lt;/div&gt; 
+&lt;!--宽度推荐设置为100%占据整个网页--&gt;
+&lt;script src=&quot;echarts.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;src=&quot;/js/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;!--如果不调用外部json文件可以删去--&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+</code></pre><p>下面是如何配置神经网络图</p>
+<hr>
+<pre><code>&lt;div id=&quot;main&quot; style=&quot;width:1000px;height:800px&quot;&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
     var myChart = echarts.init(document.getElementById(&#39;main&#39;));
-    var categories = [];   //标签
+    var categories = [];   //设置图例标签
         categories[0] = {
             name: &quot;Brain Center&quot;
         };
@@ -449,6 +471,8 @@ skip_render:
 &lt;/script&gt;
 &lt;/body&gt;
 </code></pre><p>&lt;/html&gt;</p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p>也可以直接访问我侧边栏的<strong>Knowledge nn</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/08/af24bcbd2f1e99a78dca8b7228e0c9fc.png" alt=""></p>
 
     
 
@@ -463,7 +487,7 @@ skip_render:
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/08/08/nn/" title="nn" target="_blank">https://Fazziekey.github.io/2020/08/08/nn/</a>
+          <a href="https://Fazziekey.github.io/2020/08/08/nn/" title="建立你的知识神经网络" target="_blank">https://Fazziekey.github.io/2020/08/08/nn/</a>
         </li>
         
         <li>
@@ -600,7 +624,7 @@ skip_render:
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#加入新html子页面"><span class="toc-number">1.</span> <span class="toc-text">加入新html子页面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Echart制作神经网络"><span class="toc-number">1.1.</span> <span class="toc-text">Echart制作神经网络</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在博客中加入新页面"><span class="toc-number">1.</span> <span class="toc-text">在博客中加入新页面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#加入新html子页面"><span class="toc-number">1.1.</span> <span class="toc-text">加入新html子页面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跳过文件夹下所有文件"><span class="toc-number">2.</span> <span class="toc-text">跳过文件夹下所有文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建一个page"><span class="toc-number">2.1.</span> <span class="toc-text">新建一个page</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echart框架下载"><span class="toc-number">3.</span> <span class="toc-text">Echart框架下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echart制作神经网络"><span class="toc-number">4.</span> <span class="toc-text">Echart制作神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#最终效果"><span class="toc-number">4.1.</span> <span class="toc-text">最终效果</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -634,7 +658,7 @@ skip_render:
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "nn" -->
+  <!-- id: "建立你的知识神经网络" -->
   var giteement = new Giteement({
     id: '20200808152011',
     owner: 'Fazzie',

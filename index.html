@@ -70,13 +70,11 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/" target="_blank">index</a></li>
+				<li><a href="/" target="_blank">Home</a></li>
 			
-				<li><a href="/archives/index.html" target="_blank">archives</a></li>
+				<li><a href="/archives/index.html" target="_blank">Archives</a></li>
 			
-				<li><a href="/categories" target="_blank">categories</a></li>
-			
-				<li><a href="/tags" target="_blank">tags</a></li>
+				<li><a href="/categories" target="_blank">Categories</a></li>
 			
 				<li><a href="/nn" target="_blank">Knowledge nn</a></li>
 			
@@ -154,8 +152,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -174,15 +170,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">index</a></li>
+					<li style="width: 25%"><a href="/">Home</a></li>
 		        
-					<li style="width: 20%"><a href="/archives/index.html">archives</a></li>
+					<li style="width: 25%"><a href="/archives/index.html">Archives</a></li>
 		        
-					<li style="width: 20%"><a href="/categories">categories</a></li>
+					<li style="width: 25%"><a href="/categories">Categories</a></li>
 		        
-					<li style="width: 20%"><a href="/tags">tags</a></li>
-		        
-					<li style="width: 20%"><a href="/nn">Knowledge nn</a></li>
+					<li style="width: 25%"><a href="/nn">Knowledge nn</a></li>
 		        
 				</ul>
 			</nav>
@@ -216,7 +210,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/08/08/nn/" target="_blank">nn</a>
+	  <a class="article-title" href="/2020/08/08/nn/" target="_blank">建立你的知识神经网络</a>
   
     </h1>
   
@@ -239,199 +233,10 @@
     
 
     
-    <h1 id="加入新html子页面"><a href="#加入新html子页面" class="headerlink" title="加入新html子页面"></a>加入新html子页面</h1><ul>
-<li>首先，在博客根目录的source文件夹下，新建文件夹用于存放HTML文件</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/05/a19e058aacfc62f785cfd69176e78296.png" alt=""></p>
-<ul>
-<li>在博客根目录的配置文件_config.yml文件里，跳过渲染</li>
-</ul>
-<pre><code>#跳过文件夹下所有文件
-skip_render: 
-  - &quot;文件夹名/*&quot;  
-</code></pre><h2 id="Echart制作神经网络"><a href="#Echart制作神经网络" class="headerlink" title="Echart制作神经网络"></a>Echart制作神经网络</h2><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;学习神经网络&lt;/title&gt;
-    &lt;script src=&quot;echarts.min.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-&lt;div id=&quot;main&quot; style=&quot;width:1000px;height:800px&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var myChart = echarts.init(document.getElementById(&#39;main&#39;));
-    var categories = [];   //标签
-        categories[0] = {
-            name: &quot;Brain Center&quot;
-        };
-        categories[1] = {
-            name: &quot;工程&quot;
-        };
-        categories[2] = {
-            name: &quot;艺术&quot;
-        };
-        categories[3] = {
-            name: &quot;数理&quot;
-        };
-        categories[4] = {
-            name: &quot;逻辑&quot;
-        };
-        categories[5] = {
-            name: &quot;人文&quot;
-        };
-        categories[6] = {
-            name: &quot;社科&quot;
-        };
-        categories[7] = {
-            name: &quot;FCL&quot;
-        };
-
-
-    option = {
-        // 图的标题
-        title: {
-            text: &#39;Learning Neural Network&#39;
-        },
-        // 提示框的配置
-        tooltip: {
-            formatter: function (x) {
-                return x.data.des;
-            }
-        },
-        // 工具箱
-        toolbox: {
-            // 显示工具箱
-            show: true,
-            feature: {
-                mark: {
-                    show: true
-                },
-                // 还原
-                restore: {
-                    show: true
-                },
-                // 保存为图片
-                saveAsImage: {
-                    show: true
-                }
-            }
-        },
-        legend: [{
-            // selectedMode: &#39;single&#39;,
-            data: categories.map(function (a) {
-                return a.name;
-            })
-        }],
-        series: [{
-            type: &#39;graph&#39;, // 类型:关系图
-            layout: &#39;force&#39;, //图的布局，类型为力导图
-            symbolSize: 40, // 调整节点的大小
-            roam: true, // 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移,可以设置成 &#39;scale&#39; 或者 &#39;move&#39;。设置成 true 为都开启
-            focusNodeAdjacency: true,   // 是否在鼠标移到节点上的时候突出显示节点以及节点的边和邻接节点。[ default: false ]
-                    force: {                // 力引导布局相关的配置项，力引导布局是模拟弹簧电荷模型在每两个节点之间添加一个斥力，每条边的两个节点之间添加一个引力，每次迭代节点会在各个斥力和引力的作用下移动位置，多次迭代后节点会静止在一个受力平衡的位置，达到整个模型的能量最小化。
-                                    // 力引导布局的结果有良好的对称性和局部聚合性，也比较美观。
-                repulsion: 1000,            // [ default: 50 ]节点之间的斥力因子(关系对象之间的距离)。支持设置成数组表达斥力的范围，此时不同大小的值会线性映射到不同的斥力。值越大则斥力越大
-                edgeLength: [150, 100]      // [ default: 30 ]边的两个节点之间的距离(关系对象连接线两端对象的距离,会根据关系对象值得大小来判断距离的大小)，
-                                            // 这个距离也会受 repulsion。支持设置成数组表达边长的范围，此时不同大小的值会线性映射到不同的长度。值越小则长度越长。如下示例:
-                                            // 值最大的边长度会趋向于 10，值最小的边长度会趋向于 50      edgeLength: [10, 50]
-            },
-            edgeSymbol: [&#39;circle&#39;, &#39;arrow&#39;],
-            edgeSymbolSize: [2, 10],
-            edgeLabel: {
-                normal: {
-                    textStyle: {
-                        fontSize: 20
-                    }
-                }
-            },
-            force: {
-                repulsion: 2500,
-                edgeLength: [10, 50]
-            },
-            draggable: true,
-            lineStyle: {
-                normal: {
-                    width: 2,               //线条宽度
-                    color: &#39;#4b565b&#39;,       //线条颜色
-                    type: &#39;solid&#39;,          // 线的类型[ default: solid ]   &#39;dashed&#39;    &#39;dotted&#39;
-                    opacity: 0.5,           // 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。[ default: 0.5 ]
-                    curveness: 0.3          // 边的曲度，支持从 0 到 1 的值，值越大曲度越大。[ default: 0 ]
-
-                }
-            },
-            edgeLabel: {                    // 连接两个关系对象的线上的标签
-                normal: {
-                    show: true,
-                    formatter: function (x) {
-                        return x.data.name;
-                    }
-                }
-            },
-            label: {                        //对象标签
-                normal: {
-                    show: true,
-                    textStyle: {}
-                }
-            },
-
-            // 数据
-            data: [{
-                name: &#39;Brain Center&#39;,
-                des: &#39;nodedes01&#39;,
-                symbolSize: 100,
-                category: 0,
-            }, {
-                name: &#39;程序语言&#39;,
-                des: &#39;nodedes02&#39;,
-                symbolSize: 80,
-                category: 1,
-            }, {
-                name: &#39;音乐&#39;,
-                des: &#39;nodedes3&#39;,
-                symbolSize: 80,
-                category: 2,
-            }, {
-                name: &#39;课程&#39;,
-                des: &#39;nodedes04&#39;,
-                symbolSize: 80,
-                category: 7,
-            }, {
-                name: &#39;书籍&#39;,
-                des: &#39;nodedes05&#39;,
-                symbolSize: 80,
-                category: 7,
-            }
-            ],
-            //节点关系
-            links: [{
-                source: &#39;程序语言&#39;,
-                target: &#39;Brain Center&#39;,
-                name: &#39;Softmax&#39;,
-                des: &#39;link01des&#39;
-            }, {
-                source: &#39;音乐&#39;,
-                target: &#39;Brain Center&#39;,
-                name: &#39;Softmax&#39;,
-                des: &#39;link02des&#39;
-            }, {
-                source: &#39;课程&#39;,
-                target: &#39;Brain Center&#39;,
-                name: &#39;Softmax&#39;,
-                des: &#39;link03des&#39;
-            }, {
-                source: &#39;书籍&#39;,
-                target: &#39;Brain Center&#39;,
-                name: &#39;Softmax&#39;,
-                des: &#39;link05des&#39;
-            }],
-            categories: categories,
-        }]
-    };
-    myChart.setOption(option);
-&lt;/script&gt;
-&lt;/body&gt;
-</code></pre><p>&lt;/html&gt;</p>
-
+    <p>早在6月份学习深度学习的时候就有想在自己的博客中加入一张神经网络图记录学习的知识体系，一直拖到现在（主要是看门狗2太好玩了，不是）。这篇文章将详细的介绍如何在hexo博客中加入一张神经网络图。</p>
+    
+    <a class="article-more-a" href="/2020/08/08/nn/#more">more >></a>
+    
     
 
     
