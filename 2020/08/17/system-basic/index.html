@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>about | Hexo</title>
+  <title>系统的基本概念 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://fazziekey.github.io/about/index.html">
+  <meta name="description" content="信号的分类 随机信号和确定信号 连续和离散 周期 奇偶 所有信号可以被分解为奇偶信号      功率和能量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统的基本概念">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/17/system-basic/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="信号的分类 随机信号和确定信号 连续和离散 周期 奇偶 所有信号可以被分解为奇偶信号      功率和能量">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-05T15:01:43.000Z">
-<meta property="article:modified_time" content="2020-08-05T15:03:03.110Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/74b0c8b8c1a8b64273a37443ae7599b6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/9bd9b1dad2d3e0646bff6332d2e3862d.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/10d0da71152d6e8de478c5c36d2979d7.png">
+<meta property="article:published_time" content="2020-08-17T03:34:53.000Z">
+<meta property="article:modified_time" content="2020-08-17T03:39:38.479Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/74b0c8b8c1a8b64273a37443ae7599b6.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -190,14 +197,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-system-basic" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      about
+      系统的基本概念
     </h1>
   
 
@@ -209,8 +216,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/about/index.html" class="archive-article-date">
-        <time datetime="2020-08-05T15:01:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
+<a href="/2020/08/17/system-basic/" class="archive-article-date">
+        <time datetime="2020-08-17T03:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
 </a>
 
   
@@ -223,7 +230,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">364字</span>
     </span>
   </span>
 
@@ -245,18 +252,228 @@
     
 
     
-    
-    
+    <h1 id="信号的分类"><a href="#信号的分类" class="headerlink" title="信号的分类"></a>信号的分类</h1><ul>
+<li>随机信号和确定信号</li>
+<li>连续和离散</li>
+<li>周期</li>
+<li>奇偶<ul>
+<li>所有信号可以被分解为奇偶信号   </li>
+</ul>
+</li>
+<li>功率和能量</li>
+</ul>
+<a id="more"></a>
+<p>能量信号（能量有限信号）：<br>如果信号x(t)满足: 0&lt;E &lt;$\infin$,而P = 0。</p>
+<p>功率信号（功率有限信号）:<br>如果信号x(t)满足：0 &lt; P &lt;$\infin$, 而E=$\infin$。</p>
+<blockquote>
+<p>周期信号一般属于功率信号，属于能量信号的非周期信号也称为脉冲信号</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/74b0c8b8c1a8b64273a37443ae7599b6.png" alt=""></p>
+</blockquote>
+<h1 id="复指数信号与正弦信号"><a href="#复指数信号与正弦信号" class="headerlink" title="复指数信号与正弦信号"></a>复指数信号与正弦信号</h1><h2 id="连续时间复指数信号"><a href="#连续时间复指数信号" class="headerlink" title="连续时间复指数信号"></a>连续时间复指数信号</h2><script type="math/tex; mode=display">
+x(t)=ce^{st}
+
+s=\sigma+jw
+
+T_0=\frac{2\pi}{|w_0|}</script><h2 id="正弦与复指数信号转换"><a href="#正弦与复指数信号转换" class="headerlink" title="正弦与复指数信号转换"></a>正弦与复指数信号转换</h2><script type="math/tex; mode=display">
+\cos wt=\frac{1}{2}(e^{jwt}+e^{-jwt})</script><script type="math/tex; mode=display">
+\sin wt=\frac{1}{2j}(e^{jwt}-e^{-jwt})</script><script type="math/tex; mode=display">
+A\cos(wt+\phi)=\frac{A}{2}e^{j\phi}e^{jwt}+\frac{A}{2}e^{-j\phi}e^{-jwt}=ARe\{e^{j(wt+\phi)}\}</script><script type="math/tex; mode=display">
+A\sin(wt+\phi)=Aim\{e^{j(wt+\phi)}\}</script><h2 id="离散时间复指数信号"><a href="#离散时间复指数信号" class="headerlink" title="离散时间复指数信号"></a>离散时间复指数信号</h2><script type="math/tex; mode=display">
+x[n]=e^{jwn}=\cos wn+\sin wn</script><p>当$\frac{2\pi}{w}$为有理数数时为周期信号</p>
+<h1 id="单位冲击和单位阶跃函数"><a href="#单位冲击和单位阶跃函数" class="headerlink" title="单位冲击和单位阶跃函数"></a>单位冲击和单位阶跃函数</h1><h2 id="离散脉冲阶跃"><a href="#离散脉冲阶跃" class="headerlink" title="离散脉冲阶跃"></a>离散脉冲阶跃</h2><h3 id="单位脉冲"><a href="#单位脉冲" class="headerlink" title="单位脉冲"></a>单位脉冲</h3><script type="math/tex; mode=display">
+\delta[n]=
+\begin{cases}
+0& n \not= 0 \\
+1& n=0
+\end{cases}</script><p><strong>采样特性</strong></p>
+<script type="math/tex; mode=display">
+\delta[n]x[n]=x[0]\delta[n]</script><script type="math/tex; mode=display">
+x[n]\delta[n-n_0]=x[n_0]\delta[n-n_0]</script><h3 id="单位阶跃"><a href="#单位阶跃" class="headerlink" title="单位阶跃"></a>单位阶跃</h3><script type="math/tex; mode=display">
+u[n]=
+\begin{cases}
+0& n < 0 \\
+1& n>=0
+\end{cases}</script><p><strong>单位脉冲和阶跃关系</strong></p>
+<script type="math/tex; mode=display">
+\delta[n]=u[n]-u[n-1]</script><script type="math/tex; mode=display">
+u[n]=\sum_{k=0}^{\infin}\delta[n-k]=\sum_{k=-\infin}^{n}\delta[k]</script><h3 id="矩形序列"><a href="#矩形序列" class="headerlink" title="矩形序列"></a>矩形序列</h3><script type="math/tex; mode=display">
+g_N[n]=
+\begin{cases}
+0& 0<n < N-1 \\
+1& other
+\end{cases}</script><script type="math/tex; mode=display">
+=u[n]-u[n-N]</script><h3 id="单位斜坡"><a href="#单位斜坡" class="headerlink" title="单位斜坡"></a>单位斜坡</h3><script type="math/tex; mode=display">
+r[n]=
+\begin{cases}
+n& n >= 0 \\
+0& n<0
+\end{cases}</script><script type="math/tex; mode=display">
+=nu[n]</script><h3 id="单位脉冲串"><a href="#单位脉冲串" class="headerlink" title="单位脉冲串"></a>单位脉冲串</h3><script type="math/tex; mode=display">
+\delta_N[n]=\sum_{k=-\infin}^{\infin}\delta[n-kN]</script><h2 id="连续时间阶跃冲激"><a href="#连续时间阶跃冲激" class="headerlink" title="连续时间阶跃冲激"></a>连续时间阶跃冲激</h2><h3 id="单位阶跃-1"><a href="#单位阶跃-1" class="headerlink" title="单位阶跃"></a>单位阶跃</h3><script type="math/tex; mode=display">
+u(t)=
+\begin{cases}
+0& t < 0 \\
+1& t>0
+\end{cases}</script><p>t=0处无定义</p>
+<h3 id="矩形脉冲"><a href="#矩形脉冲" class="headerlink" title="矩形脉冲"></a>矩形脉冲</h3><script type="math/tex; mode=display">
+g(t)=u(t)-u(t-t_0)</script><h3 id="符号函数sgn"><a href="#符号函数sgn" class="headerlink" title="符号函数sgn"></a>符号函数sgn</h3><script type="math/tex; mode=display">
+sgn(t)=
+\begin{cases}
+1& t > 0 \\
+-1& t<0
+\end{cases}</script><script type="math/tex; mode=display">
+=u(t)-u(-t)</script><script type="math/tex; mode=display">
+=2u(t)-1</script><h3 id="单位冲激信号"><a href="#单位冲激信号" class="headerlink" title="单位冲激信号"></a>单位冲激信号</h3><p><strong>狄拉克定义</strong></p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\int_{-\infin}^{+\infin}\delta(t)dt=1\\
+\delta(t)=0 & t=\not0
+\end{cases}</script><script type="math/tex; mode=display">
+\delta(t)=\frac{du(t)}{dt}</script><script type="math/tex; mode=display">
+u(t)=\int_{-\infin}^{t}\delta(\tau)d\tau</script><h4 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h4><ul>
+<li>抽样<script type="math/tex; mode=display">
+x(t)\delta(t)=x(0)\delta(t)</script><script type="math/tex; mode=display">
+x(t)\delta(t-t_0)=x(0)\delta(t-t_0)</script></li>
+<li>筛选<script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}x(t)\delta(t)=x(0)</script><script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}x(t)\delta(t-t_0)=x(t_0)</script></li>
+<li>偶函数</li>
+</ul>
+<h3 id="冲激偶信号"><a href="#冲激偶信号" class="headerlink" title="冲激偶信号"></a>冲激偶信号</h3><p>冲激函数的微分称为冲激偶信号</p>
+<script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}\delta'(t)dt=0</script><script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}\delta'(t)x(t)dt=-x'(0)</script><h3 id="单位冲激串"><a href="#单位冲激串" class="headerlink" title="单位冲激串"></a>单位冲激串</h3><script type="math/tex; mode=display">
+\delta_T(t)=\sum_{n=-\infin}^{\infin}\delta(t-nT)</script><h3 id="Sa"><a href="#Sa" class="headerlink" title="Sa"></a>Sa</h3><script type="math/tex; mode=display">
+Sa(t)=\frac{\sin t}{t}</script><script type="math/tex; mode=display">
+\int_{-\infin}^{\infin}Sa(t)dt=\pi</script><h1 id="信号的运算和变换"><a href="#信号的运算和变换" class="headerlink" title="信号的运算和变换"></a>信号的运算和变换</h1><h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
+<li>相加</li>
+<li>相乘</li>
+<li>微分积分<script type="math/tex; mode=display">
+x(t)=u(t-1)-u(t-2)</script><script type="math/tex; mode=display">
+\frac{dx(t)}{dt}=\delta(t-1)-\delta(t-2)</script></li>
+</ul>
+<blockquote>
+<p>对于任意函数可以用u(t)进行分段表示，然后利用积分的变换进行计算</p>
+</blockquote>
+<h2 id="自变量变换"><a href="#自变量变换" class="headerlink" title="自变量变换"></a>自变量变换</h2><ul>
+<li>平移，正左负右</li>
+<li>反褶</li>
+<li>尺度变化</li>
+<li><p>抽取</p>
+<script type="math/tex; mode=display">
+x_1=x[Nn]</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/9bd9b1dad2d3e0646bff6332d2e3862d.png" alt=""></p>
+<blockquote>
+<p>信号间隔不变，抽取部分信号</p>
+</blockquote>
+</li>
+<li><p>内插</p>
+<blockquote>
+<p>在信号间插入0信号</p>
+<script type="math/tex; mode=display">
+x_2[n]=
+\begin{cases}
+x[n/N]\\
+0
+\end{cases}</script></blockquote>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/10d0da71152d6e8de478c5c36d2979d7.png" alt=""></p>
+<h1 id="系统基本性质"><a href="#系统基本性质" class="headerlink" title="系统基本性质"></a>系统基本性质</h1><p>连续系统可以用微分方程表示</p>
+<p>离散系统可以用差分方程表示</p>
+<h2 id="线性"><a href="#线性" class="headerlink" title="线性"></a>线性</h2><p>满足,离散同理</p>
+<script type="math/tex; mode=display">
+ax_1(t)+bx_2(t)\to ay_1(t)+by_2(t)</script><h3 id="常见线性"><a href="#常见线性" class="headerlink" title="常见线性"></a>常见线性</h3><script type="math/tex; mode=display">
+y(t)=x(t)</script><script type="math/tex; mode=display">
+y(t)=tx(t)</script><script type="math/tex; mode=display">
+y(t)=dx(t)/dt</script><script type="math/tex; mode=display">
+y[t]=x[n+1]-x[n]</script><h3 id="常见非线性"><a href="#常见非线性" class="headerlink" title="常见非线性"></a>常见非线性</h3><script type="math/tex; mode=display">
+y(t)=x^2(t)</script><script type="math/tex; mode=display">
+y(t)=e^{x(t)}</script><script type="math/tex; mode=display">
+y(t)=2x(t)+3</script><h3 id="判断方法"><a href="#判断方法" class="headerlink" title="判断方法"></a>判断方法</h3><ul>
+<li>直接利用定义</li>
+<li>与x括号内参数无关，x(t)需要为一次且x(t)外无常数项</li>
+</ul>
+<h2 id="时变，时不变"><a href="#时变，时不变" class="headerlink" title="时变，时不变"></a>时变，时不变</h2><script type="math/tex; mode=display">
+x[n]\to y[n]</script><script type="math/tex; mode=display">
+x[n-n_0]\to y[n-n_0]</script><script type="math/tex; mode=display">
+x(t)\to y(t)</script><script type="math/tex; mode=display">
+x(t-t_0)\to y(t-t_0)</script><h3 id="判断方法-1"><a href="#判断方法-1" class="headerlink" title="判断方法"></a>判断方法</h3><ul>
+<li>定义</li>
+<li>t只在x括号内且为一次</li>
+</ul>
+<script type="math/tex; mode=display">
+y=x(sin(t))</script><script type="math/tex; mode=display">
+y_1(t)=x_1(sin(t))</script><script type="math/tex; mode=display">
+x_2(t)=x_1(t-t_0)=x_1(sin(t-t_0))</script><script type="math/tex; mode=display">
+y_2(t)=x_2(sin(t))=x_1(sin(sin(t)-t_0))</script><script type="math/tex; mode=display">
+\not =
+y_1(t-t_0)=x_1(sin(t-t_0))</script><h3 id="记忆和无记忆"><a href="#记忆和无记忆" class="headerlink" title="记忆和无记忆"></a>记忆和无记忆</h3><p>输入仅取决于当前输出为无机盐</p>
+<p>输入取决于其他时间为记忆<br>比如累加器，延迟单元</p>
+<h3 id="因果"><a href="#因果" class="headerlink" title="因果"></a>因果</h3><p>系统输出不取决于未来</p>
+<p>非因果系统如</p>
+<script type="math/tex; mode=display">
+y(t)=x(t+2)</script><p>在图像处理中就会有非因果系统</p>
+<p>通常把0时刻开始的信号称为因果信号</p>
+<script type="math/tex; mode=display">
+x(t)=0 ,t<0</script><h2 id="可逆"><a href="#可逆" class="headerlink" title="可逆"></a>可逆</h2><p>不可逆</p>
+<script type="math/tex; mode=display">
+y(t)=x^2(t)</script><p>可逆</p>
+<script type="math/tex; mode=display">
+y[n]=\sum x[k]</script><h2 id="稳定"><a href="#稳定" class="headerlink" title="稳定"></a>稳定</h2><p>输入有界则输出有界</p>
 
     
 
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/08/17/system-basic/" title="系统的基本概念" target="_blank">https://Fazziekey.github.io/2020/08/17/system-basic/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -306,7 +523,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/about/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/08/17/system-basic/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -318,6 +535,16 @@
   </div>
 </article>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/15/com-base/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">com base</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 <aside class="wrap-side-operation">
@@ -340,7 +567,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信号的分类"><span class="toc-number">1.</span> <span class="toc-text">信号的分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复指数信号与正弦信号"><span class="toc-number">2.</span> <span class="toc-text">复指数信号与正弦信号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#连续时间复指数信号"><span class="toc-number">2.1.</span> <span class="toc-text">连续时间复指数信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正弦与复指数信号转换"><span class="toc-number">2.2.</span> <span class="toc-text">正弦与复指数信号转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#离散时间复指数信号"><span class="toc-number">2.3.</span> <span class="toc-text">离散时间复指数信号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#单位冲击和单位阶跃函数"><span class="toc-number">3.</span> <span class="toc-text">单位冲击和单位阶跃函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#离散脉冲阶跃"><span class="toc-number">3.1.</span> <span class="toc-text">离散脉冲阶跃</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单位脉冲"><span class="toc-number">3.1.1.</span> <span class="toc-text">单位脉冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位阶跃"><span class="toc-number">3.1.2.</span> <span class="toc-text">单位阶跃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形序列"><span class="toc-number">3.1.3.</span> <span class="toc-text">矩形序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位斜坡"><span class="toc-number">3.1.4.</span> <span class="toc-text">单位斜坡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位脉冲串"><span class="toc-number">3.1.5.</span> <span class="toc-text">单位脉冲串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连续时间阶跃冲激"><span class="toc-number">3.2.</span> <span class="toc-text">连续时间阶跃冲激</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单位阶跃-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">单位阶跃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形脉冲"><span class="toc-number">3.2.2.</span> <span class="toc-text">矩形脉冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#符号函数sgn"><span class="toc-number">3.2.3.</span> <span class="toc-text">符号函数sgn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位冲激信号"><span class="toc-number">3.2.4.</span> <span class="toc-text">单位冲激信号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本性质"><span class="toc-number">3.2.4.1.</span> <span class="toc-text">基本性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冲激偶信号"><span class="toc-number">3.2.5.</span> <span class="toc-text">冲激偶信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位冲激串"><span class="toc-number">3.2.6.</span> <span class="toc-text">单位冲激串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sa"><span class="toc-number">3.2.7.</span> <span class="toc-text">Sa</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信号的运算和变换"><span class="toc-number">4.</span> <span class="toc-text">信号的运算和变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运算"><span class="toc-number">4.1.</span> <span class="toc-text">运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自变量变换"><span class="toc-number">4.2.</span> <span class="toc-text">自变量变换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统基本性质"><span class="toc-number">5.</span> <span class="toc-text">系统基本性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性"><span class="toc-number">5.1.</span> <span class="toc-text">线性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见线性"><span class="toc-number">5.1.1.</span> <span class="toc-text">常见线性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见非线性"><span class="toc-number">5.1.2.</span> <span class="toc-text">常见非线性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断方法"><span class="toc-number">5.1.3.</span> <span class="toc-text">判断方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时变，时不变"><span class="toc-number">5.2.</span> <span class="toc-text">时变，时不变</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断方法-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">判断方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记忆和无记忆"><span class="toc-number">5.2.2.</span> <span class="toc-text">记忆和无记忆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因果"><span class="toc-number">5.2.3.</span> <span class="toc-text">因果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可逆"><span class="toc-number">5.3.</span> <span class="toc-text">可逆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稳定"><span class="toc-number">5.4.</span> <span class="toc-text">稳定</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -353,7 +580,7 @@
 
 
 
-<div id="SOHUCS" sid="" ></div> 
+<div id="SOHUCS" sid="system-basic" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -374,9 +601,9 @@
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "about" -->
+  <!-- id: "系统的基本概念" -->
   var giteement = new Giteement({
-    id: '20200805230143',
+    id: '20200817113453',
     owner: 'Fazzie',
     repo: 'hexo-blog',
     backcall_uri: 'https://Fazziekey.github.io',
@@ -434,7 +661,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
