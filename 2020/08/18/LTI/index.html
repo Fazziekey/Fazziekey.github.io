@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Category: 《栈溢出工程师》 | Hexo</title>
+  <title>LTI系统时域分析 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/index.html">
+  <meta name="description" content="离散时间LTI系统离散信号单位脉冲分解对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示  x[n]&#x3D;\sum_{k&#x3D;-\infin}^{\infin}x[k]\delta[n-k]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LTI系统时域分析">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/18/LTI/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="离散时间LTI系统离散信号单位脉冲分解对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示  x[n]&#x3D;\sum_{k&#x3D;-\infin}^{\infin}x[k]\delta[n-k]">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/29dc7afdd210ea6b1801166d5c6310e4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/ddbaf52bda3ffa522bedd003f03c857c.png">
+<meta property="article:published_time" content="2020-08-18T05:55:29.000Z">
+<meta property="article:modified_time" content="2020-08-18T06:01:27.349Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/29dc7afdd210ea6b1801166d5c6310e4.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -188,441 +196,443 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-LTI" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/08/nn/" class="archive-article-date">
-        <time datetime="2020-08-08T07:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/08/nn/" target="_blank">建立你的知识神经网络</a>
   
+    <h1 class="article-title" itemprop="name">
+      LTI系统时域分析
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" class="archive-article-date">
-        <time datetime="2020-08-05T16:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/08/18/LTI/" class="archive-article-date">
+        <time datetime="2020-08-18T05:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" target="_blank">Beautiful Soup</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2020-08-05T06:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">536字</span>
+    </span>
+  </span>
 
-        </div>
-    	 
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" target="_blank">爬虫基础-正则表达匹配</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/31/JS-Basic/" class="archive-article-date">
-        <time datetime="2020-07-31T05:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-31</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/31/JS-Basic/" target="_blank">JS Basic</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/28/CSS/" class="archive-article-date">
-        <time datetime="2020-07-28T15:22:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/28/CSS/" target="_blank">CSS</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/28/HTML/" class="archive-article-date">
-        <time datetime="2020-07-28T07:30:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/28/HTML/" target="_blank">HTML</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/25/MySQL/" class="archive-article-date">
-        <time datetime="2020-07-25T13:40:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/25/MySQL/" target="_blank">MySQL</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
-
-
-<article class="article article-type-post show">
-  <header class="article-header" style="border-bottom: 1px solid #ccc">
-  <h1 class="article-title" itemprop="name">
-    
-  </h1>
   </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
 
-  
-  <div class="category-all-page">
-    <h2>共计&nbsp;3&nbsp;个分类</h2>
-    <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a><span class="category-list-item-list-count">7</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a><span class="category-list-item-list-count">6</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a><span class="category-list-item-list-count">11</span></li></ul>
+    
+    <h1 id="离散时间LTI系统"><a href="#离散时间LTI系统" class="headerlink" title="离散时间LTI系统"></a>离散时间LTI系统</h1><h2 id="离散信号单位脉冲分解"><a href="#离散信号单位脉冲分解" class="headerlink" title="离散信号单位脉冲分解"></a>离散信号单位脉冲分解</h2><p>对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示</p>
+<script type="math/tex; mode=display">
+x[n]=\sum_{k=-\infin}^{\infin}x[k]\delta[n-k]</script><a id="more"></a>
+<h2 id="离散时间LTI系统的卷积和"><a href="#离散时间LTI系统的卷积和" class="headerlink" title="离散时间LTI系统的卷积和"></a>离散时间LTI系统的卷积和</h2><p>h[n]为系统对单位脉冲信号的响应</p>
+<script type="math/tex; mode=display">
+x[n]=\sum_{k=-\infin}^{\infin}x[k]\delta[n-k]</script><script type="math/tex; mode=display">
+y[n]=\sum_{k=-\infin}^{\infin}x[k]h[n-k]=x[n]*h[n]</script><h3 id="卷积计算方法"><a href="#卷积计算方法" class="headerlink" title="卷积计算方法"></a>卷积计算方法</h3><ul>
+<li>公式</li>
+<li>列表法：适合小量数据</li>
+<li>画图</li>
+</ul>
+<h2 id="卷积的性质"><a href="#卷积的性质" class="headerlink" title="卷积的性质"></a>卷积的性质</h2><ul>
+<li>交换</li>
+<li>结合</li>
+<li>分配</li>
+</ul>
+<p><strong>x[n]</strong> 不为<strong>0</strong>的区间长度为<strong>m</strong>，<strong>h[n]</strong> 为 <strong>n</strong>，卷积后区间为<strong>m+n-1</strong></p>
+<p><strong>x[n]</strong> 区间为 <strong>[m,n]</strong>,    <strong>h[n]</strong> 区间为 <strong>[q,p]</strong><br>卷积后区间为 <strong>[m+q,n+p]</strong></p>
+<h3 id="特殊函数的卷积"><a href="#特殊函数的卷积" class="headerlink" title="特殊函数的卷积"></a>特殊函数的卷积</h3><script type="math/tex; mode=display">
+x[n]*\delta[n]=x[n]</script><script type="math/tex; mode=display">
+x[n]*\delta[n-n_0]=x[n-n_0]</script><script type="math/tex; mode=display">
+x[n]*u[n]=\sum_{k=-\infin}^{\infin}x[k]u[n-k]=\sum_{k=-\infin}^{n}x[k]</script><h1 id="连续时间LTI系统的卷积积分"><a href="#连续时间LTI系统的卷积积分" class="headerlink" title="连续时间LTI系统的卷积积分"></a>连续时间LTI系统的卷积积分</h1><p>任何连续信号也可以分解为脉冲信号，我们可以由此得到连续系统的卷积积分</p>
+<script type="math/tex; mode=display">
+\int_{-\infin}^{\infin}x(\tau)h(t-\tau)d\tau=x(t)*h(t)</script><p>连续卷积的积分计算通常要分段积分</p>
+<h2 id="连续卷积的性质"><a href="#连续卷积的性质" class="headerlink" title="连续卷积的性质"></a>连续卷积的性质</h2><p>交换结合分配与离散情况相同</p>
+<ul>
+<li>卷积微分</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{d}{dt}[x(t)*h(t)]</script><script type="math/tex; mode=display">
+=\frac{dx(t)}{dt}*h(t)</script><script type="math/tex; mode=display">
+=\frac{dh(t)}{dt}*x(t)</script><ul>
+<li>卷积积分<script type="math/tex; mode=display">
+\int_{-\infin}^t[x(\lambda)*h(\lambda)]d\lambda</script><script type="math/tex; mode=display">
+=x(\lambda)*\int_{-\infin}^th(\lambda)d\lambda</script><script type="math/tex; mode=display">
+=h(\lambda)*\int_{-\infin}^tx(\lambda)d\lambda</script></li>
+</ul>
+<h3 id="积分与微分性质推广"><a href="#积分与微分性质推广" class="headerlink" title="积分与微分性质推广"></a>积分与微分性质推广</h3><script type="math/tex; mode=display">
+r^{(i)}(t)=x_1^{(j)}*x_2^{(i-j)}(t)</script><p>其中<strong>i, j, i-j</strong>取正数时为导数的阶次，负数时为重积分的次数</p>
+<blockquote>
+<p>离散域的差分和累加性质与之类似</p>
+</blockquote>
+<h2 id="与冲激阶跃函数卷积"><a href="#与冲激阶跃函数卷积" class="headerlink" title="与冲激阶跃函数卷积"></a>与冲激阶跃函数卷积</h2><script type="math/tex; mode=display">
+x(t)*\delta(t)=x(t)</script><script type="math/tex; mode=display">
+x(t)*\delta(t-t_0)=x(t-t_0)</script><script type="math/tex; mode=display">
+x(t)*\delta'(t)=x'(t)</script><script type="math/tex; mode=display">
+x(t)*u(t)=\int_{-\infin}^{t}x(\tau)d\tau</script><h1 id="LTI系统性质"><a href="#LTI系统性质" class="headerlink" title="LTI系统性质"></a>LTI系统性质</h1><h2 id="可逆性"><a href="#可逆性" class="headerlink" title="可逆性"></a>可逆性</h2><p>如果一个LTI系统是可逆，那么它就有一个LTI的逆系<br>统存在，原系统和其逆系统的级联为一恒等系统</p>
+<h2 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h2><p>LTI系统稳定性充要条件为：</p>
+<script type="math/tex; mode=display">
+\int_{-\infin}^{\infin}|h(t)|dt<\infin</script><script type="math/tex; mode=display">
+\sum_{n=-\infin}^{\infin}|h[n]|<\infin</script><h2 id="因果性"><a href="#因果性" class="headerlink" title="因果性"></a>因果性</h2><p>LTI系统因果性的充要条件</p>
+<script type="math/tex; mode=display">
+h[n]=0,n<0</script><script type="math/tex; mode=display">
+h(t)=0,t<0</script><h2 id="LTI系统单位阶跃响应"><a href="#LTI系统单位阶跃响应" class="headerlink" title="LTI系统单位阶跃响应"></a>LTI系统单位阶跃响应</h2><ul>
+<li>连续<script type="math/tex; mode=display">
+s(t)=u(t)*h(t)=\int_{-\infin}^t=h(\tau)d\tau</script></li>
+<li>离散<script type="math/tex; mode=display">
+s[n]=u[n]*h[n]=\sum_{k=-\infin}^nh[k]</script></li>
+<li>与单位冲激响应关系<script type="math/tex; mode=display">
+h(t)=\frac{ds(t)}{dt}</script><script type="math/tex; mode=display">
+h[n]=s[n]-s[n-1]</script></li>
+</ul>
+<h2 id="LTI系统的特征函数"><a href="#LTI系统的特征函数" class="headerlink" title="LTI系统的特征函数"></a>LTI系统的特征函数</h2><p>复指数信号的重要性在于它是LTI系统的特征函数，利用这样的性质和线性性质，将输入信号分解为指数信号的线性组合就可以化简</p>
+<script type="math/tex; mode=display">
+y(t)=e^{st}*h(t)=e^{st}\int_{-\infin}^{\infin}h(\tau)e^{-s\tau}d\tau=H(s)e^{st}</script><script type="math/tex; mode=display">
+y[n]=z^n\sum_{k=-\infin}^{\infin}h[k]z^{-k}=H(z)z^n</script><h1 id="差分方程和微分方程"><a href="#差分方程和微分方程" class="headerlink" title="差分方程和微分方程"></a>差分方程和微分方程</h1><p>任意LTI系统的响应都可以利用微分和差分方程表示，比如LC电路</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^na_k\frac{d^k}{dt^k}y(t)=\sum_{k=0}^mb_k\frac{d^k}{dt^k}x(t)</script><h2 id="微分方程解法"><a href="#微分方程解法" class="headerlink" title="微分方程解法"></a>微分方程解法</h2><p>微分方程的完全解由两部分组成</p>
+<script type="math/tex; mode=display">
+y(t)=y_h(t)+y_p(t)</script><ul>
+<li>求齐次解<ul>
+<li>转化为特征方程</li>
+<li>求特征根</li>
+<li>确定齐次解样式</li>
+</ul>
+</li>
+<li>求特解</li>
+<li>根据起始条件确定参数</li>
+</ul>
+<h3 id="特征根对应函数形式"><a href="#特征根对应函数形式" class="headerlink" title="特征根对应函数形式"></a>特征根对应函数形式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特征根$\lambda_i$</th>
+<th>函数样式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单实根</td>
+<td>$C_ie^{\lambda_i(t)}$</td>
+</tr>
+<tr>
+<td>k重实根</td>
+<td>$(C_1t^{k-1}+C_2t^{k-2}……C_{k-1}t+C_k)e^{\lambda_i(t)}$</td>
+</tr>
+<tr>
+<td>共轭复根$\alpha\pm j\beta$</td>
+<td>$e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t)$ </td>
+</tr>
+<tr>
+<td>k重共轭复根</td>
+<td>$(C_1t^{k-1}+C_2t^{k-2}……C_{k-1}t+C_k)e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t)$ </td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="常见激励函数对应特解"><a href="#常见激励函数对应特解" class="headerlink" title="常见激励函数对应特解"></a>常见激励函数对应特解</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>特解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常数C</td>
+<td>常数</td>
+</tr>
+<tr>
+<td>$t^m$</td>
+<td>$B_1t^m……+B_mt+B_{m+1}$特征根不等于0。$t^r(B_1t^m……+B_mt+B_{m+1})$，有r重等于0的实根</td>
+</tr>
+<tr>
+<td>$e^{at}$</td>
+<td>$Be^{at}$,a不等于特征根。 $B_1t^re^{at}……+B_rte^{at}+B_{r+1}e^{at}$,a=r重特征根</td>
+</tr>
+<tr>
+<td>$\cos\beta t,\sin\beta t$</td>
+<td>$B_1\cos\beta t+B_2\sin\beta t$</td>
+</tr>
+<tr>
+<td>$t^me^{at}\cos t$</td>
+<td>$(B_1t^m……+B_mt+B_{m+1})e^{at}\cos t+(D_1t^m……+D_mt+D_{m+1})e^{at}\sin t$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="带奇异函数的微分方程——冲激函数匹配法"><a href="#带奇异函数的微分方程——冲激函数匹配法" class="headerlink" title="带奇异函数的微分方程——冲激函数匹配法"></a>带奇异函数的微分方程——冲激函数匹配法</h3><p>例子</p>
+<script type="math/tex; mode=display">
+i''+4i'+3i=\delta'+3u</script><script type="math/tex; mode=display">
+求齐次解：\lambda=-3,-1</script><script type="math/tex; mode=display">
+i=(C_1e^{-3t}+C_2e^{-t})u(t)</script><script type="math/tex; mode=display">
+求特解，冲激函数匹配\delta '系数相同\to i=u(t)</script><script type="math/tex; mode=display">
+全解：i=(C_1e^{-3t}+C_2e^{-t}+1)u(t)</script><script type="math/tex; mode=display">
+i'=(C_1e^{-3t}+C_2e^{-t}+1)\delta(t)+(-3C_1e^{-3t}-C_2e^{-t})u(t)</script><script type="math/tex; mode=display">
+i''=(9C_1e^{-3t}+C_2e^{-t})u(t)+(-6C_1e^{-3t}-2C_2e^{-t})\delta(t)+(C_1e^{-3t}+C_2e^{-t}+1)\delta'(t)</script><script type="math/tex; mode=display">
+代入方程
+\begin{cases}
+-2C_1+2C_2+4=0\\
+C_1+C_2+1=1
+\end{cases}</script><script type="math/tex; mode=display">
+\to
+\begin{cases}
+C_1=1\\
+C_2=-1
+\end{cases}</script><script type="math/tex; mode=display">
+\to i=(e^{-3t}-e^{-t}+1)u(t)</script><h1 id="LTI系统响应分解"><a href="#LTI系统响应分解" class="headerlink" title="LTI系统响应分解"></a>LTI系统响应分解</h1><ul>
+<li><strong>零输入响应</strong> ：不考虑外加信号, 即输入信号等于零<br>（x(t)=0 ）, 仅由系统的起始状态（y(0)_ ）所产生的响应。<br><strong>x(t),t&lt;0部分的响应</strong></li>
+</ul>
+<ul>
+<li><strong>零状态响应</strong> ：不考虑系统的起始状态的作用, 即起始状态等于零（y(0)_ ） , 仅由系统的外加激励信号x(t)所产的响应。<br><strong>x(t),t&gt;0部分的响应</strong></li>
+</ul>
+<h2 id="LTI系统响应的求解方法"><a href="#LTI系统响应的求解方法" class="headerlink" title="LTI系统响应的求解方法"></a>LTI系统响应的求解方法</h2><h3 id="直接法"><a href="#直接法" class="headerlink" title="直接法"></a>直接法</h3><ul>
+<li>根据定义求解两个微分方程再组合</li>
+</ul>
+<h3 id="单位冲激函数法"><a href="#单位冲激函数法" class="headerlink" title="单位冲激函数法"></a>单位冲激函数法</h3><ul>
+<li>求解单位冲激响应</li>
+<li>通过卷积求解两部分响应</li>
+<li>利用线性性质进行组合计算</li>
+</ul>
+<h1 id="LTI框图"><a href="#LTI框图" class="headerlink" title="LTI框图"></a>LTI框图</h1><ul>
+<li><p>连续<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/29dc7afdd210ea6b1801166d5c6310e4.png" alt=""></p>
+</li>
+<li><p>离散</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/ddbaf52bda3ffa522bedd003f03c857c.png" alt=""></p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/08/18/LTI/" title="LTI系统时域分析" target="_blank">https://Fazziekey.github.io/2020/08/18/LTI/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
   </div>
-  
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/08/18/LTI/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/17/system-basic/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">系统的基本概念</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#离散时间LTI系统"><span class="toc-number">1.</span> <span class="toc-text">离散时间LTI系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#离散信号单位脉冲分解"><span class="toc-number">1.1.</span> <span class="toc-text">离散信号单位脉冲分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#离散时间LTI系统的卷积和"><span class="toc-number">1.2.</span> <span class="toc-text">离散时间LTI系统的卷积和</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卷积计算方法"><span class="toc-number">1.2.1.</span> <span class="toc-text">卷积计算方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积的性质"><span class="toc-number">1.3.</span> <span class="toc-text">卷积的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊函数的卷积"><span class="toc-number">1.3.1.</span> <span class="toc-text">特殊函数的卷积</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#连续时间LTI系统的卷积积分"><span class="toc-number">2.</span> <span class="toc-text">连续时间LTI系统的卷积积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#连续卷积的性质"><span class="toc-number">2.1.</span> <span class="toc-text">连续卷积的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#积分与微分性质推广"><span class="toc-number">2.1.1.</span> <span class="toc-text">积分与微分性质推广</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与冲激阶跃函数卷积"><span class="toc-number">2.2.</span> <span class="toc-text">与冲激阶跃函数卷积</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LTI系统性质"><span class="toc-number">3.</span> <span class="toc-text">LTI系统性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#可逆性"><span class="toc-number">3.1.</span> <span class="toc-text">可逆性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稳定性"><span class="toc-number">3.2.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#因果性"><span class="toc-number">3.3.</span> <span class="toc-text">因果性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LTI系统单位阶跃响应"><span class="toc-number">3.4.</span> <span class="toc-text">LTI系统单位阶跃响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LTI系统的特征函数"><span class="toc-number">3.5.</span> <span class="toc-text">LTI系统的特征函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#差分方程和微分方程"><span class="toc-number">4.</span> <span class="toc-text">差分方程和微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#微分方程解法"><span class="toc-number">4.1.</span> <span class="toc-text">微分方程解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征根对应函数形式"><span class="toc-number">4.1.1.</span> <span class="toc-text">特征根对应函数形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见激励函数对应特解"><span class="toc-number">4.1.2.</span> <span class="toc-text">常见激励函数对应特解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带奇异函数的微分方程——冲激函数匹配法"><span class="toc-number">4.1.3.</span> <span class="toc-text">带奇异函数的微分方程——冲激函数匹配法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LTI系统响应分解"><span class="toc-number">5.</span> <span class="toc-text">LTI系统响应分解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LTI系统响应的求解方法"><span class="toc-number">5.1.</span> <span class="toc-text">LTI系统响应的求解方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直接法"><span class="toc-number">5.1.1.</span> <span class="toc-text">直接法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位冲激函数法"><span class="toc-number">5.1.2.</span> <span class="toc-text">单位冲激函数法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LTI框图"><span class="toc-number">6.</span> <span class="toc-text">LTI框图</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+<div id="SOHUCS" sid="LTI" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "LTI系统时域分析" -->
+  var giteement = new Giteement({
+    id: '20200818135529',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
+
+
+
+
           </div>
         </div>
       </div>
@@ -661,10 +671,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
