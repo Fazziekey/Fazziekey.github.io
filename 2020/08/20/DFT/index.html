@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Archives | Hexo</title>
+  <title>离散时间信号频域分析 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/archives/index.html">
+  <meta name="description" content="离散时间傅里叶级数 x[n]&#x3D;\sum_{k&#x3D;}a_ke^{jkw_0n}&#x3D;\sum_{k&#x3D;}a_ke^{jk\frac{2\pi}{T_0}n} a_k&#x3D;\frac{1}{N}\sum_{n&#x3D;}x[n]e^{-jkw_0n} 离散时间傅里叶级数不存在着收敛问题和吉布斯现象  离散傅里叶变换 X(e^{jw})&#x3D;\sum_{n&#x3D;-\infty}^\infty x[n]e^{-jwn} x[n]&#x3D;\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散时间信号频域分析">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/20/DFT/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="离散时间傅里叶级数 x[n]&#x3D;\sum_{k&#x3D;}a_ke^{jkw_0n}&#x3D;\sum_{k&#x3D;}a_ke^{jk\frac{2\pi}{T_0}n} a_k&#x3D;\frac{1}{N}\sum_{n&#x3D;}x[n]e^{-jkw_0n} 离散时间傅里叶级数不存在着收敛问题和吉布斯现象  离散傅里叶变换 X(e^{jw})&#x3D;\sum_{n&#x3D;-\infty}^\infty x[n]e^{-jwn} x[n]&#x3D;\">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-20T13:58:19.000Z">
+<meta property="article:modified_time" content="2020-08-20T14:00:20.306Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -188,41 +193,143 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-DFT" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      离散时间信号频域分析
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/08/20/DFT/" class="archive-article-date">
         <time datetime="2020-08-20T13:58:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/20/DFT/" target="_blank">离散时间信号频域分析</a>
   
-    </h1>
-  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">138字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <h1 id="离散时间傅里叶级数"><a href="#离散时间傅里叶级数" class="headerlink" title="离散时间傅里叶级数"></a>离散时间傅里叶级数</h1><script type="math/tex; mode=display">
+x[n]=\sum_{k=<N>}a_ke^{jkw_0n}=\sum_{k=<N>}a_ke^{jk\frac{2\pi}{T_0}n}</script><script type="math/tex; mode=display">
+a_k=\frac{1}{N}\sum_{n=<N>}x[n]e^{-jkw_0n}</script><blockquote>
+<p>离散时间傅里叶级数不存在着收敛问题和吉布斯现象</p>
+</blockquote>
+<h1 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h1><script type="math/tex; mode=display">
+X(e^{jw})=\sum_{n=-\infty}^\infty x[n]e^{-jwn}</script><script type="math/tex; mode=display">
+x[n]=\frac{1}{2\pi}\int_{2\pi}X(e^{jw})e^{jwn}dw</script><script type="math/tex; mode=display">
+X(e^{jw})=|X(e^{jw})|e^{j\theta(w)}</script><h2 id="离散时间傅里叶变换的收敛性与吉布斯现象"><a href="#离散时间傅里叶变换的收敛性与吉布斯现象" class="headerlink" title="离散时间傅里叶变换的收敛性与吉布斯现象"></a>离散时间傅里叶变换的收敛性与吉布斯现象</h2><p>x[n]要求绝对可和并能量有限</p>
+<script type="math/tex; mode=display">
+\sum_{n=-\infty}^\infty |x[n]|<\infty</script><script type="math/tex; mode=display">
+\sum_{n=-\infty}^\infty |x[n]|^2<\infty</script><h2 id="常见函数离散傅里叶变换"><a href="#常见函数离散傅里叶变换" class="headerlink" title="常见函数离散傅里叶变换"></a>常见函数离散傅里叶变换</h2><h3 id="单位脉冲"><a href="#单位脉冲" class="headerlink" title="单位脉冲"></a>单位脉冲</h3><script type="math/tex; mode=display">
+\delta[n]\to 1</script><h3 id="单边指数"><a href="#单边指数" class="headerlink" title="单边指数"></a>单边指数</h3><script type="math/tex; mode=display">
+x[n]=a^nu[n] \to\frac{1}{1-ae^{-jw}}</script><h3 id="双边指数"><a href="#双边指数" class="headerlink" title="双边指数"></a>双边指数</h3><script type="math/tex; mode=display">
+x[n]=a^{|n|} \to\frac{1-a^2}{1-2a\cos w+a^2}</script><h3 id="矩形脉冲"><a href="#矩形脉冲" class="headerlink" title="矩形脉冲"></a>矩形脉冲</h3><script type="math/tex; mode=display">
+x[n]=
+\begin{cases}
+1&|n|<N_1\\
+0&|n|>N_1
+\end{cases}</script><script type="math/tex; mode=display">
+X(e^{jw})=\frac{\sin[(2N_1+1)w/2]}{\sin(w/2)}</script><h3 id="冲激串"><a href="#冲激串" class="headerlink" title="冲激串"></a>冲激串</h3><script type="math/tex; mode=display">
+1 \to 2\pi\sum_{k=-\infty}^{\infty}\delta(w-2\pi k)</script><h1 id="离散周期信号傅里叶变换"><a href="#离散周期信号傅里叶变换" class="headerlink" title="离散周期信号傅里叶变换"></a>离散周期信号傅里叶变换</h1><script type="math/tex; mode=display">
+X(e^{jw})=2\pi\sum_{k=-\infty}^{\infty}a_k\delta(w-2\pi k/N)</script><h1 id="离散傅里叶变换性质"><a href="#离散傅里叶变换性质" class="headerlink" title="离散傅里叶变换性质"></a>离散傅里叶变换性质</h1><h3 id="周期性"><a href="#周期性" class="headerlink" title="周期性"></a>周期性</h3><h3 id="线性性质"><a href="#线性性质" class="headerlink" title="线性性质"></a>线性性质</h3><h3 id="时移性质"><a href="#时移性质" class="headerlink" title="时移性质"></a>时移性质</h3><script type="math/tex; mode=display">
+x[n-n_0]\to e^{-jwn_0}X(e^{jw})</script><h3 id="频移性质"><a href="#频移性质" class="headerlink" title="频移性质"></a>频移性质</h3><script type="math/tex; mode=display">
+X(e^{j(w-w_0)})\to x(t)e^{jw_0n}</script><h3 id="共轭"><a href="#共轭" class="headerlink" title="共轭"></a>共轭</h3><script type="math/tex; mode=display">
+x^*(t)\to X^*(e^{-jw})</script><ul>
+<li>x(t)为实值函数，X(jw)实部是偶函数，虚部是奇函数，幅度是偶函数，相位是奇函数</li>
+<li>x(t)为实值偶函数，则X(jw)也是实值偶函数</li>
+<li>x(t)为实值奇函数，则X(jw)也是纯虚奇函数</li>
+<li>该性质也适用于傅里叶级数情况，</li>
+</ul>
+<h3 id="差分求和"><a href="#差分求和" class="headerlink" title="差分求和"></a>差分求和</h3><script type="math/tex; mode=display">
+x[n]-x[n-1]\to (1-e^{-jw})X(jw)</script><script type="math/tex; mode=display">
+\sum_{m=-\infty}^nx[m] \to \frac{1}{(1-e^{-jw})}X(e^{jw})\pi X(e^{j0})\sum_{m=-\infty}^\infty \delta(w-2\pi k)</script><h3 id="时域扩展"><a href="#时域扩展" class="headerlink" title="时域扩展"></a>时域扩展</h3><script type="math/tex; mode=display">
+x_(k)=
+\begin{cases}
+x[n/k]&n为k整数倍\\
+0
+\end{cases}</script><script type="math/tex; mode=display">
+x(k)[n]\to X(e^{jkw})</script><h3 id="频域微分"><a href="#频域微分" class="headerlink" title="频域微分"></a>频域微分</h3><script type="math/tex; mode=display">
+j\frac{dX(e^{jw})}{dw}\to nx[n]</script><h3 id="卷积性质"><a href="#卷积性质" class="headerlink" title="卷积性质"></a>卷积性质</h3><script type="math/tex; mode=display">
+x[n]*h[n] \to X(e^{jw})H(e^{jw})</script><h4 id="周期卷积"><a href="#周期卷积" class="headerlink" title="周期卷积"></a>周期卷积</h4><script type="math/tex; mode=display">
+\sum_{r=<N>}x[r]h[n-r] \to Na_kb_k</script><h3 id="调制性质"><a href="#调制性质" class="headerlink" title="调制性质"></a>调制性质</h3><script type="math/tex; mode=display">
+x[n]y[n] \to \frac{1}{2\pi}X(e^{jw})*Y(e^{jw})</script><p>当傅里叶级数存在时</p>
+<script type="math/tex; mode=display">
+x[n]y[n] \to a_k*b_k</script><h3 id="帕斯瓦尔定理"><a href="#帕斯瓦尔定理" class="headerlink" title="帕斯瓦尔定理"></a>帕斯瓦尔定理</h3><script type="math/tex; mode=display">
+\sum_{k=-\infty}^\infty |x(t)|^2dt=\frac{1}{2\pi}\int_{2\pi}|X(e^{jw})|^2dw</script><h1 id="离散傅里叶变换的对偶性"><a href="#离散傅里叶变换的对偶性" class="headerlink" title="离散傅里叶变换的对偶性"></a>离散傅里叶变换的对偶性</h1><p>离散时间傅里叶变换和连续时间傅里叶<br>级数在数学形式上也是十分相似的，它们之间<br>也存在着一种对偶关系。</p>
+<script type="math/tex; mode=display">
+x[n] \to a[k]</script><script type="math/tex; mode=display">
+a[n] \to \frac{1}{N}x[-k]</script><h1 id="离散时间LTI系统频率响应"><a href="#离散时间LTI系统频率响应" class="headerlink" title="离散时间LTI系统频率响应"></a>离散时间LTI系统频率响应</h1><p>离散LTI系统的频率响应另一种定义可表示为</p>
+<script type="math/tex; mode=display">
+H(e^{jw})=\frac{Y(e^{jw})}{X(e^{jw})}</script>
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/08/20/DFT/" title="离散时间信号频域分析" target="_blank">https://Fazziekey.github.io/2020/08/20/DFT/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -234,7 +341,7 @@
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -247,527 +354,152 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/08/20/DFT/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/19/constant-Flourier/" class="archive-article-date">
-        <time datetime="2020-08-19T07:58:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/19/constant-Flourier/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">连续时间信号频域分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/19/constant-Flourier/" target="_blank">连续时间信号频域分析</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#离散时间傅里叶级数"><span class="toc-number">1.</span> <span class="toc-text">离散时间傅里叶级数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离散傅里叶变换"><span class="toc-number">2.</span> <span class="toc-text">离散傅里叶变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#离散时间傅里叶变换的收敛性与吉布斯现象"><span class="toc-number">2.1.</span> <span class="toc-text">离散时间傅里叶变换的收敛性与吉布斯现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见函数离散傅里叶变换"><span class="toc-number">2.2.</span> <span class="toc-text">常见函数离散傅里叶变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单位脉冲"><span class="toc-number">2.2.1.</span> <span class="toc-text">单位脉冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单边指数"><span class="toc-number">2.2.2.</span> <span class="toc-text">单边指数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双边指数"><span class="toc-number">2.2.3.</span> <span class="toc-text">双边指数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形脉冲"><span class="toc-number">2.2.4.</span> <span class="toc-text">矩形脉冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冲激串"><span class="toc-number">2.2.5.</span> <span class="toc-text">冲激串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离散周期信号傅里叶变换"><span class="toc-number">3.</span> <span class="toc-text">离散周期信号傅里叶变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离散傅里叶变换性质"><span class="toc-number">4.</span> <span class="toc-text">离散傅里叶变换性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#周期性"><span class="toc-number">4.0.1.</span> <span class="toc-text">周期性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性性质"><span class="toc-number">4.0.2.</span> <span class="toc-text">线性性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时移性质"><span class="toc-number">4.0.3.</span> <span class="toc-text">时移性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#频移性质"><span class="toc-number">4.0.4.</span> <span class="toc-text">频移性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共轭"><span class="toc-number">4.0.5.</span> <span class="toc-text">共轭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#差分求和"><span class="toc-number">4.0.6.</span> <span class="toc-text">差分求和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时域扩展"><span class="toc-number">4.0.7.</span> <span class="toc-text">时域扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#频域微分"><span class="toc-number">4.0.8.</span> <span class="toc-text">频域微分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卷积性质"><span class="toc-number">4.0.9.</span> <span class="toc-text">卷积性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#周期卷积"><span class="toc-number">4.0.9.1.</span> <span class="toc-text">周期卷积</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调制性质"><span class="toc-number">4.0.10.</span> <span class="toc-text">调制性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帕斯瓦尔定理"><span class="toc-number">4.0.11.</span> <span class="toc-text">帕斯瓦尔定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离散傅里叶变换的对偶性"><span class="toc-number">5.</span> <span class="toc-text">离散傅里叶变换的对偶性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离散时间LTI系统频率响应"><span class="toc-number">6.</span> <span class="toc-text">离散时间LTI系统频率响应</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+
+
+<div id="SOHUCS" sid="DFT" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/18/LTI/" class="archive-article-date">
-        <time datetime="2020-08-18T05:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-
-        </div>
-    	 
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/18/LTI/" target="_blank">LTI系统时域分析</a>
-  
-    </h1>
-  
+  <script>
+  <!-- id: "离散时间信号频域分析" -->
+  var giteement = new Giteement({
+    id: '20200820215819',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/17/system-basic/" class="archive-article-date">
-        <time datetime="2020-08-17T03:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/17/system-basic/" target="_blank">系统的基本概念</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/15/com-base/" class="archive-article-date">
-        <time datetime="2020-08-15T07:02:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/15/com-base/" target="_blank">com base</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">communication</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/08/nn/" class="archive-article-date">
-        <time datetime="2020-08-08T07:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/08/nn/" target="_blank">建立你的知识神经网络</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" class="archive-article-date">
-        <time datetime="2020-08-05T16:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" target="_blank">Beautiful Soup</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2020-08-05T06:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" target="_blank">爬虫基础-正则表达匹配</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/04/pytorch-basic/" class="archive-article-date">
-        <time datetime="2020-08-04T12:40:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/04/pytorch-basic/" target="_blank">pytorch basic</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/31/JS-Basic/" class="archive-article-date">
-        <time datetime="2020-07-31T05:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-31</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/31/JS-Basic/" target="_blank">JS Basic</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -808,8 +540,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
