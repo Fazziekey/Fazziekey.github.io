@@ -10,16 +10,16 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="拉普拉斯变换作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛  F\{x(t)e^{-\sigma t}\}&#x3D;\int_{-\infin}^{\infin}x(t)e^{-\sigma t}e^{-jwt}dt&#x3D;\int_{-\infin}^{\infin}x(t)e^{-t(\sigma+jw)}dt X">
+  <meta name="description" content="拉普拉斯变换作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拉普拉斯变换">
 <meta property="og:url" content="https://fazziekey.github.io/2020/08/21/laplace-transformation/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="拉普拉斯变换作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛  F\{x(t)e^{-\sigma t}\}&#x3D;\int_{-\infin}^{\infin}x(t)e^{-\sigma t}e^{-jwt}dt&#x3D;\int_{-\infin}^{\infin}x(t)e^{-t(\sigma+jw)}dt X">
+<meta property="og:description" content="拉普拉斯变换作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/7f514c4e54efa24936472b15f0fd5750/xmlnote/DDA514CCC7A742989C3133C2309864EE/2582">
 <meta property="article:published_time" content="2020-08-21T08:01:42.000Z">
-<meta property="article:modified_time" content="2020-08-21T08:08:25.580Z">
+<meta property="article:modified_time" content="2020-08-21T08:10:39.858Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="手撕拉普拉斯">
 <meta name="twitter:card" content="summary">
@@ -251,6 +251,7 @@
 
     
     <h2 id="拉普拉斯变换"><a href="#拉普拉斯变换" class="headerlink" title="拉普拉斯变换"></a>拉普拉斯变换</h2><p>作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛</p>
+<a id="more"></a>
 <script type="math/tex; mode=display">
 F\{x(t)e^{-\sigma t}\}=\int_{-\infin}^{\infin}x(t)e^{-\sigma t}e^{-jwt}dt=\int_{-\infin}^{\infin}x(t)e^{-t(\sigma+jw)}dt</script><script type="math/tex; mode=display">
 X(\sigma+jw)=\int_{-\infin}^{\infin}x(t)e^{-(\sigma+jw)t}dt</script><p>其傅里叶反变换</p>
