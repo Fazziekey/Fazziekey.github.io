@@ -6,17 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Category: 《栈溢出工程师》 | Hexo</title>
+  <title>Sampling and modulation | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/index.html">
+  <meta name="description" content="连续时间采样定理冲激串采样定理 x_p(t)&#x3D;x(t)p(t) p(t)&#x3D;\sum_{n&#x3D;-\infty}^\infty\delta(t-nT)T为采样周期  X_p(jw)&#x3D;\frac{1}{2\pi}X(jw)*P(jw) &#x3D;\frac{1}{T}\sum_{k&#x3D;-\infty}^\infty X(j(w-kw_s))相当于将信号频域的图像左右平移 采样定理 $x(t)$是一带限信号，$X(j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sampling and modulation">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/21/Sampling-and-modulation/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="连续时间采样定理冲激串采样定理 x_p(t)&#x3D;x(t)p(t) p(t)&#x3D;\sum_{n&#x3D;-\infty}^\infty\delta(t-nT)T为采样周期  X_p(jw)&#x3D;\frac{1}{2\pi}X(jw)*P(jw) &#x3D;\frac{1}{T}\sum_{k&#x3D;-\infty}^\infty X(j(w-kw_s))相当于将信号频域的图像左右平移 采样定理 $x(t)$是一带限信号，$X(j">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/cd375deb4debf84d4eec89018faaf266.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/99a6952d0e3d2da0ff8aaff1d2f26420.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/c8aacd6ecdb8de1aeaf235fdaf867e99.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/c92525f0e7e3da23eda6d3cefd8ca72b.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/e2a0babfc3c05b2aff3e432089c665b0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/bb5d4862a3afe394d519b8f6c21149cd.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/04275e4d4edb28371ab3a55dad3c6998.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/a2786c4c28f8bf0599e8798e8df94a1d.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/c68233b27e0550fd3ffb7954428ab64c.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/2734e97ea60f009c907ff61dd321c77a.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/4cf88c3169d4d98b334db888eedacadd.png">
+<meta property="article:published_time" content="2020-08-21T07:57:08.000Z">
+<meta property="article:modified_time" content="2020-08-21T07:59:46.812Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/cd375deb4debf84d4eec89018faaf266.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -188,441 +205,320 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Sampling-and-modulation" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/08/nn/" class="archive-article-date">
-        <time datetime="2020-08-08T07:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/08/nn/" target="_blank">建立你的知识神经网络</a>
   
+    <h1 class="article-title" itemprop="name">
+      Sampling and modulation
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" class="archive-article-date">
-        <time datetime="2020-08-05T16:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/08/21/Sampling-and-modulation/" class="archive-article-date">
+        <time datetime="2020-08-21T07:57:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" target="_blank">Beautiful Soup</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2020-08-05T06:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">700字</span>
+    </span>
+  </span>
 
-        </div>
-    	 
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" target="_blank">爬虫基础-正则表达匹配</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/31/JS-Basic/" class="archive-article-date">
-        <time datetime="2020-07-31T05:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-31</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/31/JS-Basic/" target="_blank">JS Basic</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/28/CSS/" class="archive-article-date">
-        <time datetime="2020-07-28T15:22:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/28/CSS/" target="_blank">CSS</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/28/HTML/" class="archive-article-date">
-        <time datetime="2020-07-28T07:30:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/28/HTML/" target="_blank">HTML</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/25/MySQL/" class="archive-article-date">
-        <time datetime="2020-07-25T13:40:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/25/MySQL/" target="_blank">MySQL</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
-
-
-<article class="article article-type-post show">
-  <header class="article-header" style="border-bottom: 1px solid #ccc">
-  <h1 class="article-title" itemprop="name">
-    
-  </h1>
   </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
 
-  
-  <div class="category-all-page">
-    <h2>共计&nbsp;3&nbsp;个分类</h2>
-    <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a><span class="category-list-item-list-count">7</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a><span class="category-list-item-list-count">6</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a><span class="category-list-item-list-count">14</span></li></ul>
+    
+    <h1 id="连续时间采样定理"><a href="#连续时间采样定理" class="headerlink" title="连续时间采样定理"></a>连续时间采样定理</h1><h2 id="冲激串采样定理"><a href="#冲激串采样定理" class="headerlink" title="冲激串采样定理"></a>冲激串采样定理</h2><script type="math/tex; mode=display">
+x_p(t)=x(t)p(t)</script><script type="math/tex; mode=display">
+p(t)=\sum_{n=-\infty}^\infty\delta(t-nT)</script><p>T为采样周期</p>
+<script type="math/tex; mode=display">
+X_p(jw)=\frac{1}{2\pi}X(jw)*P(jw)</script><script type="math/tex; mode=display">
+=\frac{1}{T}\sum_{k=-\infty}^\infty X(j(w-kw_s))</script><p>相当于将信号频域的图像左右平移<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/cd375deb4debf84d4eec89018faaf266.png" alt=""></p>
+<h2 id="采样定理"><a href="#采样定理" class="headerlink" title="采样定理"></a>采样定理</h2><ul>
+<li>$x(t)$是一带限信号，$X(jw)=0,|w|&gt;w_M$</li>
+<li>采样频率$w_s&gt;2w_M$,其中$w_s=2\pi/T$,T为抽样周期，当$w_s=2w_M$,称作奈奎斯特率。满足条件的信号可以采样后重建。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/99a6952d0e3d2da0ff8aaff1d2f26420.png" alt=""></p>
+<ul>
+<li>H( jw)为一低通滤波器</li>
+</ul>
+<script type="math/tex; mode=display">
+x_r(t)=\sum_{n=-\infty}^\infty x(nT)\delta(t-nT)*h(t)</script><script type="math/tex; mode=display">
+=\sum_{n=-\infty}^\infty x(nT)h(t-nT)</script><h3 id="带限内插"><a href="#带限内插" class="headerlink" title="带限内插"></a>带限内插</h3><ul>
+<li>当h(t)为理想滤波器时，即</li>
+</ul>
+<script type="math/tex; mode=display">
+h(t)=T\frac{w_c}{\pi}Sa(w_ct)</script><p>当$w_c$满足：$w_M&lt;w_c&lt;w_s-w_M$时，重建是精确的。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/c8aacd6ecdb8de1aeaf235fdaf867e99.png" alt=""></p>
+<script type="math/tex; mode=display">
+x_r(t)=\sum_{n=-N}^N x(nT)T\frac{w_c}{\pi}Sa(w_c(t-nT))</script><h3 id="零阶保持"><a href="#零阶保持" class="headerlink" title="零阶保持"></a>零阶保持</h3><p>如果h(t)取矩形窗函数<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/c92525f0e7e3da23eda6d3cefd8ca72b.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/e2a0babfc3c05b2aff3e432089c665b0.png" alt=""></p>
+<h3 id="零阶保持采样"><a href="#零阶保持采样" class="headerlink" title="零阶保持采样"></a>零阶保持采样</h3><p>冲激串抽样的数学模型在实际工程应用中是无法实<br>现的，其重要意义是在理论上建立采样定理。在实际工<br>程应用中，往往采用零阶保持的方法来获取采样信号。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/bb5d4862a3afe394d519b8f6c21149cd.png" alt=""></p>
+<h3 id="欠采样"><a href="#欠采样" class="headerlink" title="欠采样"></a>欠采样</h3><p>被采用的信号若是正弦信号，在频谱混叠的情况下可以获得重建信号</p>
+<h1 id="离散时间信号的时域采样定理"><a href="#离散时间信号的时域采样定理" class="headerlink" title="离散时间信号的时域采样定理"></a>离散时间信号的时域采样定理</h1><h2 id="脉冲串采样"><a href="#脉冲串采样" class="headerlink" title="脉冲串采样"></a>脉冲串采样</h2><script type="math/tex; mode=display">
+p[n]=\sum_{k=-\infty}^\infty \delta[n-kN]</script><script type="math/tex; mode=display">
+x_p[n]=x[n]p[n]</script><script type="math/tex; mode=display">
+=\sum_{k=-\infty}^\infty x[kN] \delta[n-kN]</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/04275e4d4edb28371ab3a55dad3c6998.png" alt=""></p>
+<script type="math/tex; mode=display">
+P(e^{jw})=\frac{2\pi}{N}\sum_{k=-\infty}^\infty \delta(w-kw_s)</script><script type="math/tex; mode=display">
+X_p(e^{jw})=\frac{1}{N}\sum_{k=0}^{N-1}X(e^{j(w-kw_s)})</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/a2786c4c28f8bf0599e8798e8df94a1d.png" alt=""></p>
+<h2 id="离散时间的采样定理"><a href="#离散时间的采样定理" class="headerlink" title="离散时间的采样定理"></a>离散时间的采样定理</h2><p>设x[n]是某一带限信号，即在$w_M&lt;|w|&lt;\pi$时,$X(e^{jw})=0$。如果采样频<br>率$w_s&gt;2w_M$，那么x[n] 就唯一地由其样<br>本x[kN]， 所确定。</p>
+<h2 id="离散时间的抽取与内插"><a href="#离散时间的抽取与内插" class="headerlink" title="离散时间的抽取与内插"></a>离散时间的抽取与内插</h2><h3 id="抽取和减采样"><a href="#抽取和减采样" class="headerlink" title="抽取和减采样"></a>抽取和减采样</h3><script type="math/tex; mode=display">
+x_s[n]=x[nN]=x_p[nN]</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/c68233b27e0550fd3ffb7954428ab64c.png" alt=""></p>
+<script type="math/tex; mode=display">
+X_s(e^{jw})=X_p(e^{jw/N})</script><p>$x_s[n]$的频谱将$X_p(e^{jw})$扩展了N 倍</p>
+<h3 id="内插和增采样"><a href="#内插和增采样" class="headerlink" title="内插和增采样"></a>内插和增采样</h3><script type="math/tex; mode=display">
+x[n]=
+\begin{cases}
+x_s(n/N)\\
+0
+\end{cases}</script><script type="math/tex; mode=display">
+X(e^{jw})=X_s(e^{jwN})</script><h1 id="连续时间系统的离散实现"><a href="#连续时间系统的离散实现" class="headerlink" title="连续时间系统的离散实现"></a>连续时间系统的离散实现</h1><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/2734e97ea60f009c907ff61dd321c77a.png" alt=""></p>
+<h1 id="正弦载波调制"><a href="#正弦载波调制" class="headerlink" title="正弦载波调制"></a>正弦载波调制</h1><script type="math/tex; mode=display">
+y(t)=x(t)\cdot c(t)</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/4cf88c3169d4d98b334db888eedacadd.png" alt=""><br>正弦载波幅度调制的主要功能是实现频谱搬移功能。<br>DSB调制通常也称为抑制载波的正弦载波调制</p>
+<script type="math/tex; mode=display">
+x_r=(y(t)\cos w_ct)*h(t)</script><script type="math/tex; mode=display">
+=(x(t)\frac{\cos(2w_ct)+1}{2})*h(t)=\frac{1}{2}x(t)</script><h1 id="脉冲幅度调制"><a href="#脉冲幅度调制" class="headerlink" title="脉冲幅度调制"></a>脉冲幅度调制</h1><p>PAM是脉冲载波的幅度随调制信号变化的<br>一种调制方式：它是对调制信号的取样，即抽<br>取某一时间间隙内的调制信号的信息。脉冲调<br>制有两种基本形式：</p>
+<ul>
+<li>自然采样</li>
+<li>平顶采样（零阶保持采样）。</li>
+</ul>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/08/21/Sampling-and-modulation/" title="Sampling and modulation" target="_blank">https://Fazziekey.github.io/2020/08/21/Sampling-and-modulation/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
   </div>
-  
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/08/21/Sampling-and-modulation/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/20/DFT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">离散时间信号频域分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#连续时间采样定理"><span class="toc-number">1.</span> <span class="toc-text">连续时间采样定理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#冲激串采样定理"><span class="toc-number">1.1.</span> <span class="toc-text">冲激串采样定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#采样定理"><span class="toc-number">1.2.</span> <span class="toc-text">采样定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带限内插"><span class="toc-number">1.2.1.</span> <span class="toc-text">带限内插</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#零阶保持"><span class="toc-number">1.2.2.</span> <span class="toc-text">零阶保持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#零阶保持采样"><span class="toc-number">1.2.3.</span> <span class="toc-text">零阶保持采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#欠采样"><span class="toc-number">1.2.4.</span> <span class="toc-text">欠采样</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离散时间信号的时域采样定理"><span class="toc-number">2.</span> <span class="toc-text">离散时间信号的时域采样定理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#脉冲串采样"><span class="toc-number">2.1.</span> <span class="toc-text">脉冲串采样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#离散时间的采样定理"><span class="toc-number">2.2.</span> <span class="toc-text">离散时间的采样定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#离散时间的抽取与内插"><span class="toc-number">2.3.</span> <span class="toc-text">离散时间的抽取与内插</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抽取和减采样"><span class="toc-number">2.3.1.</span> <span class="toc-text">抽取和减采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内插和增采样"><span class="toc-number">2.3.2.</span> <span class="toc-text">内插和增采样</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#连续时间系统的离散实现"><span class="toc-number">3.</span> <span class="toc-text">连续时间系统的离散实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正弦载波调制"><span class="toc-number">4.</span> <span class="toc-text">正弦载波调制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脉冲幅度调制"><span class="toc-number">5.</span> <span class="toc-text">脉冲幅度调制</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+<div id="SOHUCS" sid="Sampling-and-modulation" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "Sampling and modulation" -->
+  var giteement = new Giteement({
+    id: '20200821155708',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
+
+
+
+
           </div>
         </div>
       </div>
@@ -661,10 +557,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
