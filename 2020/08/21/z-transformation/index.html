@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Archives: 2020 | Hexo</title>
+  <title>z变换 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/archives/2020/page/4/index.html">
+  <meta name="description" content="意义傅里叶变换的推广 针对离散信号 双边z变换选择合适的指数信号$r^{-n}$,使得，可以进行傅里叶变换 假设r使X(z)收敛  x[n]r^{-n}&#x3D;F^{-1}\{X(re^{iw})\} x[n]&#x3D;r^{n}F^{-1}\{X(re^{iw})\} x[n]&#x3D;\frac{1}{2\pi}\int_{2\pi} X(re^{iw})(re^{jw})^ndw 令z&#x3D;re^{jw} \to x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="z变换">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/21/z-transformation/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="意义傅里叶变换的推广 针对离散信号 双边z变换选择合适的指数信号$r^{-n}$,使得，可以进行傅里叶变换 假设r使X(z)收敛  x[n]r^{-n}&#x3D;F^{-1}\{X(re^{iw})\} x[n]&#x3D;r^{n}F^{-1}\{X(re^{iw})\} x[n]&#x3D;\frac{1}{2\pi}\int_{2\pi} X(re^{iw})(re^{jw})^ndw 令z&#x3D;re^{jw} \to x">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-21T08:01:57.000Z">
+<meta property="article:modified_time" content="2020-08-21T08:08:24.346Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -188,122 +193,423 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-z-transformation" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/16/Mark-Down%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="archive-article-date">
-        <time datetime="2020-04-16T00:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/16/Mark-Down%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" target="_blank">Mark Down语法从入门到放弃</a>
   
+    <h1 class="article-title" itemprop="name">
+      z变换
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/14/%E2%80%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E2%80%9D/" class="archive-article-date">
-        <time datetime="2020-04-14T15:58:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/08/21/z-transformation/" class="archive-article-date">
+        <time datetime="2020-08-21T08:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/14/%E2%80%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E2%80%9D/" target="_blank">“Mark dowm语法从入门到放弃”</a>
   
-    </h1>
-  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">243字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p><strong>傅里叶变换的推广</strong></p>
+<p><strong>针对离散信号</strong></p>
+<h2 id="双边z变换"><a href="#双边z变换" class="headerlink" title="双边z变换"></a>双边z变换</h2><p>选择合适的指数信号$r^{-n}$,使得，可以进行傅里叶变换</p>
+<p>假设r使X(z)收敛</p>
+<script type="math/tex; mode=display">
+x[n]r^{-n}=F^{-1}\{X(re^{iw})\}</script><script type="math/tex; mode=display">
+x[n]=r^{n}F^{-1}\{X(re^{iw})\}</script><script type="math/tex; mode=display">
+x[n]=\frac{1}{2\pi}\int_{2\pi} X(re^{iw})(re^{jw})^ndw</script><script type="math/tex; mode=display">
+令z=re^{jw}</script><script type="math/tex; mode=display">
+\to
+x[n]=\frac{1}{2\pi j}\oint_{2\pi} X(z)z^{n-1}dz</script><script type="math/tex; mode=display">
+X(z)=\sum_{n=-\infin}^{\infin}x[n]z^{-n}</script><blockquote>
+<p>$\oint$围线积分，以原点为中心，逆时针的线积分</p>
+</blockquote>
+<p>==z变换需要明确收敛域==</p>
+<h3 id="常见离散信号z变换"><a href="#常见离散信号z变换" class="headerlink" title="常见离散信号z变换"></a>常见离散信号z变换</h3><ul>
+<li>单边指数信号<script type="math/tex; mode=display">
+x[n]=u[n]a^n</script><script type="math/tex; mode=display">
+X(z)=\frac{z}{z-a} 
+(|z|>|a|)</script><script type="math/tex; mode=display">
+x[n]=-u[-n-1]a^n</script><script type="math/tex; mode=display">
+X(z)=\frac{z}{z-a} 
+(|z|<|a|)</script></li>
+<li>双边信号<script type="math/tex; mode=display">
+x[n]=b^{|n|}</script><script type="math/tex; mode=display">
+X(z)=\frac{1}{1-bz^{-1}}-\frac{1}{1-b^{-1}z^{-1}} 
+(|b|<|z|<|1/b|)</script><blockquote>
+<p>只有b&lt;1时收敛</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>当左边信号线性叠加右边信号，就会形成圆环，总共有三种情况</p>
+<ul>
+<li>幂指数信号<script type="math/tex; mode=display">
+x[n]=nu[n]a^n</script><script type="math/tex; mode=display">
+X(z)=\frac{az}{(z-a)^2} 
+(|z|>|a|)</script></li>
+<li>三角信号<script type="math/tex; mode=display">
+x[n]=cos[w_0n]u[n]</script><script type="math/tex; mode=display">
+X(z)=\frac{1-z^{-1}[cosw_0]}{1-2z^{-1}[cosw_0]+z^{-2}}
+(|z|>1)</script><script type="math/tex; mode=display">
+x[n]=sin[w_0n]u[n]</script><script type="math/tex; mode=display">
+X(z)=\frac{1-z^{-1}[sinw_0]}{1-2z^{-1}[cosw_0]+z^{-2}}
+(|z|>1)</script><script type="math/tex; mode=display">
+x[n]=r^ncos[w_0n]u[n]</script><script type="math/tex; mode=display">
+X(z)=\frac{1-z^{-1}[rcosw_0]}{1-2z^{-1}[2rcosw_0]+r^2z^{-2}}
+(|z|>1)</script><script type="math/tex; mode=display">
+x[n]=rsin[w_0n]u[n]</script><script type="math/tex; mode=display">
+X(z)=\frac{1-z^{-1}[rsinw_0]}{1-2z^{-1}[2rcosw_0]+r^2z^{-2}}
+(|z|>1)</script></li>
+</ul>
+</blockquote>
+<ul>
+<li>单位冲击<script type="math/tex; mode=display">
+x[n]=\delta[n]</script><script type="math/tex; mode=display">
+X(z)=1(0=<|z|<\infin)</script></li>
+<li>单位阶跃<script type="math/tex; mode=display">
+x[n]=u[n]</script><script type="math/tex; mode=display">
+X(z)=\frac{z}{z-1}(|z|>1)</script><script type="math/tex; mode=display">
+x[n]=-u[-n-1]</script><script type="math/tex; mode=display">
+X(z)=\frac{z}{z-1}(|z|<1)</script><h2 id="z变换的收敛域"><a href="#z变换的收敛域" class="headerlink" title="z变换的收敛域"></a>z变换的收敛域</h2>信号绝对可和<script type="math/tex; mode=display">
+\sum_{n=-\infin}^{+\infin}|x[n]|r^{-n}<\infin</script></li>
+</ul>
+<blockquote>
+<p> z变换的收敛域都是以原点为圆心的环状</p>
+</blockquote>
+<h3 id="有限长序列"><a href="#有限长序列" class="headerlink" title="有限长序列"></a>有限长序列</h3><script type="math/tex; mode=display">
+\sum_{n=n_1}^{n_2}|x[n]|r^{-n}<\infin</script><p>一定收敛，收敛域为$z=0,z=\infin$,外的整个z平面</p>
+<ul>
+<li>$n_1&gt;0,0&lt;|z|&lt;=\infin$</li>
+<li>$n_2&lt;0,0=&lt;|z|&lt;\infin$</li>
+<li>$n_1&gt;0,n_2&lt;0,0&lt;|z|&lt;\infin$</li>
+</ul>
+<h3 id="右边序列"><a href="#右边序列" class="headerlink" title="右边序列"></a>右边序列</h3><p>当 n&lt; n1,x[n]=0</p>
+<p>收敛域为</p>
+<script type="math/tex; mode=display">
+R_{x^-}<z<\infin</script><h3 id="左边序列"><a href="#左边序列" class="headerlink" title="左边序列"></a>左边序列</h3><p>当 n&gt; n2,x[n]=0</p>
+<p>收敛域为</p>
+<script type="math/tex; mode=display">
+0<z<R_{x^+}</script><h3 id="双边序列"><a href="#双边序列" class="headerlink" title="双边序列"></a>双边序列</h3><p>当 n&lt; n1,n&gt;n2,x[n]=0</p>
+<p>收敛域为</p>
+<script type="math/tex; mode=display">
+R_{x^-}<z<R_{x^+}</script><h2 id="z变换的几何表示"><a href="#z变换的几何表示" class="headerlink" title="z变换的几何表示"></a>z变换的几何表示</h2><script type="math/tex; mode=display">
+X(z)=\frac{N(z)}{D(z)}</script><p>零极点</p>
+<h2 id="z变换的性质"><a href="#z变换的性质" class="headerlink" title="z变换的性质"></a>z变换的性质</h2><ul>
+<li>线性性质<ul>
+<li>收敛域至少为交集，可能出现0极点抵消，收敛域扩大<script type="math/tex; mode=display">
+x[n]=u[n]a^n，
+y[n]=u[n-1]a^n</script><script type="math/tex; mode=display">
+X(z)=\frac{z}{z-a} 
+(|z|>|a|)</script><script type="math/tex; mode=display">
+Y(z)=\frac{a}{z-a} 
+(|z|>|a|)</script><script type="math/tex; mode=display">
+X(z)-Y(z)=1 (0=<|z|<\infin)</script></li>
+</ul>
+</li>
+<li><p>时域位移</p>
+<script type="math/tex; mode=display">
+x[n-m]\xleftrightarrow{z}z^{-m}X(z)</script><blockquote>
+<p>应用：延时器</p>
+</blockquote>
+</li>
+<li><p>频域微分</p>
+<script type="math/tex; mode=display">
+nx[n]\xleftrightarrow{z}-z\frac{d}{dz}X(z)</script></li>
+<li>尺度变换<script type="math/tex; mode=display">
+a^nx[n]\xleftrightarrow{z}X(\frac{z}{a})</script></li>
+<li>时域扩展<br>$$<br>x[n]_k=<br>\begin{cases}<br>x[n/k], n是k的整数倍\\0，, n不是k的整数倍<br>\end{cases}</li>
+</ul>
+<p>x[n]_k\xleftrightarrow{z}X(z^k)（R_{k^-}^{1/k}&lt;|z|&lt;R_{k^+}^{1/k}）</p>
+<script type="math/tex; mode=display">
+特殊情况，k=-1</script><p>（R_{k^-}&lt;|1/z|&lt;R_{k^+}）</p>
+<script type="math/tex; mode=display">
++ 时域卷积</script><p>x[n]*y[n]\xleftrightarrow{z}X(z)Y(z)</p>
+<script type="math/tex; mode=display">
+</script><p>（max\{R_{x^-},R_{y^-}\}&lt;|z|&lt;min\{R_{x^+},R_{y^+}\}）</p>
+<script type="math/tex; mode=display">
+
++ 共轭性质</script><p>x^<em>[n]\xleftrightarrow{Z}X^</em>(z^*)</p>
+<script type="math/tex; mode=display">
++ 累加性质</script><p>\sum_{k=-\infin}^nx[k]\xleftrightarrow{Z}\frac{1}{1-z^{-1}}X(z)</p>
+<script type="math/tex; mode=display">
++ 初值性质</script><p>x[0]=lim_{z\rightarrow\infin}X(z)</p>
+<script type="math/tex; mode=display">
+> x[n]为因果序列,|z|>Rx-
+
++ 终值性质</script><p>x[0]=lim_{z\rightarrow1}(z-1)X(z)</p>
+<script type="math/tex; mode=display">
+> x[n]为因果序列,|z|>=1,(z-1)X(Z)收敛
+
+## Z反变换
+### 幂级数展开法</script><p>X(z)=x(0)z^0+x(1)z^{-1}+x(2)z^{-2}+……+x(n)z^{-n}</p>
+<script type="math/tex; mode=display">
+### 利用泰勒级数
+### 部分分式展开
+### 留数法
++ |z|>a</script><p>x[n]=\begin{cases}<br>0,n<n_0\\
+\sum_m Res[X(z)z^{n-1}]_{z=p_m},n>=n_0<br>\end{cases}</p>
+<script type="math/tex; mode=display">
++ |z|<a</script><p>x[n]=\begin{cases}<br>-\sum_m Res[X(z)z^{n-1}]_{z=p_m},n<n_0\\
+0,n>=n_0\\<br>\end{cases}</p>
+<script type="math/tex; mode=display">
+其中</script><p>Res[X(z)z^{n-1}]_{z=p_m}=\frac{1}{(L-1)!}[\frac{d^{L-1}}{dz^{L-1}}(z-p_m)^LX(z)z^{n-1}]_{z=p_m}</p>
+<script type="math/tex; mode=display">
+
+##  单边z变换
++ 移位性质</script><p>x[n+m]u[n]\xleftrightarrow{UZ}z^m（X(z)-\sum_{k=0}^{m-1}x[k]z^{-k})</p>
+<p>$$</p>
+<h2 id="系统分析"><a href="#系统分析" class="headerlink" title="系统分析"></a>系统分析</h2><ul>
+<li>因果性</li>
+</ul>
+<p>一个因果 LTI系统其单位脉冲响应h[n]是对于n&lt;0, h[n]=0，ROC包括无限远点</p>
+<ul>
+<li>稳定性</li>
+</ul>
+<p>一个稳定离散时间LTI系要求其单位脉冲响应h[n]<br>满足绝对可和的，ROC必须包含单位圆，一个LTI系统当且仅当它的系统函数H(z)的ROC<br>包括单位圆，|z|=1时，该系统就是稳定的。</p>
+<ul>
+<li>因果稳定离散时间LTI系统</li>
+</ul>
+<p>一个具有有理系统函数的因果LTI系统，当且仅<br>当H(z)的全部极点都位于单位圆内时，也即全部极点<br>其模均小于1时，系统就是稳定的。</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/08/21/z-transformation/" title="z变换" target="_blank">https://Fazziekey.github.io/2020/08/21/z-transformation/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/08/21/z-transformation/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/14/hello-world/" class="archive-article-date">
-        <time datetime="2020-04-14T06:03:50.052Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/21/laplace-transformation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">拉普拉斯变换</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/14/hello-world/" target="_blank">Fazzie key</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双边z变换"><span class="toc-number">2.</span> <span class="toc-text">双边z变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见离散信号z变换"><span class="toc-number">2.1.</span> <span class="toc-text">常见离散信号z变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#z变换的收敛域"><span class="toc-number">3.</span> <span class="toc-text">z变换的收敛域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#有限长序列"><span class="toc-number">3.1.</span> <span class="toc-text">有限长序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右边序列"><span class="toc-number">3.2.</span> <span class="toc-text">右边序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#左边序列"><span class="toc-number">3.3.</span> <span class="toc-text">左边序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双边序列"><span class="toc-number">3.4.</span> <span class="toc-text">双边序列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#z变换的几何表示"><span class="toc-number">4.</span> <span class="toc-text">z变换的几何表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#z变换的性质"><span class="toc-number">5.</span> <span class="toc-text">z变换的性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统分析"><span class="toc-number">6.</span> <span class="toc-text">系统分析</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        
+    </div>
+</aside>
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+
+
+
+
+<div id="SOHUCS" sid="z-transformation" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
   
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "z变换" -->
+  var giteement = new Giteement({
+    id: '20200821160157',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
+
+
 
 
           </div>
@@ -344,8 +650,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
