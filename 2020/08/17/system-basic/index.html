@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/9bd9b1dad2d3e0646bff6332d2e3862d.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/10d0da71152d6e8de478c5c36d2979d7.png">
 <meta property="article:published_time" content="2020-08-17T03:34:53.000Z">
-<meta property="article:modified_time" content="2020-08-18T07:52:12.184Z">
+<meta property="article:modified_time" content="2020-08-27T08:05:29.263Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="手撕拉普拉斯">
 <meta name="twitter:card" content="summary">
@@ -263,8 +263,8 @@
 <li>功率和能量</li>
 </ul>
 <a id="more"></a>
-<p>能量信号（能量有限信号）：<br>如果信号x(t)满足: 0&lt;E &lt;$\infty$,而P = 0。</p>
-<p>功率信号（功率有限信号）:<br>如果信号x(t)满足：0 &lt; P &lt;$\infty$, 而E=$\infty$。</p>
+<p>能量信号（能量有限信号）：<br>如果信号x(t)满足: 0&lt;E &lt;$\infin$,而P = 0。</p>
+<p>功率信号（功率有限信号）:<br>如果信号x(t)满足：0 &lt; P &lt;$\infin$, 而E=$\infin$。</p>
 <blockquote>
 <p>周期信号一般属于功率信号，属于能量信号的非周期信号也称为脉冲信号</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/74b0c8b8c1a8b64273a37443ae7599b6.png" alt=""></p>
@@ -296,7 +296,7 @@ u[n]=
 \end{cases}</script><p><strong>单位脉冲和阶跃关系</strong></p>
 <script type="math/tex; mode=display">
 \delta[n]=u[n]-u[n-1]</script><script type="math/tex; mode=display">
-u[n]=\sum_{k=0}^{\infty}\delta[n-k]=\sum_{k=-\infty}^{n}\delta[k]</script><h3 id="矩形序列"><a href="#矩形序列" class="headerlink" title="矩形序列"></a>矩形序列</h3><script type="math/tex; mode=display">
+u[n]=\sum_{k=0}^{\infin}\delta[n-k]=\sum_{k=-\infin}^{n}\delta[k]</script><h3 id="矩形序列"><a href="#矩形序列" class="headerlink" title="矩形序列"></a>矩形序列</h3><script type="math/tex; mode=display">
 g_N[n]=
 \begin{cases}
 0& 0<n < N-1 \\
@@ -309,7 +309,7 @@ n& n >= 0 \\
 0& n<0
 \end{cases}</script><script type="math/tex; mode=display">
 =nu[n]</script><h3 id="单位脉冲串"><a href="#单位脉冲串" class="headerlink" title="单位脉冲串"></a>单位脉冲串</h3><script type="math/tex; mode=display">
-\delta_N[n]=\sum_{k=-\infty}^{\infty}\delta[n-kN]</script><h2 id="连续时间阶跃冲激"><a href="#连续时间阶跃冲激" class="headerlink" title="连续时间阶跃冲激"></a>连续时间阶跃冲激</h2><h3 id="单位阶跃-1"><a href="#单位阶跃-1" class="headerlink" title="单位阶跃"></a>单位阶跃</h3><script type="math/tex; mode=display">
+\delta_N[n]=\sum_{k=-\infin}^{\infin}\delta[n-kN]</script><h2 id="连续时间阶跃冲激"><a href="#连续时间阶跃冲激" class="headerlink" title="连续时间阶跃冲激"></a>连续时间阶跃冲激</h2><h3 id="单位阶跃-1"><a href="#单位阶跃-1" class="headerlink" title="单位阶跃"></a>单位阶跃</h3><script type="math/tex; mode=display">
 u(t)=
 \begin{cases}
 0& t < 0 \\
@@ -326,26 +326,26 @@ sgn(t)=
 =2u(t)-1</script><h3 id="单位冲激信号"><a href="#单位冲激信号" class="headerlink" title="单位冲激信号"></a>单位冲激信号</h3><p><strong>狄拉克定义</strong></p>
 <script type="math/tex; mode=display">
 \begin{cases}
-\int_{-\infty}^{+\infty}\delta(t)dt=1\\
+\int_{-\infin}^{+\infin}\delta(t)dt=1\\
 \delta(t)=0 & t=\not0
 \end{cases}</script><script type="math/tex; mode=display">
 \delta(t)=\frac{du(t)}{dt}</script><script type="math/tex; mode=display">
-u(t)=\int_{-\infty}^{t}\delta(\tau)d\tau</script><h4 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h4><ul>
+u(t)=\int_{-\infin}^{t}\delta(\tau)d\tau</script><h4 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h4><ul>
 <li>抽样<script type="math/tex; mode=display">
 x(t)\delta(t)=x(0)\delta(t)</script><script type="math/tex; mode=display">
 x(t)\delta(t-t_0)=x(0)\delta(t-t_0)</script></li>
 <li>筛选<script type="math/tex; mode=display">
-\int_{-\infty}^{+\infty}x(t)\delta(t)=x(0)</script><script type="math/tex; mode=display">
-\int_{-\infty}^{+\infty}x(t)\delta(t-t_0)=x(t_0)</script></li>
+\int_{-\infin}^{+\infin}x(t)\delta(t)=x(0)</script><script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}x(t)\delta(t-t_0)=x(t_0)</script></li>
 <li>偶函数</li>
 </ul>
 <h3 id="冲激偶信号"><a href="#冲激偶信号" class="headerlink" title="冲激偶信号"></a>冲激偶信号</h3><p>冲激函数的微分称为冲激偶信号</p>
 <script type="math/tex; mode=display">
-\int_{-\infty}^{+\infty}\delta'(t)dt=0</script><script type="math/tex; mode=display">
-\int_{-\infty}^{+\infty}\delta'(t)x(t)dt=-x'(0)</script><h3 id="单位冲激串"><a href="#单位冲激串" class="headerlink" title="单位冲激串"></a>单位冲激串</h3><script type="math/tex; mode=display">
-\delta_T(t)=\sum_{n=-\infty}^{\infty}\delta(t-nT)</script><h3 id="Sa"><a href="#Sa" class="headerlink" title="Sa"></a>Sa</h3><script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}\delta'(t)dt=0</script><script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}\delta'(t)x(t)dt=-x'(0)</script><h3 id="单位冲激串"><a href="#单位冲激串" class="headerlink" title="单位冲激串"></a>单位冲激串</h3><script type="math/tex; mode=display">
+\delta_T(t)=\sum_{n=-\infin}^{\infin}\delta(t-nT)</script><h3 id="Sa"><a href="#Sa" class="headerlink" title="Sa"></a>Sa</h3><script type="math/tex; mode=display">
 Sa(t)=\frac{\sin t}{t}</script><script type="math/tex; mode=display">
-\int_{-\infty}^{\infty}Sa(t)dt=\pi</script><h1 id="信号的运算和变换"><a href="#信号的运算和变换" class="headerlink" title="信号的运算和变换"></a>信号的运算和变换</h1><h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
+\int_{-\infin}^{\infin}Sa(t)dt=\pi</script><h1 id="信号的运算和变换"><a href="#信号的运算和变换" class="headerlink" title="信号的运算和变换"></a>信号的运算和变换</h1><h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
 <li>相加</li>
 <li>相乘</li>
 <li>微分积分<script type="math/tex; mode=display">
