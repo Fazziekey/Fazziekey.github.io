@@ -18,7 +18,7 @@
 <meta property="og:description" content="建这个Blog的最初目的是为了记录自己的深度学习的过程，有一天突发奇想能不能建立一个神经网络来记录自己的学习生活和人生经历，神经网络的思想来源于人的神经元，而人的生活就像神经网络一样，接受这外界的输入，通过一个个隐藏单元的激励函数，最后得到一个输出，通过不断训练去提高网络的性能。我把人的底层能力和知识体系分为，工程技术、艺术设计、数理逻辑、视野格局、人文社科、沟通表达六个层面，其他的中立性质的节点">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-07T16:16:05.000Z">
-<meta property="article:modified_time" content="2020-08-27T08:16:17.060Z">
+<meta property="article:modified_time" content="2020-09-15T06:47:35.330Z">
 <meta property="article:author" content="Fazzie">
 <meta name="twitter:card" content="summary">
   
@@ -225,7 +225,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">4.3k字</span>
+      <span class="post-count">4.6k字</span>
     </span>
   </span>
 
@@ -234,7 +234,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">20分</span>
+      <span class="post-count">21分</span>
     </span>
   </span>
 </div>
@@ -413,18 +413,27 @@
                             {name: 'Wireless and Lot', symbolSize: 10,category: 1,},
                             {name: 'Wierless Communication', symbolSize: 10,category: 1,},
                             {name: '电磁场与电池波', symbolSize: 30,category: 1,},
+                            {name: '射频电路', symbolSize: 10,category: 1,},
+                            {name: '信息电子物理', symbolSize: 10,category: 1,},
+                            {name: '信息论', symbolSize: 10,category: 1,},
+                            {name: '数字集成电路', symbolSize: 10,category: 1,},
                         {name: 'CS', symbolSize: 100,category: 1,},
                             {name: 'Linux', symbolSize: 10,category: 1,},
                             {name: '软件技术基础', symbolSize:10,category: 1,},
                             {name: '深度学习', symbolSize:30,category: 1,},
                                 {name: 'pytorch', symbolSize:10,category: 1,},
                             {name: '机器学习和机器视觉', symbolSize:10,category: 1,},
+                            {name: '边缘计算', symbolSize:10,category: 1,},
+                            {name: '数据分析与算法设计', symbolSize:10,category: 1,},
+                            {name: '计算机组成', symbolSize:10,category: 1,},
                         {name: '数学', symbolSize: 60,category: 3,},
                             {name: '微积分', symbolSize: 30,category: 3,},
                             {name: '线性代数', symbolSize: 30,category: 3,},
                             {name: '常微分', symbolSize: 10,category: 3,},
                             {name: '复变函数', symbolSize: 10,category: 3,},
                             {name: '概率统计', symbolSize: 20,category: 3,},
+                            {name: '矩阵论', symbolSize: 10,category: 3,},
+                            {name: '离散数学', symbolSize: 10,category: 3,},
                         {name: '物理', symbolSize: 60,category: 3,},
                             {name: '大学物理', symbolSize: 30,category: 3,},
                             {name: '大学物理实验', symbolSize: 10,category: 3,},
@@ -433,6 +442,8 @@
                             {name: '团队沟通与领导力', symbolSize: 10,category: 6,},
                             {name: '创业战略', symbolSize: 10,category: 4,},
                             {name: '经济学', symbolSize: 10,category: 5,},
+                            {name: '商业模式', symbolSize: 10,category: 5,},
+                            {name: '市场营销', symbolSize: 10,category: 5,},
                     {name: '读万卷书', symbolSize: 100,category: 7,},
                         {name: '科幻', symbolSize: 40,category: 1,},
                             {name: '《三体》', symbolSize: 10,category: 1,},
@@ -602,6 +613,11 @@
                         {source: 'Wierless Communication',target: 'EE',name: 'Relu' },
                         {source: '电磁场与电池波',target: 'EE',name: 'Relu' },
                         {source: '电磁场与电池波',target: '物理',name: 'Relu' },
+                        {source: '信息电子物理',target: '物理',name: 'Relu' },
+                        {source: '信息电子物理',target: 'EE',name: 'Relu' },
+                        {source: '信息论',target: 'EE',name: 'Relu' },
+                        {source: '射频电路',target: 'EE',name: 'Relu' },
+                        {source: '数字集成电路',target: 'EE',name: 'Relu' },
                     {source: 'CS',target: 'Neural Center',name: 'Softmax' },
                          {source: 'Linux',target: 'CS',name: 'Relu' },
                          {source: 'C',target: 'CS',name: 'Relu' },
@@ -612,12 +628,19 @@
                              {source: 'pytorch',target: '深度学习',name: 'Relu' },
                              {source: 'pytorch',target: 'Python',name: 'Relu' },
                          {source: '机器学习和机器视觉',target: 'CS',name: 'Relu' },
+                         {source: '计算机组成',target: 'CS',name: 'Relu' },
+                         {source: '计算机组成',target: 'EE',name: 'Relu' },
+                         {source: '边缘计算',target: 'CS',name: 'Relu' },
+                         {source: '边缘计算',target: 'EE',name: 'Relu' },
+                         {source: '数据分析与算法设计',target: 'CS',name: 'Relu' },
                     {source: '数学',target: '终身学习',name: 'Softmax' }, 
                         {source: '微积分',target: '数学',name: 'tanh' }, 
                         {source: '线性代数',target: '数学',name: 'tanh' }, 
                         {source: '常微分',target: '数学',name: 'tanh' }, 
                         {source: '概率统计',target: '数学',name: 'tanh' }, 
                         {source: '复变函数',target: '数学',name: 'tanh' }, 
+                        {source: '离散数学',target: '数学',name: 'tanh' }, 
+                        {source: '矩阵论',target: '数学',name: 'tanh' }, 
                     {source: '物理',target: '终身学习',name: 'Softmax' },
                         {source: '大学物理',target: '物理',name: 'tanh' },
                         {source: '大学物理实验',target: '物理',name: 'tanh' }, 
@@ -627,6 +650,8 @@
                         {source: '团队沟通与领导力',target: 'ITP课程',name: 'tanh' }, 
                         {source: '经济学',target: 'ITP课程',name: 'tanh' }, 
                         {source: '创业战略',target: 'ITP课程',name: 'tanh' },  
+                        {source: '商业模式',target: 'ITP课程',name: 'tanh' },  
+                        {source: '市场营销',target: 'ITP课程',name: 'tanh' },  
                 {source: '读万卷书',target: 'Neural Center',name: 'Softmax' },
                     {source: '科幻',target: '读万卷书',name: 'Pooling' },
                         {source: '《三体》',target: '科幻',name: 'tanh' },
