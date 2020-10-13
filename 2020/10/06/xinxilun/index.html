@@ -10,15 +10,22 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="信息的基本分类 语法信息 语义信息 语用信息  符号系统 X，Y：随机变量 $x_k,y_j$ 变量取值 $a_k,b_j$变量取值 $\chi&#x3D;\{x_k;k&#x3D;1,2…K\},\gamma&#x3D;\{y_j;j&#x3D;1,2…,J\}$ 事件：$X&#x3D;x_k$ $q_k&#x3D;Pr\{X&#x3D;x_k\}$  事件自信息我们将特定事件$X&#x3D;x_k$发生后给外界带来的信息量定义为事件的自信息  I(X&#x3D;x_k)&#x3D;I(x_">
+<meta property="og:type" content="article">
 <meta property="og:title" content="信息熵">
 <meta property="og:url" content="https://fazziekey.github.io/2020/10/06/xinxilun/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="信息的基本分类 语法信息 语义信息 语用信息  符号系统 X，Y：随机变量 $x_k,y_j$ 变量取值 $a_k,b_j$变量取值 $\chi&#x3D;\{x_k;k&#x3D;1,2…K\},\gamma&#x3D;\{y_j;j&#x3D;1,2…,J\}$ 事件：$X&#x3D;x_k$ $q_k&#x3D;Pr\{X&#x3D;x_k\}$  事件自信息我们将特定事件$X&#x3D;x_k$发生后给外界带来的信息量定义为事件的自信息  I(X&#x3D;x_k)&#x3D;I(x_">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/06/9c110e8b8faa97da5ec3ae1db288c979.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/06/5bd1ddd18426df0225ffec178af929cc.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/09/b85e6cc8026efebc73694c8427b08863.png">
 <meta property="article:published_time" content="2020-10-06T06:30:14.000Z">
-<meta property="article:modified_time" content="2020-10-06T06:30:41.689Z">
+<meta property="article:modified_time" content="2020-10-13T14:46:14.133Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="香农yyds">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/06/9c110e8b8faa97da5ec3ae1db288c979.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -231,7 +238,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">645字</span>
     </span>
   </span>
 
@@ -240,7 +247,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -253,7 +260,194 @@
     
 
     
-    
+    <a id="more"></a>
+<h1 id="信息的基本分类"><a href="#信息的基本分类" class="headerlink" title="信息的基本分类"></a>信息的基本分类</h1><ul>
+<li>语法信息</li>
+<li>语义信息</li>
+<li>语用信息</li>
+</ul>
+<h1 id="符号系统"><a href="#符号系统" class="headerlink" title="符号系统"></a>符号系统</h1><ul>
+<li>X，Y：随机变量</li>
+<li>$x_k,y_j$ 变量取值</li>
+<li>$a_k,b_j$变量取值</li>
+<li>$\chi=\{x_k;k=1,2…K\},\gamma=\{y_j;j=1,2…,J\}$</li>
+<li>事件：$X=x_k$</li>
+<li>$q_k=Pr\{X=x_k\}$</li>
+</ul>
+<h1 id="事件自信息"><a href="#事件自信息" class="headerlink" title="事件自信息"></a>事件自信息</h1><p>我们将特定事件$X=x_k$发生后给外界带来的信息量定义为事件的自信息</p>
+<script type="math/tex; mode=display">
+I(X=x_k)=I(x_k)=-\log q(x_k)</script><p>a=2的单位为比特</p>
+<p>a=e的单位为奈特</p>
+<blockquote>
+<p>事件自信息的本质既是事件对外界提供的信息，也是外界观察心信息付出的代价,通常认为概率越小的事件的信息量越大</p>
+</blockquote>
+<h2 id="条件自信息"><a href="#条件自信息" class="headerlink" title="条件自信息"></a>条件自信息</h2><script type="math/tex; mode=display">
+I(x_k|y_j)=-\log_ap(x_k|y_j)</script><blockquote>
+<p>事件Y=yj发生后X=xk发生给外界带来的信息</p>
+<h2 id="联合自信息"><a href="#联合自信息" class="headerlink" title="联合自信息"></a>联合自信息</h2></blockquote>
+<script type="math/tex; mode=display">
+I(x_k,y_j)=-\log_ap(x_k,y_j)</script><blockquote>
+<p>X=xk,Y=yj一起发生的信息量</p>
+</blockquote>
+<h2 id="事件互信息"><a href="#事件互信息" class="headerlink" title="事件互信息"></a>事件互信息</h2><script type="math/tex; mode=display">
+I(x_k;y_j)=\log_a\frac{p(x_k|y_j)}{q(x_k)}</script><blockquote>
+<p>互信息的本质为事件Y=yj<br>中包含的有关事件X=xk信息量，即可以是事件X发生的信息量减去事件Y发生后事件X还能给外界提供的信息量</p>
+</blockquote>
+<script type="math/tex; mode=display">
+I(x_k;y_j)=-\log q(x_k)-[-\log p(x_k|y_j)]</script><h3 id="互信息的对称性"><a href="#互信息的对称性" class="headerlink" title="互信息的对称性"></a>互信息的对称性</h3><script type="math/tex; mode=display">
+I(x_k;y_j)=I(y_j;x_k)</script><h3 id="互信息的性质"><a href="#互信息的性质" class="headerlink" title="互信息的性质"></a>互信息的性质</h3><script type="math/tex; mode=display">
+I(x_k;y_j)=
+\begin{cases}
+>0 & p(x_k|y_j)>q(x_k)\\
+=0 & X,Y独立\\
+<0 & p(x_k|y_j)<q(x_k)
+\end{cases}</script><blockquote>
+<p>事件Y中包含X的信息量</p>
+</blockquote>
+<h3 id="条件互信息"><a href="#条件互信息" class="headerlink" title="条件互信息"></a>条件互信息</h3><script type="math/tex; mode=display">
+I(x;y|z)=\log \frac{p(x|y,z)}{p(x|z)}</script><script type="math/tex; mode=display">
+=\log \frac{p(x,y|z)}{p(x|z)p(y|z)}</script><h3 id="联合互信息"><a href="#联合互信息" class="headerlink" title="联合互信息"></a>联合互信息</h3><script type="math/tex; mode=display">
+I(x;y,z)=\log\frac{p(x|y,z)}{p(x)}</script><h2 id="联合互信息动链式法则"><a href="#联合互信息动链式法则" class="headerlink" title="联合互信息动链式法则"></a>联合互信息动链式法则</h2><script type="math/tex; mode=display">
+I(x;y,z)=I(x;y)+I(x;z|y)</script><script type="math/tex; mode=display">
+=I(y;x)+I(z;x|y)</script><h1 id="变量的平均自信息——熵"><a href="#变量的平均自信息——熵" class="headerlink" title="变量的平均自信息——熵"></a>变量的平均自信息——熵</h1><script type="math/tex; mode=display">
+H(X)=E(I(X))=-\sum_{x\in\chi}q(x)\log_aq(x)</script><ul>
+<li>熵是随机变量不确定性的度量</li>
+<li>熵是随机变量每次观察结果平均对外界所提供的信息量</li>
+<li>熵是为了确证随机变量的取值外界平均所需要的与之相<br>关的信息量</li>
+</ul>
+<h2 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h2><ul>
+<li>以事件 Y=y 为条件的变量X的熵<script type="math/tex; mode=display">
+H(X|y)=\sum_{x\in X}p(x|y)I(X|y)=-\sum_{x\in X}p(x|y)\log p(x|y)</script></li>
+<li>以变量 Y 为条件的变量X的熵<script type="math/tex; mode=display">
+H(X|Y)=\sum_{y\in Y}w(y)H(X|y)=-\sum_x\sum_yp(x,y)\log p(x|y)</script><blockquote>
+<p>疑义度，在Y已知X剩余的不确定性</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="联合熵"><a href="#联合熵" class="headerlink" title="联合熵"></a>联合熵</h2><script type="math/tex; mode=display">
+H(X,Y)=-\sum_x\sum_yp(x,y)\log p(x,y)</script><h3 id="联合链式法则"><a href="#联合链式法则" class="headerlink" title="联合链式法则"></a>联合链式法则</h3><script type="math/tex; mode=display">
+H(X,Y)=H(X)+H(X|Y)</script><script type="math/tex; mode=display">
+=H(Y)+H(Y|X)</script><h2 id="熵的性质"><a href="#熵的性质" class="headerlink" title="熵的性质"></a>熵的性质</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/06/9c110e8b8faa97da5ec3ae1db288c979.png" alt=""><br>(5)可加性</p>
+<script type="math/tex; mode=display">
+H(X_2)|_{x_2\in\chi_2}=H(X_1)_{X_1\in\chi_1}+H(X_2|X_1)_{X_2\in\chi_2}^{X_1\in\chi_1}</script><blockquote>
+<p>对于变量X可以进行多步观察，每一步都可以从上一步观察的结果中得到更为细致的结果</p>
+</blockquote>
+<p>(6)极值性</p>
+<script type="math/tex; mode=display">
+H_k<\log K</script><blockquote>
+<p>均匀分布时熵最大</p>
+</blockquote>
+<h3 id="凸性质"><a href="#凸性质" class="headerlink" title="凸性质"></a>凸性质</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/06/5bd1ddd18426df0225ffec178af929cc.png" alt=""></p>
+<h1 id="平均互信息"><a href="#平均互信息" class="headerlink" title="平均互信息"></a>平均互信息</h1><script type="math/tex; mode=display">
+I(X;Y)=\sum_x\sum_yp(x,y)\log\frac{p(x|y)}{q(x)}</script><ul>
+<li>非负性</li>
+<li>对称性</li>
+<li>互信息与熵的关联性<script type="math/tex; mode=display">
+I(X,Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)=H(X)+H(Y)-H(X,Y)</script><blockquote>
+<p>求互信息常用上面的公式,相互独立的事件互信息为0</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="条件互信息-1"><a href="#条件互信息-1" class="headerlink" title="条件互信息"></a>条件互信息</h2><script type="math/tex; mode=display">
+I(X;Y|Z)=\sum_x\sum_y\sum_zp(x,y,z)\log\frac{p(x|y,z)}{p(x)}</script><h2 id="联合互信息-1"><a href="#联合互信息-1" class="headerlink" title="联合互信息"></a>联合互信息</h2><script type="math/tex; mode=display">
+I(X;Y,Z)=\sum_x\sum_y\sum_zp(x,y,z)\log\frac{p(x|y,z}{p(x)}</script><script type="math/tex; mode=display">
+=I(X;Z)+I(X;Y|Z)</script><h1 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h1><p>一个变量的两种概率分布</p>
+<script type="math/tex; mode=display">
+D(p//q)=\sum_xp(x)\log\frac{p(x)}{q(x)}</script><blockquote>
+<p>表示实际分布p(x)和假定分布q(x)之间的平均差距，也称为鉴别熵</p>
+</blockquote>
+<h2 id="相对熵的性质"><a href="#相对熵的性质" class="headerlink" title="相对熵的性质"></a>相对熵的性质</h2><ul>
+<li>非负<script type="math/tex; mode=display">
+D(p//q)>=0</script></li>
+<li>非对称<script type="math/tex; mode=display">
+D(p//q)\not D(q//p)</script></li>
+<li>与互信息关系<script type="math/tex; mode=display">
+I(X;Y)=D(p(xy//p(x)p(y))>=0</script></li>
+</ul>
+<h1 id="疑义度"><a href="#疑义度" class="headerlink" title="疑义度"></a>疑义度</h1><h2 id="错误概率"><a href="#错误概率" class="headerlink" title="错误概率"></a>错误概率</h2><script type="math/tex; mode=display">
+P_E=\sum_{k=0}^{K-1}\sum_{j\not k}Pr\{X=k,\hat{X}=j\}</script><h2 id="fano不等式"><a href="#fano不等式" class="headerlink" title="fano不等式"></a>fano不等式</h2><script type="math/tex; mode=display">
+H(X|\hat{X})<=H(P_E)+P_E\log(K-1)</script><h1 id="马尔可夫链"><a href="#马尔可夫链" class="headerlink" title="马尔可夫链"></a>马尔可夫链</h1><p>每个随机变量都是前一个随机变量一步处理的结果,任意一个节点已知，后面的变量和前面没得变量条件独立。</p>
+<script type="math/tex; mode=display">
+p(xyz)=p(x)p(y|x)p(z|y)</script><script type="math/tex; mode=display">
+p(z|xy)=p(z|y)</script><script type="math/tex; mode=display">
+p(xz|y)=p(x|y)p(z|y)</script><script type="math/tex; mode=display">
+Z\to Y\to X</script><script type="math/tex; mode=display">
+I(X;Z|Y)=0</script><ul>
+<li>马尔可夫链是可逆的</li>
+</ul>
+<h2 id="数据处理定理"><a href="#数据处理定理" class="headerlink" title="数据处理定理"></a>数据处理定理</h2><p>如果$X\to Y \to Z$</p>
+<p>则$I(X;Y)&gt;=I(X;Z),I(X;Y)&gt;=I(X;Y|Z)$</p>
+<h2 id="四变量马尔科夫链"><a href="#四变量马尔科夫链" class="headerlink" title="四变量马尔科夫链"></a>四变量马尔科夫链</h2><script type="math/tex; mode=display">
+graph LR
+U-->X</script><script type="math/tex; mode=display">
+X-->Y</script><script type="math/tex; mode=display">
+Y-->V</script><script type="math/tex; mode=display">
+I(X;Y)>=I(U;V)</script><h2 id="互信息的凸性"><a href="#互信息的凸性" class="headerlink" title="互信息的凸性"></a>互信息的凸性</h2><script type="math/tex; mode=display">
+I(X;Y)=I(\{q(x)\},\{p(y|x)\}</script><blockquote>
+<p>互信息I(X;Y)是关于输入分布{q(x)}和转移概率矩阵{p(y|x)}的函数</p>
+</blockquote>
+<h1 id="连续随机变量的互信息"><a href="#连续随机变量的互信息" class="headerlink" title="连续随机变量的互信息"></a>连续随机变量的互信息</h1><script type="math/tex; mode=display">
+I(X;Y)=\int\int p_{XY}(x,y)\log \frac{p_{XY}(x,y)}{p_X(x)p_{Y}(y)}dxdy</script><script type="math/tex; mode=display">
+I(X;Y|Z)=\int\int\int p_{XYZ}(x,y,z)\log \frac{p(x,y|z)}{p(x|z)p(y|z)}dxdydz</script><script type="math/tex; mode=display">
+I(X;YZ)=\int\int\int p_{XYZ}(x,y,z)\log \frac{p(x,y,z)}{p(x)p(yz)}dxdydz</script><h2 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h2><script type="math/tex; mode=display">
+I(X;Y)>=0</script><script type="math/tex; mode=display">
+I(X;Y)=I(Y;X)</script><script type="math/tex; mode=display">
+I(X;YZ)=I(X;Y)+I(X;Z|Y)</script><h2 id="连续随机变量微分熵"><a href="#连续随机变量微分熵" class="headerlink" title="连续随机变量微分熵"></a>连续随机变量微分熵</h2><p>连续随机变量的熵无穷大，所以引入微分熵的概念来衡量连续变量的相对不确定性</p>
+<script type="math/tex; mode=display">
+H_C(X)=h(x)=-\int p_X(x)\log p_X(x)dx</script><blockquote>
+<p>HC (X )不具有线性变换不变性,可正、可负</p>
+</blockquote>
+<h2 id="条件微分熵"><a href="#条件微分熵" class="headerlink" title="条件微分熵"></a>条件微分熵</h2><script type="math/tex; mode=display">
+H_C(X|Y)=-\int\int p_{XY}(x,y)\log p(x|y)dxdy</script><h2 id="联合微分熵"><a href="#联合微分熵" class="headerlink" title="联合微分熵"></a>联合微分熵</h2><script type="math/tex; mode=display">
+H_C(X,Y)=-\int\int p_{XY}(x,y)\log p(x,y)dxdy</script><script type="math/tex; mode=display">
+=H_C(X)+H_C(Y|X)</script><script type="math/tex; mode=display">
+=H_C(Y)+H_C(X|Y)</script><h2 id="微分熵极大化"><a href="#微分熵极大化" class="headerlink" title="微分熵极大化"></a>微分熵极大化</h2><h3 id="峰值受限"><a href="#峰值受限" class="headerlink" title="峰值受限"></a>峰值受限</h3><p>若 峰值受限于[-M,+M] 即 则 X为均匀分布微分熵最大</p>
+<script type="math/tex; mode=display">
+H_C(X)<=In 2M</script><h3 id="功率受限"><a href="#功率受限" class="headerlink" title="功率受限"></a>功率受限</h3><p>若X的方差不大于$\sigma^2$,则X为高斯分布时微分熵最大</p>
+<script type="math/tex; mode=display">
+H_C(X)<=1/2In 2\pi e\sigma^2</script><h3 id="熵功率"><a href="#熵功率" class="headerlink" title="熵功率"></a>熵功率</h3><ul>
+<li>定义连续随机变量 的熵功率为<script type="math/tex; mode=display">
+\hat{\sigma_X^2}=\frac{1}{2\pi e}e^{2H_C(X)}</script></li>
+<li>高斯随机变量的微分熵<script type="math/tex; mode=display">
+H_C(X)=\frac{1}{2}In(2\pi e\sigma^2)</script></li>
+<li>高斯变量熵功率<script type="math/tex; mode=display">
+\hat{\sigma_X^2}=\frac{1}{2\pi e}e^{2H_C(X)}=\sigma^2</script></li>
+</ul>
+<h3 id="熵功率不等式"><a href="#熵功率不等式" class="headerlink" title="熵功率不等式"></a>熵功率不等式</h3><script type="math/tex; mode=display">
+H_C(X)<=In(2\pi e\sigma^2)</script><script type="math/tex; mode=display">
+\hat{\sigma_X^2}=\frac{1}{2\pi e}e^{2H_C(X)}<=\sigma^2</script><blockquote>
+<p>功率一定时，高斯变量的熵功率最大，与功率相等</p>
+</blockquote>
+<h1 id="平稳源"><a href="#平稳源" class="headerlink" title="平稳源"></a>平稳源</h1><p>平稳源：任意长度的片段的联合概率分布与时间起点无关</p>
+<script type="math/tex; mode=display">
+Pr(X_1X_2...X_N=x_1x_2...x_N)=Pr(X_{L+1}X_{L+2}...X_{L+N}=x_1x_2...x_N)</script><h2 id="简单无记忆源"><a href="#简单无记忆源" class="headerlink" title="简单无记忆源"></a>简单无记忆源</h2><script type="math/tex; mode=display">
+Pr(X_1X_2...X_N=x_1x_2...x_N)=\prod_{n=1}^N Pr(X_n=x_n)</script><h2 id="平稳源的熵"><a href="#平稳源的熵" class="headerlink" title="平稳源的熵"></a>平稳源的熵</h2><h3 id="平均每符号熵"><a href="#平均每符号熵" class="headerlink" title="平均每符号熵"></a>平均每符号熵</h3><script type="math/tex; mode=display">
+H_N(X)=\frac{1}{N}H(X_1X_2...X_N)</script><h3 id="熵速率"><a href="#熵速率" class="headerlink" title="熵速率"></a>熵速率</h3><script type="math/tex; mode=display">
+H_{\infty}(X)=\lim_{N\to \infty}H_N(X)</script><h4 id="熵相对率"><a href="#熵相对率" class="headerlink" title="熵相对率"></a>熵相对率</h4><script type="math/tex; mode=display">
+\eta=\frac{H_{\infty}(X)}{\log K}</script><h4 id="信源冗余度"><a href="#信源冗余度" class="headerlink" title="信源冗余度"></a>信源冗余度</h4><script type="math/tex; mode=display">
+R=1
+-\eta</script><h3 id="平均条件熵"><a href="#平均条件熵" class="headerlink" title="平均条件熵"></a>平均条件熵</h3><script type="math/tex; mode=display">
+H(X_N|X_{N-1}X_{N-2}...X_1)</script><h3 id="平稳源熵的性质"><a href="#平稳源熵的性质" class="headerlink" title="平稳源熵的性质"></a>平稳源熵的性质</h3><ul>
+<li>单调增</li>
+<li>$H_N(X)&gt;=H(X_N|X_{N-1}…X_1)$</li>
+<li>$H_{\infty}(X)=\lim_{N\to\infty}H_N(X)=\lim_{N\to\infty}H(X_N|X_{N-1}…X_1)$</li>
+</ul>
+<h2 id="马尔科夫源"><a href="#马尔科夫源" class="headerlink" title="马尔科夫源"></a>马尔科夫源</h2><script type="math/tex; mode=display">
+Pr(X_l|X_{l-1}X_{l-2}...X_1X_0)=Pr(X_{l}|X_{l-1}...X_{l-m})</script><h3 id="马尔科夫源的状态图"><a href="#马尔科夫源的状态图" class="headerlink" title="马尔科夫源的状态图"></a>马尔科夫源的状态图</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/09/b85e6cc8026efebc73694c8427b08863.png" alt=""></p>
+<ul>
+<li>时齐（时不变）马尔科夫源：状态转移概率pij(n)与时间n无关。<br>到达任一其它状态。</li>
+<li>既约（不可约）马尔科夫源：<br>从任一状态出发，经有限步总可以</li>
+<li>状态转移概率矩阵：<script type="math/tex; mode=display">
+P=[p_{ij}]_{K^m\times K^m}</script></li>
+<li>n时刻的状态概率分布：<br>$$<br>Q(n)=(q_1(n),q_2(n)…q_{K^m}(n))</li>
+</ul>
+<p>Q(n+1)=Q(n)P</p>
+<script type="math/tex; mode=display">
++ 对时齐既约马尔科夫源，状态的稳态分布存在</script><p>\hat{Q}=\lim_{n\to \infty}Q(N+1)=\lim_{n\to \infty}Q(n)P=\hat{Q}P</p>
+<script type="math/tex; mode=display">
+### 马尔科夫的熵率</script><p>H_{\infty}=H(X|S)</p>
+<p>$$</p>
+
     
 
     
@@ -284,7 +478,29 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">香农yyds</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -378,7 +594,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信息的基本分类"><span class="toc-number">1.</span> <span class="toc-text">信息的基本分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#符号系统"><span class="toc-number">2.</span> <span class="toc-text">符号系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件自信息"><span class="toc-number">3.</span> <span class="toc-text">事件自信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件自信息"><span class="toc-number">3.1.</span> <span class="toc-text">条件自信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联合自信息"><span class="toc-number">3.2.</span> <span class="toc-text">联合自信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件互信息"><span class="toc-number">3.3.</span> <span class="toc-text">事件互信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#互信息的对称性"><span class="toc-number">3.3.1.</span> <span class="toc-text">互信息的对称性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互信息的性质"><span class="toc-number">3.3.2.</span> <span class="toc-text">互信息的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件互信息"><span class="toc-number">3.3.3.</span> <span class="toc-text">条件互信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#联合互信息"><span class="toc-number">3.3.4.</span> <span class="toc-text">联合互信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联合互信息动链式法则"><span class="toc-number">3.4.</span> <span class="toc-text">联合互信息动链式法则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量的平均自信息——熵"><span class="toc-number">4.</span> <span class="toc-text">变量的平均自信息——熵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件熵"><span class="toc-number">4.1.</span> <span class="toc-text">条件熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联合熵"><span class="toc-number">4.2.</span> <span class="toc-text">联合熵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#联合链式法则"><span class="toc-number">4.2.1.</span> <span class="toc-text">联合链式法则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#熵的性质"><span class="toc-number">4.3.</span> <span class="toc-text">熵的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#凸性质"><span class="toc-number">4.3.1.</span> <span class="toc-text">凸性质</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平均互信息"><span class="toc-number">5.</span> <span class="toc-text">平均互信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件互信息-1"><span class="toc-number">5.1.</span> <span class="toc-text">条件互信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联合互信息-1"><span class="toc-number">5.2.</span> <span class="toc-text">联合互信息</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相对熵"><span class="toc-number">6.</span> <span class="toc-text">相对熵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相对熵的性质"><span class="toc-number">6.1.</span> <span class="toc-text">相对熵的性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#疑义度"><span class="toc-number">7.</span> <span class="toc-text">疑义度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误概率"><span class="toc-number">7.1.</span> <span class="toc-text">错误概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fano不等式"><span class="toc-number">7.2.</span> <span class="toc-text">fano不等式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#马尔可夫链"><span class="toc-number">8.</span> <span class="toc-text">马尔可夫链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据处理定理"><span class="toc-number">8.1.</span> <span class="toc-text">数据处理定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四变量马尔科夫链"><span class="toc-number">8.2.</span> <span class="toc-text">四变量马尔科夫链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#互信息的凸性"><span class="toc-number">8.3.</span> <span class="toc-text">互信息的凸性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#连续随机变量的互信息"><span class="toc-number">9.</span> <span class="toc-text">连续随机变量的互信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本性质"><span class="toc-number">9.1.</span> <span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连续随机变量微分熵"><span class="toc-number">9.2.</span> <span class="toc-text">连续随机变量微分熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件微分熵"><span class="toc-number">9.3.</span> <span class="toc-text">条件微分熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联合微分熵"><span class="toc-number">9.4.</span> <span class="toc-text">联合微分熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微分熵极大化"><span class="toc-number">9.5.</span> <span class="toc-text">微分熵极大化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#峰值受限"><span class="toc-number">9.5.1.</span> <span class="toc-text">峰值受限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功率受限"><span class="toc-number">9.5.2.</span> <span class="toc-text">功率受限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#熵功率"><span class="toc-number">9.5.3.</span> <span class="toc-text">熵功率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#熵功率不等式"><span class="toc-number">9.5.4.</span> <span class="toc-text">熵功率不等式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平稳源"><span class="toc-number">10.</span> <span class="toc-text">平稳源</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单无记忆源"><span class="toc-number">10.1.</span> <span class="toc-text">简单无记忆源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平稳源的熵"><span class="toc-number">10.2.</span> <span class="toc-text">平稳源的熵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#平均每符号熵"><span class="toc-number">10.2.1.</span> <span class="toc-text">平均每符号熵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#熵速率"><span class="toc-number">10.2.2.</span> <span class="toc-text">熵速率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#熵相对率"><span class="toc-number">10.2.2.1.</span> <span class="toc-text">熵相对率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信源冗余度"><span class="toc-number">10.2.2.2.</span> <span class="toc-text">信源冗余度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平均条件熵"><span class="toc-number">10.2.3.</span> <span class="toc-text">平均条件熵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平稳源熵的性质"><span class="toc-number">10.2.4.</span> <span class="toc-text">平稳源熵的性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#马尔科夫源"><span class="toc-number">10.3.</span> <span class="toc-text">马尔科夫源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#马尔科夫源的状态图"><span class="toc-number">10.3.1.</span> <span class="toc-text">马尔科夫源的状态图</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -642,6 +858,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">香农yyds</a>
               </li>
             
             <div class="clearfix"></div>
