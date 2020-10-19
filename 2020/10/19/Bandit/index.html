@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Bandit | Hexo</title>
+  <title>Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="AbstractMillimeter wave (mmwave) communications haveattracted increasing attention thanks to the abundant spectrumresource. The short wave-length of mmwave signals facilitatesexploiting large antenna">
+  <meta name="description" content="AbstractMillimeter wave (mmwave) communications have attracted increasing attention thanks to the abundant spectrum resource. The short wave-length of mmwave signals facilitates exploiting large anten">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bandit">
+<meta property="og:title" content="Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning">
 <meta property="og:url" content="https://fazziekey.github.io/2020/10/19/Bandit/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="AbstractMillimeter wave (mmwave) communications haveattracted increasing attention thanks to the abundant spectrumresource. The short wave-length of mmwave signals facilitatesexploiting large antenna">
+<meta property="og:description" content="AbstractMillimeter wave (mmwave) communications have attracted increasing attention thanks to the abundant spectrum resource. The short wave-length of mmwave signals facilitates exploiting large anten">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-19T11:02:08.000Z">
-<meta property="article:modified_time" content="2020-10-19T11:04:12.893Z">
+<meta property="article:modified_time" content="2020-10-19T14:41:50.097Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="强化学习">
+<meta property="article:tag" content="Beam tracking">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -207,7 +209,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      Bandit
+      Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning
     </h1>
   
 
@@ -233,7 +235,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.5k字</span>
+      <span class="post-count">2.2k字</span>
     </span>
   </span>
 
@@ -242,7 +244,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -255,7 +257,7 @@
     
 
     
-    <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Millimeter wave (mmwave) communications have<br>attracted increasing attention thanks to the abundant spectrum<br>resource. The short wave-length of mmwave signals facilitates<br>exploiting large antenna arrays to achieve large array gains and<br>combat the large path-loss. However, the use of large antenna<br>arrays along with narrow beams leads to a large overhead in<br>beam training for obtaining channel state information, especially<br>in dynamic environments. To reduce the overhead of beam<br>training, in this paper we formulate the problem of <strong>beam<br>alignment and tracking</strong> (BA/T) as a <strong>stochastic bandit</strong> problem.<br>In particular, to sense the change of the environments, the actions<br>are designed based on the offset of successive beam indexes (i.e.,<br>beam index difference), which measures the rate of change of the<br>envir-onments. Then, we propose two efficient BA/T algorithms<br>based on the stochastic bandit learning. To reveal useful insights,<br>the performance of effective achievable rate is further analyzed<br>for the proposed BA/T algorithms. The analytical results show<br>that the algorithms can sense the change of the environments and<br>adjust beam training strategies intelligently. In addition, they do<br>not require any priori knowledge of dynamic channel modeling,<br>and thus are applicable to a variety of complicated scenarios.<br>Simulation results demonstrate the effectiveness and superiority<br>of the proposed algorithms.<br><a id="more"></a></p>
+    <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Millimeter wave (mmwave) communications have attracted increasing attention thanks to the abundant spectrum resource. The short wave-length of mmwave signals facilitates exploiting large antenna arrays to achieve large array gains and combat the large path-loss. However, the use of large antenna arrays along with narrow beams leads to a large overhead in beam training for obtaining channel state information, especially in dynamic environments. To reduce the overhead of beam training, in this paper we formulate the problem of <strong>beam alignment and tracking</strong> (BA/T) as a <strong>stochastic bandit</strong> problem. In particular, to sense the change of the environments, the actions<br>are designed based on the offset of successive beam indexes，beam index difference), which measures the rate of change of the envir-onments. Then, we propose two efficient BA/T algorithms based on the stochastic bandit learning. To reveal useful insights,the performance of effective achievable rate is further analyzed for the proposed BA/T algorithms. The analytical results show that the algorithms can sense the change of the environments and adjust beam training strategies intelligently. In addition, they do not require any priori knowledge of dynamic channel modeling, and thus are applicable to a variety of complicated scenarios. Simulation results demonstrate the effectiveness and superiority of the proposed algorithms.<br><a id="more"></a></p>
 <p><strong>Index Terms— Beam alignment, beam tracking, beam training,<br>stochastic bandit learning, millimeter wave communication.</strong></p>
 <p>简单来说，就是毫米波通信比较严重的路径损耗，在动态环境的波束对准和跟踪问题中需要新的算法，本文使用了多臂老虎机算法进行了优化</p>
 <hr>
@@ -339,10 +341,86 @@ argmax_a UCB_a(t-1)</script><ul>
 </ul>
 </li>
 </ul>
-<h1 id="Stochastic-bandit-based-beam-aligment-and-tracking-algogithms"><a href="#Stochastic-bandit-based-beam-aligment-and-tracking-algogithms" class="headerlink" title="Stochastic bandit based beam aligment and tracking algogithms"></a>Stochastic bandit based beam aligment and tracking algogithms</h1><h1 id="重要概念和词汇"><a href="#重要概念和词汇" class="headerlink" title="重要概念和词汇"></a>重要概念和词汇</h1><ul>
-<li>beam aligment and tracking(BA/T)波束跟踪和对准</li>
-<li>BS：base station</li>
-<li>UE：user</li>
+<h1 id="Stochastic-bandit-based-beam-aligment-and-tracking-algogithms"><a href="#Stochastic-bandit-based-beam-aligment-and-tracking-algogithms" class="headerlink" title="Stochastic bandit based beam aligment and tracking algogithms"></a>Stochastic bandit based beam aligment and tracking algogithms</h1><p>现在我们有了通信场景模型和老虎机算法的基本概念，我们问题的核心转化为了如何设计动作和反馈，在这里我们不是把每个波束定义为一个arm，而是基于两个波束之差定义</p>
+<h2 id="基于老虎机的通讯场景建模"><a href="#基于老虎机的通讯场景建模" class="headerlink" title="基于老虎机的通讯场景建模"></a>基于老虎机的通讯场景建模</h2><ul>
+<li>波束编码差</li>
+</ul>
+<p>比如，当前波束是10，在环境缓慢变化时，下一波束可能为11</p>
+<p>11-10=1</p>
+<p>环境快速变化时下一波束可能是7</p>
+<p>10-7=3</p>
+<p>我们用（u，b）两个值来定义一个arm，u为波束差，b为扫描的波束数量，动作空间可以描述为</p>
+<script type="math/tex; mode=display">
+B=\{(u_1,b_1)...(u_L,b_L)\}</script><p>L为空间大小，u为了测量环境的平均变化率，b测试变化方差</p>
+<p>若当前时刻t的波束为$f_c$,t+1时刻的波束在以下集合选取</p>
+<script type="math/tex; mode=display">
+F_{u,b}=\{f_{c+u},f_{c+u+1}...f_{c+u+b-1}\}</script><p>那么我们如何定义反馈，在上文通讯模型中我们定义过接受信号强度</p>
+<script type="math/tex; mode=display">
+y_i=\sqrt{P}h^Hf_is+n_i</script><p>平均接受功率为</p>
+<script type="math/tex; mode=display">
+Y_i=|1^Ty_i|^2/L_P</script><p>$L_P$为导频序列长度</p>
+<p> 下一次时隙t1用于数据传输的光束应该是$f^i_{u，b}，i_{u,b}=argmax_i\{Y_i|f_i \in F_{u,b}\}$ 设T0表示发射一个/单位导频信号的持续时间。 对应于arm(u，b)的奖励，由$R_{u,b}$表示，定义为</p>
+<script type="math/tex; mode=display">
+R_{u,b}=(1-bT_0/T_s)\log(1+P|h^Hf^i_{y,b}|^2)^6</script><p>$bT_0$为训练波束的时间开销</p>
+<p>所以此时我们的目标是优化时间1到n的EAR</p>
+<script type="math/tex; mode=display">
+max_{F_t}E(\sum_{t=1}^nR_{eff,t})</script><h2 id="波束对准和跟踪算法"><a href="#波束对准和跟踪算法" class="headerlink" title="波束对准和跟踪算法"></a>波束对准和跟踪算法</h2><ul>
+<li>input <ul>
+<li>codebook</li>
+<li>action space</li>
+</ul>
+</li>
+<li>find out the initial optimal beam from code book</li>
+<li>初始化老虎机参数</li>
+<li>repeat<ul>
+<li>choose optimal arm$(u^<em>,b^</em>)$</li>
+<li>choose optimal beam$f^*$</li>
+<li>transmit data with beam $f^*$</li>
+<li>update bandit information of the policy</li>
+</ul>
+</li>
+</ul>
+<h3 id="epsilon-greedy-1"><a href="#epsilon-greedy-1" class="headerlink" title="$\epsilon$greedy"></a>$\epsilon$greedy</h3><ul>
+<li>input <ul>
+<li>codebook</li>
+<li>action space with size K</li>
+</ul>
+</li>
+<li>initialize<ul>
+<li>$\epsilon$sequence$\{\epsilon_n\in (0,1]n&gt;=1 \}$</li>
+<li>let $T_{u_i,b_i}=0$and$\hat{\mu}_{u_i,b_i}=0(i\in K)$</li>
+</ul>
+</li>
+<li>find out an initial optimal beam from code book</li>
+<li>choose each arm once,update bandit information,let n=K+1</li>
+<li>repeat <ul>
+<li>let$(u^<em>,b^</em>)$be the arm with highest current average reward</li>
+<li>play $(u^<em>,b^</em>)$with probability $1-\epsilon_n$and playa random arm with probalility $\epsilon_n/K$</li>
+<li>choose an optimal beam from $F_{u^<em>,b^</em>}$,to transmit data</li>
+<li>update $T_{u^<em>,b^</em>}$,and $\hat{\mu}_{u^*,b}$</li>
+<li>update counter:n=n+1</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>$T_{u,b}$为arm（u，b）被选择的次数</li>
+</ul>
+<h3 id="UCB-Based-BA-T-Algorithm"><a href="#UCB-Based-BA-T-Algorithm" class="headerlink" title="UCB Based BA/T Algorithm"></a>UCB Based BA/T Algorithm</h3><ul>
+<li>input <ul>
+<li>codebook C</li>
+<li>$B=\{(u_i,b_i)\}$ of size K</li>
+</ul>
+</li>
+<li>find an initial optimal beam from codebook C</li>
+<li>play each arm once and update bandit information according to and n=K+1</li>
+<li>repeat <ul>
+<li>compute $UCB_{u_i,b_i}(n)$for each $(u_i,b_i)$and let $(u^<em>,b^</em>)=argmax_{(u_i,b_i)}UCB_{u_i,b_i}(n-1$</li>
+<li>play chosen arm</li>
+<li>choose $F_{u^*,b}$to transmit data</li>
+<li>update $T_{u^*,b}$and$\hat{\mu}_{u,b}$</li>
+<li>n=n+1</li>
+</ul>
+</li>
 </ul>
 
     
@@ -358,7 +436,7 @@ argmax_a UCB_a(t-1)</script><ul>
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/10/19/Bandit/" title="Bandit" target="_blank">https://Fazziekey.github.io/2020/10/19/Bandit/</a>
+          <a href="https://Fazziekey.github.io/2020/10/19/Bandit/" title="Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning" target="_blank">https://Fazziekey.github.io/2020/10/19/Bandit/</a>
         </li>
         
         <li>
@@ -375,7 +453,33 @@ argmax_a UCB_a(t-1)</script><ul>
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">强化学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Beam tracking</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《搬砖狗的日常》//" class="article-tag-list-link color4">《搬砖狗的日常》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -469,7 +573,7 @@ argmax_a UCB_a(t-1)</script><ul>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是多臂老虎机？"><span class="toc-number">2.</span> <span class="toc-text">什么是多臂老虎机？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题定义"><span class="toc-number">2.0.1.</span> <span class="toc-text">问题定义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#System-Model"><span class="toc-number">3.</span> <span class="toc-text">System Model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stochastic-Bandit-and-learning-policies"><span class="toc-number">4.</span> <span class="toc-text">Stochastic Bandit and learning policies</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#epsilon-greedy-and-UCB"><span class="toc-number">5.</span> <span class="toc-text">$\epsilon$greedy and UCB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#epsilon-greedy"><span class="toc-number">5.1.</span> <span class="toc-text">$\epsilon$greedy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UCB-upper-confidence-Bound"><span class="toc-number">5.2.</span> <span class="toc-text">UCB:upper confidence Bound</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stochastic-bandit-based-beam-aligment-and-tracking-algogithms"><span class="toc-number">6.</span> <span class="toc-text">Stochastic bandit based beam aligment and tracking algogithms</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重要概念和词汇"><span class="toc-number">7.</span> <span class="toc-text">重要概念和词汇</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是多臂老虎机？"><span class="toc-number">2.</span> <span class="toc-text">什么是多臂老虎机？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题定义"><span class="toc-number">2.0.1.</span> <span class="toc-text">问题定义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#System-Model"><span class="toc-number">3.</span> <span class="toc-text">System Model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stochastic-Bandit-and-learning-policies"><span class="toc-number">4.</span> <span class="toc-text">Stochastic Bandit and learning policies</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#epsilon-greedy-and-UCB"><span class="toc-number">5.</span> <span class="toc-text">$\epsilon$greedy and UCB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#epsilon-greedy"><span class="toc-number">5.1.</span> <span class="toc-text">$\epsilon$greedy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UCB-upper-confidence-Bound"><span class="toc-number">5.2.</span> <span class="toc-text">UCB:upper confidence Bound</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stochastic-bandit-based-beam-aligment-and-tracking-algogithms"><span class="toc-number">6.</span> <span class="toc-text">Stochastic bandit based beam aligment and tracking algogithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于老虎机的通讯场景建模"><span class="toc-number">6.1.</span> <span class="toc-text">基于老虎机的通讯场景建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#波束对准和跟踪算法"><span class="toc-number">6.2.</span> <span class="toc-text">波束对准和跟踪算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#epsilon-greedy-1"><span class="toc-number">6.2.1.</span> <span class="toc-text">$\epsilon$greedy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UCB-Based-BA-T-Algorithm"><span class="toc-number">6.2.2.</span> <span class="toc-text">UCB Based BA&#x2F;T Algorithm</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -503,7 +607,7 @@ argmax_a UCB_a(t-1)</script><ul>
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "Bandit" -->
+  <!-- id: "Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning" -->
   var giteement = new Giteement({
     id: '20201019190208',
     owner: 'Fazzie',
@@ -737,6 +841,14 @@ argmax_a UCB_a(t-1)</script><ul>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">香农yyds</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Beam tracking</a>
               </li>
             
             <div class="clearfix"></div>
