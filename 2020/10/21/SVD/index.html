@@ -6,76 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>CNN“ | Hexo</title>
+  <title>奇异值SVD | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="卷积神经网络Computer Version传统的机器视觉的特征提取算法大都基于梯度实现，卷积神经网络为解决视觉问题提供了一个新的方法">
+  <meta name="description" content="数值的稳定性与条件数当输入d受到扰动时，输出f(d) 的扰动情况 目的：解决病态问题 条件数 A 数据矩阵 n*n b 数据向量 n*1 x 未知向量 n*1  在这里我们研究x受A，或者b扰动的影响  A(x+\delta x)&#x3D;b+\delta b A\delta x&#x3D;\delta b \delta x&#x3D;A^{-1}\delta b 由||AB||">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CNN“">
-<meta property="og:url" content="https://fazziekey.github.io/2020/07/18/CNN%E2%80%9C/index.html">
+<meta property="og:title" content="奇异值SVD">
+<meta property="og:url" content="https://fazziekey.github.io/2020/10/21/SVD/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="卷积神经网络Computer Version传统的机器视觉的特征提取算法大都基于梯度实现，卷积神经网络为解决视觉问题提供了一个新的方法">
+<meta property="og:description" content="数值的稳定性与条件数当输入d受到扰动时，输出f(d) 的扰动情况 目的：解决病态问题 条件数 A 数据矩阵 n*n b 数据向量 n*1 x 未知向量 n*1  在这里我们研究x受A，或者b扰动的影响  A(x+\delta x)&#x3D;b+\delta b A\delta x&#x3D;\delta b \delta x&#x3D;A^{-1}\delta b 由||AB||">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-2ee2dc2433c755b8997fa73d52b19b27_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-ef33cdc3a41a9f684b7ff94145a78112_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-13d7c463c6122598c80c48e804fdf9fb_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-85fc99b475104f2906a2d4a4694ece0f_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-d8cef747fcb56e5dea88a143ab79a83c_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-6ae842e349ed01f48b5343ce9b5b386a_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-94b43f2cf7f532acc039eedc2e36b811_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-14d2d62dd293798e516be6387bbbbadc_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-516cf3ce448be6a529256afd344842b6_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-15c3b97ce2a9cc354b2affdf0ed0d391_720w.jpg">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWM0LnpoaW1nLmNvbS84MC92Mi1kZTRiYTRiYWM2YWJlZDUzMDI1MDI2Zjg3N2ZkODBkMV9oZC5qcGc?x-oss-process=image/format,png">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-875949201832bc5062806de09a3bb258_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-47ce686eadb7eca361cb8e30e5ce44a9_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-40cf21fdb32b5c45267dc8454b1c305c_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-ace8d57233d927540b09dd62f3a02767_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-9af76e289bd4a48aa986560767108833_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-f798208c0ea57bfc0991c280c71f5bf2_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-879e090bfb52fae7112ad9896f316ccd_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-bcaf9f135b7a957a6498020c11f055b7_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-3d285acc6d2b01fc635f021303cd9c2c_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-d277d0d16f71b796a5c5f6ee5bc4b034_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-9baabd75b8b165539fabbf2d29ef97c8_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-1c0d40f4f581a53d8f9c0c10ebd3e588_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-8adfd8721d6ea9da0f214c406007f293_720w.jpg">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=28%5Ctimes28%5Ctimes16%5Ctimes1%5Ctimes1%5Ctimes192%253D2.4M">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=28%5Ctimes28%5Ctimes32%5Ctimes5%5Ctimes5%5Ctimes16%253D10.0M">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=2.4M%252B10.0M%253D12.4M">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-5922b4756827c373937fe83c2f192607_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-8bbaccec33b79c571936e6f8540baf8e_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-9741b5618f05011318b2e491f0305ce9_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-6e55c8d64e63fc7a8eb79bf33bbda57b_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-53d92d8debf3e6eddd847e3bcac3dbfc_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-e7eba2a4221dc203855463b3173afc22_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-6449d6e63fe143c92dfe7c5db9dcaf9a_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-79dd54e97a7dc03eb192b73161aabd48_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-054b6ee470945e1237787a09d2a0cb21_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-ea55629d01beef467d9273eb7b39d29d_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-5156b1ec84138eb23b879652aba3a865_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-d786896a701bc6b22359f8a678969638_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-12c977ce40c692b2238f4e0f98034d3c_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-04baf38d85d19b9574a31b6a794c7d6a_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-5fcb40ed001cb3629e0bec69676e3eb7_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-22c34225d06de047752ee9752bb741a5_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-a0355fddb90cc272161244376621c5e2_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-638ccfeaf962131a2bccc15b8c4de816_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-813a1cce626d7c967e3c843a1dd56103_720w.jpg">
-<meta property="og:image" content="http://www.ai-start.com/dl2017/images/ecd4f7ca6487b4ccb19c1f5039e9d876.png">
-<meta property="og:image" content="http://www.ai-start.com/dl2017/images/c3bf61934da2f20a7d15e183c1d1d2ab.png">
-<meta property="og:image" content="http://www.ai-start.com/dl2017/images/7b75c69ef064be274c82127a970461cf.png">
-<meta property="og:image" content="http://www.ai-start.com/dl2017/images/6d489f040214efb27bf0f109874b3918.png">
-<meta property="og:image" content="http://www.ai-start.com/dl2017/images/2ccff4b8e125893f330414574cd03af8.png">
-<meta property="og:image" content="http://www.ai-start.com/dl2017/images/e3d74c1ce2393ae4e706a1cc4024f311.png">
-<meta property="article:published_time" content="2020-07-17T16:05:24.000Z">
-<meta property="article:modified_time" content="2020-08-05T16:03:20.527Z">
+<meta property="article:published_time" content="2020-10-21T00:51:25.000Z">
+<meta property="article:modified_time" content="2020-10-21T01:01:14.985Z">
 <meta property="article:author" content="Fazzie">
-<meta property="article:tag" content="Deep learning">
-<meta property="article:tag" content="CV">
+<meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-2ee2dc2433c755b8997fa73d52b19b27_720w.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -255,14 +201,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CNN“" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SVD" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      CNN“
+      奇异值SVD
     </h1>
   
 
@@ -274,8 +220,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/18/CNN%E2%80%9C/" class="archive-article-date">
-        <time datetime="2020-07-17T16:05:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+<a href="/2020/10/21/SVD/" class="archive-article-date">
+        <time datetime="2020-10-21T00:51:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
 </a>
 
   
@@ -288,7 +234,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.1k字</span>
+      <span class="post-count">97字</span>
     </span>
   </span>
 
@@ -297,7 +243,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">19分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -310,423 +256,120 @@
     
 
     
-    <h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><h2 id="Computer-Version"><a href="#Computer-Version" class="headerlink" title="Computer Version"></a>Computer Version</h2><p>传统的机器视觉的特征提取算法大都基于梯度实现，卷积神经网络为解决视觉问题提供了一个新的方法<br><a id="more"></a></p>
-<h2 id="边缘检测，特征提取"><a href="#边缘检测，特征提取" class="headerlink" title="边缘检测，特征提取"></a>边缘检测，特征提取</h2><p>卷积运算是卷积神经网络的基本组成部分。下面以边缘检测的例子来介绍卷积运算。</p>
-<p>所谓边缘检测，在下面的图中，分别通过垂直边缘检测和水平边缘检测得到不同的结果：<br><img src="https://pic4.zhimg.com/80/v2-2ee2dc2433c755b8997fa73d52b19b27_720w.jpg" alt=""></p>
-<p>假设对于一个 $6\times6$ 大小的图片（以数字表示），以及一个 $3\times3$大小的 filter（卷积核） 进行卷积运算，以<code>*</code> 符号表示。图片和垂直边缘检测器分别如左和中矩阵所示：<br><img src="https://pic3.zhimg.com/80/v2-ef33cdc3a41a9f684b7ff94145a78112_720w.jpg" alt="image"></p>
-<h3 id="不同的边缘检测"><a href="#不同的边缘检测" class="headerlink" title="不同的边缘检测"></a>不同的边缘检测</h3><h3 id="水平和垂直"><a href="#水平和垂直" class="headerlink" title="水平和垂直"></a>水平和垂直</h3><p><img src="https://pic4.zhimg.com/80/v2-13d7c463c6122598c80c48e804fdf9fb_720w.jpg" alt=""></p>
-<h3 id="其他Filter"><a href="#其他Filter" class="headerlink" title="其他Filter"></a>其他Filter</h3><p><img src="https://pic4.zhimg.com/80/v2-85fc99b475104f2906a2d4a4694ece0f_720w.jpg" alt=""></p>
-<p>对于复杂的图片，我们可以直接将 filter 中的数字直接看作是需要学习的参数，其可以学习到对于图片检测相比上面filter更好的更复杂的 filter ，如相对于水平和垂直检测器，我们训练的 filter 参数也许可以知道不同角度的边缘。</p>
-<p>通过卷积运算，在卷积神经网络中通过反向传播算法，可以学习到相应于目标结果的 filter，将其应用于整个图片，输出其提取到的所有有用的特征。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-d8cef747fcb56e5dea88a143ab79a83c_720w.jpg" alt=""></p>
-<h2 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>在每次卷积运算中图片会缩小且边缘的特征信息损失</p>
+    <h1 id="数值的稳定性与条件数"><a href="#数值的稳定性与条件数" class="headerlink" title="数值的稳定性与条件数"></a>数值的稳定性与条件数</h1><p>当输入d受到扰动时，输出f(d) 的扰动情况</p>
+<p>目的：解决病态问题</p>
+<h2 id="条件数"><a href="#条件数" class="headerlink" title="条件数"></a>条件数</h2><ul>
+<li>A 数据矩阵 n*n</li>
+<li>b 数据向量 n*1</li>
+<li>x 未知向量 n*1</li>
+</ul>
+<p>在这里我们研究x受A，或者b扰动的影响</p>
 <script type="math/tex; mode=display">
-n\times n \to (n+2p-f+1)\times(n+2p-f+1)</script><h2 id="Stride卷积步长"><a href="#Stride卷积步长" class="headerlink" title="Stride卷积步长"></a>Stride卷积步长</h2><p>卷积的步长是构建卷积神经网络的一个基本的操作。</p>
-<p>如前面的例子中，我们使用的 stride=1，每次的卷积运算以1个步长进行移动。下面是 stride=2 时对图片进行卷积的结果：<br><img src="https://pic3.zhimg.com/80/v2-6ae842e349ed01f48b5343ce9b5b386a_720w.jpg" alt=""></p>
+A(x+\delta x)=b+\delta b</script><script type="math/tex; mode=display">
+A\delta x=\delta b</script><script type="math/tex; mode=display">
+\delta x=A^{-1}\delta b</script><script type="math/tex; mode=display">
+由||AB||<=||A|| ||B||</script><script type="math/tex; mode=display">
+\to
+||\delta x||_2<=||A^{-1}||_2 ||\delta b||_2</script><script type="math/tex; mode=display">
+\to||b||_2<=||A||_2 ||x||_2</script><p>两边相乘</p>
 <script type="math/tex; mode=display">
-n\times n \to (\frac{n+2p-f}{s}+1)\times(\frac{n+2p-f}{s}+1)</script><blockquote>
-<p>注意，在当 $padding =\not 1$ 时，若移动的窗口落在图片外面，则不要再进行相乘的操作，丢弃边缘的数值信息，所以输出图片的最终维度为向下取整。</p>
-</blockquote>
-<h2 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h2><p>对于有RGB三个通道的图像</p>
-<p><img src="https://pic2.zhimg.com/80/v2-94b43f2cf7f532acc039eedc2e36b811_720w.jpg" alt=""></p>
-<p>通过卷积得到二维的矩阵</p>
-<h3 id="多核卷积"><a href="#多核卷积" class="headerlink" title="多核卷积"></a>多核卷积</h3><p>单个卷积核应用于图片时，提取图片特定的特征，不同的卷积核提取不同的特征。如两个大小均为 $3\times3\times3$ 的卷积核分别提取图片的垂直边缘和水平边缘。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-14d2d62dd293798e516be6387bbbbadc_720w.jpg" alt=""></p>
-<blockquote>
-<p>在卷积神经网络中，卷积核可以看做神经元，通过学习更新每个卷积核中的参数</p>
-</blockquote>
-<h2 id="卷积神经网络（CNN）"><a href="#卷积神经网络（CNN）" class="headerlink" title="卷积神经网络（CNN）"></a>卷积神经网络（CNN）</h2><h3 id="单层卷积神经网络"><a href="#单层卷积神经网络" class="headerlink" title="单层卷积神经网络"></a>单层卷积神经网络</h3><p>和普通的神经网络单层前向传播的过程类似，卷积神经网络也是一个先由输入和权重及偏置做线性运算，然后得到的结果输入一个激活函数中，得到最终的输出：</p>
+\to \frac{1}{||x||_2}<=\frac{||A||_2}{||b||_2}</script><script type="math/tex; mode=display">
+\to \frac{||\delta x||_2}{||x||_2}<=||A^{-1}_2 ||A||_2 \frac{||\delta b||_2}{||b||_2}</script><p>一起考虑A扰动的影响，可以得到</p>
 <script type="math/tex; mode=display">
-z^{[1]}=w^{[1]}a^{[0]}+b^{[1]}</script><script type="math/tex; mode=display">
-a^{[1]}=g(z^{[1]})</script><p>不同点是：在卷积神经网络中，权重和输入进行的是卷积运算。</p>
-<h3 id="网络参数-parameter"><a href="#网络参数-parameter" class="headerlink" title="网络参数(parameter)"></a>网络参数(parameter)</h3><p>10个$3\times3\times3$的卷积核+每个核的偏置</p>
-<p><strong>参数数量</strong></p>
+\delta x=(A+\delta A)^{-1}b-A^{-1}b</script><script type="math/tex; mode=display">
+=A^{-1}[A-(A+\delta A)](A+\delta A)^{-1}b</script><script type="math/tex; mode=display">
+=A^{-1}(-\delta A)(A+\delta A)^{-1}b</script><script type="math/tex; mode=display">
+\to \frac{||\delta x||_2}{||x+\delta x||_2}<=||A^{-1}||||A||_2\frac{||\delta A||_2}{||A||_2}</script><p>可以看出噪声（解向量x的误差）与某个数成正比，这个数被称为条件数</p>
 <script type="math/tex; mode=display">
-(3\times3\times3+1)\times10=280</script><h3 id="标记总结"><a href="#标记总结" class="headerlink" title="标记总结"></a>标记总结</h3><p>如果<code>l</code>表示一个卷积层</p>
-<ul>
-<li>$f^{[l]}$:filter的维度</li>
-<li>$p^{[l]}$:padding</li>
-<li>$s^{[l]}$:stride</li>
-<li>$n_C^{[l]}$:卷积核个数</li>
-<li>$f^{[l]}\times f^{[l]}\times n_c^{[l-1]}$:filter大小</li>
-<li>$a^{[l]} \to n_W^{[l]}\times n_H^{[l]}\times n_c^{[l]}$:Activation激活值</li>
-<li>$f^{[l]}\times f^{[l]}\times n_c^{[l-1]}\times n_c^{[l]}$:Weight权重</li>
-<li>$n_C^{[l]} —(1,1,1,n_C{[l]})$:bias</li>
-<li>$ n_W^{[l-1]}\times n_H^{[l-1]}\times n_C^{[l-1]}$:input</li>
-<li>$ n_W^{[l]}\times n_H^{[l]}\times n_C^{[l]}$:output</li>
-<li>维度变化</li>
-</ul>
+cond(A)=||A^{-1}||_2||A||_2</script><p>有性质</p>
 <script type="math/tex; mode=display">
-n_H^{[l]}=[\frac{n_H^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}+1]</script><script type="math/tex; mode=display">
-n_W^{[l]}=[\frac{n_W^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}+1]</script><h2 id="卷积神经网络类型"><a href="#卷积神经网络类型" class="headerlink" title="卷积神经网络类型"></a>卷积神经网络类型</h2><ul>
-<li>卷积层(Convolution)</li>
-<li>池化层(Pooling)</li>
-<li>全连接层(Fully Connected)</li>
-</ul>
-<h2 id="Pooling"><a href="#Pooling" class="headerlink" title="Pooling"></a>Pooling</h2><h3 id="最大池化（Max-pool）"><a href="#最大池化（Max-pool）" class="headerlink" title="最大池化（Max pool）"></a>最大池化（Max pool）</h3><p><img src="https://pic3.zhimg.com/80/v2-516cf3ce448be6a529256afd344842b6_720w.jpg" alt=""></p>
-<h3 id="平均池化（Average-Pooling）"><a href="#平均池化（Average-Pooling）" class="headerlink" title="平均池化（Average Pooling）"></a>平均池化（Average Pooling）</h3><p><img src="https://pic2.zhimg.com/80/v2-15c3b97ce2a9cc354b2affdf0ed0d391_720w.jpg" alt=""></p>
-<p><strong>维度变化</strong></p>
+cond(A^HA)=[cond(A)]^2</script><p>如果矩阵A不是方阵，可以求出最小二乘解</p>
 <script type="math/tex; mode=display">
-n\times n \to (\frac{n+2p-f}{s}+1)\times(\frac{n+2p-f}{s}+1)</script><p><strong>参数</strong></p>
-<ul>
-<li>f：filter的大小</li>
-<li>s：stride</li>
-<li>p：padding，很少使用</li>
-</ul>
-<blockquote>
-<p>池化池没有要学习的参数，是对卷积层结果的压缩得到更加重要的特征，同时还能有效控制过拟合。</p>
-</blockquote>
-<h2 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
-<li>把二维特征图像转化为一维向量</li>
-<li>分类</li>
-</ul>
-<p>比如对于五个卷积核输出的$30\times 30 \times5$的特征图像，用一个$30\times 30 \times5\times 120$的卷积核去卷积，120为全连接层的神经元数量</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWM0LnpoaW1nLmNvbS84MC92Mi1kZTRiYTRiYWM2YWJlZDUzMDI1MDI2Zjg3N2ZkODBkMV9oZC5qcGc?x-oss-process=image/format,png" alt=""></p>
-<h2 id="卷积神经网络案例"><a href="#卷积神经网络案例" class="headerlink" title="卷积神经网络案例"></a>卷积神经网络案例</h2><p><img src="https://pic1.zhimg.com/80/v2-875949201832bc5062806de09a3bb258_720w.jpg" alt=""></p>
-<p>构建深度卷积的模式：</p>
-<ul>
-<li>随着网络的深入，提取的特征图片大小将会逐渐减小，但同时通道数量应随之增加；</li>
-<li>Conv—Pool—Conv—Pool—Fc—Fc—Fc—softmax</li>
-</ul>
-<p><strong>参数</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>layer</th>
-<th>Activation shape</th>
-<th>Activation size</th>
-<th>pamameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Input</td>
-<td>(32,32,3)</td>
-<td>3027</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Conv1(f=5,s=1,n=8)</td>
-<td>(28,28,8)</td>
-<td>6272</td>
-<td>208</td>
-</tr>
-<tr>
-<td>Pool1</td>
-<td>(14,14,8)</td>
-<td>1568</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Conv2(f=5,s=1,n=8)</td>
-<td>(10,10,16)</td>
-<td>1600</td>
-<td>416</td>
-</tr>
-<tr>
-<td>Pool2</td>
-<td>(5,5,16)</td>
-<td>400</td>
-<td>0</td>
-</tr>
-<tr>
-<td>FC1</td>
-<td>(120,1)</td>
-<td>120</td>
-<td>48001</td>
-</tr>
-<tr>
-<td>FC2</td>
-<td>(84,1)</td>
-<td>84</td>
-<td>10081</td>
-<td></td>
-</tr>
-<tr>
-<td>Softmax</td>
-<td>(10,1)</td>
-<td>10</td>
-<td>841</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>在卷积层，仅有少量的参数；</li>
-<li>在池化层，没有参数；</li>
-<li>在全连接层，存在大量的参数。</li>
-</ul>
-<h1 id="常见卷积神经网络"><a href="#常见卷积神经网络" class="headerlink" title="常见卷积神经网络"></a>常见卷积神经网络</h1><h2 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>针对灰度图像<br><img src="https://pic2.zhimg.com/80/v2-47ce686eadb7eca361cb8e30e5ce44a9_720w.jpg" alt=""></p>
-<ul>
-<li>随着网络的深度增加，图像的大小在缩小，与此同时，通道的数量却在增加；</li>
-<li>每个卷积层后面接一个池化层。</li>
-</ul>
-<h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p>针对彩色图像<br><img src="https://pic1.zhimg.com/80/v2-40cf21fdb32b5c45267dc8454b1c305c_720w.jpg" alt=""></p>
-<ul>
-<li>与LeNet相似，但网络结构更大，参数更多，表现更加出色；</li>
-<li>使用了Relu；</li>
-<li>使用了多个GPUs；</li>
-</ul>
-<h2 id="VGGNet"><a href="#VGGNet" class="headerlink" title="VGGNet"></a>VGGNet</h2><p>VGG卷积层和池化层均具有相同的卷积核大小，都使用 $3\times 3,stride=1,SAME$ 的卷积和$2\times2,stride=1$ 的池化。其结构如下：<br><img src="https://pic4.zhimg.com/80/v2-ace8d57233d927540b09dd62f3a02767_720w.jpg" alt=""></p>
-<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><h3 id="残差快"><a href="#残差快" class="headerlink" title="残差快"></a>残差快</h3><p>对于一个以下结构的网路<br><img src="https://pic4.zhimg.com/80/v2-9af76e289bd4a48aa986560767108833_720w.jpg" alt=""></p>
-<p><strong>前向传播</strong></p>
+Ax=b</script><script type="math/tex; mode=display">
+\to x=(A^HA)^{-1}A^{H}b</script><p>求此时的条件数</p>
 <script type="math/tex; mode=display">
-Linear:z^{[l+1]}=W^{[l+1]}a^{[l]}+b^{[l+1]}</script><script type="math/tex; mode=display">
-Relu:a^{[l+1]}=g(z^{[l+1]})</script><script type="math/tex; mode=display">
-Linear:z^{[l+2]}=W^{[l+2]}a^{[l+1]}+b^{[l+2]}</script><script type="math/tex; mode=display">
-Relu:a^{[l+2]}=g(z^{[l+2]})</script><hr>
-<p>而ResNet块则将其传播过程增加了一个从$a^{[l]}$直接到$a^{[l+2]}$ 的连接，将其称之为“short cut”或者“skip connection”</p>
-<p>也就是</p>
+cond(A^HA)=||A^HA||_2||(A^HA)^{-1}||_2=cond(A)^2</script><p>条件数平方后变大，所以此时的最小二乘解不稳定 </p>
+<h1 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h1><p>奇异值分解定理对于矩阵$A:m\times n$,存在正交或者酉矩阵$U:m\times m,V:n\times n$使得</p>
 <script type="math/tex; mode=display">
-a^{[l+2]}=g(z^{[l+2]}+a^{[l]})</script><p><img src="https://pic3.zhimg.com/80/v2-f798208c0ea57bfc0991c280c71f5bf2_720w.jpg" alt=""></p>
-<p><img src="https://pic2.zhimg.com/80/v2-879e090bfb52fae7112ad9896f316ccd_720w.jpg" alt=""></p>
-<h3 id="普通神经网络和ResNet的对比"><a href="#普通神经网络和ResNet的对比" class="headerlink" title="普通神经网络和ResNet的对比"></a>普通神经网络和ResNet的对比</h3><p><img src="https://pic4.zhimg.com/80/v2-bcaf9f135b7a957a6498020c11f055b7_720w.jpg" alt=""></p>
-<ul>
-<li>在没有残差的普通神经网络中，训练的误差实际上是随着网络层数的加深，先减小再增加；</li>
-<li>在有残差的ResNet中，即使网络再深，训练误差都会随着网络层数的加深逐渐减小。</li>
-<li>ResNet对于中间的激活函数来说，有助于能够达到更深的网络，解决梯度消失和梯度爆炸的问题。</li>
-</ul>
-<h3 id="为什么ResNet性能更好？"><a href="#为什么ResNet性能更好？" class="headerlink" title="为什么ResNet性能更好？"></a>为什么ResNet性能更好？</h3><script type="math/tex; mode=display">
-a^{[l+2]}=g(z^{[l+2]}+a^{[l]})
-=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><p>初始化时$W^{[l+2]}=0,b^{[l+2]}=0$<br>则</p>
-<script type="math/tex; mode=display">
-a^{[l+2]}=g(z^{[l+2]}+a^{[l]})
-=g(a^{[l]})=relu(a^{[l]})=a^{[l]}</script><p>在这里W和b可以看做开关，在不用的时候为0，这样更深结构的网络不会影响网络的性能</p>
-<h3 id="将普通神经网络转化为ResNet"><a href="#将普通神经网络转化为ResNet" class="headerlink" title="将普通神经网络转化为ResNet"></a>将普通神经网络转化为ResNet</h3><p><img src="https://pic1.zhimg.com/80/v2-3d285acc6d2b01fc635f021303cd9c2c_720w.jpg" alt=""></p>
-<h2 id="1-times-1卷积"><a href="#1-times-1卷积" class="headerlink" title="1$\times$1卷积"></a>1$\times$1卷积</h2><p><strong>作用</strong></p>
-<ul>
-<li>维度压缩：使用目标维度的 的卷积核个数。</li>
-<li>增加非线性：保持与原维度相同的 的卷积核个数。</li>
-</ul>
-<p><img src="https://pic1.zhimg.com/80/v2-d277d0d16f71b796a5c5f6ee5bc4b034_720w.jpg" alt=""></p>
-<h2 id="inception-Network"><a href="#inception-Network" class="headerlink" title="inception Network"></a>inception Network</h2><p><strong>网络结构</strong></p>
-<p>通过padding保证维度相同</p>
-<p><img src="https://pic1.zhimg.com/80/v2-9baabd75b8b165539fabbf2d29ef97c8_720w.jpg" alt=""></p>
-<p>在上面的Inception结构中，应用了不同的卷积核，以及带padding的池化层。在保持输入图片大小不变的情况下，通过不同运算结果的叠加，增加了通道的数量。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-1c0d40f4f581a53d8f9c0c10ebd3e588_720w.jpg" alt=""></p>
-<p><img src="https://pic4.zhimg.com/80/v2-8adfd8721d6ea9da0f214c406007f293_720w.jpg" alt=""></p>
-<h3 id="使用0ne-by-one降低计算成本"><a href="#使用0ne-by-one降低计算成本" class="headerlink" title="使用0ne by one降低计算成本"></a>使用0ne by one降低计算成本</h3><p><img src="https://www.zhihu.com/equation?tex=28%5Ctimes28%5Ctimes16%5Ctimes1%5Ctimes1%5Ctimes192%3D2.4M" alt=""></p>
-<p><img src="https://www.zhihu.com/equation?tex=28%5Ctimes28%5Ctimes32%5Ctimes5%5Ctimes5%5Ctimes16%3D10.0M" alt=""></p>
-<h3 id="总计算成本"><a href="#总计算成本" class="headerlink" title="总计算成本"></a>总计算成本</h3><p><img src="https://www.zhihu.com/equation?tex=2.4M%2B10.0M%3D12.4M" alt=""></p>
-<p><img src="https://pic4.zhimg.com/80/v2-5922b4756827c373937fe83c2f192607_720w.jpg" alt=""></p>
-<h2 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h2><p>如今在深度学习领域，许多研究者都会将他们的工作共享到网络上。在我们实施自己的工作的时候，比如说做某种物体的识别分类，但是只有少量的数据集，对于从头开始训练一个深度网络结构是远远不够的。</p>
-<p>但是我们可以应用迁移学习，应用其他研究者建立的模型和参数，用少量的数据仅训练最后自定义的softmax网络。从而能够在小数据集上达到很好的效果。</p>
-<h2 id="数据扩充"><a href="#数据扩充" class="headerlink" title="数据扩充"></a>数据扩充</h2><ul>
-<li>镜像翻转（Mirroring）；</li>
-<li>随机剪裁（Random Cropping）；</li>
-<li>色彩转换（Color shifting）：</li>
-</ul>
-<h1 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h1><ul>
-<li>分类问题：判断图中是否为汽车；</li>
-<li>目标定位：判断是否为汽车，并确定具体位置；</li>
-<li>目标检测：检测不同物体并定位。</li>
-</ul>
-<p><img src="https://pic3.zhimg.com/80/v2-8bbaccec33b79c571936e6f8540baf8e_720w.jpg" alt=""></p>
-<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p><img src="https://pic2.zhimg.com/80/v2-9741b5618f05011318b2e491f0305ce9_720w.jpg" alt=""><br>输出：包含图片中存在的对象及定位框</p>
-<ul>
-<li>行人，0 or 1；</li>
-<li>汽车，0 or 1；</li>
-<li>摩托车，0 or 1；</li>
-<li>图片背景，0 or 1；</li>
-<li>定位框：$b_x,b_y,b_h,b_w$</li>
-</ul>
-<blockquote>
-<p>其中,$b_x,b_y$表示汽车中点， $b_h,b_w$分别表示定位框的高和宽。以图片左上角为(0,0)，以右下角为(1,1)，这些数字均为位置或长度所在图片的比例大小。</p>
-</blockquote>
-<h3 id="Softmax层的输出"><a href="#Softmax层的输出" class="headerlink" title="Softmax层的输出"></a>Softmax层的输出</h3><script type="math/tex; mode=display">
-y=
+A=U\sum V^H</script><script type="math/tex; mode=display">
+\sum=
 \begin{bmatrix}
-P_c&是否有目标\\b_x\\b_y\\b_h\\b_w\\c_1&行人\\c_2&汽车\\c_3&摩托
-\end{bmatrix}</script><h3 id="Loss-Function"><a href="#Loss-Function" class="headerlink" title="Loss Function"></a>Loss Function</h3><script type="math/tex; mode=display">
-L(\hat{y},y)=
+\sum_r &0\\
+0 &0
+\end{bmatrix}</script><script type="math/tex; mode=display">
+diag(\sum_r)=[\sigma_1,\sigma_2...\sigma_r]</script><script type="math/tex; mode=display">
+r=rank(A)</script><p>$\sigma_1,\sigma_2…\sigma_r，\sigma_{r+1}=…\sigma_n=0$被称为A的奇异值</p>
+<script type="math/tex; mode=display">
+AV=U\sum</script><script type="math/tex; mode=display">
+\to Av_i=
 \begin{cases}
-(\hat{y_1}-y_1)^2+(\hat{y_2}-y_2)^2...+(\hat{y_8}-y_8)^2 
-& if  
-y_1=1 
-\\ (\hat{y_1}-y_1)^2
-& if 
-y_1=0
-\end{cases}</script><p>在实际的目标定位应用中，我们可以使用更好的方式是：</p>
+u_i\sigma_i &i<=r\\
+0&i>r
+\end{cases}</script><script type="math/tex; mode=display">
+U^HA=\sum V^H</script><script type="math/tex; mode=display">
+u_i^HA=\sigma_iv_i^H</script><p>$v_i$为右奇异向量,$u_i$为左奇异向量</p>
 <ul>
-<li>softmax使用对数似然损失函数；</li>
-<li>对边界框的四个值应用平方误差或者类似的方法；</li>
-<li>对P_c应用logistic regression损失函数，或者平方预测误差。</li>
+<li>矩阵A的奇异值分解式可以改写成向量表达式<script type="math/tex; mode=display">
+A=\sum_{i=1}^r\sigma_i u_i v_i^H</script></li>
+<li>当矩阵的秩$r=rank(A)&lt;min(m,n)$<br>奇异值分解可以被简化为</li>
 </ul>
-<h2 id="特征检测"><a href="#特征检测" class="headerlink" title="特征检测"></a>特征检测</h2><p>输出图片特征点来进行定位<br><img src="https://pic4.zhimg.com/80/v2-6e55c8d64e63fc7a8eb79bf33bbda57b_720w.jpg" alt=""></p>
-<h2 id="目标检测-1"><a href="#目标检测-1" class="headerlink" title="目标检测"></a>目标检测</h2><p>目标框滑动检测</p>
-<p><img src="https://pic1.zhimg.com/80/v2-53d92d8debf3e6eddd847e3bcac3dbfc_720w.jpg" alt=""></p>
-<ul>
-<li>首先选定一个特定大小的窗口，将窗口内的图片输入到模型中进行预测；</li>
-<li>以固定步幅滑动该窗口，遍历图像的每个区域，对窗内的各个小图不断输入模型进行预测；</li>
-<li>继续选取一个更大的窗口，再次遍历图像的每个区域，对区域内是否有车进行预测；</li>
-<li>遍历整个图像，可以保证在每个位置都能检测到是否有车。</li>
-</ul>
-<p><strong>缺点</strong>：计算成本巨大，每个窗口的小图都要进行卷积运算，（但在神经网络兴起之前，使用的是线性分类器，所以滑动窗口算法的计算成本较低）。</p>
-<h3 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h3><p>将全连接层转化为卷积层</p>
-<p><img src="https://pic3.zhimg.com/80/v2-e7eba2a4221dc203855463b3173afc22_720w.jpg" alt=""></p>
-<h3 id="滑动窗口的卷积实现"><a href="#滑动窗口的卷积实现" class="headerlink" title="滑动窗口的卷积实现"></a>滑动窗口的卷积实现</h3><p><img src="https://pic3.zhimg.com/80/v2-6449d6e63fe143c92dfe7c5db9dcaf9a_720w.jpg" alt=""></p>
-<p>我们以上面训练好的模型，输入一个 $16\times16\times3$大小的整幅图片，图中蓝色部分代表滑动窗口的大小。我们以2为大小的步幅滑动窗口，分别与卷积核进行卷积运算，最后得到4幅$10\times10\times16$大小的特征图，然而因为在滑动窗口的操作时，输入部分有大量的重叠，也就是有很多重复的运算，导致在下一层中的特征图值也存在大量的重叠，所以最后得到的第二层激活值（特征图）构成一副$12\times12\times16$大小的特征图。对于后面的池化层和全连接层也是同样的过程。</p>
-<p>那么由此可知，滑动窗口在整幅图片上进行滑动卷积的操作过程，就等同于在该图片上直接进行卷积运算的过程。所以卷积层实现滑动窗口的这个过程，我们不需要把输入图片分割成四个子集分别执行前向传播，而是把他们作为一张图片输入到卷积神经网络中进行计算，其中的重叠部分（公共区域）可以共享大量的计算。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-79dd54e97a7dc03eb192b73161aabd48_720w.jpg" alt=""></p>
-<p>利用卷积的方式实现滑动窗口算法的方法，提高了整体的计算效率。</p>
-<h2 id="Bounding-Box"><a href="#Bounding-Box" class="headerlink" title="Bounding Box"></a>Bounding Box</h2><h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>解决非正方形的边框</p>
-<p><img src="https://pic2.zhimg.com/80/v2-054b6ee470945e1237787a09d2a0cb21_720w.jpg" alt=""></p>
-<h3 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a>YOLO</h3><p><img src="https://pic2.zhimg.com/80/v2-ea55629d01beef467d9273eb7b39d29d_720w.jpg" alt=""></p>
-<ul>
-<li>在整幅图片上加上较为精细的网格，将图片分割成$n\times n$个小的图片；</li>
-<li>采用图像分类和定位算法，分别应用在图像的$n\times n$个格子中。</li>
-<li>定义训练标签：（对于每个网格，定义如前面的向量$y_i$）</li>
-<li>将 $n\times n$ 个格子标签合并在一起，最终的目标输出Y的大小为:$n\times n \times 8$ （这里8是因为例子中的目标值有8个）。 </li>
-</ul>
-<p>通过这样的训练集训练得到目标探测的卷积网络模型。我们利用训练好的模型，将与模型输入相同大小的图片输入到训练好的网络中，得到大小为 $n\times n\times8$的预测输出。通过观察 $n\times n$不同位置的输出值，我们就能知道这些位置中是否存在目标物体，然后也能由存在物体的输出向量得到目标物体的更加精准的边界框。</p>
-<h3 id="YOLO-notation："><a href="#YOLO-notation：" class="headerlink" title="YOLO notation："></a>YOLO notation：</h3><ul>
-<li>将对象分配到一个格子的过程是：观察对象的中点，将该对象分配到其中点所在的格子中，（即使对象横跨多个格子，也只分配到中点所在的格子中，其他格子记为无该对象，即标记为“0”）；</li>
-<li>YOLO显式地输出边界框，使得其可以具有任意宽高比，并且能输出更精确的坐标，不受滑动窗口算法滑动步幅大小的限制；</li>
-<li>YOLO是一次卷积实现，并不是在 $n\times n$网格上进行$n^2$ 次运算，而是单次卷积实现，算法实现效率高，运行速度快，可以实现实时识别。</li>
-</ul>
-<h3 id="bounding-boxes-细节："><a href="#bounding-boxes-细节：" class="headerlink" title="bounding boxes 细节："></a>bounding boxes 细节：</h3><p>利用YOLO算法实现目标探测的时候，对于存在目标对象的网格中，定义训练标签Y的时候，边界框的指定参数的不同对其预测精度有很大的影响。</p>
-<ul>
-<li>对于每个网格，以左上角为(0,0)，以右下角为(1,1)；</li>
-<li>中点$b_x,b_y$表示坐标值，在0~1之间；</li>
-<li>宽高$b_h,b_w$表示比例值，存在&gt;1的情况。</li>
-</ul>
-<h2 id="交并比IoU"><a href="#交并比IoU" class="headerlink" title="交并比IoU"></a>交并比IoU</h2><p>交并比函数用来评价目标检测算法是否运作良好。<br><img src="https://pic2.zhimg.com/80/v2-5156b1ec84138eb23b879652aba3a865_720w.jpg" alt=""></p>
-<blockquote>
-<p>红框是人为标注的，紫框是训练结果</p>
-</blockquote>
-<p>对于理想边界框和目标探测算法预测得到的边界框，交并比函数计算两个边界框交集和并集之比。</p>
 <script type="math/tex; mode=display">
-IoU=\frac{交集面积}{并集面积}</script><h2 id="非最大值抑制-non-max-suppression-NMS"><a href="#非最大值抑制-non-max-suppression-NMS" class="headerlink" title="非最大值抑制(non-max suppression ,NMS)"></a>非最大值抑制(non-max suppression ,NMS)</h2><p><strong>作用</strong>：保证对一个对象不做多次检测</p>
-<p><img src="https://pic1.zhimg.com/80/v2-d786896a701bc6b22359f8a678969638_720w.jpg" alt=""><br>在上图中可能会有多个格子内检测出对象</p>
-<h3 id="NMS的基本思想"><a href="#NMS的基本思想" class="headerlink" title="NMS的基本思想"></a>NMS的基本思想</h3><ul>
-<li>在对$n\times n$个网格进行目标检测算法后，每个网格输出的 [公式] 为一个0~1的值，表示有车的概率大小。其中会有多个网格内存在高概率；</li>
-<li>得到对同一个对象的多次检测，也就是在一个对象上有多个具有重叠的不同的边界框；</li>
-<li>非最大值抑制对多种检测结果进行清理：选取最大$P_c$ 的边界框，对所有其他与该边界框具有高交并比或高重叠的边界框进行抑制；</li>
-<li>逐一审视剩下的边界框，寻找最高的$P_c$值边界框，重复上面的步骤。</li>
-<li>非最大值抑制，也就是说抑制那些不是最大值，却比较接近最大值的边界框。</li>
-</ul>
-<h3 id="以单对象检测为例"><a href="#以单对象检测为例" class="headerlink" title="以单对象检测为例"></a>以单对象检测为例</h3><ul>
-<li>对于图片每个网格预测输出矩阵： $y=[P_c,b_x,b_y,b_h,b_w]$，其中 $P_c$表示有对象的概率；</li>
-<li>抛弃$P_c&lt;=0.6$的边界框，也就是低概率的情况；</li>
-<li>对剩余的边界框（while）：<ul>
-<li>选取最大$P_c$ 值的边界框，作为预测输出边界框；</li>
-<li>抛弃和选取的边界框$IoU&gt;=0.5$ 的剩余的边界框。</li>
-</ul>
-</li>
+A=U_r\sum_rV_r^H</script><p>被称为截断奇异值分解，<br>只取前r个非0度奇异值</p>
+<h2 id="奇异值分解和特征分解的关系"><a href="#奇异值分解和特征分解的关系" class="headerlink" title="奇异值分解和特征分解的关系"></a>奇异值分解和特征分解的关系</h2><script type="math/tex; mode=display">
+A^HA=V\sum U^HU\sum V^H</script><script type="math/tex; mode=display">
+=V\sum^2V^H</script><ul>
+<li>$A^HA$的特征值是A奇异值的平方，是右奇异向量</li>
+<li>$AA^H$的特征值是A奇异值的平方，是左奇异向量<script type="math/tex; mode=display">
+AA^H=U\sum^2U^H</script></li>
+<li>广义逆<script type="math/tex; mode=display">
+A^+=V\sum U^+</script><h2 id="奇异值的性质"><a href="#奇异值的性质" class="headerlink" title="奇异值的性质"></a>奇异值的性质</h2><h3 id="范数性质"><a href="#范数性质" class="headerlink" title="范数性质"></a>范数性质</h3></li>
+<li>L2范数<script type="math/tex; mode=display">
+||A||_{spec}=||A||_2=\sigma_i(最大奇异值)</script></li>
+<li>f范数<script type="math/tex; mode=display">
+||A||_F=sqrt{<A,A>}=\sqrt{tr(A^H,A)}=\sqrt{\sum \sigma_i}</script>特征值之和=奇异值平方和</li>
 </ul>
 <blockquote>
-<p>对于多对象检测，输出标签中就会有多个分量。正确的做法是：对每个输出类别分别独立进行一次非最大值抑制。</p>
+<p>根据矩阵A的谱范数可以确定最大奇异值</p>
 </blockquote>
-<h2 id="Anchor-Box"><a href="#Anchor-Box" class="headerlink" title="Anchor Box"></a>Anchor Box</h2><p><strong>作用</strong>：解决两个目标出现在一个框内的情况<br><img src="https://pic1.zhimg.com/80/v2-12c977ce40c692b2238f4e0f98034d3c_720w.jpg" alt=""></p>
-<ul>
-<li><p>先定义几个Anchor Box，目标向量变为</p>
+<h3 id="酉不变性"><a href="#酉不变性" class="headerlink" title="酉不变性"></a>酉不变性</h3><script type="math/tex; mode=display">
+A=U\sum V^H</script><p>在矩阵A的基础上再左乘或者右乘一个酉矩阵</p>
 <script type="math/tex; mode=display">
-y_i=[P_c,b_x,b_y,b_h,b_w,c_1,c_2,c_3,P_c,b_x,b_y,b_h,b_w,c_1,c_2,c_3...]</script></li>
-<li><p>不使用Anchor box：训练图片中的每个对象，根据对象的中点，分配到对应的格子中。输出大小</p>
-</li>
-<li>使用Anchor box：训练图片的每个对象，根据对象的中点，分配到对应的格子中，同时还分配到一个和对象形状的IoU最高的Anchor box 中。输出大小（例如两个Anchor box）$n\times n \times 16$。</li>
-</ul>
-<h3 id="难点问题："><a href="#难点问题：" class="headerlink" title="难点问题："></a>难点问题：</h3><ul>
-<li>如果我们使用了两个Anchor box，但是同一个格子中却有三个对象的情况，此时只能用一些额外的手段来处理；</li>
-<li>同一个格子中存在两个对象，但它们的Anchor box 形状相同，此时也需要引入一些专门处理该情况的手段。</li>
-</ul>
-<h3 id="Anchor-box-的选择："><a href="#Anchor-box-的选择：" class="headerlink" title="Anchor box 的选择："></a>Anchor box 的选择：</h3><ul>
-<li>一般人工指定Anchor box 的形状，选择5~10个以覆盖到多种不同的形状，可以涵盖我们想要检测的对象的形状；</li>
-<li>高级方法：K-means 算法：将不同对象形状进行聚类，用聚类后的结果来选择一组最具代表性的Anchor box，以此来代表我们想要检测对象的形状。</li>
-</ul>
-<h2 id="YOLO算法"><a href="#YOLO算法" class="headerlink" title="YOLO算法"></a>YOLO算法</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><ul>
-<li>构造数据集</li>
-<li>模型训练</li>
-<li>运行NMS</li>
-</ul>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>假设我们要在图片中检测三种目标：行人、汽车和摩托车，同时使用两种不同的Anchor box。</p>
-<h3 id="训练集"><a href="#训练集" class="headerlink" title="训练集"></a>训练集</h3><ul>
-<li>输入X：同样大小的完整图片；</li>
-<li>目标Y：使用$3\times 3$ 网格划分，输出大小$3\times 3\times2\times8$，或者$3\times 3\times16$ </li>
-<li>对不同格子中的小图，定义目标输出向量Y。<br><img src="https://pic3.zhimg.com/80/v2-04baf38d85d19b9574a31b6a794c7d6a_720w.jpg" alt=""></li>
-</ul>
-<h3 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h3><p>输入与训练集中相同大小的图片，同时得到每个格子中不同的输出结果： $3\times 3\times2\times8$<br><img src="https://pic4.zhimg.com/80/v2-5fcb40ed001cb3629e0bec69676e3eb7_720w.jpg" alt=""></p>
-<h3 id="运行NMS"><a href="#运行NMS" class="headerlink" title="运行NMS"></a>运行NMS</h3><ul>
-<li>假设使用了2个Anchor box，那么对于每一个网格，我们都会得到预测输出的2个bounding boxes，其中一个Pc比较高；</li>
-</ul>
-<p><img src="https://pic2.zhimg.com/80/v2-22c34225d06de047752ee9752bb741a5_720w.jpg" alt=""></p>
-<ul>
-<li><p>抛弃概率Pc值低的预测bounding boxes；<br><img src="https://pic3.zhimg.com/80/v2-a0355fddb90cc272161244376621c5e2_720w.jpg" alt=""></p>
-</li>
-<li><p>对每个对象（如行人、汽车、摩托车）分别使用NMS算法得到最终的预测边界框</p>
-</li>
-</ul>
-<p><img src="https://pic3.zhimg.com/80/v2-638ccfeaf962131a2bccc15b8c4de816_720w.jpg" alt=""></p>
-<h2 id="候选区域"><a href="#候选区域" class="headerlink" title="候选区域"></a>候选区域</h2><ul>
-<li>R-CNN（Regions with convolutional networks），会在我们的图片中选出一些目标的候选区域，从而避免了传统滑动窗口在大量无对象区域的无用运算。</li>
-<li>所以在使用了R-CNN后，我们不会再针对每个滑动窗口运算检测算法，而是只选择一些候选区域的窗口，在少数的窗口上运行卷积网络。</li>
-<li>具体实现：运用图像分割算法，将图片分割成许多不同颜色的色块，然后在这些色块上放置窗口，将窗口中的内容输入网络，从而减小需要处理的窗口数量。<br><img src="https://pic4.zhimg.com/80/v2-813a1cce626d7c967e3c843a1dd56103_720w.jpg" alt=""></li>
-</ul>
-<h3 id="更快的算法："><a href="#更快的算法：" class="headerlink" title="更快的算法："></a>更快的算法：</h3><ul>
-<li>R-CNN：给出候选区域，不使用滑动窗口，对每个候选区域进行分类识别，输出对象 标签 和 bounding box，从而在确实存在对象的区域得到更精确的边界框，但速度慢；</li>
-<li>Fast R-CNN：给出候选区域，使用滑动窗口的卷积实现去分类所有的候选区域，但得到候选区的聚类步骤仍然非常慢；</li>
-<li>Faster R-CNN：使用卷积网络给出候选区域。</li>
-</ul>
-<h1 id="CNN的其他应用"><a href="#CNN的其他应用" class="headerlink" title="CNN的其他应用"></a>CNN的其他应用</h1><h2 id="人脸识别和人脸验证"><a href="#人脸识别和人脸验证" class="headerlink" title="人脸识别和人脸验证"></a>人脸识别和人脸验证</h2><h3 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h3><ul>
-<li>input image,nameID</li>
-<li>Output true or flase</li>
-</ul>
-<h3 id="Recognition"><a href="#Recognition" class="headerlink" title="Recognition"></a>Recognition</h3><ul>
-<li>K person in database</li>
-<li>input a image</li>
-<li>out put the id or name of the person</li>
-</ul>
-<h2 id="One-shot学习"><a href="#One-shot学习" class="headerlink" title="One-shot学习"></a>One-shot学习</h2><p>人脸识别的困难点在于一次学习识别，训练样例只有一个</p>
-<h3 id="为什么不用softmax？"><a href="#为什么不用softmax？" class="headerlink" title="为什么不用softmax？"></a>为什么不用softmax？</h3><p>softmax的缺点在于加入新人后需要重新训练网络</p>
-<h3 id="degree-of-difference-between-two-picture"><a href="#degree-of-difference-between-two-picture" class="headerlink" title="degree of difference between two picture"></a>degree of difference between two picture</h3><p>引入Similarity函数</p>
+B=PU\sum V^HQ^H</script><p>B的奇异值不变</p>
+<h3 id="奇异值与行列式"><a href="#奇异值与行列式" class="headerlink" title="奇异值与行列式"></a>奇异值与行列式</h3><p>因为酉矩阵行列式绝对值为1</p>
+<p>所以</p>
 <script type="math/tex; mode=display">
-d(img_1,img_2)<\tau</script><script type="math/tex; mode=display">
->\tau</script><h2 id="siamese网络"><a href="#siamese网络" class="headerlink" title="siamese网络"></a>siamese网络</h2><p><img src="http://www.ai-start.com/dl2017/images/ecd4f7ca6487b4ccb19c1f5039e9d876.png" alt=""></p>
+|detA|=|det\sum|=\sigma_1\sigma_2...\sigma_n</script><p>如果$detA=\not0$表明A是非奇异的，若存在$\sigma_i=0,datA=0$,则A奇异，这是把$\sigma$称为奇异值的原因</p>
+<h2 id="秩亏缺矩阵"><a href="#秩亏缺矩阵" class="headerlink" title="秩亏缺矩阵"></a>秩亏缺矩阵</h2><p>应用奇异值分解求解最小二乘问题的方法常简称为奇异值分解方法。</p>
+<ul>
+<li>方法1<script type="math/tex; mode=display">
+Ax=b</script><script type="math/tex; mode=display">
+U\sum V^Hx=b</script><script type="math/tex; mode=display">
+\sum V^Hx=U^Hb</script><script type="math/tex; mode=display">
+let...x'=V^Hx,y=U^Hb</script><script type="math/tex; mode=display">
+\to \sum x'=y</script><script type="math/tex; mode=display">
+min||\sum x'-U^Hy||_2^2</script><script type="math/tex; mode=display">
+=\sum_{i=1}^r|\sigma_ix_i-y_i|^2+\sum_{i=r+1}^N|y_i|^2=0</script>求出<script type="math/tex; mode=display">
+x_i'\to x'</script></li>
+</ul>
+<h3 id="有效秩的确定"><a href="#有效秩的确定" class="headerlink" title="有效秩的确定"></a>有效秩的确定</h3><p>衡量A，B的逼近程度</p>
 <script type="math/tex; mode=display">
-d(x^{(1)},d^{(2)})=||f(x^{(1)})-f(x^{2})||_2^2</script><h4 id="如何训练？"><a href="#如何训练？" class="headerlink" title="如何训练？"></a>如何训练？</h4><p>定义编码函数$f(x^i)$,输入$x^i$，得到对应编码</p>
-<h2 id="Triplet-损失"><a href="#Triplet-损失" class="headerlink" title="Triplet 损失"></a>Triplet 损失</h2><h3 id="Tripletloss-between-A-N-P"><a href="#Tripletloss-between-A-N-P" class="headerlink" title="Tripletloss between A N P"></a>Tripletloss between A N P</h3><p>定义三个变量</p>
-<ul>
-<li>anchor</li>
-<li>positive正确的</li>
-<li>nagetive错误的<script type="math/tex; mode=display">
-L(A,P,N)=max(||f(A)-f(P)||^2-||f(A)-f(N)||^2+\alpha)<</script><strong>存在问题</strong></li>
+A=\sum_{i=1}^P\sigma_i u_i v_i^H</script><script type="math/tex; mode=display">
+B=\sum_{i=1}^K\sigma_i u_i v_i^H</script><ul>
+<li>谱范数法<script type="math/tex; mode=display">
+||A-B||_{spec}=\sigma_{K+1}</script></li>
+<li>F范数法<script type="math/tex; mode=display">
+||A-B||_F=\sqrt{\sum_{i=k+1}^P\sigma_i^2}</script><strong>衡量标准</strong></li>
 </ul>
-<p>当A和N差别过大时梯度下降很小，网络并不能学到什么，所以在训练的时候要选取尽可能难区分的数据</p>
-<h2 id="人脸验证与二分类"><a href="#人脸验证与二分类" class="headerlink" title="人脸验证与二分类"></a>人脸验证与二分类</h2><p>用二分类的思想训练网络</p>
-<ul>
-<li>输入两张图片</li>
-<li>输出是否为同一个人<br><img src="http://www.ai-start.com/dl2017/images/c3bf61934da2f20a7d15e183c1d1d2ab.png" alt=""></li>
-</ul>
-<p>逻辑回归单元的处理</p>
+<p>对应谱范数</p>
 <script type="math/tex; mode=display">
-\hat{y}=\sigma(\sum_{k=1}^{128}w_i|f(x^{(i)})_k-f(x^{(j)})_k|+b)</script><h2 id="神经风格迁移"><a href="#神经风格迁移" class="headerlink" title="神经风格迁移"></a>神经风格迁移</h2><p><img src="http://www.ai-start.com/dl2017/images/7b75c69ef064be274c82127a970461cf.png" alt=""></p>
-<h2 id="CNN特征可视化"><a href="#CNN特征可视化" class="headerlink" title="CNN特征可视化"></a>CNN特征可视化</h2><p><img src="http://www.ai-start.com/dl2017/images/6d489f040214efb27bf0f109874b3918.png" alt=""></p>
-<ul>
-<li>找出让单元最大激活化的图片快<br><img src="http://www.ai-start.com/dl2017/images/2ccff4b8e125893f330414574cd03af8.png" alt=""></li>
-<li>在越深的层会检测到越复杂的特征</li>
-</ul>
-<h2 id="神经风格迁移代价函数"><a href="#神经风格迁移代价函数" class="headerlink" title="神经风格迁移代价函数"></a>神经风格迁移代价函数</h2><h3 id="cost-function"><a href="#cost-function" class="headerlink" title="cost function"></a>cost function</h3><script type="math/tex; mode=display">
-J(G)=\alpha J_{content}(C,G)+\beta J_{style}(S,G)</script><h3 id="content-cost"><a href="#content-cost" class="headerlink" title="content cost"></a>content cost</h3><p>利用一个训练好的卷积模型，如VGG</p>
-<ul>
-<li>$a^{<a href="c">l</a>}$第l层的激活值</li>
-<li>$a^{<a href="G">l</a>}$<script type="math/tex; mode=display">
-J_{content}(C,G)=\frac{1}{2}||a^{[l](c)}-a^{[l](G)}||^2</script></li>
-</ul>
-<h3 id="style-cost"><a href="#style-cost" class="headerlink" title="style cost"></a>style cost</h3><p><img src="http://www.ai-start.com/dl2017/images/e3d74c1ce2393ae4e706a1cc4024f311.png" alt=""></p>
-<ul>
-<li>通道1检测出垂直纹理</li>
-<li>通道2检测出橙色</li>
-</ul>
-<p>现在利用相关系数描述同时出现两种特征的的概率</p>
-<p><strong>定义风格矩阵：style matrix</strong></p>
+\epsilon=\frac{\sigma_k}{\sigma_1}>=5\%</script><p>对应F范数（范数比方法）</p>
 <script type="math/tex; mode=display">
-a^{[l]}_{i,j,k}=activation (h,w,c),</script><script type="math/tex; mode=display">
-G^{[l](s)} =n_c^{[l]}\times n_c^{[l]}</script><script type="math/tex; mode=display">
-G_{kk'}^{[l](G)}=\sum_{i=1}^{n_H^{[l]}}\sum_{j=1}^{n_W^{[l]}}a^{[l]}_{i,j,k}a^{[l]}_{i,j,k'}</script><script type="math/tex; mode=display">
-G_{kk'}^{[l](S)}=\sum_{i=1}^{n_H^{[l]}}\sum_{j=1}^{n_W^{[l]}}a^{[l]}_{i,j,k}a^{[l]}_{i,j,k'}</script><script type="math/tex; mode=display">
-J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
-\sum_k\sum_{k'}(G_{kk'}^{[l](S)}-G_{kk'}^{[l](G)})</script>
+V(k)=\frac{\sqrt{\sum^k\sigma}}{\sqrt{\sum^P\sigma}}
+
+=\frac{||A_k||_F}{||A||_F}>=\alpha</script><h3 id="奇异值分解在图像视频压缩中的作用"><a href="#奇异值分解在图像视频压缩中的作用" class="headerlink" title="奇异值分解在图像视频压缩中的作用"></a>奇异值分解在图像视频压缩中的作用</h3><p>在矩阵A稀疏的情况下</p>
+<script type="math/tex; mode=display">
+A \to n\times n</script><script type="math/tex; mode=display">
+A_k=U_k\sum_kV_k^H</script>
     
 
     
@@ -740,7 +383,7 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/07/18/CNN“/" title="CNN“" target="_blank">https://Fazziekey.github.io/2020/07/18/CNN“/</a>
+          <a href="https://Fazziekey.github.io/2020/10/21/SVD/" title="奇异值SVD" target="_blank">https://Fazziekey.github.io/2020/10/21/SVD/</a>
         </li>
         
         <li>
@@ -762,11 +405,7 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">矩阵论</a>
         		</li>
       		
 		</ul>
@@ -778,7 +417,7 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
+        			<a href="/categories/《柯西的传世绝学》//" class="article-tag-list-link color5">《柯西的传世绝学》</a>
         		</li>
       		
 		</ul>
@@ -833,7 +472,7 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/07/18/CNN%E2%80%9C/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/10/21/SVD/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -848,18 +487,18 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
 
 <nav id="article-nav">
   
-    <a href="/2020/07/18/RNN/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/21/feature-analysis/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          RNN
+          矩阵特征分析
         
       </div>
     </a>
   
   
-    <a href="/2020/06/21/Radiation/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Radiation</div>
+    <a href="/2020/10/19/Bandit/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -886,7 +525,7 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#卷积神经网络"><span class="toc-number">1.</span> <span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Computer-Version"><span class="toc-number">1.1.</span> <span class="toc-text">Computer Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#边缘检测，特征提取"><span class="toc-number">1.2.</span> <span class="toc-text">边缘检测，特征提取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不同的边缘检测"><span class="toc-number">1.2.1.</span> <span class="toc-text">不同的边缘检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#水平和垂直"><span class="toc-number">1.2.2.</span> <span class="toc-text">水平和垂直</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他Filter"><span class="toc-number">1.2.3.</span> <span class="toc-text">其他Filter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Padding"><span class="toc-number">1.3.</span> <span class="toc-text">Padding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目的"><span class="toc-number">1.3.1.</span> <span class="toc-text">目的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stride卷积步长"><span class="toc-number">1.4.</span> <span class="toc-text">Stride卷积步长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三维卷积"><span class="toc-number">1.5.</span> <span class="toc-text">三维卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多核卷积"><span class="toc-number">1.5.1.</span> <span class="toc-text">多核卷积</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络（CNN）"><span class="toc-number">1.6.</span> <span class="toc-text">卷积神经网络（CNN）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单层卷积神经网络"><span class="toc-number">1.6.1.</span> <span class="toc-text">单层卷积神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络参数-parameter"><span class="toc-number">1.6.2.</span> <span class="toc-text">网络参数(parameter)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标记总结"><span class="toc-number">1.6.3.</span> <span class="toc-text">标记总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络类型"><span class="toc-number">1.7.</span> <span class="toc-text">卷积神经网络类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pooling"><span class="toc-number">1.8.</span> <span class="toc-text">Pooling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大池化（Max-pool）"><span class="toc-number">1.8.1.</span> <span class="toc-text">最大池化（Max pool）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平均池化（Average-Pooling）"><span class="toc-number">1.8.2.</span> <span class="toc-text">平均池化（Average Pooling）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全连接层"><span class="toc-number">1.9.</span> <span class="toc-text">全连接层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-number">1.9.1.</span> <span class="toc-text">作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络案例"><span class="toc-number">1.10.</span> <span class="toc-text">卷积神经网络案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见卷积神经网络"><span class="toc-number">2.</span> <span class="toc-text">常见卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LeNet-5"><span class="toc-number">2.1.</span> <span class="toc-text">LeNet-5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">2.1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AlexNet"><span class="toc-number">2.2.</span> <span class="toc-text">AlexNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VGGNet"><span class="toc-number">2.3.</span> <span class="toc-text">VGGNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ResNet"><span class="toc-number">2.4.</span> <span class="toc-text">ResNet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#残差快"><span class="toc-number">2.4.1.</span> <span class="toc-text">残差快</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#普通神经网络和ResNet的对比"><span class="toc-number">2.4.2.</span> <span class="toc-text">普通神经网络和ResNet的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么ResNet性能更好？"><span class="toc-number">2.4.3.</span> <span class="toc-text">为什么ResNet性能更好？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将普通神经网络转化为ResNet"><span class="toc-number">2.4.4.</span> <span class="toc-text">将普通神经网络转化为ResNet</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-times-1卷积"><span class="toc-number">2.5.</span> <span class="toc-text">1$\times$1卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inception-Network"><span class="toc-number">2.6.</span> <span class="toc-text">inception Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用0ne-by-one降低计算成本"><span class="toc-number">2.6.1.</span> <span class="toc-text">使用0ne by one降低计算成本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总计算成本"><span class="toc-number">2.6.2.</span> <span class="toc-text">总计算成本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移学习"><span class="toc-number">2.7.</span> <span class="toc-text">迁移学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据扩充"><span class="toc-number">2.8.</span> <span class="toc-text">数据扩充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#目标检测"><span class="toc-number">3.</span> <span class="toc-text">目标检测</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络结构"><span class="toc-number">3.0.1.</span> <span class="toc-text">网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Softmax层的输出"><span class="toc-number">3.0.2.</span> <span class="toc-text">Softmax层的输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loss-Function"><span class="toc-number">3.0.3.</span> <span class="toc-text">Loss Function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征检测"><span class="toc-number">3.1.</span> <span class="toc-text">特征检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标检测-1"><span class="toc-number">3.2.</span> <span class="toc-text">目标检测</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决？"><span class="toc-number">3.2.1.</span> <span class="toc-text">如何解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#滑动窗口的卷积实现"><span class="toc-number">3.2.2.</span> <span class="toc-text">滑动窗口的卷积实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bounding-Box"><span class="toc-number">3.3.</span> <span class="toc-text">Bounding Box</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用-1"><span class="toc-number">3.3.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLO"><span class="toc-number">3.3.2.</span> <span class="toc-text">YOLO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLO-notation："><span class="toc-number">3.3.3.</span> <span class="toc-text">YOLO notation：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bounding-boxes-细节："><span class="toc-number">3.3.4.</span> <span class="toc-text">bounding boxes 细节：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交并比IoU"><span class="toc-number">3.4.</span> <span class="toc-text">交并比IoU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非最大值抑制-non-max-suppression-NMS"><span class="toc-number">3.5.</span> <span class="toc-text">非最大值抑制(non-max suppression ,NMS)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NMS的基本思想"><span class="toc-number">3.5.1.</span> <span class="toc-text">NMS的基本思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以单对象检测为例"><span class="toc-number">3.5.2.</span> <span class="toc-text">以单对象检测为例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Anchor-Box"><span class="toc-number">3.6.</span> <span class="toc-text">Anchor Box</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#难点问题："><span class="toc-number">3.6.1.</span> <span class="toc-text">难点问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anchor-box-的选择："><span class="toc-number">3.6.2.</span> <span class="toc-text">Anchor box 的选择：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLO算法"><span class="toc-number">3.7.</span> <span class="toc-text">YOLO算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本流程"><span class="toc-number">3.7.1.</span> <span class="toc-text">基本流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">3.7.2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练集"><span class="toc-number">3.7.3.</span> <span class="toc-text">训练集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型训练"><span class="toc-number">3.7.4.</span> <span class="toc-text">模型训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行NMS"><span class="toc-number">3.7.5.</span> <span class="toc-text">运行NMS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#候选区域"><span class="toc-number">3.8.</span> <span class="toc-text">候选区域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更快的算法："><span class="toc-number">3.8.1.</span> <span class="toc-text">更快的算法：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CNN的其他应用"><span class="toc-number">4.</span> <span class="toc-text">CNN的其他应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#人脸识别和人脸验证"><span class="toc-number">4.1.</span> <span class="toc-text">人脸识别和人脸验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Verification"><span class="toc-number">4.1.1.</span> <span class="toc-text">Verification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Recognition"><span class="toc-number">4.1.2.</span> <span class="toc-text">Recognition</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One-shot学习"><span class="toc-number">4.2.</span> <span class="toc-text">One-shot学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么不用softmax？"><span class="toc-number">4.2.1.</span> <span class="toc-text">为什么不用softmax？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#degree-of-difference-between-two-picture"><span class="toc-number">4.2.2.</span> <span class="toc-text">degree of difference between two picture</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#siamese网络"><span class="toc-number">4.3.</span> <span class="toc-text">siamese网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何训练？"><span class="toc-number">4.3.0.1.</span> <span class="toc-text">如何训练？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Triplet-损失"><span class="toc-number">4.4.</span> <span class="toc-text">Triplet 损失</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tripletloss-between-A-N-P"><span class="toc-number">4.4.1.</span> <span class="toc-text">Tripletloss between A N P</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#人脸验证与二分类"><span class="toc-number">4.5.</span> <span class="toc-text">人脸验证与二分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经风格迁移"><span class="toc-number">4.6.</span> <span class="toc-text">神经风格迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CNN特征可视化"><span class="toc-number">4.7.</span> <span class="toc-text">CNN特征可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经风格迁移代价函数"><span class="toc-number">4.8.</span> <span class="toc-text">神经风格迁移代价函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cost-function"><span class="toc-number">4.8.1.</span> <span class="toc-text">cost function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#content-cost"><span class="toc-number">4.8.2.</span> <span class="toc-text">content cost</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#style-cost"><span class="toc-number">4.8.3.</span> <span class="toc-text">style cost</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数值的稳定性与条件数"><span class="toc-number">1.</span> <span class="toc-text">数值的稳定性与条件数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件数"><span class="toc-number">1.1.</span> <span class="toc-text">条件数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#奇异值分解"><span class="toc-number">2.</span> <span class="toc-text">奇异值分解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#奇异值分解和特征分解的关系"><span class="toc-number">2.1.</span> <span class="toc-text">奇异值分解和特征分解的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#奇异值的性质"><span class="toc-number">2.2.</span> <span class="toc-text">奇异值的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#范数性质"><span class="toc-number">2.2.1.</span> <span class="toc-text">范数性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#酉不变性"><span class="toc-number">2.2.2.</span> <span class="toc-text">酉不变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇异值与行列式"><span class="toc-number">2.2.3.</span> <span class="toc-text">奇异值与行列式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#秩亏缺矩阵"><span class="toc-number">2.3.</span> <span class="toc-text">秩亏缺矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#有效秩的确定"><span class="toc-number">2.3.1.</span> <span class="toc-text">有效秩的确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇异值分解在图像视频压缩中的作用"><span class="toc-number">2.3.2.</span> <span class="toc-text">奇异值分解在图像视频压缩中的作用</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -899,7 +538,7 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
 
 
 
-<div id="SOHUCS" sid="CNN“" ></div> 
+<div id="SOHUCS" sid="SVD" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -920,9 +559,9 @@ J^{[l]}_{style}(S,G)=\frac{1}{(2n_H^{[l]}n_W^{[l]}n_c^{[l]})^2}
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "CNN“" -->
+  <!-- id: "奇异值SVD" -->
   var giteement = new Giteement({
-    id: '20200718000524',
+    id: '20201021085125',
     owner: 'Fazzie',
     repo: 'hexo-blog',
     backcall_uri: 'https://Fazziekey.github.io',
