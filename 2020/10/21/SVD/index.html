@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="数值的稳定性与条件数当输入d受到扰动时，输出f(d) 的扰动情况 目的：解决病态问题 条件数 A 数据矩阵 n*n b 数据向量 n*1 x 未知向量 n*1  在这里我们研究x受A，或者b扰动的影响  A(x+\delta x)&#x3D;b+\delta b A\delta x&#x3D;\delta b \delta x&#x3D;A^{-1}\delta b 由||AB||">
+  <meta name="description" content="数值的稳定性与条件数当输入d受到扰动时，输出f(d) 的扰动情况 目的：解决病态问题 条件数 A 数据矩阵 n*n b 数据向量 n*1 x 未知向量 n*1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="奇异值SVD">
 <meta property="og:url" content="https://fazziekey.github.io/2020/10/21/SVD/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数值的稳定性与条件数当输入d受到扰动时，输出f(d) 的扰动情况 目的：解决病态问题 条件数 A 数据矩阵 n*n b 数据向量 n*1 x 未知向量 n*1  在这里我们研究x受A，或者b扰动的影响  A(x+\delta x)&#x3D;b+\delta b A\delta x&#x3D;\delta b \delta x&#x3D;A^{-1}\delta b 由||AB||">
+<meta property="og:description" content="数值的稳定性与条件数当输入d受到扰动时，输出f(d) 的扰动情况 目的：解决病态问题 条件数 A 数据矩阵 n*n b 数据向量 n*1 x 未知向量 n*1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-21T00:51:25.000Z">
-<meta property="article:modified_time" content="2020-10-21T01:01:14.985Z">
+<meta property="article:modified_time" content="2020-10-21T06:59:11.366Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
@@ -261,7 +261,8 @@
 <h2 id="条件数"><a href="#条件数" class="headerlink" title="条件数"></a>条件数</h2><ul>
 <li>A 数据矩阵 n*n</li>
 <li>b 数据向量 n*1</li>
-<li>x 未知向量 n*1</li>
+<li>x 未知向量 n*1<a id="more"></a>
+</li>
 </ul>
 <p>在这里我们研究x受A，或者b扰动的影响</p>
 <script type="math/tex; mode=display">
