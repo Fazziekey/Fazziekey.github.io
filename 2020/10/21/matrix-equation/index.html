@@ -6,22 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>note of deeplearning  | Hexo</title>
+  <title>matrix equation | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="深度学习笔记RNN(循环神经网络) CNN(卷积神经网络)">
+  <meta name="description" content="矩阵方程的求解主要分为三类  超定矩阵方程，m&gt;n,A,b已知 盲矩阵方程：b已知，A未知 欠定稀疏矩阵方程:m&lt;n，A，b已知但x未知且稀疏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="note of deeplearning ">
-<meta property="og:url" content="https://fazziekey.github.io/2020/07/18/note-of-deeplearning/index.html">
+<meta property="og:title" content="matrix equation">
+<meta property="og:url" content="https://fazziekey.github.io/2020/10/21/matrix-equation/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="深度学习笔记RNN(循环神经网络) CNN(卷积神经网络)">
+<meta property="og:description" content="矩阵方程的求解主要分为三类  超定矩阵方程，m&gt;n,A,b已知 盲矩阵方程：b已知，A未知 欠定稀疏矩阵方程:m&lt;n，A，b已知但x未知且稀疏">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-18T08:21:19.000Z">
-<meta property="article:modified_time" content="2020-08-05T16:02:32.486Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/3b2eb4fb4bd4c7c4843067e1c0447c01.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png">
+<meta property="article:published_time" content="2020-10-21T15:12:15.000Z">
+<meta property="article:modified_time" content="2020-10-21T15:15:04.136Z">
 <meta property="article:author" content="Fazzie">
-<meta property="article:tag" content="Deep learning">
+<meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/3b2eb4fb4bd4c7c4843067e1c0447c01.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -201,14 +205,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-note-of-deeplearning" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-matrix-equation" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      note of deeplearning 
+      matrix equation
     </h1>
   
 
@@ -220,8 +224,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/18/note-of-deeplearning/" class="archive-article-date">
-        <time datetime="2020-07-18T08:21:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+<a href="/2020/10/21/matrix-equation/" class="archive-article-date">
+        <time datetime="2020-10-21T15:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
 </a>
 
   
@@ -234,7 +238,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">20字</span>
+      <span class="post-count">1.2k字</span>
     </span>
   </span>
 
@@ -243,7 +247,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -256,9 +260,122 @@
     
 
     
-    <h1 id="深度学习笔记"><a href="#深度学习笔记" class="headerlink" title="深度学习笔记"></a>深度学习笔记</h1><p><a href="https://Fazziekey.github.io/2020/07/18/RNN/">RNN(循环神经网络)</a></p>
-<p><a href="https://fazzie-key.cool/2020/07/18/CNN%E2%80%9C/" target="_blank" rel="noopener">CNN(卷积神经网络)</a></p>
-
+    <p>矩阵方程的求解主要分为三类</p>
+<ul>
+<li>超定矩阵方程，m&gt;n,A,b已知</li>
+<li>盲矩阵方程：b已知，A未知</li>
+<li>欠定稀疏矩阵方程:m&lt;n，A，b已知但x未知且稀疏<a id="more"></a>
+</li>
+</ul>
+<h1 id="最小二乘法（LS）"><a href="#最小二乘法（LS）" class="headerlink" title="最小二乘法（LS）"></a>最小二乘法（LS）</h1><h2 id="普通最小二乘"><a href="#普通最小二乘" class="headerlink" title="普通最小二乘"></a>普通最小二乘</h2><p>为了抵制误差对矩阵方程求解的影响，引入一校正向量△b，并用它去“扰动”有误<br>差的数据向量b。我们的目标是，使校正项△b“尽可能小”</p>
+<script type="math/tex; mode=display">
+Ax=b</script><p>m&gt;n时为超定方程</p>
+<script type="math/tex; mode=display">
+b=b_0+e</script><script type="math/tex; mode=display">
+b+\Delta b\to b_0</script><p>问题可以理解为使</p>
+<script type="math/tex; mode=display">
+||\Delta b||^2\to min</script><p>的优化问题</p>
+<script type="math/tex; mode=display">
+Ax=b+\Delta b</script><script type="math/tex; mode=display">
+L(x)=||Ax-b||_2^2</script><script type="math/tex; mode=display">
+=(Ax-b)^H(Ax-b)</script><script type="math/tex; mode=display">
+\frac{\partial L(x)}{\partial x^*}=A^HAx-A^Hb=0</script><script type="math/tex; mode=display">
+\to x=(A^HA)^{-1}A^Hb</script><h2 id="高斯马尔可夫定理"><a href="#高斯马尔可夫定理" class="headerlink" title="高斯马尔可夫定理"></a>高斯马尔可夫定理</h2><p>指出了最优无偏解的条件</p>
+<script type="math/tex; mode=display">
+E(\hat{x})=x</script><ul>
+<li>方差最小<script type="math/tex; mode=display">
+Ax=b_0+e</script><script type="math/tex; mode=display">
+\begin{cases}
+E(e)=0\\
+cov\{e\}=E\{ee^H\}=\sigma^2I
+\end{cases}</script></li>
+</ul>
+<h2 id="LS解与最大似然解的等价性"><a href="#LS解与最大似然解的等价性" class="headerlink" title="LS解与最大似然解的等价性"></a>LS解与最大似然解的等价性</h2><script type="math/tex; mode=display">
+f(e)=\frac{1}{\pi^m||_e}exp[-(e-ue)^H(e-Ue)]</script><script type="math/tex; mode=display">
+max \log f(e) ==\frac{1}{\sigma^2}e^He</script><script type="math/tex; mode=display">
+max f(e) ==min||Ax-b||_2^2</script><h1 id="数据最小二乘（DLS）"><a href="#数据最小二乘（DLS）" class="headerlink" title="数据最小二乘（DLS）"></a>数据最小二乘（DLS）</h1><p>与普通最小二乘不同，我们假定b无噪声，数据矩阵<script type="math/tex">A=A_0+E</script>有噪声</p>
+<script type="math/tex; mode=display">
+A=A_0+E</script><script type="math/tex; mode=display">
+min||\Delta A||_F^2</script><script type="math/tex; mode=display">
+(A+\Delta A)x=b</script><p>拉格朗日乘子法</p>
+<script type="math/tex; mode=display">
+L(x)=||\Delta A||_F^2+\lambda^H(Ax+\Delta Ax-b)</script><script type="math/tex; mode=display">
+=tr(\Delta A\Delta A^H)+\lambda^H(Ax+\Delta x-b)</script><script type="math/tex; mode=display">
+\frac{\partial L(x)}{\partial \delta A^T}=(\Delta A^H)+x\lambda^H=0</script><script type="math/tex; mode=display">
+\to \Delta A=-\lambda x^H</script><p>代入约束条件</p>
+<script type="math/tex; mode=display">
+(A+\Delta A)x=b</script><script type="math/tex; mode=display">
+-\lambda x^Hx+Ax=b</script><script type="math/tex; mode=display">
+\lambda x^Hx=Ax-b</script><script type="math/tex; mode=display">
+\lambda=\frac{Ax-b}{x^Hx}</script><script type="math/tex; mode=display">
+\Delta A=-\frac{Ax-b}{x^Hx}x^H</script><script type="math/tex; mode=display">
+J(x)=||\Delta A||_F^2</script><script type="math/tex; mode=display">
+=tr(\frac{(Ax-b)(Ax-b)^H}{x^Hx})=\frac{||Ax-b||_2^2}{||x||_2^2}</script><p>得到数据最小二乘</p>
+<script type="math/tex; mode=display">
+\hat{x}_{DLS}=argmin_x\frac{(AX-b)^H(Ax-b)}{x^Hx}</script><h1 id="求导问题"><a href="#求导问题" class="headerlink" title="求导问题"></a>求导问题</h1><p>x为一个列向量</p>
+<ul>
+<li>行向量求偏导<script type="math/tex; mode=display">
+\frac{\partial}{\partial x^T}=[\frac{\partial}{\partial x_1}...\frac{\partial}{\partial x_n}]</script></li>
+<li>列向量同理，共轭同理</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{\partial (a^Tx)}{\partial x^T}=a^T</script><script type="math/tex; mode=display">
+L=tr(\Delta A\Delta A^H)+\lambda^H(Ax+\Delta A-b)</script><script type="math/tex; mode=display">
+\frac{\partial L}{\partial \Delta A^T}=\Delta A^H+x\lambda^H=0</script><h1 id="Tikhonov-正则化方法"><a href="#Tikhonov-正则化方法" class="headerlink" title="Tikhonov 正则化方法"></a>Tikhonov 正则化方法</h1><p>因为在真实问题中往往存在秩亏缺，所以在最小二乘的基础上我们进行你改进，加入了正则化参数，神经网络的代价函数经常用到</p>
+<script type="math/tex; mode=display">
+J(x)=min_{x}||Ax-b||_2^2+\lambda||x||_2^2</script><script type="math/tex; mode=display">
+J(x)=x^HA^HAx-x^HA^Hb-b^HAx+b^Hb+\lambda x^Hx</script><script type="math/tex; mode=display">
+\frac{\partial J(x)}{\partial x^*}=A^HAx-A^Hb+\lambda x=0</script><script type="math/tex; mode=display">
+\to (A^HA+\lambda I)x=A^Hb</script><script type="math/tex; mode=display">
+\hat{x}_{Tik}=(A^HA+\lambda I)^{-1}A^Hb</script><h2 id="反正则化去燥"><a href="#反正则化去燥" class="headerlink" title="反正则化去燥"></a>反正则化去燥</h2><script type="math/tex; mode=display">
+min_x ||Ax-b||_2^2-\lambda||x||_2^2</script><script type="math/tex; mode=display">
+\to \hat{x}=(A^HA-\lambda I)^{-1}A^Hb</script><h1 id="总体最小二乘-TLS"><a href="#总体最小二乘-TLS" class="headerlink" title="总体最小二乘(TLS)"></a>总体最小二乘(TLS)</h1><p>在A，b同时存在误差的最小二乘方法</p>
+<script type="math/tex; mode=display">
+A=A+E</script><script type="math/tex; mode=display">
+b=b+a</script><script type="math/tex; mode=display">
+min||\Delta A,\Delta b||_F^2</script><script type="math/tex; mode=display">
+st(A+\Delta A)x=b+\Delta b</script><p>我们的约束优化问题转化为了</p>
+<script type="math/tex; mode=display">
+min||\Delta A,\Delta b||_2^2=||\Delta A||_2^2+||\Delta b||_2^2</script><script type="math/tex; mode=display">
+([A,b]+[\Delta A,\Delta b])\begin{bmatrix}
+x\\
+1
+\end{bmatrix}=0</script><p>令</p>
+<script type="math/tex; mode=display">
+A'=[A,b]</script><script type="math/tex; mode=display">
+\Delta A'=[\Delta A,\Delta b])</script><script type="math/tex; mode=display">
+x'=\begin{bmatrix}
+x\\
+1
+\end{bmatrix}</script><p>原方程转化为数据最下二乘问题</p>
+<script type="math/tex; mode=display">
+(A'+\Delta A')x'=0</script><script type="math/tex; mode=display">
+\to min_{x'}\frac{(A'x'-b')(A'x'-b')^H}{x'^Hx'}</script><script type="math/tex; mode=display">
+=min\frac{x^{'H}A'^HA'x'}{x'^Hx'}</script><script type="math/tex; mode=display">
+=min\frac{||Ax-b||_2^2}{||x||_2^2+1}</script><p>总体最小二乘的解为</p>
+<script type="math/tex; mode=display">
+x'=\frac{1}{v(n+1,n+1)}V_{min}</script><h2 id="总体最小二乘的几何意义"><a href="#总体最小二乘的几何意义" class="headerlink" title="总体最小二乘的几何意义"></a>总体最小二乘的几何意义</h2><p>和点到线的距离相似<script type="math/tex">a_i^T</script>是矩阵的第i行，<script type="math/tex">b_i</script>是第i个元素，总体最小二乘的解<script type="math/tex">x_{TLS}</script>是使</p>
+<script type="math/tex; mode=display">
+min_x\frac{||Ax-b||_2^2}{||x||_2^2+1}=\sum_{i=1}^n\frac{|a_i^Tx-b_i|^2}{x^Tx+1}</script><p>问题转化为了点集<script type="math/tex">(a_i,b_i)</script>直线的最小距离平方和<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/3b2eb4fb4bd4c7c4843067e1c0447c01.png" alt=""></p>
+<p>的极小化变量</p>
+<h2 id="总体最小二乘闭式解"><a href="#总体最小二乘闭式解" class="headerlink" title="总体最小二乘闭式解"></a>总体最小二乘闭式解</h2><script type="math/tex; mode=display">
+x_{TLS}=(A^HA-\sigma^2_{n+1}I)^{-1}A^Hb</script><h1 id="四种最小二乘的比较"><a href="#四种最小二乘的比较" class="headerlink" title="四种最小二乘的比较"></a>四种最小二乘的比较</h1><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png" alt=""></p>
+<h2 id="总体最小二乘拟合直线"><a href="#总体最小二乘拟合直线" class="headerlink" title="总体最小二乘拟合直线"></a>总体最小二乘拟合直线</h2><p>对于若干数据点集，我们用直线ax+by+c=0拟合，总体最小二乘考虑数据点距离平方和的最小化</p>
+<script type="math/tex; mode=display">
+D_{TLS}=\frac{\sum_{i=1}^n[a(x_i-\hat{x})+b(y_i-\hat{y})]}{a^2+b^2}</script><p>我们把D转化为单位向量t与M的乘积<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png" alt=""></p>
+<p>对此，我们有定理，法向量t取矩阵<script type="math/tex">M^tM</script>的最小特征值<script type="math/tex">\sigma_2^2</script>特征向量，距离平方和取最小值<code>$\sigma_2^2
+$</code></p>
+<script type="math/tex; mode=display">
+D_{TSL}=\frac{(Mt)^TMt}{||t||_2^2}=\frac{t^TM^TMt}{||t||_2^2}</script><h1 id="平均约束的总体最小二乘"><a href="#平均约束的总体最小二乘" class="headerlink" title="平均约束的总体最小二乘"></a>平均约束的总体最小二乘</h1><script type="math/tex; mode=display">
+[A,b]
+\begin{bmatrix}
+x\\-1
+\end{bmatrix}=0</script><script type="math/tex; mode=display">
+\to Cx=0</script><p>引入校正矩阵</p>
+<script type="math/tex; mode=display">
+D=[E,e]</script><script type="math/tex; mode=display">
+\Delta C=[G_1u,G_2u...G_{n+1}u]\in R</script><script type="math/tex; mode=display">
+min||u||_2^2</script>
     
 
     
@@ -272,7 +389,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/07/18/note-of-deeplearning/" title="note of deeplearning " target="_blank">https://Fazziekey.github.io/2020/07/18/note-of-deeplearning/</a>
+          <a href="https://Fazziekey.github.io/2020/10/21/matrix-equation/" title="matrix equation" target="_blank">https://Fazziekey.github.io/2020/10/21/matrix-equation/</a>
         </li>
         
         <li>
@@ -294,7 +411,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">矩阵论</a>
         		</li>
       		
 		</ul>
@@ -306,7 +423,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
+        			<a href="/categories/《柯西的传世绝学》//" class="article-tag-list-link color5">《柯西的传世绝学》</a>
         		</li>
       		
 		</ul>
@@ -361,7 +478,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/07/18/note-of-deeplearning/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/10/21/matrix-equation/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -376,18 +493,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/25/MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/18/RNN/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">RNN</div>
+    <a href="/2020/10/21/feature-analysis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">矩阵特征分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -414,7 +522,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#深度学习笔记"><span class="toc-number">1.</span> <span class="toc-text">深度学习笔记</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最小二乘法（LS）"><span class="toc-number">1.</span> <span class="toc-text">最小二乘法（LS）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#普通最小二乘"><span class="toc-number">1.1.</span> <span class="toc-text">普通最小二乘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高斯马尔可夫定理"><span class="toc-number">1.2.</span> <span class="toc-text">高斯马尔可夫定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LS解与最大似然解的等价性"><span class="toc-number">1.3.</span> <span class="toc-text">LS解与最大似然解的等价性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据最小二乘（DLS）"><span class="toc-number">2.</span> <span class="toc-text">数据最小二乘（DLS）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#求导问题"><span class="toc-number">3.</span> <span class="toc-text">求导问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tikhonov-正则化方法"><span class="toc-number">4.</span> <span class="toc-text">Tikhonov 正则化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#反正则化去燥"><span class="toc-number">4.1.</span> <span class="toc-text">反正则化去燥</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总体最小二乘-TLS"><span class="toc-number">5.</span> <span class="toc-text">总体最小二乘(TLS)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘的几何意义"><span class="toc-number">5.1.</span> <span class="toc-text">总体最小二乘的几何意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘闭式解"><span class="toc-number">5.2.</span> <span class="toc-text">总体最小二乘闭式解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四种最小二乘的比较"><span class="toc-number">6.</span> <span class="toc-text">四种最小二乘的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘拟合直线"><span class="toc-number">6.1.</span> <span class="toc-text">总体最小二乘拟合直线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平均约束的总体最小二乘"><span class="toc-number">7.</span> <span class="toc-text">平均约束的总体最小二乘</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -427,7 +535,7 @@
 
 
 
-<div id="SOHUCS" sid="note-of-deeplearning" ></div> 
+<div id="SOHUCS" sid="matrix-equation" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -448,9 +556,9 @@
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "note of deeplearning " -->
+  <!-- id: "matrix equation" -->
   var giteement = new Giteement({
-    id: '20200718162119',
+    id: '20201021231215',
     owner: 'Fazzie',
     repo: 'hexo-blog',
     backcall_uri: 'https://Fazziekey.github.io',
@@ -475,9 +583,9 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "note of deeplearning " -->
+    <!-- id: "matrix equation" -->
     var gitment = new Gitment({
-      id: "20200718162119",
+      id: "20201021231215",
       owner: 'fazzie-key',
       repo: 'hexo-blog',
       oauth: {
