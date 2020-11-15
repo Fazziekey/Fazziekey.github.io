@@ -18,7 +18,7 @@
 <meta property="og:description" content="典型物理模型多个信号观测模型 x(n)&#x3D;As(n)+v(n)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-15T06:09:01.000Z">
-<meta property="article:modified_time" content="2020-11-15T06:12:54.429Z">
+<meta property="article:modified_time" content="2020-11-15T07:42:42.974Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
@@ -243,7 +243,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">11分</span>
+      <span class="post-count">10分</span>
     </span>
   </span>
 </div>
@@ -326,175 +326,204 @@ I_n&O_n&x_r\\
 O_n&I_n&x_i
 \end{bmatrix}</script><h2 id="向量空间和线性映射"><a href="#向量空间和线性映射" class="headerlink" title="向量空间和线性映射"></a>向量空间和线性映射</h2><p>向量空间是以向量为元素的集合</p>
 <ul>
-<li>子空间V到子空间W的映射<br>$$<br>T:V\to W</li>
+<li>子空间V到子空间W的映射<script type="math/tex; mode=display">
+T:V\to W</script><script type="math/tex; mode=display">
+T(c_1u_1...+c_nu_n)=c_1T(u_1)+...+c_nT(u_n)</script><blockquote>
+<p>满足线性性质</p>
+</blockquote>
+</li>
 </ul>
-<p>T(c_1u_1…+c_nu_n)=c_1T(u_1)+…+c_nT(u_n)</p>
+<h3 id="正交投影算子"><a href="#正交投影算子" class="headerlink" title="正交投影算子"></a>正交投影算子</h3><script type="math/tex; mode=display">
+w=T(x)</script><script type="math/tex; mode=display">
+\begin{bmatrix}
+w_1
+\\w_2
+\end{bmatrix}
+=\begin{bmatrix}
+0&0\\
+0&1
+\end{bmatrix}
+\begin{bmatrix}
+x
+\\y
+\end{bmatrix}</script><h1 id="向量内积与范数"><a href="#向量内积与范数" class="headerlink" title="向量内积与范数"></a>向量内积与范数</h1><h3 id="典范内积"><a href="#典范内积" class="headerlink" title="典范内积"></a>典范内积</h3><script type="math/tex; mode=display">
+<x,y>=x^Hy=\sum_{i=1}^nx_{i}^*y_i</script><h3 id="加权内积"><a href="#加权内积" class="headerlink" title="加权内积"></a>加权内积</h3><script type="math/tex; mode=display">
+<x,y>=x^HGy</script><p>G为正定Hermitian矩阵</p>
+<h3 id="连续函数内积"><a href="#连续函数内积" class="headerlink" title="连续函数内积"></a>连续函数内积</h3><script type="math/tex; mode=display">
+<x(t),y(t)>=\int_a^bx(t)y(t)dt</script><h2 id="向量范数"><a href="#向量范数" class="headerlink" title="向量范数"></a>向量范数</h2><ul>
+<li><p>L0范数</p>
 <script type="math/tex; mode=display">
-> 满足线性性质
-
-### 正交投影算子</script><p>w=T(x)</p>
-<p>\begin{bmatrix}<br>w_1<br>\\w_2<br>\end{bmatrix}<br>=\begin{bmatrix}<br>0&amp;0\\<br>0&amp;1<br>\end{bmatrix}<br>\begin{bmatrix}<br>x<br>\\y<br>\end{bmatrix}</p>
+||x||_0=^{def}非零元素的个数</script><blockquote>
+<p>表示矩阵稀疏程度</p>
+</blockquote>
+</li>
+<li><p>L1范数</p>
 <script type="math/tex; mode=display">
-
-# 向量内积与范数
-### 典范内积</script><p><x,y>=x^Hy=\sum_{i=1}^nx_{i}^*y_i</p>
+||x||_1=^{def}\sum_{i=1}^m|x_i|</script></li>
+<li>L2范数<script type="math/tex; mode=display">
+||x||_2=(|x_1|^2...+|x_n|^2)^{1/2}=\sqrt{x^Tx}</script></li>
+<li>$L_{\infty}$<script type="math/tex; mode=display">
+L_{\infty}=max\{x_i\}</script></li>
+<li>$L_P$<script type="math/tex; mode=display">
+||x_p||=(\sum_{i=1}^m|x_i|^p)^{1/p}</script></li>
+</ul>
+<h2 id="模式识别和机器学习中的向量相似比较"><a href="#模式识别和机器学习中的向量相似比较" class="headerlink" title="模式识别和机器学习中的向量相似比较"></a>模式识别和机器学习中的向量相似比较</h2><p>距离测度$D(p||g)$衡量向量相似度</p>
+<p>比如k邻近算法中</p>
 <script type="math/tex; mode=display">
-
-### 加权内积</script><p><x,y>=x^HGy</p>
+D_E(x,s_i)=||x-s_i||_2=\sqrt{(x-s_i)^T(x-s_i)}</script><h2 id="矩阵内积与范数"><a href="#矩阵内积与范数" class="headerlink" title="矩阵内积与范数"></a>矩阵内积与范数</h2><p>矩阵列向量化</p>
 <script type="math/tex; mode=display">
-G为正定Hermitian矩阵
-
-
-### 连续函数内积</script><p><x(t),y(t)>=\int_a^bx(t)y(t)dt</p>
+a=vec(A)=
+\begin{bmatrix}
+a_1\\
+a_2\\
+...\\
+a_n
+\end{bmatrix}</script><script type="math/tex; mode=display">
+mn\times 1 向量</script><h3 id="矩阵内积"><a href="#矩阵内积" class="headerlink" title="矩阵内积"></a>矩阵内积</h3><script type="math/tex; mode=display">
+<A,B>=<vec(A),vec(B)>=\sum_{i=1}^na_i^Hb_i=\sum_i^n<a_i,b_i></script><script type="math/tex; mode=display">
+=vec(A)^Hvec(B)=tr<A^HB></script><h3 id="诱导范数"><a href="#诱导范数" class="headerlink" title="诱导范数"></a>诱导范数</h3><script type="math/tex; mode=display">
+||A||=\max\{||Ax||:x\in K^n,||x||=1\}</script><script type="math/tex; mode=display">
+=\max\{\frac{||Ax||}{||X||}:x\in K^n,||x||=\not 0\}</script><h4 id="诱导p范数"><a href="#诱导p范数" class="headerlink" title="诱导p范数"></a>诱导p范数</h4><p>诱导$L$和$L_\infty$范数分别直接是该矩阵的各列元素绝对值之和的最大值(最大绝对列和)及最大绝对行和;而诱导L2范数则是矩阵A的最大奇异值。</p>
 <script type="math/tex; mode=display">
-
-## 向量范数
-+ L0范数</script><p>||x||_0=^{def}非零元素的个数</p>
+\begin{array}{l}
+\|\boldsymbol{A}\|_{1}=\max _{1 \leqslant j \leqslant n} \sum_{i=1}^{m}\left|a_{i j}\right| \\
+\|\boldsymbol{A}\|_{\mathrm{spec}}=\|\boldsymbol{A}\|_{2} \\
+\|\boldsymbol{A}\|_{\infty}=\max _{1 \leqslant i \leqslant m} \sum_{j=1}^{n}\left|a_{i j}\right|
+\end{array}</script><h3 id="元素函数"><a href="#元素函数" class="headerlink" title="元素函数"></a>元素函数</h3><p>将m×n矩阵先按照列堆栈的形式，排列成一个mn ×1向量，然后采用向量的范数定义，即得到矩阵的范数。由于这类范数是使用矩阵的元素表示的，故称为元素形式范数。元素形式范数是下面的p矩阵范数</p>
 <script type="math/tex; mode=display">
-> 表示矩阵稀疏程度
-
-+ L1范数</script><p>||x||_1=^{def}\sum_{i=1}^m|x_i|</p>
+\|\boldsymbol{A}\|_{p} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{p}\right)^{1 / p}</script><ul>
+<li>L1函数（和范数）（p=1）<script type="math/tex; mode=display">
+\|\boldsymbol{A}\|_{1} \stackrel{\text { def }}{=} \sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|</script></li>
+<li>Frobenius范数（p=2）<script type="math/tex; mode=display">
+\|\boldsymbol{A}\|_{\mathrm{F}} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{2}\right)^{1 / 2}</script>Frobenius函数又可以写作迹函数的形式</li>
+</ul>
 <script type="math/tex; mode=display">
-+ L2范数</script><p>||x||_2=(|x_1|^2…+|x_n|^2)^{1/2}=\sqrt{x^Tx}</p>
+||A||_F=\sqrt{tr(A^HA)}</script><ul>
+<li>最大范数<script type="math/tex; mode=display">
+\|\boldsymbol{A}\|_{\infty}=\max _{i=1, \cdots, m ; j=1, \cdots, n}\left\{\left|a_{i j}\right|\right\}</script><h1 id="随机向量"><a href="#随机向量" class="headerlink" title="随机向量"></a>随机向量</h1></li>
+</ul>
+<h2 id="均值向量"><a href="#均值向量" class="headerlink" title="均值向量"></a>均值向量</h2><script type="math/tex; mode=display">
+\boldsymbol{\mu}_{x}=\mathrm{E}\{\boldsymbol{x}(\xi)\}=\left[\begin{array}{c}
+\mathrm{E}\left\{x_{1}(\xi)\right\} \\
+\vdots \\
+\mathrm{E}\left\{x_{m}(\xi)\right\}
+\end{array}\right]=\left[\begin{array}{c}
+\mu_{1} \\
+\vdots \\
+\mu_{m}
+\end{array}\right]</script><h2 id="相关矩阵"><a href="#相关矩阵" class="headerlink" title="相关矩阵"></a>相关矩阵</h2><script type="math/tex; mode=display">
+\boldsymbol{R}_{x} \stackrel{\text { def }}{=} \mathrm{E}\left\{\boldsymbol{x}(\xi) \boldsymbol{x}^{\mathrm{H}}(\xi)\right\}=\left[\begin{array}{ccc}
+r_{11} & \cdots & r_{1 m} \\
+\vdots & \ddots & \vdots \\
+r_{m 1} & \cdots & r_{m m}
+\end{array}\right]</script><h2 id="自协方差矩阵"><a href="#自协方差矩阵" class="headerlink" title="自协方差矩阵"></a>自协方差矩阵</h2><script type="math/tex; mode=display">
+C_{x}=\operatorname{Cov}(x, x) \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{x}\right]\left[x(\xi)-\mu_{x}\right]^{\mathrm{H}}\right\}=
+\left[\begin{array}{ccc}
+c_{11} & \cdots & c_{1 m} \\
+\vdots & \ddots & \vdots \\
+c_{m 1} & \cdots & c_{m m}
+\end{array}\right]</script><h3 id="自相关矩阵与自协方差矩阵之间的关系"><a href="#自相关矩阵与自协方差矩阵之间的关系" class="headerlink" title="自相关矩阵与自协方差矩阵之间的关系"></a>自相关矩阵与自协方差矩阵之间的关系</h3><script type="math/tex; mode=display">
+C_x=R_x-\mu_x\mu_x^H</script><h2 id="互协方差矩阵"><a href="#互协方差矩阵" class="headerlink" title="互协方差矩阵"></a>互协方差矩阵</h2><script type="math/tex; mode=display">
+C_{xy} \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{u}\right]\left[y(\xi)-\mu_{y}\right]^{\mathrm{H}}\right\}=
+\left[\begin{array}{ccc}
+c_{x_1,y_1} & \cdots & c_{x_1,y_m} \\
+\vdots & \ddots & \vdots \\
+c_{x_m,y_1} & \cdots & c_{x_m,x_m}
+\end{array}\right]</script><script type="math/tex; mode=display">
+C_x=R_{xy}-\mu_x\mu_y^H</script><h2 id="相关系数"><a href="#相关系数" class="headerlink" title="相关系数"></a>相关系数</h2><script type="math/tex; mode=display">
+\rho_{x y} \stackrel{\text { def }}{=} \frac{c_{x y}}{\sqrt{\mathrm{E}\left\{|x(\xi)|^{2}\right\} \mathrm{E}\left\{|y(\xi)|^{2}\right\}}}=\frac{c_{x y}}{\sigma_{x} \sigma_{y}}</script><h2 id="高斯随机向量"><a href="#高斯随机向量" class="headerlink" title="高斯随机向量"></a>高斯随机向量</h2><script type="math/tex; mode=display">
+E\{x(t)\}=0</script><script type="math/tex; mode=display">
+E\{x(t)x^T(t)\}=\sigma I</script><h1 id="矩阵的性能指标"><a href="#矩阵的性能指标" class="headerlink" title="矩阵的性能指标"></a>矩阵的性能指标</h1><h2 id="矩阵的二次型"><a href="#矩阵的二次型" class="headerlink" title="矩阵的二次型"></a>矩阵的二次型</h2><p>对于任意方阵A的二次型定义为$x^HAx$</p>
 <script type="math/tex; mode=display">
-+ $L_{\infty}$</script><p>L_{\infty}=max\{x_i\}</p>
+f\left(x_{1}, \cdots, x_{n}\right)=\sum_{i=1}^{n} \alpha_{i i} x_{i}^{2}+\sum_{i=1, i \neq j}^{n} \sum_{j=1}^{n} \alpha_{i j} x_{i} x_{j}</script><p>为保证唯一性，在讨论矩阵的二次型时，有必要假定矩阵为实对称矩阵或复共轭对称矩阵</p>
+<ul>
+<li>正定矩阵，<ul>
+<li>二次型$x^HAx &gt; 0$</li>
+</ul>
+</li>
+<li>半正定矩阵<ul>
+<li>$x^HAx &gt; 0$ </li>
+</ul>
+</li>
+<li>负定矩阵<ul>
+<li>二次型$x^HAx &gt; 0$</li>
+</ul>
+</li>
+<li>半负定矩阵<ul>
+<li>若二次型$x^HAx &gt; 0$</li>
+</ul>
+</li>
+<li>不定矩阵，若二次型$x^HAx$ 既可能取正值，也可能取负值。</li>
+</ul>
+<h3 id="用特征值描述矩阵的正定性与非正定性"><a href="#用特征值描述矩阵的正定性与非正定性" class="headerlink" title="用特征值描述矩阵的正定性与非正定性"></a>用特征值描述矩阵的正定性与非正定性</h3><ul>
+<li>正定矩阵:所有特征值取正实数的矩阵。</li>
+<li>半正定矩阵:各个特征值取非负实数的矩阵。</li>
+<li>负定矩阵:全部特征值为负实数的矩阵。</li>
+<li>半负定矩阵:每个特征值取非正实数的矩阵。</li>
+<li>不定矩阵:特征值有些取正实数,另一些取负实数的矩阵。</li>
+</ul>
+<blockquote>
+<p>矩阵的特征值可描述正定性、奇异性及对角元素的特殊结构</p>
+</blockquote>
+<h2 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h2><p>矩阵的迹反映所有特征值之和</p>
+<h2 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h2><p>矩阵中线性无关的行或列的数目</p>
+<ul>
+<li>适定方程:若m = n，并且 rank(A) = n，即矩阵A非奇异，则称矩阵方程Aa = b为适定(well-determined)方程。</li>
+<li>欠定方程:若独立的方程个数小于独立的未知参数个数，则称矩阵方程 Aa = b为欠定(under-determined)方程。</li>
+<li>超定方程:若独立的方程个数大于独立的未知参数个数，则称矩阵方程Aa = b为超定(over-determined)方程。</li>
+</ul>
+<h1 id="逆矩阵和伪逆矩阵"><a href="#逆矩阵和伪逆矩阵" class="headerlink" title="逆矩阵和伪逆矩阵"></a>逆矩阵和伪逆矩阵</h1><p>矩阵的可逆和非奇异的叙述中，下列叙述等价</p>
+<ul>
+<li>A非奇异</li>
+<li>A-1存在</li>
+<li>rank(A) = n</li>
+<li>A的行线性无关</li>
+<li>A的列线性无关;</li>
+<li>det(A)≠0</li>
+<li>A 的值域的维数是n</li>
+<li>A 的零空间的维数是0</li>
+<li>Ax = b对每一个$b\in C^n$都是一致方程</li>
+<li>Ax = b对每一个b有唯一的解</li>
+<li>Ax = 0只有平凡解x = 0。</li>
+</ul>
+<p>n x n矩阵A的逆矩阵A-1具有以下性质</p>
+<ul>
+<li>A-1A= AA-1 =I。</li>
+<li>A-1是唯一的。</li>
+<li>逆矩阵的行列式等于原矩阵行列式的倒数，即$|A^{-1}|=\frac{1}{|A|}$</li>
+<li>逆矩阵是非奇异的。</li>
+<li>$(A^{-1})^{-1}=A$</li>
+</ul>
+<h2 id="矩阵求逆定理-Sherman-Morrison"><a href="#矩阵求逆定理-Sherman-Morrison" class="headerlink" title="矩阵求逆定理(Sherman-Morrison)"></a>矩阵求逆定理(Sherman-Morrison)</h2><script type="math/tex; mode=display">
+(A+xy^H)^{-1}=A^{-1}-\frac{A^{-1}xy^HA^{-1}}{1+y^HA^{-1}x}</script><h2 id="广义逆矩阵"><a href="#广义逆矩阵" class="headerlink" title="广义逆矩阵"></a>广义逆矩阵</h2><p>A的广义逆矩阵满足以下四个条件</p>
 <script type="math/tex; mode=display">
-+ $L_P$</script><p>||x_p||=(\sum_{i=1}^m|x_i|^p)^{1/p}</p>
+\begin{array}{l}
+A A^{\dagger} A=A\\
+A^{\dagger} AA^{\dagger}=A^{\dagger}
+\\
+AA^{\dagger}=(AA^{\dagger})^H
+\\A^{\dagger}A=(A^{\dagger}A)^H
+\end{array}</script><h1 id="矩阵的直和"><a href="#矩阵的直和" class="headerlink" title="矩阵的直和"></a>矩阵的直和</h1><script type="math/tex; mode=display">
+\boldsymbol{A} \oplus \boldsymbol{B}=\left[\begin{array}{cc}
+\boldsymbol{A} & \boldsymbol{O}_{m \times n} \\
+\boldsymbol{O}_{n \times m} & \boldsymbol{B}
+\end{array}\right]</script><h1 id="Hadamard积"><a href="#Hadamard积" class="headerlink" title="Hadamard积"></a>Hadamard积</h1><p>两个同维度矩阵对应元素直接相乘</p>
 <script type="math/tex; mode=display">
-
-## 模式识别和机器学习中的向量相似比较
-距离测度$D(p||g)$衡量向量相似度
-
-比如k邻近算法中</script><p>D_E(x,s_i)=||x-s_i||_2=\sqrt{(x-s_i)^T(x-s_i)}</p>
-<script type="math/tex; mode=display">
-## 矩阵内积与范数
-矩阵列向量化</script><p>a=vec(A)=<br>\begin{bmatrix}<br>a_1\\<br>a_2\\<br>…\\<br>a_n<br>\end{bmatrix}</p>
-<p>mn\times 1 向量</p>
-<script type="math/tex; mode=display">
-### 矩阵内积</script><p><A,B>=<vec(A),vec(B)>=\sum_{i=1}^na_i^Hb_i=\sum_i^n<a_i,b_i></p>
-<p>=vec(A)^Hvec(B)=tr<A^HB></p>
-<script type="math/tex; mode=display">
-### 诱导范数</script><p>||A||=\max\{||Ax||:x\in K^n,||x||=1\}</p>
-<p>=\max\{\frac{||Ax||}{||X||}:x\in K^n,||x||=\not 0\}</p>
-<script type="math/tex; mode=display">
-#### 诱导p范数
-诱导$L$和$L_\infty$范数分别直接是该矩阵的各列元素绝对值之和的最大值(最大绝对列和)及最大绝对行和;而诱导L2范数则是矩阵A的最大奇异值。</script><p>\begin{array}{l}<br>|\boldsymbol{A}|_{1}=\max _{1 \leqslant j \leqslant n} \sum_{i=1}^{m}\left|a_{i j}\right| \\<br>|\boldsymbol{A}|_{\mathrm{spec}}=|\boldsymbol{A}|_{2} \\<br>|\boldsymbol{A}|_{\infty}=\max _{1 \leqslant i \leqslant m} \sum_{j=1}^{n}\left|a_{i j}\right|<br>\end{array}</p>
-<script type="math/tex; mode=display">
-### 元素函数
-将m×n矩阵先按照列堆栈的形式，排列成一个mn ×1向量，然后采用向量的范数定义，即得到矩阵的范数。由于这类范数是使用矩阵的元素表示的，故称为元素形式范数。元素形式范数是下面的p矩阵范数</script><p>|\boldsymbol{A}|_{p} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{p}\right)^{1 / p}</p>
-<script type="math/tex; mode=display">
-+ L1函数（和范数）（p=1）</script><p>|\boldsymbol{A}|_{1} \stackrel{\text { def }}{=} \sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|</p>
-<script type="math/tex; mode=display">
-+ Frobenius范数（p=2）</script><p>|\boldsymbol{A}|_{\mathrm{F}} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{2}\right)^{1 / 2}</p>
-<script type="math/tex; mode=display">
-Frobenius函数又可以写作迹函数的形式</script><p>||A||_F=\sqrt{tr(A^HA)}</p>
-<script type="math/tex; mode=display">
-
-+ 最大范数</script><p>|\boldsymbol{A}|_{\infty}=\max _{i=1, \cdots, m ; j=1, \cdots, n}\left\{\left|a_{i j}\right|\right\}</p>
-<script type="math/tex; mode=display">
-# 随机向量
-
-## 均值向量</script><p>\boldsymbol{\mu}_{x}=\mathrm{E}\{\boldsymbol{x}(\xi)\}=\left[\begin{array}{c}<br>\mathrm{E}\left\{x_{1}(\xi)\right\} \\<br>\vdots \\<br>\mathrm{E}\left\{x_{m}(\xi)\right\}<br>\end{array}\right]=\left[\begin{array}{c}<br>\mu_{1} \\<br>\vdots \\<br>\mu_{m}<br>\end{array}\right]</p>
-<script type="math/tex; mode=display">
-
-## 相关矩阵</script><p>\boldsymbol{R}_{x} \stackrel{\text { def }}{=} \mathrm{E}\left\{\boldsymbol{x}(\xi) \boldsymbol{x}^{\mathrm{H}}(\xi)\right\}=\left[\begin{array}{ccc}<br>r_{11} &amp; \cdots &amp; r_{1 m} \\<br>\vdots &amp; \ddots &amp; \vdots \\<br>r_{m 1} &amp; \cdots &amp; r_{m m}<br>\end{array}\right]</p>
-<script type="math/tex; mode=display">
-
-## 自协方差矩阵</script><p>C_{x}=\operatorname{Cov}(x, x) \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{x}\right]\left[x(\xi)-\mu_{x}\right]^{\mathrm{H}}\right\}=<br>\left[\begin{array}{ccc}<br>c_{11} &amp; \cdots &amp; c_{1 m} \\<br>\vdots &amp; \ddots &amp; \vdots \\<br>c_{m 1} &amp; \cdots &amp; c_{m m}<br>\end{array}\right]</p>
-<script type="math/tex; mode=display">
-### 自相关矩阵与自协方差矩阵之间的关系</script><p>C_x=R_x-\mu_x\mu_x^H</p>
-<script type="math/tex; mode=display">
-## 互协方差矩阵</script><p>C_{xy} \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{u}\right]\left[y(\xi)-\mu_{y}\right]^{\mathrm{H}}\right\}=<br>\left[\begin{array}{ccc}<br>c_{x_1,y_1} &amp; \cdots &amp; c_{x_1,y_m} \\<br>\vdots &amp; \ddots &amp; \vdots \\<br>c_{x_m,y_1} &amp; \cdots &amp; c_{x_m,x_m}<br>\end{array}\right]</p>
-<script type="math/tex; mode=display">
-</script><p>C_x=R_{xy}-\mu_x\mu_y^H</p>
-<script type="math/tex; mode=display">
-## 相关系数</script><p>\rho_{x y} \stackrel{\text { def }}{=} \frac{c_{x y}}{\sqrt{\mathrm{E}\left\{|x(\xi)|^{2}\right\} \mathrm{E}\left\{|y(\xi)|^{2}\right\}}}=\frac{c_{x y}}{\sigma_{x} \sigma_{y}}</p>
-<script type="math/tex; mode=display">
-
-## 高斯随机向量</script><p>E\{x(t)\}=0</p>
-<p>E\{x(t)x^T(t)\}=\sigma I</p>
-<script type="math/tex; mode=display">
-
-# 矩阵的性能指标
-## 矩阵的二次型
-对于任意方阵A的二次型定义为$x^HAx$</script><p>f\left(x_{1}, \cdots, x_{n}\right)=\sum_{i=1}^{n} \alpha_{i i} x_{i}^{2}+\sum_{i=1, i \neq j}^{n} \sum_{j=1}^{n} \alpha_{i j} x_{i} x_{j}</p>
-<script type="math/tex; mode=display">
-为保证唯一性，在讨论矩阵的二次型时，有必要假定矩阵为实对称矩阵或复共轭对称矩阵
-
-+ 正定矩阵，
-    + 二次型$x^HAx > 0$
-+ 半正定矩阵
-    + $x^HAx > 0$ 
-+ 负定矩阵
-    + 二次型$x^HAx > 0$
-+ 半负定矩阵
-    + 若二次型$x^HAx > 0$
-+ 不定矩阵，若二次型$x^HAx$ 既可能取正值，也可能取负值。
-
-
-### 用特征值描述矩阵的正定性与非正定性
-+ 正定矩阵:所有特征值取正实数的矩阵。
-+ 半正定矩阵:各个特征值取非负实数的矩阵。
-+ 负定矩阵:全部特征值为负实数的矩阵。
-+ 半负定矩阵:每个特征值取非正实数的矩阵。
-+ 不定矩阵:特征值有些取正实数,另一些取负实数的矩阵。
-
-> 矩阵的特征值可描述正定性、奇异性及对角元素的特殊结构
-
-## 矩阵的迹
-矩阵的迹反映所有特征值之和
-## 矩阵的秩
-矩阵中线性无关的行或列的数目
-+ 适定方程:若m = n，并且 rank(A) = n，即矩阵A非奇异，则称矩阵方程Aa = b为适定(well-determined)方程。
-+ 欠定方程:若独立的方程个数小于独立的未知参数个数，则称矩阵方程 Aa = b为欠定(under-determined)方程。
-+ 超定方程:若独立的方程个数大于独立的未知参数个数，则称矩阵方程Aa = b为超定(over-determined)方程。
-
-# 逆矩阵和伪逆矩阵
-矩阵的可逆和非奇异的叙述中，下列叙述等价
-+ A非奇异
-+ A-1存在
-+ rank(A) = n
-+ A的行线性无关
-+ A的列线性无关;
-+ det(A)≠0
-+ A 的值域的维数是n
-+ A 的零空间的维数是0
-+ Ax = b对每一个$b\in C^n$都是一致方程
-+ Ax = b对每一个b有唯一的解
-+ Ax = 0只有平凡解x = 0。
-
-
-n x n矩阵A的逆矩阵A-1具有以下性质
-+ A-1A= AA-1 =I。
-+ A-1是唯一的。
-+ 逆矩阵的行列式等于原矩阵行列式的倒数，即$|A^{-1}|=\frac{1}{|A|}$
-+ 逆矩阵是非奇异的。
-+ $(A^{-1})^{-1}=A$
-
-## 矩阵求逆定理(Sherman-Morrison)</script><p>(A+xy^H)^{-1}=A^{-1}-\frac{A^{-1}xy^HA^{-1}}{1+y^HA^{-1}x}</p>
-<script type="math/tex; mode=display">
-
-## 广义逆矩阵
-A的广义逆矩阵满足以下四个条件</script><p>\begin{array}{l}<br>A A^{\dagger} A=A\\<br>A^{\dagger} AA^{\dagger}=A^{\dagger}<br>\\<br>AA^{\dagger}=(AA^{\dagger})^H<br>\\A^{\dagger}A=(A^{\dagger}A)^H<br>\end{array}</p>
-<script type="math/tex; mode=display">
-
-# 矩阵的直和</script><p>\boldsymbol{A} \oplus \boldsymbol{B}=\left[\begin{array}{cc}<br>\boldsymbol{A} &amp; \boldsymbol{O}_{m \times n} \\<br>\boldsymbol{O}_{n \times m} &amp; \boldsymbol{B}<br>\end{array}\right]</p>
-<script type="math/tex; mode=display">
-
-# Hadamard积
-两个同维度矩阵对应元素直接相乘</script><p>(A*B)_{ij}=a_{ij}b_{ij}</p>
-<script type="math/tex; mode=display">
-# Kronecker积
-## 左Kronecker积</script><p>\boldsymbol{A} \otimes \boldsymbol{B}=\left[\boldsymbol{a}_{1} \boldsymbol{B}, \cdots, \boldsymbol{a}_{n} \boldsymbol{B}\right]=\left[a_{i j} \boldsymbol{B}\right]_{i=1, j=1}^{m, n}=\left[\begin{array}{cccc}<br>a_{11} \boldsymbol{B} &amp; a_{12} \boldsymbol{B} &amp; \cdots &amp; a_{1 n} \boldsymbol{B} \\<br>a_{21} \boldsymbol{B} &amp; a_{22} \boldsymbol{B} &amp; \cdots &amp; a_{2 n} \boldsymbol{B} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>a_{m 1} \boldsymbol{B} &amp; a_{m 2} \boldsymbol{B} &amp; \cdots &amp; a_{m n} \boldsymbol{B}<br>\end{array}\right]</p>
-<script type="math/tex; mode=display">
-
-## 右Kronecker积</script><p>[\boldsymbol{A} \otimes \boldsymbol{B}]_{\text {left }}=\left[\boldsymbol{A} \boldsymbol{b}_{1}, \cdots, \boldsymbol{A} \boldsymbol{b}_{\boldsymbol{q}}\right]=\left[b_{i j} \boldsymbol{A}\right]_{i=1, j=1}^{p, \boldsymbol{q}}=\left[\begin{array}{cccc}<br>\boldsymbol{A} b_{11} &amp; \boldsymbol{A} b_{12} &amp; \cdots &amp; \boldsymbol{A} b_{1 \boldsymbol{q}} \\<br>\boldsymbol{A} b_{21} &amp; \boldsymbol{A} b_{22} &amp; \cdots &amp; \boldsymbol{A} b_{2 q} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>\boldsymbol{A} b_{\boldsymbol{p} 1} &amp; \boldsymbol{A} b_{p 2} &amp; \cdots &amp; \boldsymbol{A} b_{p q}<br>\end{array}\right]</p>
-<script type="math/tex; mode=display">
-# 矩阵向量化
-## 按列堆栈</script><p>vec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{m 1}, \cdots, a_{1 n}, \cdots, a_{m n}\right]^{\mathrm{T}}</p>
-<script type="math/tex; mode=display">
-## 按行堆栈</script><p>rvec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{1 n}, \cdots, a_{m 1}, \cdots, a_{m n}\right]<br>$$</p>
-
+(A*B)_{ij}=a_{ij}b_{ij}</script><h1 id="Kronecker积"><a href="#Kronecker积" class="headerlink" title="Kronecker积"></a>Kronecker积</h1><h2 id="左Kronecker积"><a href="#左Kronecker积" class="headerlink" title="左Kronecker积"></a>左Kronecker积</h2><script type="math/tex; mode=display">
+\boldsymbol{A} \otimes \boldsymbol{B}=\left[\boldsymbol{a}_{1} \boldsymbol{B}, \cdots, \boldsymbol{a}_{n} \boldsymbol{B}\right]=\left[a_{i j} \boldsymbol{B}\right]_{i=1, j=1}^{m, n}=\left[\begin{array}{cccc}
+a_{11} \boldsymbol{B} & a_{12} \boldsymbol{B} & \cdots & a_{1 n} \boldsymbol{B} \\
+a_{21} \boldsymbol{B} & a_{22} \boldsymbol{B} & \cdots & a_{2 n} \boldsymbol{B} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m 1} \boldsymbol{B} & a_{m 2} \boldsymbol{B} & \cdots & a_{m n} \boldsymbol{B}
+\end{array}\right]</script><h2 id="右Kronecker积"><a href="#右Kronecker积" class="headerlink" title="右Kronecker积"></a>右Kronecker积</h2><script type="math/tex; mode=display">
+[\boldsymbol{A} \otimes \boldsymbol{B}]_{\text {left }}=\left[\boldsymbol{A} \boldsymbol{b}_{1}, \cdots, \boldsymbol{A} \boldsymbol{b}_{\boldsymbol{q}}\right]=\left[b_{i j} \boldsymbol{A}\right]_{i=1, j=1}^{p, \boldsymbol{q}}=\left[\begin{array}{cccc}
+\boldsymbol{A} b_{11} & \boldsymbol{A} b_{12} & \cdots & \boldsymbol{A} b_{1 \boldsymbol{q}} \\
+\boldsymbol{A} b_{21} & \boldsymbol{A} b_{22} & \cdots & \boldsymbol{A} b_{2 q} \\
+\vdots & \vdots & \ddots & \vdots \\
+\boldsymbol{A} b_{\boldsymbol{p} 1} & \boldsymbol{A} b_{p 2} & \cdots & \boldsymbol{A} b_{p q}
+\end{array}\right]</script><h1 id="矩阵向量化"><a href="#矩阵向量化" class="headerlink" title="矩阵向量化"></a>矩阵向量化</h1><h2 id="按列堆栈"><a href="#按列堆栈" class="headerlink" title="按列堆栈"></a>按列堆栈</h2><script type="math/tex; mode=display">
+vec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{m 1}, \cdots, a_{1 n}, \cdots, a_{m n}\right]^{\mathrm{T}}</script><h2 id="按行堆栈"><a href="#按行堆栈" class="headerlink" title="按行堆栈"></a>按行堆栈</h2><script type="math/tex; mode=display">
+rvec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{1 n}, \cdots, a_{m 1}, \cdots, a_{m n}\right]</script>
     
 
     
@@ -612,6 +641,15 @@ A的广义逆矩阵满足以下四个条件</script><p>\begin{array}{l}<br>A A^{
 
 <nav id="article-nav">
   
+    <a href="/2020/11/15/spacial-matrix/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          spacial matrix 
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/10/21/matrix-equation/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">matrix equation</div>
@@ -641,7 +679,7 @@ A的广义逆矩阵满足以下四个条件</script><p>\begin{array}{l}<br>A A^{
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#典型物理模型"><span class="toc-number">1.</span> <span class="toc-text">典型物理模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多个信号观测模型"><span class="toc-number">1.0.1.</span> <span class="toc-text">多个信号观测模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#书写规范"><span class="toc-number">2.</span> <span class="toc-text">书写规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵代数基本性质"><span class="toc-number">3.</span> <span class="toc-text">矩阵代数基本性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导数积分"><span class="toc-number">3.1.</span> <span class="toc-text">导数积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊矩阵"><span class="toc-number">3.2.</span> <span class="toc-text">特殊矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性无关与奇异性"><span class="toc-number">3.3.</span> <span class="toc-text">线性无关与奇异性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性方程组"><span class="toc-number">3.3.1.</span> <span class="toc-text">线性方程组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵方程"><span class="toc-number">3.3.2.</span> <span class="toc-text">矩阵方程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复矩阵方程"><span class="toc-number">3.4.</span> <span class="toc-text">复矩阵方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量空间和线性映射"><span class="toc-number">3.5.</span> <span class="toc-text">向量空间和线性映射</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#典型物理模型"><span class="toc-number">1.</span> <span class="toc-text">典型物理模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多个信号观测模型"><span class="toc-number">1.0.1.</span> <span class="toc-text">多个信号观测模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#书写规范"><span class="toc-number">2.</span> <span class="toc-text">书写规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵代数基本性质"><span class="toc-number">3.</span> <span class="toc-text">矩阵代数基本性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导数积分"><span class="toc-number">3.1.</span> <span class="toc-text">导数积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊矩阵"><span class="toc-number">3.2.</span> <span class="toc-text">特殊矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性无关与奇异性"><span class="toc-number">3.3.</span> <span class="toc-text">线性无关与奇异性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性方程组"><span class="toc-number">3.3.1.</span> <span class="toc-text">线性方程组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵方程"><span class="toc-number">3.3.2.</span> <span class="toc-text">矩阵方程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复矩阵方程"><span class="toc-number">3.4.</span> <span class="toc-text">复矩阵方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量空间和线性映射"><span class="toc-number">3.5.</span> <span class="toc-text">向量空间和线性映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正交投影算子"><span class="toc-number">3.5.1.</span> <span class="toc-text">正交投影算子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#向量内积与范数"><span class="toc-number">4.</span> <span class="toc-text">向量内积与范数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#典范内积"><span class="toc-number">4.0.1.</span> <span class="toc-text">典范内积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加权内积"><span class="toc-number">4.0.2.</span> <span class="toc-text">加权内积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连续函数内积"><span class="toc-number">4.0.3.</span> <span class="toc-text">连续函数内积</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量范数"><span class="toc-number">4.1.</span> <span class="toc-text">向量范数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模式识别和机器学习中的向量相似比较"><span class="toc-number">4.2.</span> <span class="toc-text">模式识别和机器学习中的向量相似比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵内积与范数"><span class="toc-number">4.3.</span> <span class="toc-text">矩阵内积与范数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵内积"><span class="toc-number">4.3.1.</span> <span class="toc-text">矩阵内积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#诱导范数"><span class="toc-number">4.3.2.</span> <span class="toc-text">诱导范数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#诱导p范数"><span class="toc-number">4.3.2.1.</span> <span class="toc-text">诱导p范数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素函数"><span class="toc-number">4.3.3.</span> <span class="toc-text">元素函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#随机向量"><span class="toc-number">5.</span> <span class="toc-text">随机向量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#均值向量"><span class="toc-number">5.1.</span> <span class="toc-text">均值向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关矩阵"><span class="toc-number">5.2.</span> <span class="toc-text">相关矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自协方差矩阵"><span class="toc-number">5.3.</span> <span class="toc-text">自协方差矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自相关矩阵与自协方差矩阵之间的关系"><span class="toc-number">5.3.1.</span> <span class="toc-text">自相关矩阵与自协方差矩阵之间的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#互协方差矩阵"><span class="toc-number">5.4.</span> <span class="toc-text">互协方差矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关系数"><span class="toc-number">5.5.</span> <span class="toc-text">相关系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高斯随机向量"><span class="toc-number">5.6.</span> <span class="toc-text">高斯随机向量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵的性能指标"><span class="toc-number">6.</span> <span class="toc-text">矩阵的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵的二次型"><span class="toc-number">6.1.</span> <span class="toc-text">矩阵的二次型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用特征值描述矩阵的正定性与非正定性"><span class="toc-number">6.1.1.</span> <span class="toc-text">用特征值描述矩阵的正定性与非正定性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵的迹"><span class="toc-number">6.2.</span> <span class="toc-text">矩阵的迹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵的秩"><span class="toc-number">6.3.</span> <span class="toc-text">矩阵的秩</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逆矩阵和伪逆矩阵"><span class="toc-number">7.</span> <span class="toc-text">逆矩阵和伪逆矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵求逆定理-Sherman-Morrison"><span class="toc-number">7.1.</span> <span class="toc-text">矩阵求逆定理(Sherman-Morrison)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广义逆矩阵"><span class="toc-number">7.2.</span> <span class="toc-text">广义逆矩阵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵的直和"><span class="toc-number">8.</span> <span class="toc-text">矩阵的直和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hadamard积"><span class="toc-number">9.</span> <span class="toc-text">Hadamard积</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kronecker积"><span class="toc-number">10.</span> <span class="toc-text">Kronecker积</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#左Kronecker积"><span class="toc-number">10.1.</span> <span class="toc-text">左Kronecker积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#右Kronecker积"><span class="toc-number">10.2.</span> <span class="toc-text">右Kronecker积</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵向量化"><span class="toc-number">11.</span> <span class="toc-text">矩阵向量化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#按列堆栈"><span class="toc-number">11.1.</span> <span class="toc-text">按列堆栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按行堆栈"><span class="toc-number">11.2.</span> <span class="toc-text">按行堆栈</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

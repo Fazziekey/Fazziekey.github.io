@@ -210,6 +210,168 @@
 
 
   
+    <article id="post-spacial-matrix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/11/15/spacial-matrix/" target="_blank">spacial matrix </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/11/15/spacial-matrix/" class="archive-article-date">
+        <time datetime="2020-11-15T07:42:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <h1 id="Hermitian矩阵"><a href="#Hermitian矩阵" class="headerlink" title="Hermitian矩阵"></a>Hermitian矩阵</h1><p>复共轭对称矩阵</p>
+<script type="math/tex; mode=display">
+R=R^H</script><h1 id="置换矩阵"><a href="#置换矩阵" class="headerlink" title="置换矩阵"></a>置换矩阵</h1><p>一个正方矩阵称为置换矩阵(permutation matrix)，若它的每一行和每一列有一个且仅有一个非零元素1。</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+P_{m\times n}^T=P_{n\times m}\\
+P^TP=PP^T=I\\
+P^T=P^{-1}
+\end{array}</script><blockquote>
+<p>置换矩阵是正交矩阵。</p>
+</blockquote>
+<h1 id="互换矩阵"><a href="#互换矩阵" class="headerlink" title="互换矩阵"></a>互换矩阵</h1><script type="math/tex; mode=display">
+\boldsymbol{J}=\left[\begin{array}{ccc}
+0 & & &1 \\
+& & 1 \\
+& \cdot \cdot & \\
+1 & & & 0
+\end{array}\right]</script><ul>
+<li>左乘：矩阵的行顺序反转</li>
+<li>右乘：矩阵的列顺序反转</li>
+</ul>
+<h1 id="正交矩阵和酉矩阵"><a href="#正交矩阵和酉矩阵" class="headerlink" title="正交矩阵和酉矩阵"></a>正交矩阵和酉矩阵</h1><ul>
+<li>U非奇异且，$U^H=U^{-1}$</li>
+<li>$UU^H=U^HU=I$</li>
+<li>U的行列向量组成标准正交组</li>
+</ul>
+<h2 id="酉不变性"><a href="#酉不变性" class="headerlink" title="酉不变性"></a>酉不变性</h2><ul>
+<li><x,y>=<Ax,Ay></li>
+<li>||Ax||^2 =||x||^2<script type="math/tex; mode=display">
+cos\theta=\frac{<Ax,Ay>}{||Ax||||Ay||}=\frac{<x,y>}{||x|| ||y||}</script><h1 id="三角矩阵"><a href="#三角矩阵" class="headerlink" title="三角矩阵"></a>三角矩阵</h1></li>
+<li>上三角</li>
+<li>下三角</li>
+</ul>
+<h1 id="相似矩阵"><a href="#相似矩阵" class="headerlink" title="相似矩阵"></a>相似矩阵</h1><p>S为非奇异矩阵</p>
+<script type="math/tex; mode=display">
+B=S^{-1}AS</script><ul>
+<li>特征值相同</li>
+<li>特征向量存在线性变换关系</li>
+</ul>
+<script type="math/tex; mode=display">
+det(B)=det(A)
+
+tr(B)=tr(A)</script><h1 id="Vandermonde矩阵"><a href="#Vandermonde矩阵" class="headerlink" title="Vandermonde矩阵"></a>Vandermonde矩阵</h1><script type="math/tex; mode=display">
+\boldsymbol{A}=\left[\begin{array}{cccc}
+1 & 1 & \cdots & 1 \\
+x_{1} & x_{2} & \cdots & x_{n} \\
+x_{1}^{2} & x_{2}^{2} & \cdots & x_{n}^{2} \\
+\vdots & \vdots & \vdots & \vdots \\
+x_{1}^{n-1} & x_{2}^{n-1} & \cdots & x_{n}^{n-1}
+\end{array}\right] \quad \boldsymbol{A}=\left[\begin{array}{ccccc}
+1 & x_{1} & x_{1}^{2} & \cdots & x_{1}^{n-1} \\
+1 & x_{2} & x_{2}^{2} & \cdots & x_{2}^{n-1} \\
+\vdots & \vdots & \vdots & \vdots & \vdots \\
+1 & x_{n} & x_{n}^{2} & \cdots & x_{n}^{n-1}
+\end{array}\right]</script><h1 id="Fourier-矩阵"><a href="#Fourier-矩阵" class="headerlink" title="Fourier 矩阵"></a>Fourier 矩阵</h1><p>Fourier矩阵是一种特殊结构的Vandermonde</p>
+<script type="math/tex; mode=display">
+\boldsymbol{F}=\left[\begin{array}{cccc}
+1 & 1 & \cdots & 1 \\
+1 & w & \cdots & w^{N-1} \\
+\vdots & \vdots & \vdots & \vdots \\
+1 & w^{N-1} & \cdots & w^{(N-1)(N-1)}
+\end{array}\right],</script><h1 id="Hadamard矩阵"><a href="#Hadamard矩阵" class="headerlink" title="Hadamard矩阵"></a>Hadamard矩阵</h1><p>所有元素取1，-1，且</p>
+<script type="math/tex; mode=display">
+H_nH_n^T=H_n^TH_n=nI</script><ul>
+<li>矩阵维度只能是2的倍数</li>
+</ul>
+<h1 id="Toeplitz矩阵"><a href="#Toeplitz矩阵" class="headerlink" title="Toeplitz矩阵"></a>Toeplitz矩阵</h1><p>任意一条对角线元素取相同值</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_0&a_{-1}&a_{-2}&...&a_{-n}\\
+a_1&a_0&a_{-1}&...&a_{-n+1}\\
+a_2&a_1&a_0&...&...\\
+...&...&...&...&...\\
+a_n&a_{n-1}&...&a_1&a_0
+\end{bmatrix}
+=[a_{i-j}]^n_{i,j=0}</script><p>若元素满足复共轭关系</p>
+<script type="math/tex; mode=display">
+a_{-i}=a_i^*</script><p>则称为Hermitian Toeplitz 矩阵</p>
+<h1 id="Hankle矩阵"><a href="#Hankle矩阵" class="headerlink" title="Hankle矩阵"></a>Hankle矩阵</h1><script type="math/tex; mode=display">
+\boldsymbol{A}=\left[\begin{array}{ccccc}
+a_{0} & a_{1} & a_{2} & \cdots & a_{n} \\
+a_{1} & a_{2} & a_{3} & \cdots & a_{n+1} \\
+a_{2} & a_{3} & a_{4} & \cdots & a_{n+2} \\
+\vdots & \vdots & \vdots & \vdots & \vdots \\
+a_{n} & a_{n+1} & a_{n+2} & \cdots & a_{2 n}
+\end{array}\right]</script>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/11/15/spacial-matrix/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-matrix-basic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1140,112 +1302,9 @@ u \not= 0</script><p>则$\lambda$称为线性算子L的特征值，u为特征向
 
 
   
-    <article id="post-Sampling-and-modulation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/21/Sampling-and-modulation/" target="_blank">采样和调制</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/21/Sampling-and-modulation/" class="archive-article-date">
-        <time datetime="2020-08-21T07:57:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-
-    
-    <h1 id="连续时间采样定理"><a href="#连续时间采样定理" class="headerlink" title="连续时间采样定理"></a>连续时间采样定理</h1><h2 id="冲激串采样定理"><a href="#冲激串采样定理" class="headerlink" title="冲激串采样定理"></a>冲激串采样定理</h2><script type="math/tex; mode=display">
-x_p(t)=x(t)p(t)</script><script type="math/tex; mode=display">
-p(t)=\sum_{n=-\infty}^\infty\delta(t-nT)</script><p>T为采样周期</p>
-    
-    <a class="article-more-a" href="/2020/08/21/Sampling-and-modulation/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/21/Sampling-and-modulation/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
