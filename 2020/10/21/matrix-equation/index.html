@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png">
 <meta property="article:published_time" content="2020-10-21T15:12:15.000Z">
-<meta property="article:modified_time" content="2020-10-21T15:15:04.136Z">
+<meta property="article:modified_time" content="2020-11-15T06:11:10.389Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
@@ -293,7 +293,7 @@ cov\{e\}=E\{ee^H\}=\sigma^2I
 <h2 id="LS解与最大似然解的等价性"><a href="#LS解与最大似然解的等价性" class="headerlink" title="LS解与最大似然解的等价性"></a>LS解与最大似然解的等价性</h2><script type="math/tex; mode=display">
 f(e)=\frac{1}{\pi^m||_e}exp[-(e-ue)^H(e-Ue)]</script><script type="math/tex; mode=display">
 max \log f(e) ==\frac{1}{\sigma^2}e^He</script><script type="math/tex; mode=display">
-max f(e) ==min||Ax-b||_2^2</script><h1 id="数据最小二乘（DLS）"><a href="#数据最小二乘（DLS）" class="headerlink" title="数据最小二乘（DLS）"></a>数据最小二乘（DLS）</h1><p>与普通最小二乘不同，我们假定b无噪声，数据矩阵<script type="math/tex">A=A_0+E</script>有噪声</p>
+max f(e) ==min||Ax-b||_2^2</script><h1 id="数据最小二乘（DLS）"><a href="#数据最小二乘（DLS）" class="headerlink" title="数据最小二乘（DLS）"></a>数据最小二乘（DLS）</h1><p>与普通最小二乘不同，我们假定b无噪声，数据矩阵$A=A_0+E$有噪声</p>
 <script type="math/tex; mode=display">
 A=A_0+E</script><script type="math/tex; mode=display">
 min||\Delta A||_F^2</script><script type="math/tex; mode=display">
@@ -354,17 +354,16 @@ x\\
 =min\frac{x^{'H}A'^HA'x'}{x'^Hx'}</script><script type="math/tex; mode=display">
 =min\frac{||Ax-b||_2^2}{||x||_2^2+1}</script><p>总体最小二乘的解为</p>
 <script type="math/tex; mode=display">
-x'=\frac{1}{v(n+1,n+1)}V_{min}</script><h2 id="总体最小二乘的几何意义"><a href="#总体最小二乘的几何意义" class="headerlink" title="总体最小二乘的几何意义"></a>总体最小二乘的几何意义</h2><p>和点到线的距离相似<script type="math/tex">a_i^T</script>是矩阵的第i行，<script type="math/tex">b_i</script>是第i个元素，总体最小二乘的解<script type="math/tex">x_{TLS}</script>是使</p>
+x'=\frac{1}{v(n+1,n+1)}V_{min}</script><h2 id="总体最小二乘的几何意义"><a href="#总体最小二乘的几何意义" class="headerlink" title="总体最小二乘的几何意义"></a>总体最小二乘的几何意义</h2><p>和点到线的距离相似$a_i^T$是矩阵的第i行，$b_i$是第i个元素，总体最小二乘的解$x_{TLS}$是使</p>
 <script type="math/tex; mode=display">
-min_x\frac{||Ax-b||_2^2}{||x||_2^2+1}=\sum_{i=1}^n\frac{|a_i^Tx-b_i|^2}{x^Tx+1}</script><p>问题转化为了点集<script type="math/tex">(a_i,b_i)</script>直线的最小距离平方和<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/3b2eb4fb4bd4c7c4843067e1c0447c01.png" alt=""></p>
+min_x\frac{||Ax-b||_2^2}{||x||_2^2+1}=\sum_{i=1}^n\frac{|a_i^Tx-b_i|^2}{x^Tx+1}</script><p>问题转化为了点集$(a_i,b_i)$直线的最小距离平方和<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/3b2eb4fb4bd4c7c4843067e1c0447c01.png" alt=""></p>
 <p>的极小化变量</p>
 <h2 id="总体最小二乘闭式解"><a href="#总体最小二乘闭式解" class="headerlink" title="总体最小二乘闭式解"></a>总体最小二乘闭式解</h2><script type="math/tex; mode=display">
 x_{TLS}=(A^HA-\sigma^2_{n+1}I)^{-1}A^Hb</script><h1 id="四种最小二乘的比较"><a href="#四种最小二乘的比较" class="headerlink" title="四种最小二乘的比较"></a>四种最小二乘的比较</h1><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png" alt=""></p>
 <h2 id="总体最小二乘拟合直线"><a href="#总体最小二乘拟合直线" class="headerlink" title="总体最小二乘拟合直线"></a>总体最小二乘拟合直线</h2><p>对于若干数据点集，我们用直线ax+by+c=0拟合，总体最小二乘考虑数据点距离平方和的最小化</p>
 <script type="math/tex; mode=display">
 D_{TLS}=\frac{\sum_{i=1}^n[a(x_i-\hat{x})+b(y_i-\hat{y})]}{a^2+b^2}</script><p>我们把D转化为单位向量t与M的乘积<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png" alt=""></p>
-<p>对此，我们有定理，法向量t取矩阵<script type="math/tex">M^tM</script>的最小特征值<script type="math/tex">\sigma_2^2</script>特征向量，距离平方和取最小值<code>$\sigma_2^2
-$</code></p>
+<p>对此，我们有定理，法向量t取矩阵$M^tM$的最小特征值$\sigma_2^2$特征向量，距离平方和取最小值$\sigma_2^2<br>$</p>
 <script type="math/tex; mode=display">
 D_{TSL}=\frac{(Mt)^TMt}{||t||_2^2}=\frac{t^TM^TMt}{||t||_2^2}</script><h1 id="平均约束的总体最小二乘"><a href="#平均约束的总体最小二乘" class="headerlink" title="平均约束的总体最小二乘"></a>平均约束的总体最小二乘</h1><script type="math/tex; mode=display">
 [A,b]
@@ -492,6 +491,15 @@ min||u||_2^2</script>
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/11/15/matrix-basic/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          矩阵代数基础
+        
+      </div>
+    </a>
   
   
     <a href="/2020/10/21/feature-analysis/" id="article-nav-older" class="article-nav-link-wrap">

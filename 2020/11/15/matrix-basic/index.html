@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Archives: 2020 | Hexo</title>
+  <title>矩阵代数基础 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/archives/2020/page/4/index.html">
+  <meta name="description" content="典型物理模型多个信号观测模型 x(n)&#x3D;As(n)+v(n)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵代数基础">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/15/matrix-basic/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="典型物理模型多个信号观测模型 x(n)&#x3D;As(n)+v(n)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-15T06:09:01.000Z">
+<meta property="article:modified_time" content="2020-11-15T06:12:54.429Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -196,489 +201,523 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-matrix-basic" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/Bianisotropic-media/" class="archive-article-date">
-        <time datetime="2020-06-19T12:02:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/Bianisotropic-media/" target="_blank">Bianisotropic media</a>
   
+    <h1 class="article-title" itemprop="name">
+      矩阵代数基础
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/11/15/matrix-basic/" class="archive-article-date">
+        <time datetime="2020-11-15T06:09:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">11分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <h1 id="典型物理模型"><a href="#典型物理模型" class="headerlink" title="典型物理模型"></a>典型物理模型</h1><h3 id="多个信号观测模型"><a href="#多个信号观测模型" class="headerlink" title="多个信号观测模型"></a>多个信号观测模型</h3><script type="math/tex; mode=display">
+x(n)=As(n)+v(n)</script><a id="more"></a>
+<h1 id="书写规范"><a href="#书写规范" class="headerlink" title="书写规范"></a>书写规范</h1><ul>
+<li>大写字母下加两线：矩阵</li>
+<li>加一线：向量</li>
+<li>不加：变量</li>
+</ul>
+<h1 id="矩阵代数基本性质"><a href="#矩阵代数基本性质" class="headerlink" title="矩阵代数基本性质"></a>矩阵代数基本性质</h1><script type="math/tex; mode=display">
+\begin{array}{l}
+(A+B)^*=A^*+B^*
+\\
+(A+B)^T=A^T+B^T
+\\
+(A+B)^H=A^H+B^H
+\\
+(AB)^T=B^TA^T
+\\
+(AB)^H=B^HA^H
+\\
+(AB)^{-1}=B^{-1}A^{-1}
+\\
+(A^*)^{-1}=(A^{-1})^T
+\\
+(A^H)^{-1}=(A^{-1})^H
+\end{array}</script><p>对于任意矩阵A，矩阵$B=A^HA$都是Hermitndian</p>
+<h2 id="导数积分"><a href="#导数积分" class="headerlink" title="导数积分"></a>导数积分</h2><script type="math/tex; mode=display">
+\frac{dA}{dt}=
+\begin{bmatrix}
+\frac{da_{11}}{dt}&...&\frac{da_{1n}}{dt}\\
+...&...&...\\
+\frac{da_{m1}}{dt}&...&\frac{da_{mn}}{dt}
+\end{bmatrix}</script><ul>
+<li>指数矩阵函数<script type="math/tex; mode=display">
+exp(At)=I+At+\frac{A^2t^2}{2!}...\frac{A^nt^n}{n!}</script></li>
+<li>指数矩阵导数<script type="math/tex; mode=display">
+\frac{de^{At}}{dt}=Ae^{At}</script></li>
+<li>矩阵乘积的导数<script type="math/tex; mode=display">
+\frac{d}{dt}(AB)=\frac{dA}{dt}B+A\frac{dB}{dt}</script></li>
+<li>对数函数<script type="math/tex; mode=display">
+In(I+A)=\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n}A^n</script><h2 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h2></li>
+<li>幂等矩阵<script type="math/tex; mode=display">
+A^2=A</script></li>
+<li>对合矩阵</li>
+</ul>
+<script type="math/tex; mode=display">
+A^2=I</script><ul>
+<li>正交矩阵</li>
+</ul>
+<script type="math/tex; mode=display">
+AA^T=I</script><h2 id="线性无关与奇异性"><a href="#线性无关与奇异性" class="headerlink" title="线性无关与奇异性"></a>线性无关与奇异性</h2><h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><script type="math/tex; mode=display">
+c_1u_1+...c_nu_n=0</script><ul>
+<li>向量组线性无关：只有零解</li>
+<li>线性相关：有非零解<h3 id="矩阵方程"><a href="#矩阵方程" class="headerlink" title="矩阵方程"></a>矩阵方程</h3><script type="math/tex; mode=display">
+Ax=0</script></li>
+<li>只有零解：A非奇异</li>
+<li>存在非零解：A是奇异的</li>
+</ul>
+<h2 id="复矩阵方程"><a href="#复矩阵方程" class="headerlink" title="复矩阵方程"></a>复矩阵方程</h2><script type="math/tex; mode=display">
+(A_r+jA_i)(x_r+jx_i)=b_r+jb_i
+
+\begin{bmatrix}
+A_r&-A_i&b_r\\
+A_i&A_r&b_i
+\end{bmatrix}
+\to
+\begin{bmatrix}
+I_n&O_n&x_r\\
+O_n&I_n&x_i
+\end{bmatrix}</script><h2 id="向量空间和线性映射"><a href="#向量空间和线性映射" class="headerlink" title="向量空间和线性映射"></a>向量空间和线性映射</h2><p>向量空间是以向量为元素的集合</p>
+<ul>
+<li>子空间V到子空间W的映射<br>$$<br>T:V\to W</li>
+</ul>
+<p>T(c_1u_1…+c_nu_n)=c_1T(u_1)+…+c_nT(u_n)</p>
+<script type="math/tex; mode=display">
+> 满足线性性质
+
+### 正交投影算子</script><p>w=T(x)</p>
+<p>\begin{bmatrix}<br>w_1<br>\\w_2<br>\end{bmatrix}<br>=\begin{bmatrix}<br>0&amp;0\\<br>0&amp;1<br>\end{bmatrix}<br>\begin{bmatrix}<br>x<br>\\y<br>\end{bmatrix}</p>
+<script type="math/tex; mode=display">
+
+# 向量内积与范数
+### 典范内积</script><p><x,y>=x^Hy=\sum_{i=1}^nx_{i}^*y_i</p>
+<script type="math/tex; mode=display">
+
+### 加权内积</script><p><x,y>=x^HGy</p>
+<script type="math/tex; mode=display">
+G为正定Hermitian矩阵
+
+
+### 连续函数内积</script><p><x(t),y(t)>=\int_a^bx(t)y(t)dt</p>
+<script type="math/tex; mode=display">
+
+## 向量范数
++ L0范数</script><p>||x||_0=^{def}非零元素的个数</p>
+<script type="math/tex; mode=display">
+> 表示矩阵稀疏程度
+
++ L1范数</script><p>||x||_1=^{def}\sum_{i=1}^m|x_i|</p>
+<script type="math/tex; mode=display">
++ L2范数</script><p>||x||_2=(|x_1|^2…+|x_n|^2)^{1/2}=\sqrt{x^Tx}</p>
+<script type="math/tex; mode=display">
++ $L_{\infty}$</script><p>L_{\infty}=max\{x_i\}</p>
+<script type="math/tex; mode=display">
++ $L_P$</script><p>||x_p||=(\sum_{i=1}^m|x_i|^p)^{1/p}</p>
+<script type="math/tex; mode=display">
+
+## 模式识别和机器学习中的向量相似比较
+距离测度$D(p||g)$衡量向量相似度
+
+比如k邻近算法中</script><p>D_E(x,s_i)=||x-s_i||_2=\sqrt{(x-s_i)^T(x-s_i)}</p>
+<script type="math/tex; mode=display">
+## 矩阵内积与范数
+矩阵列向量化</script><p>a=vec(A)=<br>\begin{bmatrix}<br>a_1\\<br>a_2\\<br>…\\<br>a_n<br>\end{bmatrix}</p>
+<p>mn\times 1 向量</p>
+<script type="math/tex; mode=display">
+### 矩阵内积</script><p><A,B>=<vec(A),vec(B)>=\sum_{i=1}^na_i^Hb_i=\sum_i^n<a_i,b_i></p>
+<p>=vec(A)^Hvec(B)=tr<A^HB></p>
+<script type="math/tex; mode=display">
+### 诱导范数</script><p>||A||=\max\{||Ax||:x\in K^n,||x||=1\}</p>
+<p>=\max\{\frac{||Ax||}{||X||}:x\in K^n,||x||=\not 0\}</p>
+<script type="math/tex; mode=display">
+#### 诱导p范数
+诱导$L$和$L_\infty$范数分别直接是该矩阵的各列元素绝对值之和的最大值(最大绝对列和)及最大绝对行和;而诱导L2范数则是矩阵A的最大奇异值。</script><p>\begin{array}{l}<br>|\boldsymbol{A}|_{1}=\max _{1 \leqslant j \leqslant n} \sum_{i=1}^{m}\left|a_{i j}\right| \\<br>|\boldsymbol{A}|_{\mathrm{spec}}=|\boldsymbol{A}|_{2} \\<br>|\boldsymbol{A}|_{\infty}=\max _{1 \leqslant i \leqslant m} \sum_{j=1}^{n}\left|a_{i j}\right|<br>\end{array}</p>
+<script type="math/tex; mode=display">
+### 元素函数
+将m×n矩阵先按照列堆栈的形式，排列成一个mn ×1向量，然后采用向量的范数定义，即得到矩阵的范数。由于这类范数是使用矩阵的元素表示的，故称为元素形式范数。元素形式范数是下面的p矩阵范数</script><p>|\boldsymbol{A}|_{p} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{p}\right)^{1 / p}</p>
+<script type="math/tex; mode=display">
++ L1函数（和范数）（p=1）</script><p>|\boldsymbol{A}|_{1} \stackrel{\text { def }}{=} \sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|</p>
+<script type="math/tex; mode=display">
++ Frobenius范数（p=2）</script><p>|\boldsymbol{A}|_{\mathrm{F}} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{2}\right)^{1 / 2}</p>
+<script type="math/tex; mode=display">
+Frobenius函数又可以写作迹函数的形式</script><p>||A||_F=\sqrt{tr(A^HA)}</p>
+<script type="math/tex; mode=display">
+
++ 最大范数</script><p>|\boldsymbol{A}|_{\infty}=\max _{i=1, \cdots, m ; j=1, \cdots, n}\left\{\left|a_{i j}\right|\right\}</p>
+<script type="math/tex; mode=display">
+# 随机向量
+
+## 均值向量</script><p>\boldsymbol{\mu}_{x}=\mathrm{E}\{\boldsymbol{x}(\xi)\}=\left[\begin{array}{c}<br>\mathrm{E}\left\{x_{1}(\xi)\right\} \\<br>\vdots \\<br>\mathrm{E}\left\{x_{m}(\xi)\right\}<br>\end{array}\right]=\left[\begin{array}{c}<br>\mu_{1} \\<br>\vdots \\<br>\mu_{m}<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">
+
+## 相关矩阵</script><p>\boldsymbol{R}_{x} \stackrel{\text { def }}{=} \mathrm{E}\left\{\boldsymbol{x}(\xi) \boldsymbol{x}^{\mathrm{H}}(\xi)\right\}=\left[\begin{array}{ccc}<br>r_{11} &amp; \cdots &amp; r_{1 m} \\<br>\vdots &amp; \ddots &amp; \vdots \\<br>r_{m 1} &amp; \cdots &amp; r_{m m}<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">
+
+## 自协方差矩阵</script><p>C_{x}=\operatorname{Cov}(x, x) \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{x}\right]\left[x(\xi)-\mu_{x}\right]^{\mathrm{H}}\right\}=<br>\left[\begin{array}{ccc}<br>c_{11} &amp; \cdots &amp; c_{1 m} \\<br>\vdots &amp; \ddots &amp; \vdots \\<br>c_{m 1} &amp; \cdots &amp; c_{m m}<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">
+### 自相关矩阵与自协方差矩阵之间的关系</script><p>C_x=R_x-\mu_x\mu_x^H</p>
+<script type="math/tex; mode=display">
+## 互协方差矩阵</script><p>C_{xy} \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{u}\right]\left[y(\xi)-\mu_{y}\right]^{\mathrm{H}}\right\}=<br>\left[\begin{array}{ccc}<br>c_{x_1,y_1} &amp; \cdots &amp; c_{x_1,y_m} \\<br>\vdots &amp; \ddots &amp; \vdots \\<br>c_{x_m,y_1} &amp; \cdots &amp; c_{x_m,x_m}<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">
+</script><p>C_x=R_{xy}-\mu_x\mu_y^H</p>
+<script type="math/tex; mode=display">
+## 相关系数</script><p>\rho_{x y} \stackrel{\text { def }}{=} \frac{c_{x y}}{\sqrt{\mathrm{E}\left\{|x(\xi)|^{2}\right\} \mathrm{E}\left\{|y(\xi)|^{2}\right\}}}=\frac{c_{x y}}{\sigma_{x} \sigma_{y}}</p>
+<script type="math/tex; mode=display">
+
+## 高斯随机向量</script><p>E\{x(t)\}=0</p>
+<p>E\{x(t)x^T(t)\}=\sigma I</p>
+<script type="math/tex; mode=display">
+
+# 矩阵的性能指标
+## 矩阵的二次型
+对于任意方阵A的二次型定义为$x^HAx$</script><p>f\left(x_{1}, \cdots, x_{n}\right)=\sum_{i=1}^{n} \alpha_{i i} x_{i}^{2}+\sum_{i=1, i \neq j}^{n} \sum_{j=1}^{n} \alpha_{i j} x_{i} x_{j}</p>
+<script type="math/tex; mode=display">
+为保证唯一性，在讨论矩阵的二次型时，有必要假定矩阵为实对称矩阵或复共轭对称矩阵
+
++ 正定矩阵，
+    + 二次型$x^HAx > 0$
++ 半正定矩阵
+    + $x^HAx > 0$ 
++ 负定矩阵
+    + 二次型$x^HAx > 0$
++ 半负定矩阵
+    + 若二次型$x^HAx > 0$
++ 不定矩阵，若二次型$x^HAx$ 既可能取正值，也可能取负值。
+
+
+### 用特征值描述矩阵的正定性与非正定性
++ 正定矩阵:所有特征值取正实数的矩阵。
++ 半正定矩阵:各个特征值取非负实数的矩阵。
++ 负定矩阵:全部特征值为负实数的矩阵。
++ 半负定矩阵:每个特征值取非正实数的矩阵。
++ 不定矩阵:特征值有些取正实数,另一些取负实数的矩阵。
+
+> 矩阵的特征值可描述正定性、奇异性及对角元素的特殊结构
+
+## 矩阵的迹
+矩阵的迹反映所有特征值之和
+## 矩阵的秩
+矩阵中线性无关的行或列的数目
++ 适定方程:若m = n，并且 rank(A) = n，即矩阵A非奇异，则称矩阵方程Aa = b为适定(well-determined)方程。
++ 欠定方程:若独立的方程个数小于独立的未知参数个数，则称矩阵方程 Aa = b为欠定(under-determined)方程。
++ 超定方程:若独立的方程个数大于独立的未知参数个数，则称矩阵方程Aa = b为超定(over-determined)方程。
+
+# 逆矩阵和伪逆矩阵
+矩阵的可逆和非奇异的叙述中，下列叙述等价
++ A非奇异
++ A-1存在
++ rank(A) = n
++ A的行线性无关
++ A的列线性无关;
++ det(A)≠0
++ A 的值域的维数是n
++ A 的零空间的维数是0
++ Ax = b对每一个$b\in C^n$都是一致方程
++ Ax = b对每一个b有唯一的解
++ Ax = 0只有平凡解x = 0。
+
+
+n x n矩阵A的逆矩阵A-1具有以下性质
++ A-1A= AA-1 =I。
++ A-1是唯一的。
++ 逆矩阵的行列式等于原矩阵行列式的倒数，即$|A^{-1}|=\frac{1}{|A|}$
++ 逆矩阵是非奇异的。
++ $(A^{-1})^{-1}=A$
+
+## 矩阵求逆定理(Sherman-Morrison)</script><p>(A+xy^H)^{-1}=A^{-1}-\frac{A^{-1}xy^HA^{-1}}{1+y^HA^{-1}x}</p>
+<script type="math/tex; mode=display">
+
+## 广义逆矩阵
+A的广义逆矩阵满足以下四个条件</script><p>\begin{array}{l}<br>A A^{\dagger} A=A\\<br>A^{\dagger} AA^{\dagger}=A^{\dagger}<br>\\<br>AA^{\dagger}=(AA^{\dagger})^H<br>\\A^{\dagger}A=(A^{\dagger}A)^H<br>\end{array}</p>
+<script type="math/tex; mode=display">
+
+# 矩阵的直和</script><p>\boldsymbol{A} \oplus \boldsymbol{B}=\left[\begin{array}{cc}<br>\boldsymbol{A} &amp; \boldsymbol{O}_{m \times n} \\<br>\boldsymbol{O}_{n \times m} &amp; \boldsymbol{B}<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">
+
+# Hadamard积
+两个同维度矩阵对应元素直接相乘</script><p>(A*B)_{ij}=a_{ij}b_{ij}</p>
+<script type="math/tex; mode=display">
+# Kronecker积
+## 左Kronecker积</script><p>\boldsymbol{A} \otimes \boldsymbol{B}=\left[\boldsymbol{a}_{1} \boldsymbol{B}, \cdots, \boldsymbol{a}_{n} \boldsymbol{B}\right]=\left[a_{i j} \boldsymbol{B}\right]_{i=1, j=1}^{m, n}=\left[\begin{array}{cccc}<br>a_{11} \boldsymbol{B} &amp; a_{12} \boldsymbol{B} &amp; \cdots &amp; a_{1 n} \boldsymbol{B} \\<br>a_{21} \boldsymbol{B} &amp; a_{22} \boldsymbol{B} &amp; \cdots &amp; a_{2 n} \boldsymbol{B} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>a_{m 1} \boldsymbol{B} &amp; a_{m 2} \boldsymbol{B} &amp; \cdots &amp; a_{m n} \boldsymbol{B}<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">
+
+## 右Kronecker积</script><p>[\boldsymbol{A} \otimes \boldsymbol{B}]_{\text {left }}=\left[\boldsymbol{A} \boldsymbol{b}_{1}, \cdots, \boldsymbol{A} \boldsymbol{b}_{\boldsymbol{q}}\right]=\left[b_{i j} \boldsymbol{A}\right]_{i=1, j=1}^{p, \boldsymbol{q}}=\left[\begin{array}{cccc}<br>\boldsymbol{A} b_{11} &amp; \boldsymbol{A} b_{12} &amp; \cdots &amp; \boldsymbol{A} b_{1 \boldsymbol{q}} \\<br>\boldsymbol{A} b_{21} &amp; \boldsymbol{A} b_{22} &amp; \cdots &amp; \boldsymbol{A} b_{2 q} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>\boldsymbol{A} b_{\boldsymbol{p} 1} &amp; \boldsymbol{A} b_{p 2} &amp; \cdots &amp; \boldsymbol{A} b_{p q}<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">
+# 矩阵向量化
+## 按列堆栈</script><p>vec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{m 1}, \cdots, a_{1 n}, \cdots, a_{m n}\right]^{\mathrm{T}}</p>
+<script type="math/tex; mode=display">
+## 按行堆栈</script><p>rvec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{1 n}, \cdots, a_{m 1}, \cdots, a_{m n}\right]<br>$$</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/11/15/matrix-basic/" title="矩阵代数基础" target="_blank">https://Fazziekey.github.io/2020/11/15/matrix-basic/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">矩阵论</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        			<a href="/categories/《柯西的传世绝学》//" class="article-tag-list-link color5">《柯西的传世绝学》</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/11/15/matrix-basic/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/Media/" class="archive-article-date">
-        <time datetime="2020-06-19T07:45:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/21/matrix-equation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">matrix equation</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/Media/" target="_blank">Media</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#典型物理模型"><span class="toc-number">1.</span> <span class="toc-text">典型物理模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多个信号观测模型"><span class="toc-number">1.0.1.</span> <span class="toc-text">多个信号观测模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#书写规范"><span class="toc-number">2.</span> <span class="toc-text">书写规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵代数基本性质"><span class="toc-number">3.</span> <span class="toc-text">矩阵代数基本性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导数积分"><span class="toc-number">3.1.</span> <span class="toc-text">导数积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊矩阵"><span class="toc-number">3.2.</span> <span class="toc-text">特殊矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性无关与奇异性"><span class="toc-number">3.3.</span> <span class="toc-text">线性无关与奇异性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性方程组"><span class="toc-number">3.3.1.</span> <span class="toc-text">线性方程组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵方程"><span class="toc-number">3.3.2.</span> <span class="toc-text">矩阵方程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复矩阵方程"><span class="toc-number">3.4.</span> <span class="toc-text">复矩阵方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量空间和线性映射"><span class="toc-number">3.5.</span> <span class="toc-text">向量空间和线性映射</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/maxwell/" class="archive-article-date">
-        <time datetime="2020-06-19T03:26:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/maxwell/" target="_blank">从0开始手撕麦克斯韦</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+<div id="SOHUCS" sid="matrix-basic" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/SIFT/" class="archive-article-date">
-        <time datetime="2020-06-19T00:05:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "矩阵代数基础" -->
+  var giteement = new Giteement({
+    id: '20201115140901',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-    	 
+
+
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/SIFT/" target="_blank">SIFT</a>
+  <div id="gitment-ctn"></div>
   
-    </h1>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "矩阵代数基础" -->
+    var gitment = new Gitment({
+      id: "20201115140901",
+      owner: 'fazzie-key',
+      repo: 'hexo-blog',
+      oauth: {
+        client_id: '504d8b7c95c84eef8b88',
+        client_secret: 'ddc0050e3a75257c3ef9562cb12cacd301941a7c',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
   
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/18/Maxwell-s-Theory/" class="archive-article-date">
-        <time datetime="2020-06-18T13:42:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/18/Maxwell-s-Theory/" target="_blank">Maxwell&#39;s Theory</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/22/grad/" class="archive-article-date">
-        <time datetime="2020-04-22T03:00:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/22/grad/" target="_blank">使用pytorch进行梯度运算</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/21/%E2%80%9Cpytorch%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%9D/" class="archive-article-date">
-        <time datetime="2020-04-21T00:56:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/21/%E2%80%9Cpytorch%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%9D/" target="_blank">“pytorch矩阵基本操作”</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/16/Mark-Down%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="archive-article-date">
-        <time datetime="2020-04-16T00:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/16/Mark-Down%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" target="_blank">Mark Down语法从入门到放弃</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/14/%E2%80%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E2%80%9D/" class="archive-article-date">
-        <time datetime="2020-04-14T15:58:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/14/%E2%80%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E2%80%9D/" target="_blank">“Mark dowm语法从入门到放弃”</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/14/hello-world/" class="archive-article-date">
-        <time datetime="2020-04-14T06:03:50.052Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/14/hello-world/" target="_blank">Fazzie key</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
-  
 
 
           </div>
@@ -719,8 +758,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
