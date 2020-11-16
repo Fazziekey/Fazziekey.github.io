@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Archives: 2020 | Hexo</title>
+  <title>matrix partial | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/archives/2020/page/4/index.html">
+  <meta name="description" content="雅可比矩阵和矩阵微分实值函数分类 雅可比矩阵在向量分析中，雅可比矩阵是函数以一阶偏导数以一定方式排列成的矩阵，其行列式称为雅可比行列式  $1\times m$行向量偏导算子定义为 D_x\overset{def}{&#x3D;}\frac{\partial}{\partial x^T}&#x3D;[\frac{\partial}{\partial x_1}...\frac{\partial}{\partial x_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matrix partial">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/16/matrix-partial/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="雅可比矩阵和矩阵微分实值函数分类 雅可比矩阵在向量分析中，雅可比矩阵是函数以一阶偏导数以一定方式排列成的矩阵，其行列式称为雅可比行列式  $1\times m$行向量偏导算子定义为 D_x\overset{def}{&#x3D;}\frac{\partial}{\partial x^T}&#x3D;[\frac{\partial}{\partial x_1}...\frac{\partial}{\partial x_">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/16/a8eb220fbe1dcb1de74a1ede789e8738.png">
+<meta property="article:published_time" content="2020-11-16T15:02:28.000Z">
+<meta property="article:modified_time" content="2020-11-16T15:04:13.296Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/16/a8eb220fbe1dcb1de74a1ede789e8738.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -196,555 +203,410 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-matrix-partial" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/21/Wave-Guide/" class="archive-article-date">
-        <time datetime="2020-06-21T05:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/21/Wave-Guide/" target="_blank">Wave Guide</a>
   
+    <h1 class="article-title" itemprop="name">
+      matrix partial
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/11/16/matrix-partial/" class="archive-article-date">
+        <time datetime="2020-11-16T15:02:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-16</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.4k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">7分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <h1 id="雅可比矩阵和矩阵微分"><a href="#雅可比矩阵和矩阵微分" class="headerlink" title="雅可比矩阵和矩阵微分"></a>雅可比矩阵和矩阵微分</h1><h2 id="实值函数分类"><a href="#实值函数分类" class="headerlink" title="实值函数分类"></a>实值函数分类</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/16/a8eb220fbe1dcb1de74a1ede789e8738.png" alt=""></p>
+<h2 id="雅可比矩阵"><a href="#雅可比矩阵" class="headerlink" title="雅可比矩阵"></a>雅可比矩阵</h2><p>在向量分析中，雅可比矩阵是函数以一阶偏导数以一定方式排列成的矩阵，其行列式称为雅可比行列式</p>
+<ul>
+<li>$1\times m$行向量偏导算子定义为<script type="math/tex; mode=display">
+D_x\overset{def}{=}\frac{\partial}{\partial x^T}=[\frac{\partial}{\partial x_1}...\frac{\partial}{\partial x_m}]</script>所以实值标量函数f（x）在x的偏导向量由$1\times m$行向量给出</li>
+</ul>
+<script type="math/tex; mode=display">
+D_x f(x)=\frac{\partial f(x)}{\partial x^T}</script><script type="math/tex; mode=display">
+=[\frac{ \partial f(x)}{\partial x_1},...,\frac{\partial f(x)}{\partial x_m}]</script><p>当实值标量函数f（X）的变元为实值矩阵$X\in R^{m\times n}$，可能存在两种定义</p>
+<ul>
+<li>Jacobian偏导<script type="math/tex; mode=display">
+D_xf(x)\overset{def}{=}\frac{\partial f(X)}{\partial X^T}
+=\begin{bmatrix}
+\frac{\partial f(X)}{\partial x_{11}}&...&\frac{\partial f(X)}{\partial x_{m1}}\\
+...&...&...\\
+\frac{\partial f(X)}{\partial x_{1n}}&...&\frac{ \partial f(X)}{\partial x_{mn}}
+\end{bmatrix}</script></li>
+<li>行向量偏导<script type="math/tex; mode=display">
+D_{vecX}f(X)=\frac{\partial f(X)}{\partial_{vec^T(X) }}=[\frac{\partial f(X)}{\partial x_{11}}...\frac{\partial f(X)}{\partial x_{m1}}...\frac{\partial f(X)}{\partial x_{1n}}...\frac{\partial f(X)}{\partial x_{mn}}]</script></li>
+<li>两者关系<script type="math/tex; mode=display">
+D_{vec}f(X)=rvec(D_Xf(X))=(vec(D_X^Tf(X)))^T</script>即实值标量函数f(X)的行向量偏导$Dvec_Xf(X)$等于Jacobian矩阵的转置$D_X^Tf(X)$的列向量化</li>
+</ul>
+<h3 id="矩阵函数雅克比矩阵"><a href="#矩阵函数雅克比矩阵" class="headerlink" title="矩阵函数雅克比矩阵"></a>矩阵函数雅克比矩阵</h3><p>函数为矩阵，变元为矩阵</p>
+<script type="math/tex; mode=display">
+D_XF(X)=\frac{\partial f(X)}{\partial X^T}
+=\begin{bmatrix}
+\frac{\partial f(X)}{\partial X^T}&...&\frac{\partial f(X)}{\partial X^T}\\
+...&...&...\\
+\frac{\partial f(X)}{\partial X^T}&...&\frac{ \partial f(X)}{\partial X^T}
+\end{bmatrix}</script><script type="math/tex; mode=display">
+=
+\begin{bmatrix}
+\frac{\partial f_{11}}{\partial x_{11}}&...&\frac{\partial f_{11}}{\partial x_{m1}}&...&\frac{\partial f_{11}}{\partial x_{1n}}&...&\frac{\partial f_{11}}{\partial x_{m1}}\\
+...&...&...&...&...&...\\
+\frac{\partial f_{p1}}{\partial x_{11}}&...&\frac{\partial f_{p1}}{\partial x_{m1}}&...&\frac{\partial f_{p1}}{\partial x_{1n}}&...&\frac{\partial f_{p1}}{\partial x_{m1}}\\
+...&...&...&...&...&...\\
+\frac{\partial f_{1q}}{\partial x_{11}}&...&\frac{\partial f_{1q}}{\partial x_{m1}}&...&\frac{\partial f_{1q}}{\partial x_{1n}}&...&\frac{\partial f_{1q}}{\partial x_{m1}}\\
+...&...&...&...&...&...\\
+\frac{\partial f_{pq}}{\partial x_{11}}&...&\frac{\partial f_{pq}}{\partial x_{m1}}&...&\frac{\partial f_{pq}}{\partial x_{1n}}&...&\frac{\partial f_{pq}}{\partial x_{m1}}\\
+\end{bmatrix}</script><h2 id="梯度矩阵"><a href="#梯度矩阵" class="headerlink" title="梯度矩阵"></a>梯度矩阵</h2><p>采用列向量作为偏导算子称为偏导算子</p>
+<script type="math/tex; mode=display">
+\nabla_x \overset{def}{=}
+[\frac{ \partial }{\partial x_1},...,\frac{\partial }{\partial x_m}]^T
+=\frac{\partial}{\partial x}</script><ul>
+<li><p>标量函数的梯度向量</p>
+<script type="math/tex; mode=display">
+\nabla_xf(x)=[\frac{ \partial f(x) }{\partial x_1},...,\frac{\partial f(x) }{\partial x_m}]^T</script></li>
+<li><p>矩阵梯度向量</p>
+<script type="math/tex; mode=display">
+\nabla_{vecX}f(X)=\frac{\partial f(X)}{\partial_{ve  cX }}=[\frac{\partial f(X)}{\partial x_{11}}...\frac{\partial f(X)}{\partial x_{m1}}...\frac{\partial f(X)}{\partial x_{1n}}...\frac{\partial f(X)}{\partial x_{mn}}]^T</script></li>
+<li>梯度矩阵<script type="math/tex; mode=display">
+\nabla_xf(x)=\frac{\partial f(X)}{\partial X^T}
+=\begin{bmatrix}
+\frac{\partial f(X)}{\partial x_{11}}&...&\frac{\partial f(X)}{\partial x_{1n}}\\
+...&...&...\\
+\frac{\partial f(X)}{\partial x_{m1}}&...&\frac{ \partial f(X)}{\partial x_{mn}}
+\end{bmatrix}</script></li>
+</ul>
+<blockquote>
+<p>实标量函数和矩阵函数的梯度矩阵是雅克比矩阵的转置</p>
+</blockquote>
+<h1 id="偏导和梯度计算"><a href="#偏导和梯度计算" class="headerlink" title="偏导和梯度计算"></a>偏导和梯度计算</h1><ul>
+<li>若$F(X)=c$为常数，其中X为$m\times n$矩阵，则梯度$\frac{\partial c}{\partial X}=O_{m\times n}$</li>
+<li>线性法则</li>
+<li>乘积法则</li>
+<li>商法则</li>
+<li>链式法则</li>
+</ul>
+<h2 id="独立性基本假设"><a href="#独立性基本假设" class="headerlink" title="独立性基本假设"></a>独立性基本假设</h2><p>假定实值函数的向量变元和矩阵变元无任何特殊结构则</p>
+<script type="math/tex; mode=display">
+\frac{\partial x_i}{\partial x_j}=
+\begin{cases}
+1&i=j\\
+0&other
+\end{cases}</script><script type="math/tex; mode=display">
+\frac{\partial x_{kl}}{\partial x_{ij}}=
+\begin{cases}
+1&k=i,l=j\\
+0&other
+\end{cases}</script><h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><p>求实值函数$f(x)=x^TAx$的Jacobian矩阵，$x^TAx=\sum_{k=1}^n\sum_{l=1}^na_{kl}x_kx_l$，我们可以求出行偏导向量$\frac{\partial x^TAx}{\partial x^T}$的第i个分量为</p>
+<script type="math/tex; mode=display">
+\frac{\partial x^TAx}{\partial x^T}=\frac{\partial}{\partial x_i}\sum_{k=1}^n\sum_{l=1}^na_{kl}x_kx_l=\sum_{k=1}^nx_ka_{ki}+\sum_{l=1}^nx_la_{il}</script><p>我可以得到行偏导向量和梯度向量</p>
+<script type="math/tex; mode=display">
+Df(x)=x^TA+x^TA^T=x^T(A+A^T)</script><script type="math/tex; mode=display">
+\nabla_Xf(x)=(A^T+A)x</script><h1 id="一阶实矩阵微分"><a href="#一阶实矩阵微分" class="headerlink" title="一阶实矩阵微分"></a>一阶实矩阵微分</h1><ul>
+<li>标量函数tr(U)的微分<script type="math/tex; mode=display">
+d[tr(U)]=d(\sum_{i=1}^nu_{ii})=\sum_{i=1}^ndu_{ii}=tr(dU)</script></li>
+<li>矩阵乘积UV的微分矩阵<script type="math/tex; mode=display">
+d(UV)=(dU)V+U(dV)</script></li>
+<li>矩阵的迹的矩阵微分等于矩阵微分的迹<script type="math/tex; mode=display">
+d(tr(X))=tr(dX)</script></li>
+</ul>
+<h2 id="标量函数f（x）的jacobian矩阵辨识"><a href="#标量函数f（x）的jacobian矩阵辨识" class="headerlink" title="标量函数f（x）的jacobian矩阵辨识"></a>标量函数f（x）的jacobian矩阵辨识</h2><ul>
+<li>以向量为变元的标量函数f(x)的微分<script type="math/tex; mode=display">
+df(x)=\frac{\partial f(x)}{\partial x_1}dx_1+...+\frac{\partial f(x)}{\partial x_m}dx_m</script><script type="math/tex; mode=display">
+=\frac{\partial f(x)}{\partial x^T}dx=(dx)^T\frac{\partial f(x)}{\partial x}</script>如果令<script type="math/tex; mode=display">
+A=\frac{\partial f(x)}{\partial x^T}</script>我们可以把一阶微分写成迹的形式<script type="math/tex; mode=display">
+df(x)=tr(Adx)</script><script type="math/tex; mode=display">
+D_ xf(x)=\frac{\partial f(x)}{\partial x^T}=A</script></li>
+</ul>
+<h2 id="标量函数f（X）的jacobian矩阵辨识"><a href="#标量函数f（X）的jacobian矩阵辨识" class="headerlink" title="标量函数f（X）的jacobian矩阵辨识"></a>标量函数f（X）的jacobian矩阵辨识</h2><script type="math/tex; mode=display">
+df(X)=(vec(A^T))^Td(vecX)</script><p>A为标量函数f（X）的Jacobin矩阵</p>
+<script type="math/tex; mode=display">
+df(x)=tr(Adx)\to D_xf(x)=\frac{\partial f(x)}{\partial x^T}=A</script><script type="math/tex; mode=display">
+df(X)=tr(AdX)\to D_Xf(X)=\frac{\partial f(X)}{\partial X^T}=A</script><script type="math/tex; mode=display">
+D_Xf(X)=\frac{\partial f(X)}{\partial X^T}=A\to \nabla_Xf(X)=A^T</script><h1 id="Hessian-矩阵"><a href="#Hessian-矩阵" class="headerlink" title="Hessian 矩阵"></a>Hessian 矩阵</h1><script type="math/tex; mode=display">
+H[f(x)]=\frac{\partial ^2f(x)}{\partial x\partial x^T}</script><script type="math/tex; mode=display">
+=\begin{bmatrix}
+\frac{\partial^2f}{\partial x_1\partial x_1}&...&\frac{\partial f^2}{\partial x_1\partial x_m}\\
+...&...&...\\
+\frac{\partial ^2f}{\partial x_m\partial x_1}&...&\frac{\partial ^2f}{\partial x_m\partial x_m}
+\end{bmatrix}\in R^{m\times m}</script><script type="math/tex; mode=display">
+H[f(x)]=\nabla^2_xf(x)=\nabla_x(D_xf(x))</script><script type="math/tex; mode=display">
+[Hf(x)]_{i,j}=[\frac{\partial^2f(x)}{\partial x\partial x^T}]=\frac{\partial}{\partial x_i}[\frac{\partial f(x)}{\partial x_j}]</script><h1 id="共轭梯度和复Hessian矩阵"><a href="#共轭梯度和复Hessian矩阵" class="headerlink" title="共轭梯度和复Hessian矩阵"></a>共轭梯度和复Hessian矩阵</h1><h2 id="形式偏导"><a href="#形式偏导" class="headerlink" title="形式偏导"></a>形式偏导</h2><script type="math/tex; mode=display">
+\frac{\partial }{\partial z}=\frac{1}{2}
+> (\frac{\partial}{\partial x}-j\frac{\partial}{\partial y})</script><h2 id="实部和虚部相互独立"><a href="#实部和虚部相互独立" class="headerlink" title="实部和虚部相互独立"></a>实部和虚部相互独立</h2><h2 id="单个复变量梯度"><a href="#单个复变量梯度" class="headerlink" title="单个复变量梯度"></a>单个复变量梯度</h2><script type="math/tex; mode=display">
+\nabla_zf(z,z^*)=\frac{\partial f(z,z^*)}{\partial }|_{z^*=C}</script><h2 id="单个复变量微分"><a href="#单个复变量微分" class="headerlink" title="单个复变量微分"></a>单个复变量微分</h2><script type="math/tex; mode=display">
+df(z,z^*)=\frac{\partial f(z,z^*}{\partial z}dz+\frac{\partial f(z,z^*)}{\partial z^*}dz^*</script><h2 id="复变元向量违法"><a href="#复变元向量违法" class="headerlink" title="复变元向量违法"></a>复变元向量违法</h2><script type="math/tex; mode=display">
+df(z,z^*)=\frac{\partial f(z,z^*)}{\partial  z^T}dz+\frac{\partial(z,z^*)}{\partial z^H}dz^*</script><h2 id="标量函数的梯度向量和共轭梯度向量"><a href="#标量函数的梯度向量和共轭梯度向量" class="headerlink" title="标量函数的梯度向量和共轭梯度向量"></a>标量函数的梯度向量和共轭梯度向量</h2><script type="math/tex; mode=display">
+\nabla_z f(z,z^*)=(D_zf(z,z^*))^T</script><h2 id="常见矩阵偏导"><a href="#常见矩阵偏导" class="headerlink" title="常见矩阵偏导"></a>常见矩阵偏导</h2><script type="math/tex; mode=display">
+\frac{\partial x}{\partial x^T}=I</script><script type="math/tex; mode=display">
+\frac{\partial x^T}{\partial x}=
+I</script><script type="math/tex; mode=display">
+\frac{\partial a^Tx}{\partial x^T}=a^T</script><script type="math/tex; mode=display">
+\frac{\partial x^TAx}{\partial x}=(A+A^T)x</script><script type="math/tex; mode=display">
+\frac{\partial x^TAx}{\partial x^T}=x^T(A+A^T)</script>
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/11/16/matrix-partial/" title="matrix partial" target="_blank">https://Fazziekey.github.io/2020/11/16/matrix-partial/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">矩阵论</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        			<a href="/categories/《柯西的传世绝学》//" class="article-tag-list-link color5">《柯西的传世绝学》</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/11/16/matrix-partial/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/21/Reflection-and-Transmission/" class="archive-article-date">
-        <time datetime="2020-06-21T05:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/16/child-space/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">子空间理论</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/21/Reflection-and-Transmission/" target="_blank">Reflection and Transmission</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#雅可比矩阵和矩阵微分"><span class="toc-number">1.</span> <span class="toc-text">雅可比矩阵和矩阵微分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实值函数分类"><span class="toc-number">1.1.</span> <span class="toc-text">实值函数分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#雅可比矩阵"><span class="toc-number">1.2.</span> <span class="toc-text">雅可比矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵函数雅克比矩阵"><span class="toc-number">1.2.1.</span> <span class="toc-text">矩阵函数雅克比矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度矩阵"><span class="toc-number">1.3.</span> <span class="toc-text">梯度矩阵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#偏导和梯度计算"><span class="toc-number">2.</span> <span class="toc-text">偏导和梯度计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#独立性基本假设"><span class="toc-number">2.1.</span> <span class="toc-text">独立性基本假设</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#example"><span class="toc-number">2.2.</span> <span class="toc-text">example</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一阶实矩阵微分"><span class="toc-number">3.</span> <span class="toc-text">一阶实矩阵微分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#标量函数f（x）的jacobian矩阵辨识"><span class="toc-number">3.1.</span> <span class="toc-text">标量函数f（x）的jacobian矩阵辨识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量函数f（X）的jacobian矩阵辨识"><span class="toc-number">3.2.</span> <span class="toc-text">标量函数f（X）的jacobian矩阵辨识</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hessian-矩阵"><span class="toc-number">4.</span> <span class="toc-text">Hessian 矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#共轭梯度和复Hessian矩阵"><span class="toc-number">5.</span> <span class="toc-text">共轭梯度和复Hessian矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#形式偏导"><span class="toc-number">5.1.</span> <span class="toc-text">形式偏导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实部和虚部相互独立"><span class="toc-number">5.2.</span> <span class="toc-text">实部和虚部相互独立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单个复变量梯度"><span class="toc-number">5.3.</span> <span class="toc-text">单个复变量梯度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单个复变量微分"><span class="toc-number">5.4.</span> <span class="toc-text">单个复变量微分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复变元向量违法"><span class="toc-number">5.5.</span> <span class="toc-text">复变元向量违法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量函数的梯度向量和共轭梯度向量"><span class="toc-number">5.6.</span> <span class="toc-text">标量函数的梯度向量和共轭梯度向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见矩阵偏导"><span class="toc-number">5.7.</span> <span class="toc-text">常见矩阵偏导</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/KDB/" class="archive-article-date">
-        <time datetime="2020-06-19T12:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/KDB/" target="_blank">KDB</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+<div id="SOHUCS" sid="matrix-partial" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/Bianisotropic-media/" class="archive-article-date">
-        <time datetime="2020-06-19T12:02:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "matrix partial" -->
+  var giteement = new Giteement({
+    id: '20201116230228',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-    	 
+
+
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/Bianisotropic-media/" target="_blank">Bianisotropic media</a>
+  <div id="gitment-ctn"></div>
   
-    </h1>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "matrix partial" -->
+    var gitment = new Gitment({
+      id: "20201116230228",
+      owner: 'fazzie-key',
+      repo: 'hexo-blog',
+      oauth: {
+        client_id: '504d8b7c95c84eef8b88',
+        client_secret: 'ddc0050e3a75257c3ef9562cb12cacd301941a7c',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
   
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/Media/" class="archive-article-date">
-        <time datetime="2020-06-19T07:45:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/Media/" target="_blank">Media</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/maxwell/" class="archive-article-date">
-        <time datetime="2020-06-19T03:26:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/maxwell/" target="_blank">从0开始手撕麦克斯韦</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/19/SIFT/" class="archive-article-date">
-        <time datetime="2020-06-19T00:05:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/19/SIFT/" target="_blank">SIFT</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/06/18/Maxwell-s-Theory/" class="archive-article-date">
-        <time datetime="2020-06-18T13:42:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/06/18/Maxwell-s-Theory/" target="_blank">Maxwell&#39;s Theory</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕麦克斯韦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/22/grad/" class="archive-article-date">
-        <time datetime="2020-04-22T03:00:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/22/grad/" target="_blank">使用pytorch进行梯度运算</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/21/%E2%80%9Cpytorch%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%9D/" class="archive-article-date">
-        <time datetime="2020-04-21T00:56:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/21/%E2%80%9Cpytorch%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%9D/" target="_blank">“pytorch矩阵基本操作”</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/2020/page/5/">5</a><a class="extend next" rel="next" href="/archives/2020/page/5/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -785,8 +647,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
