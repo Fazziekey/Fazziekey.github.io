@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>matrix equation | Hexo</title>
+  <title>矩阵方程求解&amp;最小二乘法 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="矩阵方程的求解主要分为三类  超定矩阵方程，m&gt;n,A,b已知 盲矩阵方程：b已知，A未知 欠定稀疏矩阵方程:m&lt;n，A，b已知但x未知且稀疏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="matrix equation">
+<meta property="og:title" content="矩阵方程求解&amp;最小二乘法">
 <meta property="og:url" content="https://fazziekey.github.io/2020/10/21/matrix-equation/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="矩阵方程的求解主要分为三类  超定矩阵方程，m&gt;n,A,b已知 盲矩阵方程：b已知，A未知 欠定稀疏矩阵方程:m&lt;n，A，b已知但x未知且稀疏">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png">
 <meta property="article:published_time" content="2020-10-21T15:12:15.000Z">
-<meta property="article:modified_time" content="2020-11-15T06:11:10.389Z">
+<meta property="article:modified_time" content="2020-11-16T12:38:00.346Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
@@ -212,7 +212,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      matrix equation
+      矩阵方程求解&amp;最小二乘法
     </h1>
   
 
@@ -238,7 +238,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.2k字</span>
+      <span class="post-count">2.3k字</span>
     </span>
   </span>
 
@@ -247,7 +247,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
+      <span class="post-count">10分</span>
     </span>
   </span>
 </div>
@@ -267,7 +267,7 @@
 <li>欠定稀疏矩阵方程:m&lt;n，A，b已知但x未知且稀疏<a id="more"></a>
 </li>
 </ul>
-<h1 id="最小二乘法（LS）"><a href="#最小二乘法（LS）" class="headerlink" title="最小二乘法（LS）"></a>最小二乘法（LS）</h1><h2 id="普通最小二乘"><a href="#普通最小二乘" class="headerlink" title="普通最小二乘"></a>普通最小二乘</h2><p>为了抵制误差对矩阵方程求解的影响，引入一校正向量△b，并用它去“扰动”有误<br>差的数据向量b。我们的目标是，使校正项△b“尽可能小”</p>
+<h1 id="最小二乘法（LS）"><a href="#最小二乘法（LS）" class="headerlink" title="最小二乘法（LS）"></a>最小二乘法（LS）</h1><h2 id="普通最小二乘"><a href="#普通最小二乘" class="headerlink" title="普通最小二乘"></a>普通最小二乘</h2><p>考虑超定矩阵方程Ax=b,m&gt;n，为了抵制误差对矩阵方程求解的影响，引入一校正向量△b，并用它去“扰动”有误差的数据向量b。我们的目标是，使校正项△b“尽可能小”</p>
 <script type="math/tex; mode=display">
 Ax=b</script><p>m&gt;n时为超定方程</p>
 <script type="math/tex; mode=display">
@@ -280,28 +280,38 @@ Ax=b+\Delta b</script><script type="math/tex; mode=display">
 L(x)=||Ax-b||_2^2</script><script type="math/tex; mode=display">
 =(Ax-b)^H(Ax-b)</script><script type="math/tex; mode=display">
 \frac{\partial L(x)}{\partial x^*}=A^HAx-A^Hb=0</script><script type="math/tex; mode=display">
-\to x=(A^HA)^{-1}A^Hb</script><h2 id="高斯马尔可夫定理"><a href="#高斯马尔可夫定理" class="headerlink" title="高斯马尔可夫定理"></a>高斯马尔可夫定理</h2><p>指出了最优无偏解的条件</p>
+\to x_{LS}=(A^HA)^{-1}A^Hb</script><p>对于秩亏缺$（rank（A）&lt;n）$的超定方程，最小二乘解为</p>
 <script type="math/tex; mode=display">
-E(\hat{x})=x</script><ul>
-<li>方差最小<script type="math/tex; mode=display">
-Ax=b_0+e</script><script type="math/tex; mode=display">
+\to x_{LS}=(A^HA)^{\dagger}A^Hb</script><h2 id="高斯马尔可夫定理"><a href="#高斯马尔可夫定理" class="headerlink" title="高斯马尔可夫定理"></a>高斯马尔可夫定理</h2><p>在参数估计理论中,称参数向量$\theta$的估计$\hat{\theta}$为无偏估计，若它的数学期望值等于真实的未知参数向量，即$E\{\hat{\theta}\}=\theta$。进一步地，如果一个无偏估计还具有最小方差，则称这一无偏估计为最优无偏估计。</p>
+<p>类似地，对于数据向量b含有加性噪声或者扰动的超定方程A$\theta$= b+e，若最小二乘解$\theta_{LS}$的数学期望等于真实参数向量$\theta$，便称最小二乘解是无偏的。如果它还具有最小方差，则称最小二乘解是最优无偏的。</p>
+<p>高斯马尔科夫定理指出了最优无偏解的条件，对于线性方程组</p>
+<script type="math/tex; mode=display">
+Ax=b_0+e</script><p>满足</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 E(e)=0\\
 cov\{e\}=E\{ee^H\}=\sigma^2I
-\end{cases}</script></li>
-</ul>
-<h2 id="LS解与最大似然解的等价性"><a href="#LS解与最大似然解的等价性" class="headerlink" title="LS解与最大似然解的等价性"></a>LS解与最大似然解的等价性</h2><script type="math/tex; mode=display">
+\end{cases}</script><p>当且仅当$rank(A)=n$时，最优无偏解为最小二乘解</p>
+<script type="math/tex; mode=display">
+x_{LS}=(A^HA)^{-1}A^Hb</script><h2 id="LS解与最大似然解的等价性"><a href="#LS解与最大似然解的等价性" class="headerlink" title="LS解与最大似然解的等价性"></a>LS解与最大似然解的等价性</h2><p>若加性误差向量$e=[e_1,… ,e_m]^T$为独立同分布的复高斯随机向量,其概率密度函数为</p>
+<script type="math/tex; mode=display">
 f(e)=\frac{1}{\pi^m||_e}exp[-(e-ue)^H(e-Ue)]</script><script type="math/tex; mode=display">
 max \log f(e) ==\frac{1}{\sigma^2}e^He</script><script type="math/tex; mode=display">
-max f(e) ==min||Ax-b||_2^2</script><h1 id="数据最小二乘（DLS）"><a href="#数据最小二乘（DLS）" class="headerlink" title="数据最小二乘（DLS）"></a>数据最小二乘（DLS）</h1><p>与普通最小二乘不同，我们假定b无噪声，数据矩阵$A=A_0+E$有噪声</p>
+max f(e) ==min||Ax-b||_2^2</script><p>所以在高斯马尔科夫条件下，矩阵方程的最大似然解等价于最小二乘解，但误差向量方程不同时，两者不相等</p>
 <script type="math/tex; mode=display">
-A=A_0+E</script><script type="math/tex; mode=display">
-min||\Delta A||_F^2</script><script type="math/tex; mode=display">
-(A+\Delta A)x=b</script><p>拉格朗日乘子法</p>
+\hat{x}_{ML}=\hat{x}_{LS}</script><h1 id="数据最小二乘（DLS）"><a href="#数据最小二乘（DLS）" class="headerlink" title="数据最小二乘（DLS）"></a>数据最小二乘（DLS）</h1><p>与普通最小二乘不同，我们假定b无噪声，数据矩阵$A=A_0+E$有噪声,我们加入校正矩阵$\Delta A$对A进行校准</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+A=A_0+E
+\\
+(A+\Delta A)x=b
+\end{array}</script><p>我们的问题变为</p>
+<script type="math/tex; mode=display">
+min||\Delta A||_F^2,s.t.(A+\Delta A)x=b</script><p>我们采用拉格朗日乘子法进行求解</p>
 <script type="math/tex; mode=display">
 L(x)=||\Delta A||_F^2+\lambda^H(Ax+\Delta Ax-b)</script><script type="math/tex; mode=display">
-=tr(\Delta A\Delta A^H)+\lambda^H(Ax+\Delta x-b)</script><script type="math/tex; mode=display">
-\frac{\partial L(x)}{\partial \delta A^T}=(\Delta A^H)+x\lambda^H=0</script><script type="math/tex; mode=display">
+=tr(\Delta A\Delta A^H)+\lambda^H(Ax+\Delta A x-b)</script><script type="math/tex; mode=display">
+\frac{\partial L(x)}{\partial \Delta A^T}=(\Delta A^H)+x\lambda^H=0</script><script type="math/tex; mode=display">
 \to \Delta A=-\lambda x^H</script><p>代入约束条件</p>
 <script type="math/tex; mode=display">
 (A+\Delta A)x=b</script><script type="math/tex; mode=display">
@@ -310,33 +320,39 @@ L(x)=||\Delta A||_F^2+\lambda^H(Ax+\Delta Ax-b)</script><script type="math/tex; 
 \lambda=\frac{Ax-b}{x^Hx}</script><script type="math/tex; mode=display">
 \Delta A=-\frac{Ax-b}{x^Hx}x^H</script><script type="math/tex; mode=display">
 J(x)=||\Delta A||_F^2</script><script type="math/tex; mode=display">
-=tr(\frac{(Ax-b)(Ax-b)^H}{x^Hx})=\frac{||Ax-b||_2^2}{||x||_2^2}</script><p>得到数据最小二乘</p>
+=tr(\frac{(Ax-b)(Ax-b)^H}{x^Hx})=\frac{||Ax-b||_2^2}{||x||_2^2}</script><p>得到<strong>数据最小二乘</strong></p>
 <script type="math/tex; mode=display">
-\hat{x}_{DLS}=argmin_x\frac{(AX-b)^H(Ax-b)}{x^Hx}</script><h1 id="求导问题"><a href="#求导问题" class="headerlink" title="求导问题"></a>求导问题</h1><p>x为一个列向量</p>
+\hat{x}_{DLS}=\arg\min_x\frac{(AX-b)^H(Ax-b)}{x^Hx}</script><h1 id="求导问题"><a href="#求导问题" class="headerlink" title="求导问题"></a>求导问题</h1><p>x为一个列向量</p>
 <ul>
 <li>行向量求偏导<script type="math/tex; mode=display">
-\frac{\partial}{\partial x^T}=[\frac{\partial}{\partial x_1}...\frac{\partial}{\partial x_n}]</script></li>
-<li>列向量同理，共轭同理</li>
-</ul>
-<script type="math/tex; mode=display">
+\frac{\partial}{\partial x^T}=[\frac{\partial}{\partial x_1},...,\frac{\partial}{\partial x_n}]</script></li>
+<li>列向量<script type="math/tex; mode=display">
+\frac{\partial}{\partial x^T}=[\frac{\partial}{\partial x_1},...,\frac{\partial}{\partial x_n}]^T</script></li>
+<li>example<script type="math/tex; mode=display">
 \frac{\partial (a^Tx)}{\partial x^T}=a^T</script><script type="math/tex; mode=display">
+\frac{\partial (a^Tx)}{\partial x}=a</script></li>
+<li>矩阵求导<script type="math/tex; mode=display">
 L=tr(\Delta A\Delta A^H)+\lambda^H(Ax+\Delta A-b)</script><script type="math/tex; mode=display">
-\frac{\partial L}{\partial \Delta A^T}=\Delta A^H+x\lambda^H=0</script><h1 id="Tikhonov-正则化方法"><a href="#Tikhonov-正则化方法" class="headerlink" title="Tikhonov 正则化方法"></a>Tikhonov 正则化方法</h1><p>因为在真实问题中往往存在秩亏缺，所以在最小二乘的基础上我们进行你改进，加入了正则化参数，神经网络的代价函数经常用到</p>
+\frac{\partial L}{\partial \Delta A^T}=\Delta A^H+x\lambda^H=0</script></li>
+</ul>
+<h1 id="Tikhonov-正则化方法"><a href="#Tikhonov-正则化方法" class="headerlink" title="Tikhonov 正则化方法"></a>Tikhonov 正则化方法</h1><p>因为在真实问题中往往存在秩亏缺，所以在最小二乘的代价函数的基础上我们进行改进，加入了正则化参数，在神经网络的代价函数经常用到</p>
 <script type="math/tex; mode=display">
 J(x)=min_{x}||Ax-b||_2^2+\lambda||x||_2^2</script><script type="math/tex; mode=display">
 J(x)=x^HA^HAx-x^HA^Hb-b^HAx+b^Hb+\lambda x^Hx</script><script type="math/tex; mode=display">
 \frac{\partial J(x)}{\partial x^*}=A^HAx-A^Hb+\lambda x=0</script><script type="math/tex; mode=display">
 \to (A^HA+\lambda I)x=A^Hb</script><script type="math/tex; mode=display">
-\hat{x}_{Tik}=(A^HA+\lambda I)^{-1}A^Hb</script><h2 id="反正则化去燥"><a href="#反正则化去燥" class="headerlink" title="反正则化去燥"></a>反正则化去燥</h2><script type="math/tex; mode=display">
+\hat{x}_{Tik}=(A^HA+\lambda I)^{-1}A^Hb</script><p>这种使用$(A^HA+\lambda I)^{-1}$代替协方差矩阵的直接求逆$(A^HA)^{-1}$的方法常称为Tikhonov正则化(Tikhonov regularization)，或简称正则化方法(regularized method)。</p>
+<p>Tikhonov正则化方法的本质是:通过对秩亏缺的矩阵A 的协方差矩阵 $A^HA$ 的每一个对角元素加一个很小的扰动$\lambda$，使得奇异的协方差矩阵$A^HA$ 的求逆变成非奇异矩阵$(A^HA+\lambda I)$的求逆，从而大大改善求解秩亏缺矩阵方程 Ax = b 的数值稳定性。</p>
+<h2 id="反正则化去燥"><a href="#反正则化去燥" class="headerlink" title="反正则化去燥"></a>反正则化去燥</h2><p>显然，若数据矩阵A 满列秩，但存在误差或者噪声时，就需要采用与Tikhonov正则化相反的做法，对被噪声污染的协方差矩阵$A^HA$ 加一个很小的负扰动矩阵$-\lambda I$，</p>
+<script type="math/tex; mode=display">
 min_x ||Ax-b||_2^2-\lambda||x||_2^2</script><script type="math/tex; mode=display">
 \to \hat{x}=(A^HA-\lambda I)^{-1}A^Hb</script><h1 id="总体最小二乘-TLS"><a href="#总体最小二乘-TLS" class="headerlink" title="总体最小二乘(TLS)"></a>总体最小二乘(TLS)</h1><p>在A，b同时存在误差的最小二乘方法</p>
 <script type="math/tex; mode=display">
-A=A+E</script><script type="math/tex; mode=display">
-b=b+a</script><script type="math/tex; mode=display">
-min||\Delta A,\Delta b||_F^2</script><script type="math/tex; mode=display">
-st(A+\Delta A)x=b+\Delta b</script><p>我们的约束优化问题转化为了</p>
+A=A_0+E</script><script type="math/tex; mode=display">
+b=b_0+e</script><script type="math/tex; mode=display">
+min||\Delta A,\Delta b||_F^2</script><p>我们的约束优化问题转化为了</p>
 <script type="math/tex; mode=display">
-min||\Delta A,\Delta b||_2^2=||\Delta A||_2^2+||\Delta b||_2^2</script><script type="math/tex; mode=display">
+min||\Delta A,\Delta b||_2^2=||\Delta A||_2^2+||\Delta b||_2^2,s.t.(A+\Delta A)x=b+\Delta b</script><script type="math/tex; mode=display">
 ([A,b]+[\Delta A,\Delta b])\begin{bmatrix}
 x\\
 1
@@ -352,28 +368,90 @@ x\\
 (A'+\Delta A')x'=0</script><script type="math/tex; mode=display">
 \to min_{x'}\frac{(A'x'-b')(A'x'-b')^H}{x'^Hx'}</script><script type="math/tex; mode=display">
 =min\frac{x^{'H}A'^HA'x'}{x'^Hx'}</script><script type="math/tex; mode=display">
-=min\frac{||Ax-b||_2^2}{||x||_2^2+1}</script><p>总体最小二乘的解为</p>
+=min\frac{||Ax-b||_2^2}{||x||_2^2+1}</script><p>令</p>
 <script type="math/tex; mode=display">
-x'=\frac{1}{v(n+1,n+1)}V_{min}</script><h2 id="总体最小二乘的几何意义"><a href="#总体最小二乘的几何意义" class="headerlink" title="总体最小二乘的几何意义"></a>总体最小二乘的几何意义</h2><p>和点到线的距离相似$a_i^T$是矩阵的第i行，$b_i$是第i个元素，总体最小二乘的解$x_{TLS}$是使</p>
+B=[A,b]</script><p>其奇异值分解为</p>
 <script type="math/tex; mode=display">
-min_x\frac{||Ax-b||_2^2}{||x||_2^2+1}=\sum_{i=1}^n\frac{|a_i^Tx-b_i|^2}{x^Tx+1}</script><p>问题转化为了点集$(a_i,b_i)$直线的最小距离平方和<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/3b2eb4fb4bd4c7c4843067e1c0447c01.png" alt=""></p>
+B=U\Sigma V^H</script><p>总体最小二乘的解为</p>
+<script type="math/tex; mode=display">
+x'=-\frac{1}{v(n+1,n+1)}V_{min}</script><h2 id="总体最小二乘的几何意义"><a href="#总体最小二乘的几何意义" class="headerlink" title="总体最小二乘的几何意义"></a>总体最小二乘的几何意义</h2><p>和点到线的距离相似$a_i^T$是矩阵的第i行，$b_i$是第i个元素，总体最小二乘的解$x_{TLS}$是使</p>
+<script type="math/tex; mode=display">
+min_x\frac{||Ax-b||_2^2}{||x||_2^2+1}=\sum_{i=1}^n\frac{|a_i^Tx-b_i|^2}{x^Tx+1}</script><p>问题转化为了点集$(a_i,b_i)$到直线$b=ax$的最小距离平方和<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/3b2eb4fb4bd4c7c4843067e1c0447c01.png" alt=""></p>
 <p>的极小化变量</p>
-<h2 id="总体最小二乘闭式解"><a href="#总体最小二乘闭式解" class="headerlink" title="总体最小二乘闭式解"></a>总体最小二乘闭式解</h2><script type="math/tex; mode=display">
-x_{TLS}=(A^HA-\sigma^2_{n+1}I)^{-1}A^Hb</script><h1 id="四种最小二乘的比较"><a href="#四种最小二乘的比较" class="headerlink" title="四种最小二乘的比较"></a>四种最小二乘的比较</h1><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png" alt=""></p>
-<h2 id="总体最小二乘拟合直线"><a href="#总体最小二乘拟合直线" class="headerlink" title="总体最小二乘拟合直线"></a>总体最小二乘拟合直线</h2><p>对于若干数据点集，我们用直线ax+by+c=0拟合，总体最小二乘考虑数据点距离平方和的最小化</p>
+<h2 id="总体最小二乘闭式解"><a href="#总体最小二乘闭式解" class="headerlink" title="总体最小二乘闭式解"></a>总体最小二乘闭式解</h2><p>若增广矩阵$B=[A ,b]$的奇异值为$\sigma_1≥…\sigma_{n+1}$，则总体最小二乘解可表示成</p>
 <script type="math/tex; mode=display">
-D_{TLS}=\frac{\sum_{i=1}^n[a(x_i-\hat{x})+b(y_i-\hat{y})]}{a^2+b^2}</script><p>我们把D转化为单位向量t与M的乘积<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png" alt=""></p>
-<p>对此，我们有定理，法向量t取矩阵$M^tM$的最小特征值$\sigma_2^2$特征向量，距离平方和取最小值$\sigma_2^2<br>$</p>
+x_{TLS}=(A^HA-\sigma^2_{n+1}I)^{-1}A^Hb</script><p>与Tikhonov 正则化比较知，总体最小二乘是一种反正则化方法，可以解释为一种具有噪声清除作用的最小二乘方法:先从协方差矩阵 $A^TA$中减去噪声影响项$\sigma_{n+1}^2I$，然后再矩阵求逆，得到最小二乘解。</p>
+<h1 id="四种最小二乘的比较"><a href="#四种最小二乘的比较" class="headerlink" title="四种最小二乘的比较"></a>四种最小二乘的比较</h1><h2 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png" alt=""></p>
+<h2 id="对应解"><a href="#对应解" class="headerlink" title="对应解"></a>对应解</h2><script type="math/tex; mode=display">
+\begin{array}{l}
+\hat{x}_{LS}=(A^HA)^{-1}A^Hb\\
+\hat{x}_{Tik}=(A^HA+\lambda I)^{-1}A^Hb\\
+\hat{x}_{TLS}=(A^HA-\sigma^2_{n+1}I)^{-1}A^Hb
+\end{array}</script><h2 id="总体最小二乘拟合直线"><a href="#总体最小二乘拟合直线" class="headerlink" title="总体最小二乘拟合直线"></a>总体最小二乘拟合直线</h2><p>普通最小二乘考虑拟合误差平方和最小化,对于直线$m(x-\bar x)+(y-\bar y)=0$，代价函数为</p>
 <script type="math/tex; mode=display">
-D_{TSL}=\frac{(Mt)^TMt}{||t||_2^2}=\frac{t^TM^TMt}{||t||_2^2}</script><h1 id="平均约束的总体最小二乘"><a href="#平均约束的总体最小二乘" class="headerlink" title="平均约束的总体最小二乘"></a>平均约束的总体最小二乘</h1><script type="math/tex; mode=display">
+\begin{array}{l}
+D_{LS}^{(1)}=\sum_{i=1}^n[(x_i-\bar{x})+m(y_i-\bar{y})]^2
+\\
+D_{LS}^{(2)}=\sum_{i=1}^n[m(x_i-\bar{x})-(y_i-\bar{y})]^2
+\end{array}</script><p>对于若干数据点集，我们用直线ax+by+c=0拟合，，总体最小二乘考虑数据点距离平方和的最小化</p>
+<script type="math/tex; mode=display">
+D_{TLS}=\frac{\sum_{i=1}^n[a(x_i-\hat{x})+b(y_i-\hat{y})]^2}{a^2+b^2}</script><p>我们把D转化为单位向量t与M的乘积<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png" alt=""></p>
+<p>对此，我们有定理，单位法向量$t=(a^2+b^2)^{-1/2}[a,b]^T$取矩阵$M^tM$的最小特征值$\sigma_2^2$特征向量，距离平方和取最小值$\sigma_2^2$</p>
+<script type="math/tex; mode=display">
+D_{TSL}=\frac{(Mt)^TMt}{||t||_2^2}=\frac{t^TM^TMt}{||t||_2^2}</script><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>对于三个数据点(2,1),(2,4),(5,1)</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\bar{x}=\frac{1}{3}(2+2+5)=3
+\\
+\bar{y}=\frac{1}{3}(1+4+1)=2
+\end{array}</script><script type="math/tex; mode=display">
+M=\begin{bmatrix}
+2-3&1-2\\
+2-3&4-2\\
+5-3&1-2
+\end{bmatrix}
+=\begin{bmatrix}
+-1&-1\\
+-1&2\\
+2&-1
+\end{bmatrix}</script><script type="math/tex; mode=display">
+M^TM=
+\begin{bmatrix}
+6&-3\\
+-3&6\\
+\end{bmatrix}
+=\begin{bmatrix}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}
+\end{bmatrix}\begin{bmatrix}
+9&0\\
+0&3
+\end{bmatrix}\begin{bmatrix}
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}
+\end{bmatrix}</script><p>所以法向量$t=[1/\sqrt{2},1/\sqrt{2}]^T$<br>得到拟合直线为</p>
+<script type="math/tex; mode=display">
+\frac{1}{\sqrt{2}}(x-3)+\frac{1}{\sqrt{2}}(y-2)=0</script><p>距离平方和为</p>
+<script type="math/tex; mode=display">
+D_{TLS}=3</script><p>如果采用普通最小二乘</p>
+<script type="math/tex; mode=display">
+D_{LS}^{(1)}=\frac{1}{m^2+1}\sum_{i=1}^n[(x_i-\bar{x})+m(y_i-\bar{y})]^2</script><script type="math/tex; mode=display">
+\frac{\partial D_{LS}^{(1)}}{\partial m}=6m-3=0</script><h1 id="平均约束的总体最小二乘"><a href="#平均约束的总体最小二乘" class="headerlink" title="平均约束的总体最小二乘"></a>平均约束的总体最小二乘</h1><script type="math/tex; mode=display">
 [A,b]
 \begin{bmatrix}
 x\\-1
-\end{bmatrix}=0</script><script type="math/tex; mode=display">
-\to Cx=0</script><p>引入校正矩阵</p>
+\end{bmatrix}=0
+
+\to Cx=0</script><p>考虑存在于增广矩阵中的噪声矩阵</p>
 <script type="math/tex; mode=display">
-D=[E,e]</script><script type="math/tex; mode=display">
-\Delta C=[G_1u,G_2u...G_{n+1}u]\in R</script><script type="math/tex; mode=display">
+D=[E,e]</script><p>引入校正矩阵,矩阵中每个列向量都与向量u相关</p>
+<script type="math/tex; mode=display">
+\Delta C=[G_1u,G_2u...G_{n+1}u]\in R^{m\times(n+1)}</script><p>我们的问题转化为了约束优化问题</p>
+<script type="math/tex; mode=display">
+\min_{u,x}u^TWu</script><script type="math/tex; mode=display">
+s.t. (A+\Delta A)x=b+\Delta b</script><script type="math/tex; mode=display">
+[\Delta A,\Delta b]=[G_1u,G_2u...G_{n+1}u]</script><p>W为加权矩阵，通常为对角矩阵，或者单位矩阵</p>
+<script type="math/tex; mode=display">
 min||u||_2^2</script>
     
 
@@ -388,7 +466,7 @@ min||u||_2^2</script>
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/10/21/matrix-equation/" title="matrix equation" target="_blank">https://Fazziekey.github.io/2020/10/21/matrix-equation/</a>
+          <a href="https://Fazziekey.github.io/2020/10/21/matrix-equation/" title="矩阵方程求解&amp;最小二乘法" target="_blank">https://Fazziekey.github.io/2020/10/21/matrix-equation/</a>
         </li>
         
         <li>
@@ -530,7 +608,7 @@ min||u||_2^2</script>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最小二乘法（LS）"><span class="toc-number">1.</span> <span class="toc-text">最小二乘法（LS）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#普通最小二乘"><span class="toc-number">1.1.</span> <span class="toc-text">普通最小二乘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高斯马尔可夫定理"><span class="toc-number">1.2.</span> <span class="toc-text">高斯马尔可夫定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LS解与最大似然解的等价性"><span class="toc-number">1.3.</span> <span class="toc-text">LS解与最大似然解的等价性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据最小二乘（DLS）"><span class="toc-number">2.</span> <span class="toc-text">数据最小二乘（DLS）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#求导问题"><span class="toc-number">3.</span> <span class="toc-text">求导问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tikhonov-正则化方法"><span class="toc-number">4.</span> <span class="toc-text">Tikhonov 正则化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#反正则化去燥"><span class="toc-number">4.1.</span> <span class="toc-text">反正则化去燥</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总体最小二乘-TLS"><span class="toc-number">5.</span> <span class="toc-text">总体最小二乘(TLS)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘的几何意义"><span class="toc-number">5.1.</span> <span class="toc-text">总体最小二乘的几何意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘闭式解"><span class="toc-number">5.2.</span> <span class="toc-text">总体最小二乘闭式解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四种最小二乘的比较"><span class="toc-number">6.</span> <span class="toc-text">四种最小二乘的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘拟合直线"><span class="toc-number">6.1.</span> <span class="toc-text">总体最小二乘拟合直线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平均约束的总体最小二乘"><span class="toc-number">7.</span> <span class="toc-text">平均约束的总体最小二乘</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最小二乘法（LS）"><span class="toc-number">1.</span> <span class="toc-text">最小二乘法（LS）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#普通最小二乘"><span class="toc-number">1.1.</span> <span class="toc-text">普通最小二乘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高斯马尔可夫定理"><span class="toc-number">1.2.</span> <span class="toc-text">高斯马尔可夫定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LS解与最大似然解的等价性"><span class="toc-number">1.3.</span> <span class="toc-text">LS解与最大似然解的等价性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据最小二乘（DLS）"><span class="toc-number">2.</span> <span class="toc-text">数据最小二乘（DLS）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#求导问题"><span class="toc-number">3.</span> <span class="toc-text">求导问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tikhonov-正则化方法"><span class="toc-number">4.</span> <span class="toc-text">Tikhonov 正则化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#反正则化去燥"><span class="toc-number">4.1.</span> <span class="toc-text">反正则化去燥</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总体最小二乘-TLS"><span class="toc-number">5.</span> <span class="toc-text">总体最小二乘(TLS)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘的几何意义"><span class="toc-number">5.1.</span> <span class="toc-text">总体最小二乘的几何意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘闭式解"><span class="toc-number">5.2.</span> <span class="toc-text">总体最小二乘闭式解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四种最小二乘的比较"><span class="toc-number">6.</span> <span class="toc-text">四种最小二乘的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#优化目标"><span class="toc-number">6.1.</span> <span class="toc-text">优化目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对应解"><span class="toc-number">6.2.</span> <span class="toc-text">对应解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总体最小二乘拟合直线"><span class="toc-number">6.3.</span> <span class="toc-text">总体最小二乘拟合直线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#example"><span class="toc-number">6.3.1.</span> <span class="toc-text">example</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平均约束的总体最小二乘"><span class="toc-number">7.</span> <span class="toc-text">平均约束的总体最小二乘</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -564,7 +642,7 @@ min||u||_2^2</script>
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "matrix equation" -->
+  <!-- id: "矩阵方程求解&amp;最小二乘法" -->
   var giteement = new Giteement({
     id: '20201021231215',
     owner: 'Fazzie',
@@ -591,7 +669,7 @@ min||u||_2^2</script>
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "matrix equation" -->
+    <!-- id: "矩阵方程求解&amp;最小二乘法" -->
     var gitment = new Gitment({
       id: "20201021231215",
       owner: 'fazzie-key',
