@@ -856,10 +856,138 @@ Ax=\lambda Bx</script>
 <h2 id="条件数"><a href="#条件数" class="headerlink" title="条件数"></a>条件数</h2><ul>
 <li>A 数据矩阵 n*n</li>
 <li>b 数据向量 n*1</li>
-<li>x 未知向量 n*1
-    
-    <a class="article-more-a" href="/2020/10/21/SVD/#more">more >></a>
-    
+<li>x 未知向量 n*1</li>
+</ul>
+<p>在这里我们研究x受A，或者b扰动的影响</p>
+<script type="math/tex; mode=display">
+A(x+\delta x)=b+\delta b</script><script type="math/tex; mode=display">
+A\delta x=\delta b</script><script type="math/tex; mode=display">
+\delta x=A^{-1}\delta b</script><p>由</p>
+<script type="math/tex; mode=display">
+||AB||<=||A|| ||B||</script><script type="math/tex; mode=display">
+\to
+\begin{cases}
+||\delta x||_2<=||A^{-1}||_2 ||\delta b||_2
+\\
+||b||_2<=||A||_2 ||x||_2\to \frac{1}{||x||_2}<=\frac{||A||_2}{||b||_2}
+\end{cases}</script><p>两边相乘</p>
+<script type="math/tex; mode=display">
+\to \frac{||\delta x||_2}{||x||_2}<=||A^{-1}||_2 ||A||_2 \frac{||\delta b||_2}{||b||_2}</script><p>一起考虑A扰动的影响，可以得到</p>
+<script type="math/tex; mode=display">
+(A+\delta A)(x+\delta x)=b</script><script type="math/tex; mode=display">
+\begin{array}{l}
+\delta x=(A+\delta A)^{-1}b-A^{-1}b
+\\
+=A^{-1}[A-(A+\delta A)](A+\delta A)^{-1}b
+\\
+=A^{-1}(-\delta A)(A+\delta A)^{-1}b
+\\
+\to \frac{||\delta x||_2}{||x+\delta x||_2}<=||A^{-1}||||A||_2\frac{||\delta A||_2}{||A||_2}
+\end{array}</script><p>可以看出噪声（解向量x的误差）与某个数成正比，这个数被称为<strong>条件数</strong></p>
+<script type="math/tex; mode=display">
+cond(A)=||A^{-1}||_2||A||_2</script><p>有性质</p>
+<script type="math/tex; mode=display">
+cond(A^HA)=[cond(A)]^2</script><p>如果矩阵A不是方阵，可以求出最小二乘解</p>
+<script type="math/tex; mode=display">
+Ax=b
+
+\to x=(A^HA)^{-1}A^{H}b</script><p>求此时的条件数</p>
+<script type="math/tex; mode=display">
+cond(A^HA)=||A^HA||_2||(A^HA)^{-1}||_2=cond(A)^2</script><p>条件数平方后变大，所以此时的最小二乘解不稳定 </p>
+<h1 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h1><p>奇异值分解定理对于矩阵$A:m\times n$,存在正交或者酉矩阵$U:m\times m,V:n\times n$使得</p>
+<script type="math/tex; mode=display">
+A=U\Sigma V^H</script><script type="math/tex; mode=display">
+\Sigma=
+\begin{bmatrix}
+\Sigma_r &0\\
+0 &0
+\end{bmatrix}</script><script type="math/tex; mode=display">
+diag(\Sigma_r)=[\sigma_1,\sigma_2...\sigma_r]</script><script type="math/tex; mode=display">
+r=rank(A)</script><p>$\sigma_1,\sigma_2…\sigma_r，\sigma_{r+1}=…\sigma_n=0$被称为A的奇异值</p>
+<script type="math/tex; mode=display">
+AV=U\Sigma</script><script type="math/tex; mode=display">
+\to Av_i=
+\begin{cases}
+u_i\sigma_i &i<=r\\
+0&i>r
+\end{cases}</script><script type="math/tex; mode=display">
+U^HA=\Sigma V^H</script><script type="math/tex; mode=display">
+u_i^HA=\sigma_iv_i^H</script><p>$v_i$为右奇异向量,$u_i$为左奇异向量</p>
+<ul>
+<li>矩阵A的奇异值分解式可以改写成向量表达式<script type="math/tex; mode=display">
+A=\Sigma_{i=1}^r\sigma_i u_i v_i^H</script></li>
+<li>当矩阵的秩$r=rank(A)&lt;min(m,n)$<br>奇异值分解可以被简化为</li>
+</ul>
+<script type="math/tex; mode=display">
+A=U_r\Sigma_rV_r^H</script><p>被称为截断奇异值分解，<br>只取前r个非0度奇异值</p>
+<h2 id="奇异值分解和特征分解的关系"><a href="#奇异值分解和特征分解的关系" class="headerlink" title="奇异值分解和特征分解的关系"></a>奇异值分解和特征分解的关系</h2><script type="math/tex; mode=display">
+A^HA=V\Sigma U^HU\Sigma V^H</script><script type="math/tex; mode=display">
+=V\Sigma^2V^H</script><ul>
+<li>$A^HA$的特征值是A奇异值的平方，是右奇异向量</li>
+<li>$AA^H$的特征值是A奇异值的平方，是左奇异向量<script type="math/tex; mode=display">
+AA^H=U\sum^2U^H</script></li>
+<li>广义逆<script type="math/tex; mode=display">
+A^\dagger=V\Sigma^\dagger U^H</script><h2 id="奇异值的性质"><a href="#奇异值的性质" class="headerlink" title="奇异值的性质"></a>奇异值的性质</h2><h3 id="范数性质"><a href="#范数性质" class="headerlink" title="范数性质"></a>范数性质</h3></li>
+<li>诱导谱范数<script type="math/tex; mode=display">
+||A||_{spec}=||A||_2=\sigma_i(最大奇异值)</script></li>
+<li>f范数<script type="math/tex; mode=display">
+||A||_F=sqrt{<A,A>}=\sqrt{tr(A^H,A)}=\sqrt{\sum \sigma_i}</script>所以特征值之和=奇异值平方和<script type="math/tex; mode=display">
+\lambda_1+\lambda_2...+\lambda_r=\sigma_1^2+\sigma_2^2...+\sigma_r^2</script></li>
+</ul>
+<blockquote>
+<p>根据矩阵A的谱范数可以确定最大奇异值</p>
+</blockquote>
+<h3 id="酉不变性"><a href="#酉不变性" class="headerlink" title="酉不变性"></a>酉不变性</h3><script type="math/tex; mode=display">
+A=U\Sigma V^H</script><p>在矩阵A的基础上再左乘或者右乘一个酉矩阵</p>
+<script type="math/tex; mode=display">
+B=PU\Sigma V^HQ^H</script><p>B的奇异值不变</p>
+<h3 id="奇异值与行列式"><a href="#奇异值与行列式" class="headerlink" title="奇异值与行列式"></a>奇异值与行列式</h3><p>因为酉矩阵行列式绝对值为1</p>
+<p>所以</p>
+<script type="math/tex; mode=display">
+|detA|=|det\sum|=\sigma_1\sigma_2...\sigma_n</script><p>如果$detA\not=0$表明A是非奇异的，若存在$\sigma_i=0,datA=0$,则A奇异，这是把$\sigma$称为奇异值的原因</p>
+<h3 id="奇异值与条件数"><a href="#奇异值与条件数" class="headerlink" title="奇异值与条件数"></a>奇异值与条件数</h3><script type="math/tex; mode=display">
+cond(A)=\sigma_1/\sigma_p(p=\{m,n\})</script><p>所以条件数总大于1</p>
+<blockquote>
+<p>奇异值的内在含义，如果一个矩阵有一个奇异值为0，对于正方矩阵，代表，矩阵奇异，行列式为0，非正方矩阵代表秩亏缺</p>
+</blockquote>
+<h2 id="秩亏缺矩阵（LS）"><a href="#秩亏缺矩阵（LS）" class="headerlink" title="秩亏缺矩阵（LS）"></a>秩亏缺矩阵（LS）</h2><p>应用奇异值分解求解最小二乘问题的方法常简称为奇异值分解方法。</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+Ax=b
+\\
+U\Sigma V^Hx=b
+\\
+\Sigma V^Hx=U^Hb
+\end{array}</script><p>令</p>
+<script type="math/tex; mode=display">
+x'=V^Hx,y=U^Hb</script><p>得到</p>
+<script type="math/tex; mode=display">
+\to \Sigma x'=y</script><p>我们的目标变为优化问题</p>
+<script type="math/tex; mode=display">
+min||\Sigma x'-y||_2^2
+
+=\sum_{i=1}^r|\sigma_ix_i-y_i|^2+\sum_{i=r+1}^N|y_i|^2=0</script><p>得到最小范数解</p>
+<script type="math/tex; mode=display">
+x_{LS}=\sum_{i=1}^r(u_i^Hb/\sigma_i)v_i</script><p>相应的最小残差为</p>
+<script type="math/tex; mode=display">
+\rho_{LS}=||Ax_{LS}-b||_2=||[u_{r+1},..,u_m]^Hb||_2</script><h3 id="有效秩的确定"><a href="#有效秩的确定" class="headerlink" title="有效秩的确定"></a>有效秩的确定</h3><p>如果要衡量衡量A，B的逼近程度，P,K分别为A、B的秩</p>
+<script type="math/tex; mode=display">
+A=\sum_{i=1}^P\sigma_i u_i v_i^H</script><script type="math/tex; mode=display">
+B=\sum_{i=1}^K\sigma_i u_i v_i^H</script><ul>
+<li>谱范数法<script type="math/tex; mode=display">
+||A-B||_{spec}=\sigma_{k+1}</script></li>
+<li>F范数法<script type="math/tex; mode=display">
+||A-B||_F=\sqrt{\sum_{i=k+1}^P\sigma_i^2}</script><h4 id="衡量标准"><a href="#衡量标准" class="headerlink" title="衡量标准"></a>衡量标准</h4></li>
+</ul>
+<p>对应谱范数</p>
+<script type="math/tex; mode=display">
+\epsilon=\frac{\sigma_k}{\sigma_1}>=5\%</script><p>对应F范数（范数比方法）</p>
+<script type="math/tex; mode=display">
+V(k)=\frac{\sqrt{\sum^k\sigma^2}}{\sqrt{\sum^P\sigma^2}}</script><script type="math/tex; mode=display">
+=\frac{||A_k||_F}{||A||_F}>=\alpha</script><h3 id="奇异值分解在图像视频压缩中的作用"><a href="#奇异值分解在图像视频压缩中的作用" class="headerlink" title="奇异值分解在图像视频压缩中的作用"></a>奇异值分解在图像视频压缩中的作用</h3><p>在矩阵A稀疏的情况下</p>
+<script type="math/tex; mode=display">
+A \to n\times n</script><script type="math/tex; mode=display">
+A_k=U_k\sum_kV_k^H</script>
     
 
     
