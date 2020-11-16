@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Archives | Hexo</title>
+  <title>子空间理论 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/archives/page/2/index.html">
+  <meta name="description" content="子空间的基本理论子空间的基定义：若$S&#x3D;\{u_1,u_2…u_m\}$是向量空间V的向量子集合，则向量所有的线性组合W，称为$u_1,u_2…u_m$构成的子空间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="子空间理论">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/16/child-space/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="子空间的基本理论子空间的基定义：若$S&#x3D;\{u_1,u_2…u_m\}$是向量空间V的向量子集合，则向量所有的线性组合W，称为$u_1,u_2…u_m$构成的子空间">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-16T13:36:39.000Z">
+<meta property="article:modified_time" content="2020-11-16T13:38:15.453Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -196,578 +201,364 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-child-space" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/21/laplace-transformation/" class="archive-article-date">
-        <time datetime="2020-08-21T08:01:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/21/laplace-transformation/" target="_blank">拉普拉斯变换</a>
   
+    <h1 class="article-title" itemprop="name">
+      子空间理论
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/11/16/child-space/" class="archive-article-date">
+        <time datetime="2020-11-16T13:36:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-16</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">761字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <h1 id="子空间的基本理论"><a href="#子空间的基本理论" class="headerlink" title="子空间的基本理论"></a>子空间的基本理论</h1><h2 id="子空间的基"><a href="#子空间的基" class="headerlink" title="子空间的基"></a>子空间的基</h2><p><strong>定义</strong>：若$S=\{u_1,u_2…u_m\}$是向量空间V的向量子集合，则向量所有的线性组合<br>W，称为$u_1,u_2…u_m$构成的子空间<br><a id="more"></a></p>
+<script type="math/tex; mode=display">
+W=span\{u_1,u_2...u_m\}=\{u|u=a_1u_1+...+a_mu_m\}</script><p>当这些向量线性无关时，称为W的一组基</p>
+<h2 id="张成集定理-spanning-set-theorem"><a href="#张成集定理-spanning-set-theorem" class="headerlink" title="张成集定理(spanning set theorem)"></a>张成集定理(spanning set theorem)</h2><p>令S ={u…,um}是向量空间V的一个子集，并且W= Span{u,…,um}是由S的m个列向量张成的一个子空间。</p>
+<ul>
+<li>如果S内有某个向量(例如uk)是其他向量的线性组合，则从S中删去向量uk后，其他向量仍然张成子空间W。</li>
+<li>若W≠{0}即W为非平凡子空间，则在S内一定存在某个由线性无关的向量组成的子集合，它张成子空间W。</li>
+</ul>
+<h1 id="矩阵行空间，列空间"><a href="#矩阵行空间，列空间" class="headerlink" title="矩阵行空间，列空间"></a>矩阵行空间，列空间</h1><p>对于矩阵$A\in C^{m\times n}$</p>
+<script type="math/tex; mode=display">
+A=[a_1,a_2...a_n]</script><script type="math/tex; mode=display">
+=\begin{bmatrix}
+r_1\\r_2\\...\\r_m
+\end{bmatrix}</script><p>矩阵的列空间为矩阵列向量张成</p>
+<script type="math/tex; mode=display">
+Col(A)=span\{a_1,a_2...a_n\}</script><p>行空间同理</p>
+<script type="math/tex; mode=display">
+Row(A)=span\{r_1^*,r_2^*...r_m^*\}</script><h1 id="基本空间的标准正交基的构造：奇异值分解"><a href="#基本空间的标准正交基的构造：奇异值分解" class="headerlink" title="基本空间的标准正交基的构造：奇异值分解"></a>基本空间的标准正交基的构造：奇异值分解</h1><p>根据奇异值分解的性质，我们知道矩阵A可以被分解为</p>
+<script type="math/tex; mode=display">
+A=U_r\Sigma_rV_r^H</script><script type="math/tex; mode=display">
+=sum_{i=1}^r \sigma_i u_iv_i</script><p>定义$A\in C^{m\times n},A$的值域Range定义为</p>
+<script type="math/tex; mode=display">
+Rang(A)=\{y\in C^m|Ax=y,x\in C^n\}</script><p>此时的线性映射从$C^n$空间到$C^m$</p>
+<h2 id="零空间"><a href="#零空间" class="headerlink" title="零空间"></a>零空间</h2><p><strong>零空间</strong>被定义为满足</p>
+<script type="math/tex; mode=display">
+Ax=0</script><p>的向量x集合</p>
+<script type="math/tex; mode=display">
+Null(A)=ker(A)=\{x\in C^n|Ax=0\}</script><h2 id="列空间的标准正交基"><a href="#列空间的标准正交基" class="headerlink" title="列空间的标准正交基"></a>列空间的标准正交基</h2><p>与r个非零奇异值所对于的左奇异向量$u_1,u_2…u_r$构成列空间col（A）的一组基</p>
+<script type="math/tex; mode=display">
+Range(A)=\{y\in c^m|y=Ax,x\in C^n\}</script><script type="math/tex; mode=display">
+=\{y|y=\sum_{i=1}^ru_i(\sigma_iv_i^Hx)\}</script><script type="math/tex; mode=display">
+=\{y|y=\sum_{i=1}^r\alpha_iu_i，\alpha_i=\sigma_iv_i^Hx\}</script><script type="math/tex; mode=display">
+=span\{u_1,u_2...u_r\}</script><h1 id="行空间标准正交基"><a href="#行空间标准正交基" class="headerlink" title="行空间标准正交基"></a>行空间标准正交基</h1><p>与列空间的推导同理</p>
+<script type="math/tex; mode=display">
+Range(A^H)=\{y\in C^n|y=\sum_{i=1}^r \alpha_iv_i,\alpha_i=\sigma_iu_i^Hx\}</script><h1 id="信号子空间和噪声子空间"><a href="#信号子空间和噪声子空间" class="headerlink" title="信号子空间和噪声子空间"></a>信号子空间和噪声子空间</h1><p>如果观测数据A存在噪声误差</p>
+<script type="math/tex; mode=display">
+X=A+W=[x_1,x_2...x_n]\in C^{m\times n}</script><p>定义</p>
+<ul>
+<li>观测数据子空间<script type="math/tex; mode=display">
+span(X)=span\{x_1,x_2...x_n\}</script></li>
+<li><p>噪声子空间</p>
+<script type="math/tex; mode=display">
+span(W)=span\{w_1,w_2...w_n\}</script></li>
+<li><p>X的协方差矩阵为</p>
+<script type="math/tex; mode=display">
+E\{x^Hx\}=E\{(A+W)^H(A+W)\}</script><script type="math/tex; mode=display">
+=E\{A^HA\}+E\{W^HW\}</script><script type="math/tex; mode=display">
+=R+\sigma_wI</script><p>令A的秩为r</p>
+</li>
+</ul>
+<p>则</p>
+<script type="math/tex; mode=display">
+R_X=U\Sigma U^H+\sigma_w^2I=U(\Sigma+\sigma_w^2 I)U^H</script><script type="math/tex; mode=display">
+\Sigma+\sigma_w^2I=diag(\sigma_1^2+\sigma_w^2...\sigma_r^2+\sigma_w^2,\sigma_w^2...\sigma_w^2)</script><p>如果信噪比足够大，即$\sigma_r^2&gt;\sigma_w^2$</p>
+<p>则前r个大特征值称为<strong>主特征</strong></p>
+<p>剩余n-r个称为<strong>次特征</strong></p>
+<script type="math/tex; mode=display">
+R_x=[S,G]\begin{bmatrix}\Sigma_s&0\\
+0&\Sigma_n
+\end{bmatrix}
+\begin{bmatrix}
+S^H\\G^H
+\end{bmatrix}</script><script type="math/tex; mode=display">
+=S\Sigma_sS^H+G\Sigma_nG^H</script><p>此时</p>
+<script type="math/tex; mode=display">
+S=[s_1..s_2...s_r]=[u_1,u_2...u_r]
+\\
+G=[g_1,g_2...g_{n-r}]=[u_{r+1}...u_n]
+\\
+\Sigma_s=diag(\sigma_1^2+\sigma_w^2...\sigma_r^2+\sigma_w^2)
+\\
+\Sigma_n=diag(\sigma_w^2...\sigma_w^2)</script><ul>
+<li><p>$Range(S)$称为信号子空间</p>
+</li>
+<li><p>$Range(G)$称为噪声子空间</p>
+</li>
+</ul>
+<h2 id="重要性质"><a href="#重要性质" class="headerlink" title="重要性质"></a>重要性质</h2><p>噪声子空间和信号子空间正交</p>
+<script type="math/tex; mode=display">
+UU^H=SS^H+GG^H=I</script>
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/11/16/child-space/" title="子空间理论" target="_blank">https://Fazziekey.github.io/2020/11/16/child-space/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">矩阵论</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
+        			<a href="/categories/《柯西的传世绝学》//" class="article-tag-list-link color5">《柯西的传世绝学》</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/11/16/child-space/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/21/Sampling-and-modulation/" class="archive-article-date">
-        <time datetime="2020-08-21T07:57:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/15/spacial-matrix/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">特殊矩阵</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/21/Sampling-and-modulation/" target="_blank">采样和调制</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子空间的基本理论"><span class="toc-number">1.</span> <span class="toc-text">子空间的基本理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#子空间的基"><span class="toc-number">1.1.</span> <span class="toc-text">子空间的基</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#张成集定理-spanning-set-theorem"><span class="toc-number">1.2.</span> <span class="toc-text">张成集定理(spanning set theorem)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵行空间，列空间"><span class="toc-number">2.</span> <span class="toc-text">矩阵行空间，列空间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本空间的标准正交基的构造：奇异值分解"><span class="toc-number">3.</span> <span class="toc-text">基本空间的标准正交基的构造：奇异值分解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#零空间"><span class="toc-number">3.1.</span> <span class="toc-text">零空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列空间的标准正交基"><span class="toc-number">3.2.</span> <span class="toc-text">列空间的标准正交基</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行空间标准正交基"><span class="toc-number">4.</span> <span class="toc-text">行空间标准正交基</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信号子空间和噪声子空间"><span class="toc-number">5.</span> <span class="toc-text">信号子空间和噪声子空间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重要性质"><span class="toc-number">5.1.</span> <span class="toc-text">重要性质</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/20/DFT/" class="archive-article-date">
-        <time datetime="2020-08-20T13:58:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/20/DFT/" target="_blank">离散时间信号频域分析</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+<div id="SOHUCS" sid="child-space" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/19/constant-Flourier/" class="archive-article-date">
-        <time datetime="2020-08-19T07:58:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
-</a>
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "子空间理论" -->
+  var giteement = new Giteement({
+    id: '20201116213639',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-    	 
+
+
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/19/constant-Flourier/" target="_blank">连续时间信号频域分析</a>
+  <div id="gitment-ctn"></div>
   
-    </h1>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "子空间理论" -->
+    var gitment = new Gitment({
+      id: "20201116213639",
+      owner: 'fazzie-key',
+      repo: 'hexo-blog',
+      oauth: {
+        client_id: '504d8b7c95c84eef8b88',
+        client_secret: 'ddc0050e3a75257c3ef9562cb12cacd301941a7c',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
   
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/18/LTI/" class="archive-article-date">
-        <time datetime="2020-08-18T05:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/18/LTI/" target="_blank">LTI系统时域分析</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/17/system-basic/" class="archive-article-date">
-        <time datetime="2020-08-17T03:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/17/system-basic/" target="_blank">系统的基本概念</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">手撕拉普拉斯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/15/com-base/" class="archive-article-date">
-        <time datetime="2020-08-15T07:02:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/15/com-base/" target="_blank">com base</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">communication</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《行于黑暗，侍奉光明，我们是电工》//" class="article-tag-list-link color3">《行于黑暗，侍奉光明，我们是电工》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/08/nn/" class="archive-article-date">
-        <time datetime="2020-08-08T07:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/08/nn/" target="_blank">建立你的知识神经网络</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" class="archive-article-date">
-        <time datetime="2020-08-05T16:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" target="_blank">Beautiful Soup</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2020-08-05T06:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" target="_blank">爬虫基础-正则表达匹配</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -808,8 +599,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
