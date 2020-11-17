@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="实变量函数无约束优化的梯度分析 松弛序列:称序列$\{a_k\}_{k&#x3D;0}^{\infty},a_{k+1}&lt;a_k$为松弛序列  我们通过迭代求解优化问题的过程中，需要产生一个松弛序列 单变量函数的平稳点和极值点 全局极小点 严格全局极小点 开邻域 闭邻域   极值点 平稳点 鞍点   无约束最小化问题的梯度分析给定一个实值目标函数 对于超定矩阵方程$Az&#x3D;b$定义误差平方和  J(z)">
+  <meta name="description" content="实变量函数无约束优化的梯度分析 松弛序列:称序列$\{a_k\}_{k&#x3D;0}^{\infty},a_{k+1}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="optimize">
 <meta property="og:url" content="https://fazziekey.github.io/2020/11/17/optimize/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="实变量函数无约束优化的梯度分析 松弛序列:称序列$\{a_k\}_{k&#x3D;0}^{\infty},a_{k+1}&lt;a_k$为松弛序列  我们通过迭代求解优化问题的过程中，需要产生一个松弛序列 单变量函数的平稳点和极值点 全局极小点 严格全局极小点 开邻域 闭邻域   极值点 平稳点 鞍点   无约束最小化问题的梯度分析给定一个实值目标函数 对于超定矩阵方程$Az&#x3D;b$定义误差平方和  J(z)">
+<meta property="og:description" content="实变量函数无约束优化的梯度分析 松弛序列:称序列$\{a_k\}_{k&#x3D;0}^{\infty},a_{k+1}">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/09/527be89d210f131ebfa64e75a671caf5.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/09/1ad971a39863a9684fc8cecb2d674e0d.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/17/b4d7b184290b70acdc8ac2761680533b.png">
 <meta property="article:published_time" content="2020-11-17T03:54:12.000Z">
-<meta property="article:modified_time" content="2020-11-17T03:56:16.311Z">
+<meta property="article:modified_time" content="2020-11-17T11:20:02.871Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="矩阵论">
 <meta property="article:tag" content="优化理论">
@@ -239,7 +239,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.1k字</span>
+      <span class="post-count">862字</span>
     </span>
   </span>
 
@@ -248,7 +248,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -262,7 +262,8 @@
 
     
     <h1 id="实变量函数无约束优化的梯度分析"><a href="#实变量函数无约束优化的梯度分析" class="headerlink" title="实变量函数无约束优化的梯度分析"></a>实变量函数无约束优化的梯度分析</h1><blockquote>
-<p>松弛序列:称序列$\{a_k\}_{k=0}^{\infty},a_{k+1}&lt;a_k$为松弛序列</p>
+<p>松弛序列:称序列$\{a_k\}_{k=0}^{\infty},a_{k+1}<a_k$为松弛序列
+<a id="more"></a></p>
 </blockquote>
 <p>我们通过迭代求解优化问题的过程中，需要产生一个松弛序列</p>
 <h2 id="单变量函数的平稳点和极值点"><a href="#单变量函数的平稳点和极值点" class="headerlink" title="单变量函数的平稳点和极值点"></a>单变量函数的平稳点和极值点</h2><ul>
