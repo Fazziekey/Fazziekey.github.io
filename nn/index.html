@@ -18,7 +18,7 @@
 <meta property="og:description" content="建这个Blog的最初目的是为了记录自己的深度学习的过程，有一天突发奇想能不能建立一个神经网络来记录自己的学习生活和人生经历，神经网络的思想来源于人的神经元，而人的生活就像神经网络一样，接受这外界的输入，通过一个个隐藏单元的激励函数，最后得到一个输出，通过不断训练去提高网络的性能。我把人的底层能力和知识体系分为，工程技术、艺术设计、数理逻辑、视野格局、人文社科、沟通表达六个层面，其他的中立性质的节点">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-07T16:16:05.000Z">
-<meta property="article:modified_time" content="2020-09-15T06:58:02.823Z">
+<meta property="article:modified_time" content="2020-11-16T15:12:46.251Z">
 <meta property="article:author" content="Fazzie">
 <meta name="twitter:card" content="summary">
   
@@ -521,6 +521,7 @@
                             {name: '信电新晚', symbolSize: 10,category: 2,},
                             {name: '石榴音乐节', symbolSize: 10,category: 2,},
                             {name: '云峰音乐节', symbolSize: 10,category: 2,},
+                            {name: '葫芦音乐节', symbolSize: 10,category: 2,},
                         {name: '勤创', symbolSize: 80,category: 6,},
                             {name: '创业论坛', symbolSize: 10,category: 6,},
                             {name: '创指三面', symbolSize: 10,category: 6,},
@@ -535,6 +536,7 @@
                         {name: '新加坡交流', symbolSize: 30,category: 4,},
                     {name: '梦与追求', symbolSize: 120,category: 7,},
                         {name: '开班仪式', symbolSize: 20,category: 4,},
+                        {name: '19招生', symbolSize: 20,category: 4,},
                     {name: '网瘾少年', symbolSize: 80,category: 7,},
                         {name: '守望先锋', symbolSize: 10,category: 1,},
                         {name: '英雄联盟', symbolSize: 10,category: 1,},
@@ -555,6 +557,7 @@
                             {name: '枭雄', symbolSize: 10,category: 5,},
                             {name: '奥德赛', symbolSize: 10,category: 5,},
                             {name: '起源', symbolSize: 10,category: 5,},
+                            {name: '英灵殿', symbolSize: 10,category: 5,},
             ],
             //节点关系
             links: [
@@ -730,6 +733,7 @@
                         {source: '求是新晚',target: 'Six o\'clock studio',name: 'Conv'},
                         {source: '信电新晚',target: 'Six o\'clock studio',name: 'Conv'},
                         {source: '秋声音乐节',target: 'Six o\'clock studio',name: 'Conv'},
+                        {source: '葫芦音乐节',target: 'Six o\'clock studio',name: 'Conv'},
                     {source: '勤创',target: 'ZJU life',name: 'Pooling'},
                         {source: '春纳',target: '勤创',name: 'Conv'},
                         {source: '创指三面',target: '勤创',name: 'Conv'},
@@ -746,6 +750,7 @@
                     {source: 'UIUC交流',target: 'ZJU life',name: 'Pooling'},
                 {source: '梦与追求',target: 'Neural Center',name: 'Softmax' },
                     {source: '开班仪式',target: '梦与追求',name: 'Softmax' },
+                    {source: '19招生',target: '梦与追求',name: 'Softmax' },
                 {source: '网瘾少年',target: 'Neural Center',name: 'Softmax' },
                     {source: '守望先锋',target: '网瘾少年',name: 'Sigmod' },
                     {source: '英雄联盟',target: '网瘾少年',name: 'Sigmod' },
@@ -766,6 +771,7 @@
                         {source: '枭雄',target: 'Assassin Creed',name: 'Sigmod' },
                         {source: '奥德赛',target: 'Assassin Creed',name: 'Sigmod' },
                         {source: '起源',target: 'Assassin Creed',name: 'Sigmod' },
+                        {source: '英灵殿',target: 'Assassin Creed',name: 'Sigmod' },
             ],
             categories: categories,
         }]
@@ -1169,6 +1175,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Statistic Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">优化理论</a>
               </li>
             
             <div class="clearfix"></div>
