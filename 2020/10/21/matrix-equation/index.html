@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/35c2e184a7f595ebf5643f63e0a4277e.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png">
 <meta property="article:published_time" content="2020-10-21T15:12:15.000Z">
-<meta property="article:modified_time" content="2020-11-16T12:38:00.346Z">
+<meta property="article:modified_time" content="2020-11-17T12:47:21.915Z">
 <meta property="article:author" content="Fazzie">
 <meta property="article:tag" content="矩阵论">
 <meta name="twitter:card" content="summary">
@@ -396,7 +396,7 @@ D_{LS}^{(2)}=\sum_{i=1}^n[m(x_i-\bar{x})-(y_i-\bar{y})]^2
 \end{array}</script><p>对于若干数据点集，我们用直线ax+by+c=0拟合，，总体最小二乘考虑数据点距离平方和的最小化</p>
 <script type="math/tex; mode=display">
 D_{TLS}=\frac{\sum_{i=1}^n[a(x_i-\hat{x})+b(y_i-\hat{y})]^2}{a^2+b^2}</script><p>我们把D转化为单位向量t与M的乘积<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/21/844232223ed1a6dd8098795480f2b97d.png" alt=""></p>
-<p>对此，我们有定理，单位法向量$t=(a^2+b^2)^{-1/2}[a,b]^T$取矩阵$M^tM$的最小特征值$\sigma_2^2$特征向量，距离平方和取最小值$\sigma_2^2$</p>
+<p>对此，我们有定理，单位法向量$t=(a^2+b^2)^{-1/2}[a,b]^T$取矩阵$M^tM$的最小特征值$\lambda_{min}$对应的特征向量，距离平方和取最小值$\lambda_{min}$</p>
 <script type="math/tex; mode=display">
 D_{TSL}=\frac{(Mt)^TMt}{||t||_2^2}=\frac{t^TM^TMt}{||t||_2^2}</script><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>对于三个数据点(2,1),(2,4),(5,1)</p>
 <script type="math/tex; mode=display">
@@ -915,6 +915,10 @@ min||u||_2^2</script>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">优化理论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RL</a>
               </li>
             
             <div class="clearfix"></div>

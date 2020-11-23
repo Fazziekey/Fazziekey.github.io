@@ -6,21 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Fazzie key | Hexo</title>
+  <title>强化学习基础和马尔科夫决策过程 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Hello">
+  <meta name="description" content="强化学习基本过程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fazzie key">
-<meta property="og:url" content="https://fazziekey.github.io/2020/04/14/hello-world/index.html">
+<meta property="og:title" content="强化学习基础和马尔科夫决策过程">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/23/RL-base/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Hello">
+<meta property="og:description" content="强化学习基本过程">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-14T06:03:50.052Z">
-<meta property="article:modified_time" content="2020-08-05T16:03:17.188Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/50ca94f0a4326ee91f2dd480a8019e8e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/59d7a52b2f3c05290c0959d8c6aa3c77.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/a55f81b89fcd2007ad93eddc865932e2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/786e9d90dfae4df9e7f9d18318a693c5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/35e02eaa2e13b99ebf06d7482e031e6b.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/99bf59fcb81437835eb58274c0722285.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/d62fb722c177cdcefdd042d6e18329ee.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/5ec4e37080c6df000eed9aef386056a0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/d9028f7e8b382d4b3b0e56c32f302801.png">
+<meta property="article:published_time" content="2020-11-23T11:13:01.000Z">
+<meta property="article:modified_time" content="2020-11-23T11:15:28.367Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="RL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/50ca94f0a4326ee91f2dd480a8019e8e.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -200,14 +211,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-RL-base" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Fazzie key
+      强化学习基础和马尔科夫决策过程
     </h1>
   
 
@@ -219,8 +230,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/04/14/hello-world/" class="archive-article-date">
-        <time datetime="2020-04-14T06:03:50.052Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+<a href="/2020/11/23/RL-base/" class="archive-article-date">
+        <time datetime="2020-11-23T11:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
 </a>
 
   
@@ -233,7 +244,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">71字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -242,7 +253,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -255,15 +266,135 @@
     
 
     
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Hello-Hexo"><a href="#Hello-Hexo" class="headerlink" title="Hello Hexo"></a>Hello Hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><script type="math/tex; mode=display">bash
-$ hexo new "My New Post"</script><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><script type="math/tex; mode=display">bash
-$ hexo server</script><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><script type="math/tex; mode=display">bash
-$ hexo generate</script><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><script type="math/tex; mode=display">bash
-$ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <h1 id="强化学习基本过程"><a href="#强化学习基本过程" class="headerlink" title="强化学习基本过程"></a>强化学习基本过程</h1><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/50ca94f0a4326ee91f2dd480a8019e8e.png" alt=""></p>
+<a id="more"></a>
+<h2 id="强化学习基本要素"><a href="#强化学习基本要素" class="headerlink" title="强化学习基本要素"></a>强化学习基本要素</h2><ul>
+<li>模型</li>
+<li>政策</li>
+<li>价值</li>
+</ul>
+<h2 id="深度学习不同点"><a href="#深度学习不同点" class="headerlink" title="深度学习不同点"></a>深度学习不同点</h2><ul>
+<li>没有标签，只有反馈</li>
+<li>学习的过程来自于试错</li>
+<li>学习的反馈有延迟</li>
+<li>动作会影响数据</li>
+<li>观察数据有时间的关联</li>
+</ul>
+<h1 id="马尔科夫基本过程（MDP）"><a href="#马尔科夫基本过程（MDP）" class="headerlink" title="马尔科夫基本过程（MDP）"></a>马尔科夫基本过程（MDP）</h1><p>马尔科夫过程的下一状态只取决于当前状态</p>
+<h2 id="马尔科夫奖励过程"><a href="#马尔科夫奖励过程" class="headerlink" title="马尔科夫奖励过程"></a>马尔科夫奖励过程</h2><ul>
+<li>S：state</li>
+<li>R: Reward,$R(s_t=s)$</li>
+<li>Discount factor $\gamma\in [0,1]$</li>
+<li>P:dynamics/transition model </li>
+</ul>
+<h3 id="Horizon"><a href="#Horizon" class="headerlink" title="Horizon"></a>Horizon</h3><ul>
+<li>Number of maximum time steps in each episode</li>
+<li>Can be infinite,otherwise called finite Markov (reward) Process</li>
+</ul>
+<h3 id="Return"><a href="#Return" class="headerlink" title="Return"></a>Return</h3><script type="math/tex; mode=display">
+G_t=R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}...\gamma^{T-t-1}R_T</script><blockquote>
+<p>可以看出随着时间变化，奖励值会衰减，只有离开某个状态才能获得奖励，所以奖励来自于未来的状态</p>
+</blockquote>
+<h3 id="state-value-function-Vt-s-for-a-MRP"><a href="#state-value-function-Vt-s-for-a-MRP" class="headerlink" title="state value function Vt(s) for a MRP"></a>state value function Vt(s) for a MRP</h3><h4 id="Expected"><a href="#Expected" class="headerlink" title="Expected"></a>Expected</h4><script type="math/tex; mode=display">
+V_t(s)=E[G_t|s_t=s]
+\\
+=E[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}...\gamma^{T-t-1}R_T|s_t=s]</script><h3 id="Discount-Factor-gamma"><a href="#Discount-Factor-gamma" class="headerlink" title="Discount Factor $\gamma$"></a>Discount Factor $\gamma$</h3><p>可以作为强化学习的超参数调整</p>
+<ul>
+<li>当$\gamma=0$，奖励只取决于当前状态</li>
+</ul>
+<h2 id="Bellman-equation"><a href="#Bellman-equation" class="headerlink" title="Bellman equation"></a>Bellman equation</h2><p>Bellman方程描述了状态的迭代关系</p>
+<script type="math/tex; mode=display">
+V(s)=R(s)+\gamma\sum_{s'\in S}P(s'|s)V(s')</script><p>也可以写为矩阵的形式<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/59d7a52b2f3c05290c0959d8c6aa3c77.png" alt=""><br>我们可以通过矩阵求逆的过程求出V</p>
+<script type="math/tex; mode=display">
+V=R+\gamma PV
+\\
+\to V=(1-\gamma P)^{-1}R</script><p>矩阵求逆的计算量太大，所以我们一般用迭代的方法求解</p>
+<ul>
+<li>动态规划法</li>
+<li>蒙特卡洛采样法</li>
+<li>Temporal-Difference learning</li>
+</ul>
+<h3 id="蒙特卡洛法"><a href="#蒙特卡洛法" class="headerlink" title="蒙特卡洛法"></a>蒙特卡洛法</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/a55f81b89fcd2007ad93eddc865932e2.png" alt=""></p>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/26/786e9d90dfae4df9e7f9d18318a693c5.png" alt=""></p>
+<h2 id="马尔科夫决策过程"><a href="#马尔科夫决策过程" class="headerlink" title="马尔科夫决策过程"></a>马尔科夫决策过程</h2><p>增加了一个动作</p>
+<ul>
+<li>S：state</li>
+<li>A: action</li>
+<li>R: Reward,$R(s_t=s)$</li>
+<li>Discount factor $\gamma\in [0,1]$</li>
+<li>P:dynamics/transition model $P(s_{t+1}=s’|s_t=s,a_t=a$</li>
+</ul>
+<h3 id="Policy"><a href="#Policy" class="headerlink" title="Policy"></a>Policy</h3><ul>
+<li>policy决定了当前采取的策略</li>
+<li>Policy：$\pi(a|s)=P(a_t=a|a_t=s)$</li>
+<li>Policies are stationary (time-independent)，$A_t～ \pi(a|s)$ for any t &gt; 0</li>
+</ul>
+<ul>
+<li>Given an MDP $(S,A, P,R,\gamma)$ and a policy $\pi$</li>
+<li>The state sequence S1, S2,… is a Markov process $(S, P^\pi)$</li>
+<li>The state and reward sequence S1,R2,S2, R2,… is a Markov reward<br>process (S, PT,R”, ) where,</li>
+</ul>
+<script type="math/tex; mode=display">
+P^{\pi}\left(s^{\prime} \mid s\right)=\sum_{a \in A} \pi(a \mid s) P\left(s^{\prime} \mid s, a\right)
+\\
+R^{\pi}(s)=\sum_{a \in A} \pi(a \mid s) R(s, a)</script><blockquote>
+<p>当policy$\pi$已知时，马尔科夫决策过程会转化为马尔科夫奖励过程</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/35e02eaa2e13b99ebf06d7482e031e6b.png" alt=""><br>马尔科夫决策过程的下一状态先由当前状态采取的决策决定</p>
+<h3 id="State-Value-Function"><a href="#State-Value-Function" class="headerlink" title="State Value Function"></a>State Value Function</h3><script type="math/tex; mode=display">
+{v}^{\pi}(s)=\mathbb{E}_{\pi}\left[G_{t} \mid s_{t}=s\right]</script><h4 id="action-value-function"><a href="#action-value-function" class="headerlink" title="action-value function"></a>action-value function</h4><script type="math/tex; mode=display">
+q^{\pi}(s, a)=\mathbb{E}_{\pi}\left[G_{t} \mid s_{t}=s, A_{t}=a\right]</script><h4 id="状态价值函数和动作价值函数的关系"><a href="#状态价值函数和动作价值函数的关系" class="headerlink" title="状态价值函数和动作价值函数的关系"></a>状态价值函数和动作价值函数的关系</h4><script type="math/tex; mode=display">
+v^{\pi}(s)=\sum_{a \in A} \pi(a \mid s) q^{\pi}(s, a)</script><h3 id="Bellman-Equation"><a href="#Bellman-Equation" class="headerlink" title="Bellman Equation"></a>Bellman Equation</h3><script type="math/tex; mode=display">
+v^{\pi}(s)=E_{\pi}\left[R_{t+1}+\gamma v^{\pi}\left(s_{t+1}\right) \mid s_{t}=s\right]
+\\
+=\sum_{a \in A} \pi(a \mid s) q^{\pi}(s, a)
+\\
+=\sum_{a \in A} \pi(a \mid s)\left(R(s, a)+\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s, a\right) v^{\pi}\left(s^{\prime}\right)\right)</script><hr>
+<script type="math/tex; mode=display">
+q^{\pi}(s, a)=E_{\pi}\left[R_{t+1}+\gamma q^{\pi}\left(s_{t+1}, A_{t+1}\right) \mid s_{t}=s, A_{t}=a\right]
+\\
+=R_{s}^{a}+\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s, a\right) v^{\pi}\left(s^{\prime}\right)
+\\
+=R(s, a)+\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s, a\right) \sum_{a^{\prime} \in A} \pi\left(a^{\prime} \mid s^{\prime}\right) q^{\pi}\left(s^{\prime}, a^{\prime}\right)</script><blockquote>
+<p>$v^\pi$表示了采用policy$\pi$得到奖励的期望</p>
+</blockquote>
+<h2 id="马尔科夫决策过程的预测和控制"><a href="#马尔科夫决策过程的预测和控制" class="headerlink" title="马尔科夫决策过程的预测和控制"></a>马尔科夫决策过程的预测和控制</h2><ul>
+<li>预测<ul>
+<li>预测价值 </li>
+</ul>
+</li>
+<li>控制<ul>
+<li>寻找最佳策略 </li>
+</ul>
+</li>
+</ul>
+<h3 id="predition"><a href="#predition" class="headerlink" title="predition"></a>predition</h3><p>尝试所有策略，收敛后得到价值函数<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/99bf59fcb81437835eb58274c0722285.png" alt=""></p>
+<h3 id="optimal-value-function-and-policy"><a href="#optimal-value-function-and-policy" class="headerlink" title="optimal value function and policy"></a>optimal value function and policy</h3><script type="math/tex; mode=display">
+v^*(s)=max_\pi v^\pi(s)
+\\
+\pi^* (s)=arg max_\pi v^\pi (s)</script><p><strong>如何寻找最佳的policy?</strong><br>最佳行为可以定义为</p>
+<script type="math/tex; mode=display">
+\pi^{*}(a \mid s)=\left\{\begin{array}{ll}
+1, & \text { if } a=\arg \max _{a \in A} q^{*}(s, a) \\
+0, & \text { otherwise }
+\end{array}\right.</script><h3 id="policy-search"><a href="#policy-search" class="headerlink" title="policy search"></a>policy search</h3><p>策略搜索的方法主要有以下两种</p>
+<h4 id="policy-iteration"><a href="#policy-iteration" class="headerlink" title="policy iteration"></a>policy iteration</h4><p>策略迭代算法有两个步骤</p>
+<ul>
+<li>估计当前政策价值函数</li>
+<li>采用贪心算法改进策略</li>
+</ul>
+<script type="math/tex; mode=display">
+\pi'=greedy(v^\pi)</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/d62fb722c177cdcefdd042d6e18329ee.png" alt=""></p>
+<h5 id="policy-improvwment"><a href="#policy-improvwment" class="headerlink" title="policy improvwment"></a>policy improvwment</h5><ul>
+<li>计算当前策略价值<script type="math/tex; mode=display">
+q^{\pi_{i}}(s, a)=R(s, a)+\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s, a\right) v^{\pi_{i}}\left(s^{\prime}\right)</script></li>
+<li>计算新政策价值<script type="math/tex; mode=display">
+\pi_{i+1}(s)=\underset{a}{\arg \max } q^{\pi_{i}}(s, a)</script><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/5ec4e37080c6df000eed9aef386056a0.png" alt=""></li>
+</ul>
+<script type="math/tex; mode=display">
+q^{\pi}(s,\pi'(s))=\max_{a\in A}q^\pi(s,a)</script><h4 id="value-iteration"><a href="#value-iteration" class="headerlink" title="value iteration"></a>value iteration</h4><script type="math/tex; mode=display">
+v(s)=\max_{a\in A}(R(s, a)+\gamma \sum_{s^{\prime} \in S}
+P\left(s^{\prime} \mid s, a\right) v\left(s^{\prime}\right))</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/27/d9028f7e8b382d4b3b0e56c32f302801.png" alt=""></p>
 
     
 
@@ -278,7 +409,7 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://Fazziekey.github.io/2020/04/14/hello-world/" title="Fazzie key" target="_blank">https://Fazziekey.github.io/2020/04/14/hello-world/</a>
+          <a href="https://Fazziekey.github.io/2020/11/23/RL-base/" title="强化学习基础和马尔科夫决策过程" target="_blank">https://Fazziekey.github.io/2020/11/23/RL-base/</a>
         </li>
         
         <li>
@@ -295,7 +426,29 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -345,7 +498,7 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/04/14/hello-world/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/11/23/RL-base/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -360,15 +513,11 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
 
 <nav id="article-nav">
   
-    <a href="/2020/04/14/%E2%80%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E2%80%9D/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          “Mark dowm语法从入门到放弃”
-        
-      </div>
-    </a>
   
+    <a href="/2020/11/17/optimize/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">优化理论</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -393,7 +542,7 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-Hexo"><span class="toc-number">1.</span> <span class="toc-text">Hello Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">2.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">2.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">2.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">2.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#强化学习基本过程"><span class="toc-number">1.</span> <span class="toc-text">强化学习基本过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#强化学习基本要素"><span class="toc-number">1.1.</span> <span class="toc-text">强化学习基本要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习不同点"><span class="toc-number">1.2.</span> <span class="toc-text">深度学习不同点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#马尔科夫基本过程（MDP）"><span class="toc-number">2.</span> <span class="toc-text">马尔科夫基本过程（MDP）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#马尔科夫奖励过程"><span class="toc-number">2.1.</span> <span class="toc-text">马尔科夫奖励过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Horizon"><span class="toc-number">2.1.1.</span> <span class="toc-text">Horizon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Return"><span class="toc-number">2.1.2.</span> <span class="toc-text">Return</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#state-value-function-Vt-s-for-a-MRP"><span class="toc-number">2.1.3.</span> <span class="toc-text">state value function Vt(s) for a MRP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Expected"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">Expected</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Discount-Factor-gamma"><span class="toc-number">2.1.4.</span> <span class="toc-text">Discount Factor $\gamma$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bellman-equation"><span class="toc-number">2.2.</span> <span class="toc-text">Bellman equation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#蒙特卡洛法"><span class="toc-number">2.2.1.</span> <span class="toc-text">蒙特卡洛法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态规划"><span class="toc-number">2.2.2.</span> <span class="toc-text">动态规划</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#马尔科夫决策过程"><span class="toc-number">2.3.</span> <span class="toc-text">马尔科夫决策过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Policy"><span class="toc-number">2.3.1.</span> <span class="toc-text">Policy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State-Value-Function"><span class="toc-number">2.3.2.</span> <span class="toc-text">State Value Function</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#action-value-function"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">action-value function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#状态价值函数和动作价值函数的关系"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">状态价值函数和动作价值函数的关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bellman-Equation"><span class="toc-number">2.3.3.</span> <span class="toc-text">Bellman Equation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#马尔科夫决策过程的预测和控制"><span class="toc-number">2.4.</span> <span class="toc-text">马尔科夫决策过程的预测和控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#predition"><span class="toc-number">2.4.1.</span> <span class="toc-text">predition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optimal-value-function-and-policy"><span class="toc-number">2.4.2.</span> <span class="toc-text">optimal value function and policy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#policy-search"><span class="toc-number">2.4.3.</span> <span class="toc-text">policy search</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#policy-iteration"><span class="toc-number">2.4.3.1.</span> <span class="toc-text">policy iteration</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#policy-improvwment"><span class="toc-number">2.4.3.1.1.</span> <span class="toc-text">policy improvwment</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#value-iteration"><span class="toc-number">2.4.3.2.</span> <span class="toc-text">value iteration</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -406,7 +555,7 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
 
 
 
-<div id="SOHUCS" sid="hello-world" ></div> 
+<div id="SOHUCS" sid="RL-base" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -427,9 +576,9 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "Fazzie key" -->
+  <!-- id: "强化学习基础和马尔科夫决策过程" -->
   var giteement = new Giteement({
-    id: '20200414140350',
+    id: '20201123191301',
     owner: 'Fazzie',
     repo: 'hexo-blog',
     backcall_uri: 'https://Fazziekey.github.io',
@@ -454,9 +603,9 @@ $ hexo deploy</script><p>More info: <a href="https://hexo.io/docs/one-command-de
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "Fazzie key" -->
+    <!-- id: "强化学习基础和马尔科夫决策过程" -->
     var gitment = new Gitment({
-      id: "20200414140350",
+      id: "20201123191301",
       owner: 'fazzie-key',
       repo: 'hexo-blog',
       oauth: {
