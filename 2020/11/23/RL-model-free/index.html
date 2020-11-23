@@ -6,17 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Fazziekey.github.io">
-  <title>Category: 《栈溢出工程师》 | Hexo</title>
+  <title>RL:model free | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://fazziekey.github.io/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/index.html">
+  <meta name="description" content="当模型太大，无法通过迭代得到最佳策略，我们就需要使用model free RL Model-free predictionMonre Carlo policy evaluation Return: $G_t&#x3D;R_{t+1}＋\gamma R_{t+2}+\gamma^2R_{t+3}+…$ under policy$\pi$  $v^\pi(s)&#x3D;E_{\tau-\pi}[G_t|s_t &#x3D; s]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RL:model free">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/23/RL-model-free/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="当模型太大，无法通过迭代得到最佳策略，我们就需要使用model free RL Model-free predictionMonre Carlo policy evaluation Return: $G_t&#x3D;R_{t+1}＋\gamma R_{t+2}+\gamma^2R_{t+3}+…$ under policy$\pi$  $v^\pi(s)&#x3D;E_{\tau-\pi}[G_t|s_t &#x3D; s]">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/9676b882093cadade8359eca8958efe9.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/69202588ffd098a3893f500cea74149e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/eaef614f49b808056ec38156a7daae71.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/511c9b8c72b33f8ca006705c0f7b1305.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/f03b1182c7ce24e3f8c61a967b826bf0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/2683d4a0f6a898d41889c0f67c7c921e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/9bf392a71bd253f3681fb7c9011835f6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/93c9fb9ec4dc889090c0201723e9f052.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/822356e1e45ce92ff731c3165d46d116.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/37badb3a0c00f01fb73fdc2b2fb2bf88.png">
+<meta property="article:published_time" content="2020-11-23T15:15:08.000Z">
+<meta property="article:modified_time" content="2020-11-23T15:22:12.962Z">
 <meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="RL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/9676b882093cadade8359eca8958efe9.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -196,441 +212,394 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-RL-model-free" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/08/nn/" class="archive-article-date">
-        <time datetime="2020-08-08T07:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/08/nn/" target="_blank">建立你的知识神经网络</a>
   
+    <h1 class="article-title" itemprop="name">
+      RL:model free
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" class="archive-article-date">
-        <time datetime="2020-08-05T16:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/11/23/RL-model-free/" class="archive-article-date">
+        <time datetime="2020-11-23T15:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/06/%E7%88%AC%E8%99%ABplus/" target="_blank">Beautiful Soup</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2020-08-05T06:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">675字</span>
+    </span>
+  </span>
 
-        </div>
-    	 
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" target="_blank">爬虫基础-正则表达匹配</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Statistic Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/31/JS-Basic/" class="archive-article-date">
-        <time datetime="2020-07-31T05:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-31</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/31/JS-Basic/" target="_blank">JS Basic</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/28/CSS/" class="archive-article-date">
-        <time datetime="2020-07-28T15:22:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/28/CSS/" target="_blank">CSS</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/28/HTML/" class="archive-article-date">
-        <time datetime="2020-07-28T07:30:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/28/HTML/" target="_blank">HTML</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/25/MySQL/" class="archive-article-date">
-        <time datetime="2020-07-25T13:40:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/25/MySQL/" target="_blank">MySQL</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/《栈溢出工程师》//" class="article-tag-list-link color4">《栈溢出工程师》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
-
-
-<article class="article article-type-post show">
-  <header class="article-header" style="border-bottom: 1px solid #ccc">
-  <h1 class="article-title" itemprop="name">
-    
-  </h1>
   </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+
+    
+    <p>当模型太大，无法通过迭代得到最佳策略，我们就需要使用model free RL</p>
+<h1 id="Model-free-prediction"><a href="#Model-free-prediction" class="headerlink" title="Model-free prediction"></a>Model-free prediction</h1><h2 id="Monre-Carlo-policy-evaluation"><a href="#Monre-Carlo-policy-evaluation" class="headerlink" title="Monre Carlo policy evaluation"></a>Monre Carlo policy evaluation</h2><ul>
+<li>Return: $G_t=R_{t+1}＋\gamma R_{t+2}+\gamma^2R_{t+3}+…$ under policy$\pi$ </li>
+<li>$v^\pi(s)=E_{\tau-\pi}[G_t|s_t = s]$, thus expectation over trajectories $\tau$Tgenerated by following $\pi$</li>
+<li>MC simulation: we can simply sample a lot of trajectories, computethe actual returns for all the trajectories, then average them</li>
+<li>MC policy evaluation uses empirical mean return instead of expectedreturn</li>
+<li>MC does not require MDP dynamics/rewards,no bootstrapping,anddoes not assume state is Markov.</li>
+<li>Only applied to episodic MDPs (each episode terminates)</li>
+</ul>
+<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><p>To evaluate state v(s)</p>
+<ul>
+<li>Every time-step t that state s is visited in an episode,</li>
+<li>Increment counter $N(s)\to N(s)＋1$</li>
+<li>Increment total return $S(s)\to S(s)+G_t$</li>
+<li>Value is estimated by mean return $v(s)= s(s)/N(s)$By law of large numbers,$v(s)\to v^\pi(s) $as$ N(s)\to \infty$</li>
+</ul>
+<blockquote>
+<p>蒙特卡洛的核心思想是通过多次迭代，取每个状态value的均值</p>
+</blockquote>
+<ul>
+<li>Collect one episode (S1,A1,R1,…. St)</li>
+<li>For each state st with computed return Gt<script type="math/tex; mode=display">
+N(S_t) = N(S_t)+1
+\\
+v(S_t)=v(S_t)+ \frac{1}{N(S_t)}(G_t-v(S_t))</script></li>
+<li>Or use a running mean (old episodes are forgotten). Good fornon-stationary problems.<script type="math/tex; mode=display">
+v(S_t)=v(S_t)+ \alpha (G_t-v(S_t))</script></li>
+</ul>
+<blockquote>
+<p>$\alpha$在这里可以看做学习率</p>
+</blockquote>
+<h2 id="Temporal-Diffenence-learning"><a href="#Temporal-Diffenence-learning" class="headerlink" title="Temporal Diffenence learning"></a>Temporal Diffenence learning</h2><ul>
+<li>Objective: learn $v_\pi$ online from experience under policy $\pi$ </li>
+<li>Simplest TD algorithm: TD(0)<ul>
+<li>Update $v(S_t)$ toward estimated retur$R_{t+1}+~v(St+1)$</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+v(S_t)=v(S_t)+\alpha(R_{t+1}＋\gamma v(S_t+1)-v(S_t))</script><ul>
+<li>$R_{t+1}+\gamma v(S_{t+1})$ is called TD target</li>
+<li>$t= R_{t+1}+\gamma v(S_t+1)- v(S_t)$ is called the TD error</li>
+<li>Comparison: Incremental Monte-Carlo<ul>
+<li>Update $v(S_t)$ toward actual return $G_t$ given an episode i<script type="math/tex; mode=display">
+v(S_t)=v(S_t)+\alpha (G_t-v(S_t))</script>我们也使用可以n步的TD</li>
+</ul>
+</li>
+</ul>
+<h2 id="Difference-Between-TD-and-MC"><a href="#Difference-Between-TD-and-MC" class="headerlink" title="Difference Between TD and MC"></a>Difference Between TD and MC</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/9676b882093cadade8359eca8958efe9.png" alt=""></p>
+<blockquote>
+<p>TD可以随时进行学习，MC只有在走完决策树后才能学习</p>
+</blockquote>
+<ul>
+<li>DP</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/69202588ffd098a3893f500cea74149e.png" alt=""></p>
+<ul>
+<li>MC<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/eaef614f49b808056ec38156a7daae71.png" alt=""></li>
+<li>TD<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/511c9b8c72b33f8ca006705c0f7b1305.png" alt=""></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/f03b1182c7ce24e3f8c61a967b826bf0.png" alt=""></p>
+<h1 id="Model-free-control"><a href="#Model-free-control" class="headerlink" title="Model free control"></a>Model free control</h1><h2 id="Monte-Carlo-with-epsilon-greedy-Exploration"><a href="#Monte-Carlo-with-epsilon-greedy-Exploration" class="headerlink" title="Monte Carlo with $\epsilon$greedy Exploration"></a>Monte Carlo with $\epsilon$greedy Exploration</h2><ul>
+<li>Trade-off between exploration and exploitation (we will talk aboutthis in later lecture)</li>
+<li>$\epsilon$Greedy Exploration: Ensuring continual exploration<ul>
+<li>All actions are tried with non-zero probability</li>
+<li>With probability 1 - $\epsilon$ choose the greedy action </li>
+<li>With probability $\epsilon$choose an action at random</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\pi(a|s)=\begin{cases}
+\epsilon/|A|+1-\epsilon&a=argmax_{a\in A}Q(s,a\\ 
+\epsilon/|A|&otherwise
+\end{cases}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/2683d4a0f6a898d41889c0f67c7c921e.png" alt=""></p>
+<h2 id="Sarsa-On-Policy-TD-Control"><a href="#Sarsa-On-Policy-TD-Control" class="headerlink" title="Sarsa:On-Policy TD Control"></a>Sarsa:On-Policy TD Control</h2><ul>
+<li>An episode consists of an alternating sequence of states andstate-action pairs:</li>
+</ul>
+<ul>
+<li>$\epsilon$-greedy policy for one step, then bootstrap the action value function:</li>
+</ul>
+<script type="math/tex; mode=display">
+Q(S_t,A_t)=Q(S_t,A_t)+\alpha [R_{t+1}+Q(S_{t+1},A_{t+1})- Q(s_t,A_t)]</script><ul>
+<li>The update is done after every transition from a nonterminal state $S_t$</li>
+<li>TD target $\phi_t= R_{t+1}+Q(S_{t+1},A_{t+1})$</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/9bf392a71bd253f3681fb7c9011835f6.png" alt=""></p>
+<h2 id="On-policy-Learning-off-policy-Learning"><a href="#On-policy-Learning-off-policy-Learning" class="headerlink" title="On policy Learning off-policy Learning"></a>On policy Learning off-policy Learning</h2><ul>
+<li>On-policy learning: Learn about policy $\pi$ from the experiencecollected from $\pi$<ul>
+<li>Behave non-optimally in order to explore all actions, then reduce the<br>exploration $\epsilon$-greedy</li>
+</ul>
+</li>
+<li>Another important approach is off-policy learning which essentiallyuses two different polices:<ul>
+<li>the one which is being learned about and becomes the optimal policy</li>
+<li>the other one which is more exploratory and is used to generate<br>trajectories</li>
+</ul>
+</li>
+<li>Off-policy learning: Learn about policy $\pi$ from the experience sampledfrom another policy $\pi$<ul>
+<li>$\pi$: target policy</li>
+<li>$\mu$: behavior policy</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>off policy 会选择更加激进的策略，通过激进策略的反馈优化target policy</p>
+</blockquote>
+<h2 id="Off-policy-control-with-Q-Learning"><a href="#Off-policy-control-with-Q-Learning" class="headerlink" title="Off policy control with Q-Learning"></a>Off policy control with Q-Learning</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/93c9fb9ec4dc889090c0201723e9f052.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/822356e1e45ce92ff731c3165d46d116.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/23/37badb3a0c00f01fb73fdc2b2fb2bf88.png" alt=""></p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Fazzie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://Fazziekey.github.io/2020/11/23/RL-model-free/" title="RL:model free" target="_blank">https://Fazziekey.github.io/2020/11/23/RL-model-free/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/《炼金术士修炼手册》//" class="article-tag-list-link color1">《炼金术士修炼手册》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://fazziekey.github.io/2020/11/23/RL-model-free/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/23/RL-base/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">强化学习基础和马尔科夫决策过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Model-free-prediction"><span class="toc-number">1.</span> <span class="toc-text">Model-free prediction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Monre-Carlo-policy-evaluation"><span class="toc-number">1.1.</span> <span class="toc-text">Monre Carlo policy evaluation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法流程"><span class="toc-number">1.1.1.</span> <span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Temporal-Diffenence-learning"><span class="toc-number">1.2.</span> <span class="toc-text">Temporal Diffenence learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Difference-Between-TD-and-MC"><span class="toc-number">1.3.</span> <span class="toc-text">Difference Between TD and MC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Model-free-control"><span class="toc-number">2.</span> <span class="toc-text">Model free control</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Monte-Carlo-with-epsilon-greedy-Exploration"><span class="toc-number">2.1.</span> <span class="toc-text">Monte Carlo with $\epsilon$greedy Exploration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sarsa-On-Policy-TD-Control"><span class="toc-number">2.2.</span> <span class="toc-text">Sarsa:On-Policy TD Control</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#On-policy-Learning-off-policy-Learning"><span class="toc-number">2.3.</span> <span class="toc-text">On policy Learning off-policy Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Off-policy-control-with-Q-Learning"><span class="toc-number">2.4.</span> <span class="toc-text">Off policy control with Q-Learning</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+<div id="SOHUCS" sid="RL-model-free" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "RL:model free" -->
+  var giteement = new Giteement({
+    id: '20201123231508',
+    owner: 'Fazzie',
+    repo: 'hexo-blog',
+    backcall_uri: 'https://Fazziekey.github.io',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c72a0941e9a076a1ab543ffd37717c00e6f3a59aa0f62486e183db149c6435e2',
+      client_secret: '6767e04e5571c2c557dee3fe96ba9b0240e32f9008804e450b231e63946ebff8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
 
   
-  <div class="category-all-page">
-    <h2>共计&nbsp;5&nbsp;个分类</h2>
-    <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a><span class="category-list-item-list-count">1</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a><span class="category-list-item-list-count">8</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a><span class="category-list-item-list-count">7</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a><span class="category-list-item-list-count">8</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a><span class="category-list-item-list-count">18</span></li></ul>
-  </div>
+  <div id="gitment-ctn"></div>
   
-</article>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "RL:model free" -->
+    var gitment = new Gitment({
+      id: "20201123231508",
+      owner: 'fazzie-key',
+      repo: 'hexo-blog',
+      oauth: {
+        client_id: '504d8b7c95c84eef8b88',
+        client_secret: 'ddc0050e3a75257c3ef9562cb12cacd301941a7c',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
+  
+
+
+
           </div>
         </div>
       </div>
@@ -669,10 +638,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
