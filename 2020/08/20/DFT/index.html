@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>离散时间信号频域分析 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="离散时间傅里叶级数 x[n]&#x3D;\sum_{k&#x3D;}a_ke^{jkw_0n}&#x3D;\sum_{k&#x3D;}a_ke^{jk\frac{2\pi}{T_0}n} a_k&#x3D;\frac{1}{N}\sum_{n&#x3D;}x[n]e^{-jkw_0n}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散时间信号频域分析">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/20/DFT/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="离散时间傅里叶级数 x[n]&#x3D;\sum_{k&#x3D;}a_ke^{jkw_0n}&#x3D;\sum_{k&#x3D;}a_ke^{jk\frac{2\pi}{T_0}n} a_k&#x3D;\frac{1}{N}\sum_{n&#x3D;}x[n]e^{-jkw_0n}">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-20T13:58:19.000Z">
+<meta property="article:modified_time" content="2020-08-20T15:41:45.172Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Fazziekey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DFT" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/20/DFT/" class="article-date">
+  <time datetime="2020-08-20T13:58:19.000Z" itemprop="datePublished">2020-08-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      离散时间信号频域分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="离散时间傅里叶级数"><a href="#离散时间傅里叶级数" class="headerlink" title="离散时间傅里叶级数"></a>离散时间傅里叶级数</h1><script type="math/tex; mode=display">
+x[n]=\sum_{k=<N>}a_ke^{jkw_0n}=\sum_{k=<N>}a_ke^{jk\frac{2\pi}{T_0}n}</script><script type="math/tex; mode=display">
+a_k=\frac{1}{N}\sum_{n=<N>}x[n]e^{-jkw_0n}</script><a id="more"></a>
+<blockquote>
+<p>离散时间傅里叶级数不存在着收敛问题和吉布斯现象</p>
+</blockquote>
+<h1 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h1><script type="math/tex; mode=display">
+X(e^{jw})=\sum_{n=-\infty}^\infty x[n]e^{-jwn}</script><script type="math/tex; mode=display">
+x[n]=\frac{1}{2\pi}\int_{2\pi}X(e^{jw})e^{jwn}dw</script><script type="math/tex; mode=display">
+X(e^{jw})=|X(e^{jw})|e^{j\theta(w)}</script><h2 id="离散时间傅里叶变换的收敛性与吉布斯现象"><a href="#离散时间傅里叶变换的收敛性与吉布斯现象" class="headerlink" title="离散时间傅里叶变换的收敛性与吉布斯现象"></a>离散时间傅里叶变换的收敛性与吉布斯现象</h2><p>x[n]要求绝对可和并能量有限</p>
+<script type="math/tex; mode=display">
+\sum_{n=-\infty}^\infty |x[n]|<\infty</script><script type="math/tex; mode=display">
+\sum_{n=-\infty}^\infty |x[n]|^2<\infty</script><h2 id="常见函数离散傅里叶变换"><a href="#常见函数离散傅里叶变换" class="headerlink" title="常见函数离散傅里叶变换"></a>常见函数离散傅里叶变换</h2><h3 id="单位脉冲"><a href="#单位脉冲" class="headerlink" title="单位脉冲"></a>单位脉冲</h3><script type="math/tex; mode=display">
+\delta[n]\to 1</script><h3 id="单边指数"><a href="#单边指数" class="headerlink" title="单边指数"></a>单边指数</h3><script type="math/tex; mode=display">
+x[n]=a^nu[n] \to\frac{1}{1-ae^{-jw}}</script><h3 id="双边指数"><a href="#双边指数" class="headerlink" title="双边指数"></a>双边指数</h3><script type="math/tex; mode=display">
+x[n]=a^{|n|} \to\frac{1-a^2}{1-2a\cos w+a^2}</script><h3 id="矩形脉冲"><a href="#矩形脉冲" class="headerlink" title="矩形脉冲"></a>矩形脉冲</h3><script type="math/tex; mode=display">
+x[n]=
+\begin{cases}
+1&|n|<N_1\\
+0&|n|>N_1
+\end{cases}</script><script type="math/tex; mode=display">
+X(e^{jw})=\frac{\sin[(2N_1+1)w/2]}{\sin(w/2)}</script><h3 id="冲激串"><a href="#冲激串" class="headerlink" title="冲激串"></a>冲激串</h3><script type="math/tex; mode=display">
+1 \to 2\pi\sum_{k=-\infty}^{\infty}\delta(w-2\pi k)</script><h1 id="离散周期信号傅里叶变换"><a href="#离散周期信号傅里叶变换" class="headerlink" title="离散周期信号傅里叶变换"></a>离散周期信号傅里叶变换</h1><script type="math/tex; mode=display">
+X(e^{jw})=2\pi\sum_{k=-\infty}^{\infty}a_k\delta(w-2\pi k/N)</script><h1 id="离散傅里叶变换性质"><a href="#离散傅里叶变换性质" class="headerlink" title="离散傅里叶变换性质"></a>离散傅里叶变换性质</h1><h3 id="周期性"><a href="#周期性" class="headerlink" title="周期性"></a>周期性</h3><h3 id="线性性质"><a href="#线性性质" class="headerlink" title="线性性质"></a>线性性质</h3><h3 id="时移性质"><a href="#时移性质" class="headerlink" title="时移性质"></a>时移性质</h3><script type="math/tex; mode=display">
+x[n-n_0]\to e^{-jwn_0}X(e^{jw})</script><h3 id="频移性质"><a href="#频移性质" class="headerlink" title="频移性质"></a>频移性质</h3><script type="math/tex; mode=display">
+X(e^{j(w-w_0)})\to x(t)e^{jw_0n}</script><h3 id="共轭"><a href="#共轭" class="headerlink" title="共轭"></a>共轭</h3><script type="math/tex; mode=display">
+x^*(t)\to X^*(e^{-jw})</script><ul>
+<li>x(t)为实值函数，X(jw)实部是偶函数，虚部是奇函数，幅度是偶函数，相位是奇函数</li>
+<li>x(t)为实值偶函数，则X(jw)也是实值偶函数</li>
+<li>x(t)为实值奇函数，则X(jw)也是纯虚奇函数</li>
+<li>该性质也适用于傅里叶级数情况，</li>
+</ul>
+<h3 id="差分求和"><a href="#差分求和" class="headerlink" title="差分求和"></a>差分求和</h3><script type="math/tex; mode=display">
+x[n]-x[n-1]\to (1-e^{-jw})X(jw)</script><script type="math/tex; mode=display">
+\sum_{m=-\infty}^nx[m] \to \frac{1}{(1-e^{-jw})}X(e^{jw})\pi X(e^{j0})\sum_{m=-\infty}^\infty \delta(w-2\pi k)</script><h3 id="时域扩展"><a href="#时域扩展" class="headerlink" title="时域扩展"></a>时域扩展</h3><script type="math/tex; mode=display">
+x_(k)=
+\begin{cases}
+x[n/k]&n为k整数倍\\
+0
+\end{cases}</script><script type="math/tex; mode=display">
+x(k)[n]\to X(e^{jkw})</script><h3 id="频域微分"><a href="#频域微分" class="headerlink" title="频域微分"></a>频域微分</h3><script type="math/tex; mode=display">
+j\frac{dX(e^{jw})}{dw}\to nx[n]</script><h3 id="卷积性质"><a href="#卷积性质" class="headerlink" title="卷积性质"></a>卷积性质</h3><script type="math/tex; mode=display">
+x[n]*h[n] \to X(e^{jw})H(e^{jw})</script><h4 id="周期卷积"><a href="#周期卷积" class="headerlink" title="周期卷积"></a>周期卷积</h4><script type="math/tex; mode=display">
+\sum_{r=<N>}x[r]h[n-r] \to Na_kb_k</script><h3 id="调制性质"><a href="#调制性质" class="headerlink" title="调制性质"></a>调制性质</h3><script type="math/tex; mode=display">
+x[n]y[n] \to \frac{1}{2\pi}X(e^{jw})*Y(e^{jw})</script><p>当傅里叶级数存在时</p>
+<script type="math/tex; mode=display">
+x[n]y[n] \to a_k*b_k</script><h3 id="帕斯瓦尔定理"><a href="#帕斯瓦尔定理" class="headerlink" title="帕斯瓦尔定理"></a>帕斯瓦尔定理</h3><script type="math/tex; mode=display">
+\sum_{k=-\infty}^\infty |x(t)|^2dt=\frac{1}{2\pi}\int_{2\pi}|X(e^{jw})|^2dw</script><h1 id="离散傅里叶变换的对偶性"><a href="#离散傅里叶变换的对偶性" class="headerlink" title="离散傅里叶变换的对偶性"></a>离散傅里叶变换的对偶性</h1><p>离散时间傅里叶变换和连续时间傅里叶<br>级数在数学形式上也是十分相似的，它们之间<br>也存在着一种对偶关系。</p>
+<script type="math/tex; mode=display">
+x[n] \to a[k]</script><script type="math/tex; mode=display">
+a[n] \to \frac{1}{N}x[-k]</script><h1 id="离散时间LTI系统频率响应"><a href="#离散时间LTI系统频率响应" class="headerlink" title="离散时间LTI系统频率响应"></a>离散时间LTI系统频率响应</h1><p>离散LTI系统的频率响应另一种定义可表示为</p>
+<script type="math/tex; mode=display">
+H(e^{jw})=\frac{Y(e^{jw})}{X(e^{jw})}</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fazziekey.github.io/2020/08/20/DFT/" data-id="ckk51g3p60009s8u04kn1apxx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/21/Sampling-and-modulation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          采样和调制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/19/constant-Flourier/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">连续时间信号频域分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Beam-tracking/" rel="tag">Beam tracking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Statistic-Analysis/" rel="tag">Statistic Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication/" rel="tag">communication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" rel="tag">优化理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" rel="tag">手撕麦克斯韦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A6%99%E5%86%9Cyyds/" rel="tag">香农yyds</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Beam-tracking/" style="font-size: 10px;">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CV/" style="font-size: 12px;">CV</a> <a href="/tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/RL/" style="font-size: 12px;">RL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 12px;">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 10px;">communication</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pytorch/" style="font-size: 14px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 10px;">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 18px;">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 20px;">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12px;">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 20px;">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 12px;">香农yyds</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/19/information-encoder/">信息编码</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-model-free/">RL:model free</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-base/">强化学习基础和马尔科夫决策过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/optimize/">优化理论</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/matrix-partial/">矩阵微分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Fazzie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

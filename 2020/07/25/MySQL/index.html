@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MySQL | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="连接命令行cd到目录 C:\Program Files\MySQL\MySQL Server 8.0\bin mysql -u root -p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="https://fazziekey.github.io/2020/07/25/MySQL/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="连接命令行cd到目录 C:\Program Files\MySQL\MySQL Server 8.0\bin mysql -u root -p">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-25T13:40:41.000Z">
+<meta property="article:modified_time" content="2020-08-05T16:02:28.500Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Fazziekey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MySQL" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/25/MySQL/" class="article-date">
+  <time datetime="2020-07-25T13:40:41.000Z" itemprop="datePublished">2020-07-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>命令行cd到目录</p>
+<p><code>C:\Program Files\MySQL\MySQL Server 8.0\bin</code></p>
+<pre><code>mysql -u root -p
+</code></pre><a id="more"></a>
+<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="添加删除数据"><a href="#添加删除数据" class="headerlink" title="添加删除数据"></a>添加删除数据</h3><h4 id="查看DB"><a href="#查看DB" class="headerlink" title="查看DB"></a>查看DB</h4><pre><code>show databases
+</code></pre><h4 id="添加DB"><a href="#添加DB" class="headerlink" title="添加DB"></a>添加DB</h4><pre><code>create database gc
+</code></pre><h4 id="删除DB"><a href="#删除DB" class="headerlink" title="删除DB"></a>删除DB</h4><pre><code>drop database gc
+</code></pre><blockquote>
+<p>gc 为数据库名</p>
+</blockquote>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="文本类型"><a href="#文本类型" class="headerlink" title="文本类型"></a>文本类型</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR(size)</td>
+<td>保存固定长度的字符串(可包含字母、数字以及特殊字符)●在括号中指定字符串的长度。最多255个字符。</td>
+</tr>
+<tr>
+<td>VARCHAR(size)</td>
+<td>保存可变长度的字符串(可包含字母、数字以及特殊字符)。在括号中指定字符串的最大长度。最多255个字符。注释:如果值的长度大于255，则被转换为TEXT类型。</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>存放最大长度为255个字符的字符串。</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>存放最大长度为65,535个字符的字符串。</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>用于BLOBs (Binary Large OBjects).存放最多65,535字节的数据。</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>存放最大长度为16,777,215 个字符的字符串。</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>用于BLOBs (Binary Large OBjects)。存放最多16,777,215 字节的数据。</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>存放最大长度为4,294,967,295个字符的字符串。</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>用于BLOBs (Binary Large OBjects).存放最多4,294,967,295字节的数据。</td>
+</tr>
+<tr>
+<td>ENUM(x,y,z,etc.)</td>
+<td>允许你输入可能值的列表。可以在ENUM列表中列出最大65535个值。如果列表中不存在插入的值，则插入空值。注释:这些值是按照你输入的顺序存储的。可以按照此格式输入可能的值: ENUM(‘X’,”Y’,;Z’)</td>
+</tr>
+<tr>
+<td>SET</td>
+<td>与ENUM类似，SET最多只能包含64个列表项，不过SET可存储一个以上的值。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT(size)</td>
+<td>-128到127常规。0到255无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>SMALLINT(size)</td>
+<td>-32768到32767常规。0到65535无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>MEDIUMINT(size)</td>
+<td>-8388608到8388607普通。0 to 16777215无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>INT(size)</td>
+<td>-2147483648到2147483647常规。0到4294967295无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>BIGINT(size)</td>
+<td>-9223372036854775808到9223372036854775807常规。0到18446744073709551615无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>FLOAT(size,d)</td>
+<td>带有浮动小数点的小数字。在括号中规定最大位数。在d参数中规定小数点右侧的最大位数。</td>
+</tr>
+<tr>
+<td>DOUBLE(size,d)</td>
+<td>带有浮动小数点的大数字。在括号中规定最大位数。在d参数中规定小数点右侧的最大位数。</td>
+</tr>
+<tr>
+<td>DECIMAL(size,d)</td>
+<td>作为字符串存储的DOUBLE类型，允许固定的小数点。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATE()</td>
+<td>日期。格式: YYYY-MM-DD注释:支持的范围是从*1000-01-01’到’9999-12-31’</td>
+</tr>
+<tr>
+<td>DATETIME()</td>
+<td>*日期和时间的组合。格式: YYYY-MM-DD HH:MM:SS注释:支持的范围是从’1000-01-01 00:00:00’到’9999-12-31 23:59:59’</td>
+</tr>
+<tr>
+<td>TIMESTAMP()</td>
+<td><em>时间戳。TIMESTAMP值使用Unix纪元(‘1970-01-01 00:00:00 UTC)至今的描述来存储。格式: YYYY-MM-DD HH:MM:SS注释:支持的范围是从 </em>1970-01-0100:00:01 UTC到’2038-01 -0903:14:07’ utC</td>
+</tr>
+<tr>
+<td>TIME()</td>
+<td>时间。格式: HH:MM:SS注释:支持的范围是从’-838:59:59’到’838:59:59’</td>
+</tr>
+<tr>
+<td>YEAR()</td>
+<td>2位或4位格式的年。注释: 4位格式所允许的值: 1901到2155。2位格式所允许的值: 70到69，表示从1970到2069.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre><code>create table table_ name (
+colum_ name data_ _type,
+colum_ name data_ type,
+.
+colum_ name data_type
+);
+</code></pre><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre><code>CREATE TABLE account (
+id bigint(20)
+create Time datetime,
+ip varchar(255),
+mobile varchar(255),
+nickname varchar(255),
+passwd varchar(255)，
+username varchar(255),
+avatar varchar(255),
+brief text,
+job varchar(255),
+location varchar(255),
+qq varchar(255), 
+gender int(11)，
+city varchar(255),
+province varchar(255)
+);
+</code></pre><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><pre><code>use gc;#使用数据库
+show tables;#展示数据表
+create account(colum type);#创建数据表
+describe account#查看数据表
+drop account;#删除数据表
+</code></pre><h2 id="增加删除行列"><a href="#增加删除行列" class="headerlink" title="增加删除行列"></a>增加删除行列</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p><code>alter table [ table_ name ] add [ column_ name][ data_ _type ]
+[not null] [default ]</code></p>
+<p>例子:</p>
+<pre><code>alter table account add c1 int(11) not null default 1;
+</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><code>alter table[ table_ name ] drop[ column_ name ]</code></p>
+<p>例子:</p>
+<pre><code>alter table account drop c1;
+</code></pre><h2 id="修改列信息"><a href="#修改列信息" class="headerlink" title="修改列信息"></a>修改列信息</h2><p><code>alter table[ table_ name ] change [ old_ column_ name ] [ new_ column_ name ]
+[data_ type ]</code></p>
+<p>1.只改列名:<br>data_ type和原来一样，old_ _column_ name != new_ column_ name</p>
+<p>2.只改数据类型:<br>old_ column_ name == new_ column_ name, data_ type改变</p>
+<p>3.列名和数据类型都改了</p>
+<h2 id="插入和查看表的数据"><a href="#插入和查看表的数据" class="headerlink" title="插入和查看表的数据"></a>插入和查看表的数据</h2><h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><p><code>select * from table_ name;</code></p>
+<p><code>select col_ name 1 ,col_ name2, ... from table_ name;</code></p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p><code>insert into[ tabte_ name ] values(值1, 值....</code></p>
+<p><code>insert into [table_ name] (列1， 列2...) values(值1,值...</code></p>
+<h2 id="where-条件"><a href="#where-条件" class="headerlink" title="where 条件"></a>where 条件</h2><p><code>select * from table_ name where col_ name运算符值</code></p>
+<p>例子:</p>
+<pre><code>select * from book where title = = t’ ;
+</code></pre><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于.</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>between</td>
+<td>在两个值范围内</td>
+</tr>
+<tr>
+<td>like</td>
+<td>按某个模式查找</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="组合条件"><a href="#组合条件" class="headerlink" title="组合条件"></a>组合条件</h3><p>where后面可以通过and与or运算符组合多个条件筛选</p>
+<p>语法:</p>
+<p><code>select * from table_ name
+where toll
+=XXXandcol2=XXorcol3&gt;XX</code></p>
+<h2 id="null字段的判断"><a href="#null字段的判断" class="headerlink" title="null字段的判断"></a>null字段的判断</h2><p>NULL字段无法直接查询</p>
+<ul>
+<li>正确 </li>
+</ul>
+<p>select * from book where id is null</p>
+<ul>
+<li>错误 </li>
+</ul>
+<p>select * from book where id = null</p>
+<h2 id="distinct语句"><a href="#distinct语句" class="headerlink" title="distinct语句"></a>distinct语句</h2><p><code>select distinct col_ name from table_ name ;</code></p>
+<p>例子:</p>
+<pre><code>select distinct title from book;
+</code></pre><blockquote>
+<p>select 语句可以去除重复的语句</p>
+</blockquote>
+<h2 id="order-by对查询结果进行排序"><a href="#order-by对查询结果进行排序" class="headerlink" title="order by对查询结果进行排序"></a>order by对查询结果进行排序</h2><p><strong>1.按单一列名排序:</strong></p>
+<p>select * from table_ name [where子句] order by col_ name [asc/desc]</p>
+<p><strong>2.按多列排序:</strong></p>
+<p>select * from table_ name [where子句] order by coll [asc/desc]，col2<br>[asc,desc]</p>
+<blockquote>
+<p>asc升序<br>desc降序</p>
+</blockquote>
+<h2 id="limit截取查询结果"><a href="#limit截取查询结果" class="headerlink" title="limit截取查询结果"></a>limit截取查询结果</h2><p><code>select * from table_ name [where子句] [order by子句] limit [offset,] rowCount</code></p>
+<p>offset:查询结果的起始位置，第一 条记录的其实是0<br>rowCount:从offset位置开始，获取的记录条数</p>
+<p>注意<br>limit rowCount = limit 0,rowCount</p>
+<blockquote>
+<p>作用：截取页面</p>
+</blockquote>
+<h2 id="插入命令和查询命令select的组合使用"><a href="#插入命令和查询命令select的组合使用" class="headerlink" title="插入命令和查询命令select的组合使用"></a>插入命令和查询命令select的组合使用</h2><p><strong>一般用法:</strong></p>
+<p><code>insert into [表名] values(值1, 值.....</code></p>
+<p><code>insert into[表名] (列1 ，列2...) values(值1,值....</code></p>
+<p><strong>Insert into与select的组合用法</strong></p>
+<p><code>insert into [表名1] select 列1，列2 from [表名2]</code></p>
+<p><code>insert into 
+[表名1]
+(列1，列2)
+select列3，列4 from
+[表名2]</code></p>
+<blockquote>
+<p>作用：数据迁移</p>
+</blockquote>
+<h2 id="更新表的数据"><a href="#更新表的数据" class="headerlink" title="更新表的数据"></a>更新表的数据</h2><p><strong>修改单列:</strong></p>
+<p><code>update表名set列名= XXX [where字句]</code></p>
+<p><strong>修改多列:</strong></p>
+<p><code>update表名set列名1 = xxx,列名2 = xxX... [where 字句]</code></p>
+<h2 id="where语句中in-like-between的使用"><a href="#where语句中in-like-between的使用" class="headerlink" title="where语句中in,like,between的使用"></a>where语句中in,like,between的使用</h2><h3 id="in"><a href="#in" class="headerlink" title="in"></a>in</h3><p><code>select * from表名where列名in (value1 ,value2..)</code></p>
+<p><code>select * from表名where列名in (select 列名from表名)</code></p>
+<p>例子</p>
+<pre><code>select * from book where title in(&#39;sun&#39;,&#39;color&#39;)
+</code></pre><h3 id="betweeen"><a href="#betweeen" class="headerlink" title="betweeen"></a>betweeen</h3><p><code>select * from表名where列名between值1 and值2</code></p>
+<p><code>select * from表名where列名not between值1 and值2</code></p>
+<h3 id="like"><a href="#like" class="headerlink" title="like"></a>like</h3><p><strong>作用：字符模糊匹配</strong></p>
+<p><code>select * from表名where列名[not] like pattern</code></p>
+<p><strong>pattern:匹配模式</strong></p>
+<p>比如<br><code>&#39;abc&#39;%abc’,‘abc%’,&#39;%abc%&#39;</code> ;<br>“<code>%</code>” 是一个通配符，理解_上可以把他当成任何字符串</p>
+<p><strong>例子:</strong></p>
+<p><code>&#39;%abc&#39;</code><br>能匹配<br><code>&#39;erttsabc&#39;</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fazziekey.github.io/2020/07/25/MySQL/" data-id="ckk51g3pk0012s8u01pci8m7z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/28/HTML/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTML
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/18/note-of-deeplearning/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">note of deeplearning </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Beam-tracking/" rel="tag">Beam tracking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Statistic-Analysis/" rel="tag">Statistic Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication/" rel="tag">communication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" rel="tag">优化理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" rel="tag">手撕麦克斯韦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A6%99%E5%86%9Cyyds/" rel="tag">香农yyds</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Beam-tracking/" style="font-size: 10px;">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CV/" style="font-size: 12px;">CV</a> <a href="/tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/RL/" style="font-size: 12px;">RL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 12px;">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 10px;">communication</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pytorch/" style="font-size: 14px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 10px;">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 18px;">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 20px;">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12px;">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 20px;">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 12px;">香农yyds</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/19/information-encoder/">信息编码</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-model-free/">RL:model free</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-base/">强化学习基础和马尔科夫决策过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/optimize/">优化理论</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/matrix-partial/">矩阵微分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Fazzie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>LTI系统时域分析 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="离散时间LTI系统离散信号单位脉冲分解对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示  x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LTI系统时域分析">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/18/LTI/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="离散时间LTI系统离散信号单位脉冲分解对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示  x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k]">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/29dc7afdd210ea6b1801166d5c6310e4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/ddbaf52bda3ffa522bedd003f03c857c.png">
+<meta property="article:published_time" content="2020-08-18T05:55:29.000Z">
+<meta property="article:modified_time" content="2020-08-18T07:52:17.469Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/29dc7afdd210ea6b1801166d5c6310e4.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Fazziekey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-LTI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/18/LTI/" class="article-date">
+  <time datetime="2020-08-18T05:55:29.000Z" itemprop="datePublished">2020-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LTI系统时域分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="离散时间LTI系统"><a href="#离散时间LTI系统" class="headerlink" title="离散时间LTI系统"></a>离散时间LTI系统</h1><h2 id="离散信号单位脉冲分解"><a href="#离散信号单位脉冲分解" class="headerlink" title="离散信号单位脉冲分解"></a>离散信号单位脉冲分解</h2><p>对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示</p>
+<script type="math/tex; mode=display">
+x[n]=\sum_{k=-\infty}^{\infty}x[k]\delta[n-k]</script><a id="more"></a>
+<h2 id="离散时间LTI系统的卷积和"><a href="#离散时间LTI系统的卷积和" class="headerlink" title="离散时间LTI系统的卷积和"></a>离散时间LTI系统的卷积和</h2><p>h[n]为系统对单位脉冲信号的响应</p>
+<script type="math/tex; mode=display">
+x[n]=\sum_{k=-\infty}^{\infty}x[k]\delta[n-k]</script><script type="math/tex; mode=display">
+y[n]=\sum_{k=-\infty}^{\infty}x[k]h[n-k]=x[n]*h[n]</script><h3 id="卷积计算方法"><a href="#卷积计算方法" class="headerlink" title="卷积计算方法"></a>卷积计算方法</h3><ul>
+<li>公式</li>
+<li>列表法：适合小量数据</li>
+<li>画图</li>
+</ul>
+<h2 id="卷积的性质"><a href="#卷积的性质" class="headerlink" title="卷积的性质"></a>卷积的性质</h2><ul>
+<li>交换</li>
+<li>结合</li>
+<li>分配</li>
+</ul>
+<p><strong>x[n]</strong> 不为<strong>0</strong>的区间长度为<strong>m</strong>，<strong>h[n]</strong> 为 <strong>n</strong>，卷积后区间为<strong>m+n-1</strong></p>
+<p><strong>x[n]</strong> 区间为 <strong>[m,n]</strong>,    <strong>h[n]</strong> 区间为 <strong>[q,p]</strong><br>卷积后区间为 <strong>[m+q,n+p]</strong></p>
+<h3 id="特殊函数的卷积"><a href="#特殊函数的卷积" class="headerlink" title="特殊函数的卷积"></a>特殊函数的卷积</h3><script type="math/tex; mode=display">
+x[n]*\delta[n]=x[n]</script><script type="math/tex; mode=display">
+x[n]*\delta[n-n_0]=x[n-n_0]</script><script type="math/tex; mode=display">
+x[n]*u[n]=\sum_{k=-\infty}^{\infty}x[k]u[n-k]=\sum_{k=-\infty}^{n}x[k]</script><h1 id="连续时间LTI系统的卷积积分"><a href="#连续时间LTI系统的卷积积分" class="headerlink" title="连续时间LTI系统的卷积积分"></a>连续时间LTI系统的卷积积分</h1><p>任何连续信号也可以分解为脉冲信号，我们可以由此得到连续系统的卷积积分</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{\infty}x(\tau)h(t-\tau)d\tau=x(t)*h(t)</script><p>连续卷积的积分计算通常要分段积分</p>
+<h2 id="连续卷积的性质"><a href="#连续卷积的性质" class="headerlink" title="连续卷积的性质"></a>连续卷积的性质</h2><p>交换结合分配与离散情况相同</p>
+<ul>
+<li>卷积微分</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{d}{dt}[x(t)*h(t)]</script><script type="math/tex; mode=display">
+=\frac{dx(t)}{dt}*h(t)</script><script type="math/tex; mode=display">
+=\frac{dh(t)}{dt}*x(t)</script><ul>
+<li>卷积积分<script type="math/tex; mode=display">
+\int_{-\infty}^t[x(\lambda)*h(\lambda)]d\lambda</script><script type="math/tex; mode=display">
+=x(\lambda)*\int_{-\infty}^th(\lambda)d\lambda</script><script type="math/tex; mode=display">
+=h(\lambda)*\int_{-\infty}^tx(\lambda)d\lambda</script></li>
+</ul>
+<h3 id="积分与微分性质推广"><a href="#积分与微分性质推广" class="headerlink" title="积分与微分性质推广"></a>积分与微分性质推广</h3><script type="math/tex; mode=display">
+r^{(i)}(t)=x_1^{(j)}*x_2^{(i-j)}(t)</script><p>其中<strong>i, j, i-j</strong>取正数时为导数的阶次，负数时为重积分的次数</p>
+<blockquote>
+<p>离散域的差分和累加性质与之类似</p>
+</blockquote>
+<h2 id="与冲激阶跃函数卷积"><a href="#与冲激阶跃函数卷积" class="headerlink" title="与冲激阶跃函数卷积"></a>与冲激阶跃函数卷积</h2><script type="math/tex; mode=display">
+x(t)*\delta(t)=x(t)</script><script type="math/tex; mode=display">
+x(t)*\delta(t-t_0)=x(t-t_0)</script><script type="math/tex; mode=display">
+x(t)*\delta'(t)=x'(t)</script><script type="math/tex; mode=display">
+x(t)*u(t)=\int_{-\infty}^{t}x(\tau)d\tau</script><h1 id="LTI系统性质"><a href="#LTI系统性质" class="headerlink" title="LTI系统性质"></a>LTI系统性质</h1><h2 id="可逆性"><a href="#可逆性" class="headerlink" title="可逆性"></a>可逆性</h2><p>如果一个LTI系统是可逆，那么它就有一个LTI的逆系<br>统存在，原系统和其逆系统的级联为一恒等系统</p>
+<h2 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h2><p>LTI系统稳定性充要条件为：</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{\infty}|h(t)|dt<\infty</script><script type="math/tex; mode=display">
+\sum_{n=-\infty}^{\infty}|h[n]|<\infty</script><h2 id="因果性"><a href="#因果性" class="headerlink" title="因果性"></a>因果性</h2><p>LTI系统因果性的充要条件</p>
+<script type="math/tex; mode=display">
+h[n]=0,n<0</script><script type="math/tex; mode=display">
+h(t)=0,t<0</script><h2 id="LTI系统单位阶跃响应"><a href="#LTI系统单位阶跃响应" class="headerlink" title="LTI系统单位阶跃响应"></a>LTI系统单位阶跃响应</h2><ul>
+<li>连续<script type="math/tex; mode=display">
+s(t)=u(t)*h(t)=\int_{-\infty}^t=h(\tau)d\tau</script></li>
+<li>离散<script type="math/tex; mode=display">
+s[n]=u[n]*h[n]=\sum_{k=-\infty}^nh[k]</script></li>
+<li>与单位冲激响应关系<script type="math/tex; mode=display">
+h(t)=\frac{ds(t)}{dt}</script><script type="math/tex; mode=display">
+h[n]=s[n]-s[n-1]</script></li>
+</ul>
+<h2 id="LTI系统的特征函数"><a href="#LTI系统的特征函数" class="headerlink" title="LTI系统的特征函数"></a>LTI系统的特征函数</h2><p>复指数信号的重要性在于它是LTI系统的特征函数，利用这样的性质和线性性质，将输入信号分解为指数信号的线性组合就可以化简</p>
+<script type="math/tex; mode=display">
+y(t)=e^{st}*h(t)=e^{st}\int_{-\infty}^{\infty}h(\tau)e^{-s\tau}d\tau=H(s)e^{st}</script><script type="math/tex; mode=display">
+y[n]=z^n\sum_{k=-\infty}^{\infty}h[k]z^{-k}=H(z)z^n</script><h1 id="差分方程和微分方程"><a href="#差分方程和微分方程" class="headerlink" title="差分方程和微分方程"></a>差分方程和微分方程</h1><p>任意LTI系统的响应都可以利用微分和差分方程表示，比如LC电路</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^na_k\frac{d^k}{dt^k}y(t)=\sum_{k=0}^mb_k\frac{d^k}{dt^k}x(t)</script><h2 id="微分方程解法"><a href="#微分方程解法" class="headerlink" title="微分方程解法"></a>微分方程解法</h2><p>微分方程的完全解由两部分组成</p>
+<script type="math/tex; mode=display">
+y(t)=y_h(t)+y_p(t)</script><ul>
+<li>求齐次解<ul>
+<li>转化为特征方程</li>
+<li>求特征根</li>
+<li>确定齐次解样式</li>
+</ul>
+</li>
+<li>求特解</li>
+<li>根据起始条件确定参数</li>
+</ul>
+<h3 id="特征根对应函数形式"><a href="#特征根对应函数形式" class="headerlink" title="特征根对应函数形式"></a>特征根对应函数形式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特征根$\lambda_i$</th>
+<th>函数样式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单实根</td>
+<td>$C_ie^{\lambda_i(t)}$</td>
+</tr>
+<tr>
+<td>k重实根</td>
+<td>$(C_1t^{k-1}+C_2t^{k-2}……C_{k-1}t+C_k)e^{\lambda_i(t)}$</td>
+</tr>
+<tr>
+<td>共轭复根$\alpha\pm j\beta$</td>
+<td>$e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t)$ </td>
+</tr>
+<tr>
+<td>k重共轭复根</td>
+<td>$(C_1t^{k-1}+C_2t^{k-2}……C_{k-1}t+C_k)e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t)$ </td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="常见激励函数对应特解"><a href="#常见激励函数对应特解" class="headerlink" title="常见激励函数对应特解"></a>常见激励函数对应特解</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>特解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常数C</td>
+<td>常数</td>
+</tr>
+<tr>
+<td>$t^m$</td>
+<td>$B_1t^m……+B_mt+B_{m+1}$特征根不等于0。$t^r(B_1t^m……+B_mt+B_{m+1})$，有r重等于0的实根</td>
+</tr>
+<tr>
+<td>$e^{at}$</td>
+<td>$Be^{at}$,a不等于特征根。 $B_1t^re^{at}……+B_rte^{at}+B_{r+1}e^{at}$,a=r重特征根</td>
+</tr>
+<tr>
+<td>$\cos\beta t,\sin\beta t$</td>
+<td>$B_1\cos\beta t+B_2\sin\beta t$</td>
+</tr>
+<tr>
+<td>$t^me^{at}\cos t$</td>
+<td>$(B_1t^m……+B_mt+B_{m+1})e^{at}\cos t+(D_1t^m……+D_mt+D_{m+1})e^{at}\sin t$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="带奇异函数的微分方程——冲激函数匹配法"><a href="#带奇异函数的微分方程——冲激函数匹配法" class="headerlink" title="带奇异函数的微分方程——冲激函数匹配法"></a>带奇异函数的微分方程——冲激函数匹配法</h3><p>例子</p>
+<script type="math/tex; mode=display">
+i''+4i'+3i=\delta'+3u</script><script type="math/tex; mode=display">
+求齐次解：\lambda=-3,-1</script><script type="math/tex; mode=display">
+i=(C_1e^{-3t}+C_2e^{-t})u(t)</script><script type="math/tex; mode=display">
+求特解，冲激函数匹配\delta '系数相同\to i=u(t)</script><script type="math/tex; mode=display">
+全解：i=(C_1e^{-3t}+C_2e^{-t}+1)u(t)</script><script type="math/tex; mode=display">
+i'=(C_1e^{-3t}+C_2e^{-t}+1)\delta(t)+(-3C_1e^{-3t}-C_2e^{-t})u(t)</script><script type="math/tex; mode=display">
+i''=(9C_1e^{-3t}+C_2e^{-t})u(t)+(-6C_1e^{-3t}-2C_2e^{-t})\delta(t)+(C_1e^{-3t}+C_2e^{-t}+1)\delta'(t)</script><script type="math/tex; mode=display">
+代入方程
+\begin{cases}
+-2C_1+2C_2+4=0\\
+C_1+C_2+1=1
+\end{cases}</script><script type="math/tex; mode=display">
+\to
+\begin{cases}
+C_1=1\\
+C_2=-1
+\end{cases}</script><script type="math/tex; mode=display">
+\to i=(e^{-3t}-e^{-t}+1)u(t)</script><h1 id="LTI系统响应分解"><a href="#LTI系统响应分解" class="headerlink" title="LTI系统响应分解"></a>LTI系统响应分解</h1><ul>
+<li><strong>零输入响应</strong> ：不考虑外加信号, 即输入信号等于零<br>（x(t)=0 ）, 仅由系统的起始状态（y(0)_ ）所产生的响应。<br><strong>x(t),t&lt;0部分的响应</strong></li>
+</ul>
+<ul>
+<li><strong>零状态响应</strong> ：不考虑系统的起始状态的作用, 即起始状态等于零（y(0)_ ） , 仅由系统的外加激励信号x(t)所产的响应。<br><strong>x(t),t&gt;0部分的响应</strong></li>
+</ul>
+<h2 id="LTI系统响应的求解方法"><a href="#LTI系统响应的求解方法" class="headerlink" title="LTI系统响应的求解方法"></a>LTI系统响应的求解方法</h2><h3 id="直接法"><a href="#直接法" class="headerlink" title="直接法"></a>直接法</h3><ul>
+<li>根据定义求解两个微分方程再组合</li>
+</ul>
+<h3 id="单位冲激函数法"><a href="#单位冲激函数法" class="headerlink" title="单位冲激函数法"></a>单位冲激函数法</h3><ul>
+<li>求解单位冲激响应</li>
+<li>通过卷积求解两部分响应</li>
+<li>利用线性性质进行组合计算</li>
+</ul>
+<h1 id="LTI框图"><a href="#LTI框图" class="headerlink" title="LTI框图"></a>LTI框图</h1><ul>
+<li><p>连续<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/29dc7afdd210ea6b1801166d5c6310e4.png" alt=""></p>
+</li>
+<li><p>离散</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/ddbaf52bda3ffa522bedd003f03c857c.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fazziekey.github.io/2020/08/18/LTI/" data-id="ckk51g3pd000is8u05x9xba6k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/19/constant-Flourier/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          连续时间信号频域分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/17/system-basic/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">系统的基本概念</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Beam-tracking/" rel="tag">Beam tracking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Statistic-Analysis/" rel="tag">Statistic Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication/" rel="tag">communication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" rel="tag">优化理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" rel="tag">手撕麦克斯韦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A6%99%E5%86%9Cyyds/" rel="tag">香农yyds</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Beam-tracking/" style="font-size: 10px;">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CV/" style="font-size: 12px;">CV</a> <a href="/tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/RL/" style="font-size: 12px;">RL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 12px;">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 10px;">communication</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pytorch/" style="font-size: 14px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 10px;">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 18px;">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 20px;">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12px;">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 20px;">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 12px;">香农yyds</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/19/information-encoder/">信息编码</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-model-free/">RL:model free</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-base/">强化学习基础和马尔科夫决策过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/optimize/">优化理论</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/matrix-partial/">矩阵微分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Fazzie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

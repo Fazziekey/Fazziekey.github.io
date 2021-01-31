@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>子空间理论 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="子空间的基本理论子空间的基定义：若$S&#x3D;\{u_1,u_2…u_m\}$是向量空间V的向量子集合，则向量所有的线性组合W，称为$u_1,u_2…u_m$构成的子空间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="子空间理论">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/16/child-space/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="子空间的基本理论子空间的基定义：若$S&#x3D;\{u_1,u_2…u_m\}$是向量空间V的向量子集合，则向量所有的线性组合W，称为$u_1,u_2…u_m$构成的子空间">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-16T13:36:39.000Z">
+<meta property="article:modified_time" content="2020-11-16T13:38:15.453Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="矩阵论">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Fazziekey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-child-space" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/16/child-space/" class="article-date">
+  <time datetime="2020-11-16T13:36:39.000Z" itemprop="datePublished">2020-11-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      子空间理论
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="子空间的基本理论"><a href="#子空间的基本理论" class="headerlink" title="子空间的基本理论"></a>子空间的基本理论</h1><h2 id="子空间的基"><a href="#子空间的基" class="headerlink" title="子空间的基"></a>子空间的基</h2><p><strong>定义</strong>：若$S=\{u_1,u_2…u_m\}$是向量空间V的向量子集合，则向量所有的线性组合<br>W，称为$u_1,u_2…u_m$构成的子空间<br><a id="more"></a></p>
+<script type="math/tex; mode=display">
+W=span\{u_1,u_2...u_m\}=\{u|u=a_1u_1+...+a_mu_m\}</script><p>当这些向量线性无关时，称为W的一组基</p>
+<h2 id="张成集定理-spanning-set-theorem"><a href="#张成集定理-spanning-set-theorem" class="headerlink" title="张成集定理(spanning set theorem)"></a>张成集定理(spanning set theorem)</h2><p>令S ={u…,um}是向量空间V的一个子集，并且W= Span{u,…,um}是由S的m个列向量张成的一个子空间。</p>
+<ul>
+<li>如果S内有某个向量(例如uk)是其他向量的线性组合，则从S中删去向量uk后，其他向量仍然张成子空间W。</li>
+<li>若W≠{0}即W为非平凡子空间，则在S内一定存在某个由线性无关的向量组成的子集合，它张成子空间W。</li>
+</ul>
+<h1 id="矩阵行空间，列空间"><a href="#矩阵行空间，列空间" class="headerlink" title="矩阵行空间，列空间"></a>矩阵行空间，列空间</h1><p>对于矩阵$A\in C^{m\times n}$</p>
+<script type="math/tex; mode=display">
+A=[a_1,a_2...a_n]</script><script type="math/tex; mode=display">
+=\begin{bmatrix}
+r_1\\r_2\\...\\r_m
+\end{bmatrix}</script><p>矩阵的列空间为矩阵列向量张成</p>
+<script type="math/tex; mode=display">
+Col(A)=span\{a_1,a_2...a_n\}</script><p>行空间同理</p>
+<script type="math/tex; mode=display">
+Row(A)=span\{r_1^*,r_2^*...r_m^*\}</script><h1 id="基本空间的标准正交基的构造：奇异值分解"><a href="#基本空间的标准正交基的构造：奇异值分解" class="headerlink" title="基本空间的标准正交基的构造：奇异值分解"></a>基本空间的标准正交基的构造：奇异值分解</h1><p>根据奇异值分解的性质，我们知道矩阵A可以被分解为</p>
+<script type="math/tex; mode=display">
+A=U_r\Sigma_rV_r^H</script><script type="math/tex; mode=display">
+=sum_{i=1}^r \sigma_i u_iv_i</script><p>定义$A\in C^{m\times n},A$的值域Range定义为</p>
+<script type="math/tex; mode=display">
+Rang(A)=\{y\in C^m|Ax=y,x\in C^n\}</script><p>此时的线性映射从$C^n$空间到$C^m$</p>
+<h2 id="零空间"><a href="#零空间" class="headerlink" title="零空间"></a>零空间</h2><p><strong>零空间</strong>被定义为满足</p>
+<script type="math/tex; mode=display">
+Ax=0</script><p>的向量x集合</p>
+<script type="math/tex; mode=display">
+Null(A)=ker(A)=\{x\in C^n|Ax=0\}</script><h2 id="列空间的标准正交基"><a href="#列空间的标准正交基" class="headerlink" title="列空间的标准正交基"></a>列空间的标准正交基</h2><p>与r个非零奇异值所对于的左奇异向量$u_1,u_2…u_r$构成列空间col（A）的一组基</p>
+<script type="math/tex; mode=display">
+Range(A)=\{y\in c^m|y=Ax,x\in C^n\}</script><script type="math/tex; mode=display">
+=\{y|y=\sum_{i=1}^ru_i(\sigma_iv_i^Hx)\}</script><script type="math/tex; mode=display">
+=\{y|y=\sum_{i=1}^r\alpha_iu_i，\alpha_i=\sigma_iv_i^Hx\}</script><script type="math/tex; mode=display">
+=span\{u_1,u_2...u_r\}</script><h1 id="行空间标准正交基"><a href="#行空间标准正交基" class="headerlink" title="行空间标准正交基"></a>行空间标准正交基</h1><p>与列空间的推导同理</p>
+<script type="math/tex; mode=display">
+Range(A^H)=\{y\in C^n|y=\sum_{i=1}^r \alpha_iv_i,\alpha_i=\sigma_iu_i^Hx\}</script><h1 id="信号子空间和噪声子空间"><a href="#信号子空间和噪声子空间" class="headerlink" title="信号子空间和噪声子空间"></a>信号子空间和噪声子空间</h1><p>如果观测数据A存在噪声误差</p>
+<script type="math/tex; mode=display">
+X=A+W=[x_1,x_2...x_n]\in C^{m\times n}</script><p>定义</p>
+<ul>
+<li>观测数据子空间<script type="math/tex; mode=display">
+span(X)=span\{x_1,x_2...x_n\}</script></li>
+<li><p>噪声子空间</p>
+<script type="math/tex; mode=display">
+span(W)=span\{w_1,w_2...w_n\}</script></li>
+<li><p>X的协方差矩阵为</p>
+<script type="math/tex; mode=display">
+E\{x^Hx\}=E\{(A+W)^H(A+W)\}</script><script type="math/tex; mode=display">
+=E\{A^HA\}+E\{W^HW\}</script><script type="math/tex; mode=display">
+=R+\sigma_wI</script><p>令A的秩为r</p>
+</li>
+</ul>
+<p>则</p>
+<script type="math/tex; mode=display">
+R_X=U\Sigma U^H+\sigma_w^2I=U(\Sigma+\sigma_w^2 I)U^H</script><script type="math/tex; mode=display">
+\Sigma+\sigma_w^2I=diag(\sigma_1^2+\sigma_w^2...\sigma_r^2+\sigma_w^2,\sigma_w^2...\sigma_w^2)</script><p>如果信噪比足够大，即$\sigma_r^2&gt;\sigma_w^2$</p>
+<p>则前r个大特征值称为<strong>主特征</strong></p>
+<p>剩余n-r个称为<strong>次特征</strong></p>
+<script type="math/tex; mode=display">
+R_x=[S,G]\begin{bmatrix}\Sigma_s&0\\
+0&\Sigma_n
+\end{bmatrix}
+\begin{bmatrix}
+S^H\\G^H
+\end{bmatrix}</script><script type="math/tex; mode=display">
+=S\Sigma_sS^H+G\Sigma_nG^H</script><p>此时</p>
+<script type="math/tex; mode=display">
+S=[s_1..s_2...s_r]=[u_1,u_2...u_r]
+\\
+G=[g_1,g_2...g_{n-r}]=[u_{r+1}...u_n]
+\\
+\Sigma_s=diag(\sigma_1^2+\sigma_w^2...\sigma_r^2+\sigma_w^2)
+\\
+\Sigma_n=diag(\sigma_w^2...\sigma_w^2)</script><ul>
+<li><p>$Range(S)$称为信号子空间</p>
+</li>
+<li><p>$Range(G)$称为噪声子空间</p>
+</li>
+</ul>
+<h2 id="重要性质"><a href="#重要性质" class="headerlink" title="重要性质"></a>重要性质</h2><p>噪声子空间和信号子空间正交</p>
+<script type="math/tex; mode=display">
+UU^H=SS^H+GG^H=I</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fazziekey.github.io/2020/11/16/child-space/" data-id="ckk51g3pz0026s8u0dya25vlo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/16/matrix-partial/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          矩阵微分
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/15/spacial-matrix/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">特殊矩阵</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Beam-tracking/" rel="tag">Beam tracking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Statistic-Analysis/" rel="tag">Statistic Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication/" rel="tag">communication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" rel="tag">优化理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" rel="tag">手撕麦克斯韦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A6%99%E5%86%9Cyyds/" rel="tag">香农yyds</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Beam-tracking/" style="font-size: 10px;">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CV/" style="font-size: 12px;">CV</a> <a href="/tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/RL/" style="font-size: 12px;">RL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 12px;">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 10px;">communication</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pytorch/" style="font-size: 14px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 10px;">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 18px;">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 20px;">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12px;">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 20px;">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 12px;">香农yyds</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/19/information-encoder/">信息编码</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-model-free/">RL:model free</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-base/">强化学习基础和马尔科夫决策过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/optimize/">优化理论</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/matrix-partial/">矩阵微分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Fazzie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

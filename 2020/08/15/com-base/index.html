@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>com base | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近科研碰上大量通讯相关的背景，因此对通讯的一些基本背景知识做简单整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="com base">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/15/com-base/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近科研碰上大量通讯相关的背景，因此对通讯的一些基本背景知识做简单整理">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/15/6b7a4e44022c8563e56d40530707232f.png">
+<meta property="article:published_time" content="2020-08-15T07:02:44.000Z">
+<meta property="article:modified_time" content="2020-08-15T07:07:04.789Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="communication">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/15/6b7a4e44022c8563e56d40530707232f.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Fazziekey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-com-base" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/15/com-base/" class="article-date">
+  <time datetime="2020-08-15T07:02:44.000Z" itemprop="datePublished">2020-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      com base
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近科研碰上大量通讯相关的背景，因此对通讯的一些基本背景知识做简单整理</p>
+<a id="more"></a>
+<h2 id="词汇-amp-简称"><a href="#词汇-amp-简称" class="headerlink" title="词汇&amp;简称"></a>词汇&amp;简称</h2><ul>
+<li>UE：user equipment</li>
+<li>BS: base station</li>
+<li>Tx: transmitter beam</li>
+<li>Rx: receive beam</li>
+<li>DFT:离散傅里叶变换</li>
+<li>LOS:视距</li>
+<li>NLOS:非视距</li>
+<li>scattering:散射分量</li>
+<li>constant：直射分量 </li>
+<li>AOA：接收角</li>
+<li>AOD：发射角</li>
+</ul>
+<h2 id="SNR-Signal-to-noise-信噪比"><a href="#SNR-Signal-to-noise-信噪比" class="headerlink" title="SNR:Signal-to-noise,信噪比"></a>SNR:Signal-to-noise,信噪比</h2><p><strong>公式</strong></p>
+<script type="math/tex; mode=display">
+SNR=\frac{Signal Power}{Noise Power}=\frac{E[|x(t)|^2]}{E[|v(t)|^2]}=\frac{E_s}{N_0}</script><script type="math/tex; mode=display">
+SNR_{db}=10log_{10}SNR</script><h2 id="香农公式"><a href="#香农公式" class="headerlink" title="香农公式"></a>香农公式</h2><p>香农公式定义了再高斯白噪声的信道中，信息传输的最大速率</p>
+<script type="math/tex; mode=display">
+C=W\log_2(1+S/N)</script><script type="math/tex; mode=display">
+S/N=SNR_{db}</script><h2 id="信号离散傅里叶变化"><a href="#信号离散傅里叶变化" class="headerlink" title="信号离散傅里叶变化"></a>信号离散傅里叶变化</h2><script type="math/tex; mode=display">
+\sqrt{(1/N_T)}*e^{(-i2\pi(-1/2+(slot_{ind}-1)/N_T)*[0:N_T-1]^T)}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/15/6b7a4e44022c8563e56d40530707232f.png" alt=""></p>
+<h2 id="信道类型：channel-type"><a href="#信道类型：channel-type" class="headerlink" title="信道类型：channel type"></a>信道类型：channel type</h2><h3 id="los：视距"><a href="#los：视距" class="headerlink" title="los：视距"></a>los：视距</h3><script type="math/tex; mode=display">
+K_{fdB} = 13.2; % Rician K factor</script><script type="math/tex; mode=display">
+K_f = 10^{(K_{fdB}/10)}</script><script type="math/tex; mode=display">
+NumPath = 1</script><script type="math/tex; mode=display">
+\gamma_k = rand(NumPath)^2\times 10^{-0.2randn(NumPath)}</script><script type="math/tex; mode=display">
+\gamma_k = \gamma_k/\sum(\gamma_k)</script><script type="math/tex; mode=display">
+power_{const} = \frac{K_f}{K_f+1}</script><script type="math/tex; mode=display">
+power_{scatter} = \frac{1}{K_f+1}</script><script type="math/tex; mode=display">
+g_{constant} = \sqrt{\gamma_k*power_{const}}</script><script type="math/tex; mode=display">
+g_{scattering} = \sqrt{\gamma_k*power_{scatter}}</script><h3 id="Nlos：非视距"><a href="#Nlos：非视距" class="headerlink" title="Nlos：非视距"></a>Nlos：非视距</h3><script type="math/tex; mode=display">
+K_{fdB} = 6; % Rician K factor</script><script type="math/tex; mode=display">
+K_f = 10^{(K_{fdB}/10)}</script><script type="math/tex; mode=display">
+NumPath = 1.8</script><script type="math/tex; mode=display">
+\gamma_k = rand(NumPath)^2\times 10^{-0.2randn(NumPath)}</script><script type="math/tex; mode=display">
+\gamma_k = \gamma_k/\sum(\gamma_k)</script><script type="math/tex; mode=display">
+power_{const} = \frac{K_f}{K_f+1}</script><script type="math/tex; mode=display">
+power_{scatter} = \frac{1}{K_f+1}</script><script type="math/tex; mode=display">
+g_{constant} = \sqrt{\gamma_k*power_{const}}</script><script type="math/tex; mode=display">
+g_{scattering} = \sqrt{\gamma_k*power_{scatter}}</script><h2 id="信道矩阵"><a href="#信道矩阵" class="headerlink" title="信道矩阵"></a>信道矩阵</h2><script type="math/tex; mode=display">
+v = e^{-i2\pi k \sin(AOD)}</script><script type="math/tex; mode=display">
+u = e^{-i2\pi k \sin(AOA)}</script><script type="math/tex; mode=display">
+H = H+g_{constant}uv+ \frac{g_{scattering}}{\sqrt{2}}N+i*N;</script><script type="math/tex; mode=display">
+N\to N(0,\sigma^2)</script><h2 id="信道衰减模型"><a href="#信道衰减模型" class="headerlink" title="信道衰减模型"></a>信道衰减模型</h2><h3 id="什么是信道衰落"><a href="#什么是信道衰落" class="headerlink" title="什么是信道衰落"></a>什么是信道衰落</h3><p>对于S—D这样一个发送接收系统来说，理想的无线信号传播（自由空间传播模型）是由S发送的电磁信号经过一定的衰减（attenuation）到达D点，我们可以理解为信号沿着S—D的直线。虽然这样，电磁波实际上是以球面波的形式向周围360度辐射，但其是只有沿着S—D直线传播的信号才能抵达D点，我们也可以把S—D路径称为直射路径。这是对于自由空间来说的，在自由空间模型里面除了S和D什么也没有。</p>
+<p>而对于实际的大气传播环境，大气中包含着许多的小颗粒（悬浮物），或者小粒子。从S出发，沿着非S—D方向的其它传播方向的额电磁波可能经过一系列的反射（散射）后而抵达接收端D，我们把这种路径称为散射路径。由于每一条散射路径经历的路程都不一样，这样，他们抵达接收端的相位各不相同，导致总的信号强度变低。这样我们把由于信号经过了多个路径而抵达接收端导致信号强度发生随机变化的现象称为衰落（fading）。</p>
+<h3 id="瑞利衰落信道模型-（Rayleigh）"><a href="#瑞利衰落信道模型-（Rayleigh）" class="headerlink" title="瑞利衰落信道模型 （Rayleigh）"></a>瑞利衰落信道模型 （Rayleigh）</h3><p>假设发送信号为单一频率正弦波，即</p>
+<script type="math/tex; mode=display">
+s(t)=A\cos w_c t</script><p>若不考虑直射路径，多径信道共有n条路径，各条路径具有时变衰耗和时变传输时延，且从各条路径到达接收端的信号相互独立，则接收端接受到的合成波为</p>
+<script type="math/tex; mode=display">
+r(t)=a_1\cos w_c[t-\tau_1(t)]+a_2\cos w_c[t-\tau_2(t)]+a_3\cos w_c[t-\tau_3(t)]……a_n\cos w_c[t-\tau_n(t)]</script><script type="math/tex; mode=display">
+=\sum_{i=1}^{n}a_i\cos w_c[t-\tau_i(t)]</script><p>r(t)也可表示为如下形式：</p>
+<script type="math/tex; mode=display">
+r(t)
+=\sum_{i=1}^{n}a_i\cos\phi_i\cos- \sum_{i=1}^{n}a_i\sin\phi_i\sin</script><script type="math/tex; mode=display">
+=X(t)\cos w_ct-Y(t)\sin w_ct</script><p>由于X(t)和Y(t)都是相互独立的随机变量之后，根据中心极限定理，大量独立随机变量之和的分布趋于正态分布。因此，当n足够大时，X(t)和Y(t)都趋于正态分布。通常情况下X(t)和Y(t)的均值为0（由于没有直射路径），方差相等。这种表示方式也叫做同相-正交表示法。</p>
+<p><strong>由于包络服从瑞利分布，故其称为瑞利信道模型。</strong></p>
+<p>对于陆地移动信道、短波电离层反射等随参信道，其路径幅度ai(t)和相位函数φi(t)随时间变化与发射信号载波频率相比要缓慢得多。因此，相对于载波来说V(t)和φ(t)是慢变化随机过程，于是r(t)可以看成是一个窄带随机过程。由此得出以下两个结论：</p>
+<ol>
+<li>多径传播使单一的正弦信号变成了包络和相位受调制的窄带信号，这种信号称为衰落信号，即多径传播使信号产生瑞利型衰落（多径衰落）。</li>
+</ol>
+<p>2.从频谱上看，多径传播使单一谱线变成了窄带频谱，即多径传播引起了频率弥散。</p>
+<h3 id="莱斯衰落信道模型（Rician）"><a href="#莱斯衰落信道模型（Rician）" class="headerlink" title="莱斯衰落信道模型（Rician）"></a>莱斯衰落信道模型（Rician）</h3><p>莱斯信道是当移动台与基站间存在直射波信号时，即有一条主路径，通过主路径传输过来被接收的信号为一个稳定幅度$Ak$和相位$\phi _k$，其余多径传输过来的信号仍如“瑞利衰落概率模型”所述。</p>
+<p>当信道中存在一个固定的直射分量时，X(t)与Y(t)的均值不再为0。其接收信号是复高斯信号和直射分量的叠加（即正弦波加窄带高斯过程），其包络的概率密度函数服从莱斯分布，即下式</p>
+<script type="math/tex; mode=display">
+f(z)=\frac{z}{\sigma_n^2}exp[-\frac{1}{2\sigma^2_n}(z^2+A^2)]I_0(\frac{A_z}{\sigma^2_n}),z>0</script><h4 id="莱斯衰弱信道模型matlab仿真程序"><a href="#莱斯衰弱信道模型matlab仿真程序" class="headerlink" title="莱斯衰弱信道模型matlab仿真程序"></a>莱斯衰弱信道模型matlab仿真程序</h4><pre><code>%% 参数设置
+Modulation_Order=2;
+Packet_Length=16;
+SymbolRate=1000;
+SamplesPerSymbol=8;%每个符号的样点数
+df=400;%FSK调制相邻载波频率间隔，单位Hz
+fs=SamplesPerSymbol*SymbolRate;
+SNR=10;
+ts=1/fs;
+fd=0;
+k=3;
+tau=[0 1 2]*ts;%每条径的时延
+pdb=[2 1 0];%每条径的增益
+
+%% 调制器、解调器、莱斯信道设置
+H_Mod = comm.FSKModulator(&#39;ModulationOrder&#39;,Modulation_Order,&#39;SymbolRate&#39;,1000 ,&#39;SamplesPerSymbol&#39;,8, &#39;FrequencySeparation&#39;,df); %默认连续相位、整数输入 
+H_Demod = comm.FSKDemodulator(&#39;ModulationOrder&#39;,Modulation_Order,&#39;SymbolRate&#39;,1000 ,&#39;SamplesPerSymbol&#39;,8, &#39;FrequencySeparation&#39;,df);
+chan_Rici = ricianchan(ts,fd,k,tau,pdb);
+</code></pre><h3 id="Nakagami-m信道衰落模型"><a href="#Nakagami-m信道衰落模型" class="headerlink" title="Nakagami-m信道衰落模型"></a>Nakagami-m信道衰落模型</h3><p>瑞利和莱斯分布与实验数据有时不太吻合，因此人们提出了能吻合更多实验数据的一种更通用的信道衰落分布，就是Nakagami-m衰落，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fazziekey.github.io/2020/08/15/com-base/" data-id="ckk51g3pw001ws8u03yb691ia" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/communication/" rel="tag">communication</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/17/system-basic/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          系统的基本概念
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/08/nn/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">建立你的知识神经网络</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Beam-tracking/" rel="tag">Beam tracking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Statistic-Analysis/" rel="tag">Statistic Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication/" rel="tag">communication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" rel="tag">优化理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" rel="tag">手撕麦克斯韦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A6%99%E5%86%9Cyyds/" rel="tag">香农yyds</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Beam-tracking/" style="font-size: 10px;">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CV/" style="font-size: 12px;">CV</a> <a href="/tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/RL/" style="font-size: 12px;">RL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 12px;">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 10px;">communication</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pytorch/" style="font-size: 14px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 10px;">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 18px;">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 20px;">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12px;">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 20px;">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 12px;">香农yyds</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/19/information-encoder/">信息编码</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-model-free/">RL:model free</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-base/">强化学习基础和马尔科夫决策过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/optimize/">优化理论</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/matrix-partial/">矩阵微分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Fazzie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

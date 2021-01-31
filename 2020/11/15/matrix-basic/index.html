@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>矩阵代数基础 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="典型物理模型多个信号观测模型 x(n)&#x3D;As(n)+v(n)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵代数基础">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/15/matrix-basic/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="典型物理模型多个信号观测模型 x(n)&#x3D;As(n)+v(n)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-15T06:09:01.000Z">
+<meta property="article:modified_time" content="2020-11-15T07:42:42.974Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="矩阵论">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Fazziekey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-matrix-basic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/matrix-basic/" class="article-date">
+  <time datetime="2020-11-15T06:09:01.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      矩阵代数基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="典型物理模型"><a href="#典型物理模型" class="headerlink" title="典型物理模型"></a>典型物理模型</h1><h3 id="多个信号观测模型"><a href="#多个信号观测模型" class="headerlink" title="多个信号观测模型"></a>多个信号观测模型</h3><script type="math/tex; mode=display">
+x(n)=As(n)+v(n)</script><a id="more"></a>
+<h1 id="书写规范"><a href="#书写规范" class="headerlink" title="书写规范"></a>书写规范</h1><ul>
+<li>大写字母下加两线：矩阵</li>
+<li>加一线：向量</li>
+<li>不加：变量</li>
+</ul>
+<h1 id="矩阵代数基本性质"><a href="#矩阵代数基本性质" class="headerlink" title="矩阵代数基本性质"></a>矩阵代数基本性质</h1><script type="math/tex; mode=display">
+\begin{array}{l}
+(A+B)^*=A^*+B^*
+\\
+(A+B)^T=A^T+B^T
+\\
+(A+B)^H=A^H+B^H
+\\
+(AB)^T=B^TA^T
+\\
+(AB)^H=B^HA^H
+\\
+(AB)^{-1}=B^{-1}A^{-1}
+\\
+(A^*)^{-1}=(A^{-1})^T
+\\
+(A^H)^{-1}=(A^{-1})^H
+\end{array}</script><p>对于任意矩阵A，矩阵$B=A^HA$都是Hermitndian</p>
+<h2 id="导数积分"><a href="#导数积分" class="headerlink" title="导数积分"></a>导数积分</h2><script type="math/tex; mode=display">
+\frac{dA}{dt}=
+\begin{bmatrix}
+\frac{da_{11}}{dt}&...&\frac{da_{1n}}{dt}\\
+...&...&...\\
+\frac{da_{m1}}{dt}&...&\frac{da_{mn}}{dt}
+\end{bmatrix}</script><ul>
+<li>指数矩阵函数<script type="math/tex; mode=display">
+exp(At)=I+At+\frac{A^2t^2}{2!}...\frac{A^nt^n}{n!}</script></li>
+<li>指数矩阵导数<script type="math/tex; mode=display">
+\frac{de^{At}}{dt}=Ae^{At}</script></li>
+<li>矩阵乘积的导数<script type="math/tex; mode=display">
+\frac{d}{dt}(AB)=\frac{dA}{dt}B+A\frac{dB}{dt}</script></li>
+<li>对数函数<script type="math/tex; mode=display">
+In(I+A)=\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n}A^n</script><h2 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h2></li>
+<li>幂等矩阵<script type="math/tex; mode=display">
+A^2=A</script></li>
+<li>对合矩阵</li>
+</ul>
+<script type="math/tex; mode=display">
+A^2=I</script><ul>
+<li>正交矩阵</li>
+</ul>
+<script type="math/tex; mode=display">
+AA^T=I</script><h2 id="线性无关与奇异性"><a href="#线性无关与奇异性" class="headerlink" title="线性无关与奇异性"></a>线性无关与奇异性</h2><h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><script type="math/tex; mode=display">
+c_1u_1+...c_nu_n=0</script><ul>
+<li>向量组线性无关：只有零解</li>
+<li>线性相关：有非零解<h3 id="矩阵方程"><a href="#矩阵方程" class="headerlink" title="矩阵方程"></a>矩阵方程</h3><script type="math/tex; mode=display">
+Ax=0</script></li>
+<li>只有零解：A非奇异</li>
+<li>存在非零解：A是奇异的</li>
+</ul>
+<h2 id="复矩阵方程"><a href="#复矩阵方程" class="headerlink" title="复矩阵方程"></a>复矩阵方程</h2><script type="math/tex; mode=display">
+(A_r+jA_i)(x_r+jx_i)=b_r+jb_i
+
+\begin{bmatrix}
+A_r&-A_i&b_r\\
+A_i&A_r&b_i
+\end{bmatrix}
+\to
+\begin{bmatrix}
+I_n&O_n&x_r\\
+O_n&I_n&x_i
+\end{bmatrix}</script><h2 id="向量空间和线性映射"><a href="#向量空间和线性映射" class="headerlink" title="向量空间和线性映射"></a>向量空间和线性映射</h2><p>向量空间是以向量为元素的集合</p>
+<ul>
+<li>子空间V到子空间W的映射<script type="math/tex; mode=display">
+T:V\to W</script><script type="math/tex; mode=display">
+T(c_1u_1...+c_nu_n)=c_1T(u_1)+...+c_nT(u_n)</script><blockquote>
+<p>满足线性性质</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="正交投影算子"><a href="#正交投影算子" class="headerlink" title="正交投影算子"></a>正交投影算子</h3><script type="math/tex; mode=display">
+w=T(x)</script><script type="math/tex; mode=display">
+\begin{bmatrix}
+w_1
+\\w_2
+\end{bmatrix}
+=\begin{bmatrix}
+0&0\\
+0&1
+\end{bmatrix}
+\begin{bmatrix}
+x
+\\y
+\end{bmatrix}</script><h1 id="向量内积与范数"><a href="#向量内积与范数" class="headerlink" title="向量内积与范数"></a>向量内积与范数</h1><h3 id="典范内积"><a href="#典范内积" class="headerlink" title="典范内积"></a>典范内积</h3><script type="math/tex; mode=display">
+<x,y>=x^Hy=\sum_{i=1}^nx_{i}^*y_i</script><h3 id="加权内积"><a href="#加权内积" class="headerlink" title="加权内积"></a>加权内积</h3><script type="math/tex; mode=display">
+<x,y>=x^HGy</script><p>G为正定Hermitian矩阵</p>
+<h3 id="连续函数内积"><a href="#连续函数内积" class="headerlink" title="连续函数内积"></a>连续函数内积</h3><script type="math/tex; mode=display">
+<x(t),y(t)>=\int_a^bx(t)y(t)dt</script><h2 id="向量范数"><a href="#向量范数" class="headerlink" title="向量范数"></a>向量范数</h2><ul>
+<li><p>L0范数</p>
+<script type="math/tex; mode=display">
+||x||_0=^{def}非零元素的个数</script><blockquote>
+<p>表示矩阵稀疏程度</p>
+</blockquote>
+</li>
+<li><p>L1范数</p>
+<script type="math/tex; mode=display">
+||x||_1=^{def}\sum_{i=1}^m|x_i|</script></li>
+<li>L2范数<script type="math/tex; mode=display">
+||x||_2=(|x_1|^2...+|x_n|^2)^{1/2}=\sqrt{x^Tx}</script></li>
+<li>$L_{\infty}$<script type="math/tex; mode=display">
+L_{\infty}=max\{x_i\}</script></li>
+<li>$L_P$<script type="math/tex; mode=display">
+||x_p||=(\sum_{i=1}^m|x_i|^p)^{1/p}</script></li>
+</ul>
+<h2 id="模式识别和机器学习中的向量相似比较"><a href="#模式识别和机器学习中的向量相似比较" class="headerlink" title="模式识别和机器学习中的向量相似比较"></a>模式识别和机器学习中的向量相似比较</h2><p>距离测度$D(p||g)$衡量向量相似度</p>
+<p>比如k邻近算法中</p>
+<script type="math/tex; mode=display">
+D_E(x,s_i)=||x-s_i||_2=\sqrt{(x-s_i)^T(x-s_i)}</script><h2 id="矩阵内积与范数"><a href="#矩阵内积与范数" class="headerlink" title="矩阵内积与范数"></a>矩阵内积与范数</h2><p>矩阵列向量化</p>
+<script type="math/tex; mode=display">
+a=vec(A)=
+\begin{bmatrix}
+a_1\\
+a_2\\
+...\\
+a_n
+\end{bmatrix}</script><script type="math/tex; mode=display">
+mn\times 1 向量</script><h3 id="矩阵内积"><a href="#矩阵内积" class="headerlink" title="矩阵内积"></a>矩阵内积</h3><script type="math/tex; mode=display">
+<A,B>=<vec(A),vec(B)>=\sum_{i=1}^na_i^Hb_i=\sum_i^n<a_i,b_i></script><script type="math/tex; mode=display">
+=vec(A)^Hvec(B)=tr<A^HB></script><h3 id="诱导范数"><a href="#诱导范数" class="headerlink" title="诱导范数"></a>诱导范数</h3><script type="math/tex; mode=display">
+||A||=\max\{||Ax||:x\in K^n,||x||=1\}</script><script type="math/tex; mode=display">
+=\max\{\frac{||Ax||}{||X||}:x\in K^n,||x||=\not 0\}</script><h4 id="诱导p范数"><a href="#诱导p范数" class="headerlink" title="诱导p范数"></a>诱导p范数</h4><p>诱导$L$和$L_\infty$范数分别直接是该矩阵的各列元素绝对值之和的最大值(最大绝对列和)及最大绝对行和;而诱导L2范数则是矩阵A的最大奇异值。</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\|\boldsymbol{A}\|_{1}=\max _{1 \leqslant j \leqslant n} \sum_{i=1}^{m}\left|a_{i j}\right| \\
+\|\boldsymbol{A}\|_{\mathrm{spec}}=\|\boldsymbol{A}\|_{2} \\
+\|\boldsymbol{A}\|_{\infty}=\max _{1 \leqslant i \leqslant m} \sum_{j=1}^{n}\left|a_{i j}\right|
+\end{array}</script><h3 id="元素函数"><a href="#元素函数" class="headerlink" title="元素函数"></a>元素函数</h3><p>将m×n矩阵先按照列堆栈的形式，排列成一个mn ×1向量，然后采用向量的范数定义，即得到矩阵的范数。由于这类范数是使用矩阵的元素表示的，故称为元素形式范数。元素形式范数是下面的p矩阵范数</p>
+<script type="math/tex; mode=display">
+\|\boldsymbol{A}\|_{p} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{p}\right)^{1 / p}</script><ul>
+<li>L1函数（和范数）（p=1）<script type="math/tex; mode=display">
+\|\boldsymbol{A}\|_{1} \stackrel{\text { def }}{=} \sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|</script></li>
+<li>Frobenius范数（p=2）<script type="math/tex; mode=display">
+\|\boldsymbol{A}\|_{\mathrm{F}} \stackrel{\text { def }}{=}\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{2}\right)^{1 / 2}</script>Frobenius函数又可以写作迹函数的形式</li>
+</ul>
+<script type="math/tex; mode=display">
+||A||_F=\sqrt{tr(A^HA)}</script><ul>
+<li>最大范数<script type="math/tex; mode=display">
+\|\boldsymbol{A}\|_{\infty}=\max _{i=1, \cdots, m ; j=1, \cdots, n}\left\{\left|a_{i j}\right|\right\}</script><h1 id="随机向量"><a href="#随机向量" class="headerlink" title="随机向量"></a>随机向量</h1></li>
+</ul>
+<h2 id="均值向量"><a href="#均值向量" class="headerlink" title="均值向量"></a>均值向量</h2><script type="math/tex; mode=display">
+\boldsymbol{\mu}_{x}=\mathrm{E}\{\boldsymbol{x}(\xi)\}=\left[\begin{array}{c}
+\mathrm{E}\left\{x_{1}(\xi)\right\} \\
+\vdots \\
+\mathrm{E}\left\{x_{m}(\xi)\right\}
+\end{array}\right]=\left[\begin{array}{c}
+\mu_{1} \\
+\vdots \\
+\mu_{m}
+\end{array}\right]</script><h2 id="相关矩阵"><a href="#相关矩阵" class="headerlink" title="相关矩阵"></a>相关矩阵</h2><script type="math/tex; mode=display">
+\boldsymbol{R}_{x} \stackrel{\text { def }}{=} \mathrm{E}\left\{\boldsymbol{x}(\xi) \boldsymbol{x}^{\mathrm{H}}(\xi)\right\}=\left[\begin{array}{ccc}
+r_{11} & \cdots & r_{1 m} \\
+\vdots & \ddots & \vdots \\
+r_{m 1} & \cdots & r_{m m}
+\end{array}\right]</script><h2 id="自协方差矩阵"><a href="#自协方差矩阵" class="headerlink" title="自协方差矩阵"></a>自协方差矩阵</h2><script type="math/tex; mode=display">
+C_{x}=\operatorname{Cov}(x, x) \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{x}\right]\left[x(\xi)-\mu_{x}\right]^{\mathrm{H}}\right\}=
+\left[\begin{array}{ccc}
+c_{11} & \cdots & c_{1 m} \\
+\vdots & \ddots & \vdots \\
+c_{m 1} & \cdots & c_{m m}
+\end{array}\right]</script><h3 id="自相关矩阵与自协方差矩阵之间的关系"><a href="#自相关矩阵与自协方差矩阵之间的关系" class="headerlink" title="自相关矩阵与自协方差矩阵之间的关系"></a>自相关矩阵与自协方差矩阵之间的关系</h3><script type="math/tex; mode=display">
+C_x=R_x-\mu_x\mu_x^H</script><h2 id="互协方差矩阵"><a href="#互协方差矩阵" class="headerlink" title="互协方差矩阵"></a>互协方差矩阵</h2><script type="math/tex; mode=display">
+C_{xy} \stackrel{\text { def }}{=} \mathrm{E}\left\{\left[x(\xi)-\mu_{u}\right]\left[y(\xi)-\mu_{y}\right]^{\mathrm{H}}\right\}=
+\left[\begin{array}{ccc}
+c_{x_1,y_1} & \cdots & c_{x_1,y_m} \\
+\vdots & \ddots & \vdots \\
+c_{x_m,y_1} & \cdots & c_{x_m,x_m}
+\end{array}\right]</script><script type="math/tex; mode=display">
+C_x=R_{xy}-\mu_x\mu_y^H</script><h2 id="相关系数"><a href="#相关系数" class="headerlink" title="相关系数"></a>相关系数</h2><script type="math/tex; mode=display">
+\rho_{x y} \stackrel{\text { def }}{=} \frac{c_{x y}}{\sqrt{\mathrm{E}\left\{|x(\xi)|^{2}\right\} \mathrm{E}\left\{|y(\xi)|^{2}\right\}}}=\frac{c_{x y}}{\sigma_{x} \sigma_{y}}</script><h2 id="高斯随机向量"><a href="#高斯随机向量" class="headerlink" title="高斯随机向量"></a>高斯随机向量</h2><script type="math/tex; mode=display">
+E\{x(t)\}=0</script><script type="math/tex; mode=display">
+E\{x(t)x^T(t)\}=\sigma I</script><h1 id="矩阵的性能指标"><a href="#矩阵的性能指标" class="headerlink" title="矩阵的性能指标"></a>矩阵的性能指标</h1><h2 id="矩阵的二次型"><a href="#矩阵的二次型" class="headerlink" title="矩阵的二次型"></a>矩阵的二次型</h2><p>对于任意方阵A的二次型定义为$x^HAx$</p>
+<script type="math/tex; mode=display">
+f\left(x_{1}, \cdots, x_{n}\right)=\sum_{i=1}^{n} \alpha_{i i} x_{i}^{2}+\sum_{i=1, i \neq j}^{n} \sum_{j=1}^{n} \alpha_{i j} x_{i} x_{j}</script><p>为保证唯一性，在讨论矩阵的二次型时，有必要假定矩阵为实对称矩阵或复共轭对称矩阵</p>
+<ul>
+<li>正定矩阵，<ul>
+<li>二次型$x^HAx &gt; 0$</li>
+</ul>
+</li>
+<li>半正定矩阵<ul>
+<li>$x^HAx &gt; 0$ </li>
+</ul>
+</li>
+<li>负定矩阵<ul>
+<li>二次型$x^HAx &gt; 0$</li>
+</ul>
+</li>
+<li>半负定矩阵<ul>
+<li>若二次型$x^HAx &gt; 0$</li>
+</ul>
+</li>
+<li>不定矩阵，若二次型$x^HAx$ 既可能取正值，也可能取负值。</li>
+</ul>
+<h3 id="用特征值描述矩阵的正定性与非正定性"><a href="#用特征值描述矩阵的正定性与非正定性" class="headerlink" title="用特征值描述矩阵的正定性与非正定性"></a>用特征值描述矩阵的正定性与非正定性</h3><ul>
+<li>正定矩阵:所有特征值取正实数的矩阵。</li>
+<li>半正定矩阵:各个特征值取非负实数的矩阵。</li>
+<li>负定矩阵:全部特征值为负实数的矩阵。</li>
+<li>半负定矩阵:每个特征值取非正实数的矩阵。</li>
+<li>不定矩阵:特征值有些取正实数,另一些取负实数的矩阵。</li>
+</ul>
+<blockquote>
+<p>矩阵的特征值可描述正定性、奇异性及对角元素的特殊结构</p>
+</blockquote>
+<h2 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h2><p>矩阵的迹反映所有特征值之和</p>
+<h2 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h2><p>矩阵中线性无关的行或列的数目</p>
+<ul>
+<li>适定方程:若m = n，并且 rank(A) = n，即矩阵A非奇异，则称矩阵方程Aa = b为适定(well-determined)方程。</li>
+<li>欠定方程:若独立的方程个数小于独立的未知参数个数，则称矩阵方程 Aa = b为欠定(under-determined)方程。</li>
+<li>超定方程:若独立的方程个数大于独立的未知参数个数，则称矩阵方程Aa = b为超定(over-determined)方程。</li>
+</ul>
+<h1 id="逆矩阵和伪逆矩阵"><a href="#逆矩阵和伪逆矩阵" class="headerlink" title="逆矩阵和伪逆矩阵"></a>逆矩阵和伪逆矩阵</h1><p>矩阵的可逆和非奇异的叙述中，下列叙述等价</p>
+<ul>
+<li>A非奇异</li>
+<li>A-1存在</li>
+<li>rank(A) = n</li>
+<li>A的行线性无关</li>
+<li>A的列线性无关;</li>
+<li>det(A)≠0</li>
+<li>A 的值域的维数是n</li>
+<li>A 的零空间的维数是0</li>
+<li>Ax = b对每一个$b\in C^n$都是一致方程</li>
+<li>Ax = b对每一个b有唯一的解</li>
+<li>Ax = 0只有平凡解x = 0。</li>
+</ul>
+<p>n x n矩阵A的逆矩阵A-1具有以下性质</p>
+<ul>
+<li>A-1A= AA-1 =I。</li>
+<li>A-1是唯一的。</li>
+<li>逆矩阵的行列式等于原矩阵行列式的倒数，即$|A^{-1}|=\frac{1}{|A|}$</li>
+<li>逆矩阵是非奇异的。</li>
+<li>$(A^{-1})^{-1}=A$</li>
+</ul>
+<h2 id="矩阵求逆定理-Sherman-Morrison"><a href="#矩阵求逆定理-Sherman-Morrison" class="headerlink" title="矩阵求逆定理(Sherman-Morrison)"></a>矩阵求逆定理(Sherman-Morrison)</h2><script type="math/tex; mode=display">
+(A+xy^H)^{-1}=A^{-1}-\frac{A^{-1}xy^HA^{-1}}{1+y^HA^{-1}x}</script><h2 id="广义逆矩阵"><a href="#广义逆矩阵" class="headerlink" title="广义逆矩阵"></a>广义逆矩阵</h2><p>A的广义逆矩阵满足以下四个条件</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+A A^{\dagger} A=A\\
+A^{\dagger} AA^{\dagger}=A^{\dagger}
+\\
+AA^{\dagger}=(AA^{\dagger})^H
+\\A^{\dagger}A=(A^{\dagger}A)^H
+\end{array}</script><h1 id="矩阵的直和"><a href="#矩阵的直和" class="headerlink" title="矩阵的直和"></a>矩阵的直和</h1><script type="math/tex; mode=display">
+\boldsymbol{A} \oplus \boldsymbol{B}=\left[\begin{array}{cc}
+\boldsymbol{A} & \boldsymbol{O}_{m \times n} \\
+\boldsymbol{O}_{n \times m} & \boldsymbol{B}
+\end{array}\right]</script><h1 id="Hadamard积"><a href="#Hadamard积" class="headerlink" title="Hadamard积"></a>Hadamard积</h1><p>两个同维度矩阵对应元素直接相乘</p>
+<script type="math/tex; mode=display">
+(A*B)_{ij}=a_{ij}b_{ij}</script><h1 id="Kronecker积"><a href="#Kronecker积" class="headerlink" title="Kronecker积"></a>Kronecker积</h1><h2 id="左Kronecker积"><a href="#左Kronecker积" class="headerlink" title="左Kronecker积"></a>左Kronecker积</h2><script type="math/tex; mode=display">
+\boldsymbol{A} \otimes \boldsymbol{B}=\left[\boldsymbol{a}_{1} \boldsymbol{B}, \cdots, \boldsymbol{a}_{n} \boldsymbol{B}\right]=\left[a_{i j} \boldsymbol{B}\right]_{i=1, j=1}^{m, n}=\left[\begin{array}{cccc}
+a_{11} \boldsymbol{B} & a_{12} \boldsymbol{B} & \cdots & a_{1 n} \boldsymbol{B} \\
+a_{21} \boldsymbol{B} & a_{22} \boldsymbol{B} & \cdots & a_{2 n} \boldsymbol{B} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m 1} \boldsymbol{B} & a_{m 2} \boldsymbol{B} & \cdots & a_{m n} \boldsymbol{B}
+\end{array}\right]</script><h2 id="右Kronecker积"><a href="#右Kronecker积" class="headerlink" title="右Kronecker积"></a>右Kronecker积</h2><script type="math/tex; mode=display">
+[\boldsymbol{A} \otimes \boldsymbol{B}]_{\text {left }}=\left[\boldsymbol{A} \boldsymbol{b}_{1}, \cdots, \boldsymbol{A} \boldsymbol{b}_{\boldsymbol{q}}\right]=\left[b_{i j} \boldsymbol{A}\right]_{i=1, j=1}^{p, \boldsymbol{q}}=\left[\begin{array}{cccc}
+\boldsymbol{A} b_{11} & \boldsymbol{A} b_{12} & \cdots & \boldsymbol{A} b_{1 \boldsymbol{q}} \\
+\boldsymbol{A} b_{21} & \boldsymbol{A} b_{22} & \cdots & \boldsymbol{A} b_{2 q} \\
+\vdots & \vdots & \ddots & \vdots \\
+\boldsymbol{A} b_{\boldsymbol{p} 1} & \boldsymbol{A} b_{p 2} & \cdots & \boldsymbol{A} b_{p q}
+\end{array}\right]</script><h1 id="矩阵向量化"><a href="#矩阵向量化" class="headerlink" title="矩阵向量化"></a>矩阵向量化</h1><h2 id="按列堆栈"><a href="#按列堆栈" class="headerlink" title="按列堆栈"></a>按列堆栈</h2><script type="math/tex; mode=display">
+vec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{m 1}, \cdots, a_{1 n}, \cdots, a_{m n}\right]^{\mathrm{T}}</script><h2 id="按行堆栈"><a href="#按行堆栈" class="headerlink" title="按行堆栈"></a>按行堆栈</h2><script type="math/tex; mode=display">
+rvec (\boldsymbol{A})=\left[a_{11}, \cdots, a_{1 n}, \cdots, a_{m 1}, \cdots, a_{m n}\right]</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fazziekey.github.io/2020/11/15/matrix-basic/" data-id="ckk51g3q7002ts8u0amwdeyu6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/15/spacial-matrix/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          特殊矩阵
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/10/21/matrix-equation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">矩阵方程求解&amp;最小二乘法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Beam-tracking/" rel="tag">Beam tracking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Statistic-Analysis/" rel="tag">Statistic Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication/" rel="tag">communication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" rel="tag">优化理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" rel="tag">手撕麦克斯韦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A6%99%E5%86%9Cyyds/" rel="tag">香农yyds</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Beam-tracking/" style="font-size: 10px;">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CV/" style="font-size: 12px;">CV</a> <a href="/tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/RL/" style="font-size: 12px;">RL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 12px;">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 10px;">communication</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pytorch/" style="font-size: 14px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 10px;">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 18px;">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 20px;">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12px;">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 20px;">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 12px;">香农yyds</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/19/information-encoder/">信息编码</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-model-free/">RL:model free</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-base/">强化学习基础和马尔科夫决策过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/optimize/">优化理论</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/matrix-partial/">矩阵微分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Fazzie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>RNN | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="循环序列模型为什么选择序列模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RNN">
+<meta property="og:url" content="https://fazziekey.github.io/2020/07/18/RNN/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="循环序列模型为什么选择序列模型">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/ae2970d80a119cd341ef31c684bfac49.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/8deca8a84f06466155d2d8d53d26e05d.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/cb041c33b65e17600842ebf87174c4f2.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/rnn-f.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/rnn_cell_backprop.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/329b0748f7282efc206ea8de6a709833.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/14e1df0a7a8cdd1584b2e92e87e23aa7.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/14e1df0a7a8cdd1584b2e92e87e23aa7.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/db580f1dfd6095d672fc62cce74ce5e2.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/8fb1c4afe30b7a0ede26522b355068ba.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/LSTM.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/LSTM_rnn.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200712162521.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200712162520.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200712162522.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/48c787912f7f8daee638dd311583d6cf.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/68d7c930146724f39782cb57d33161e9.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/ce30c9ae7912bdb3562199bf85eca1cd.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/59fb45cfdf7faa53571ec7b921b78358.png">
+<meta property="og:image" content="http://www.ai-start.com/dl2017/images/b4bf4b0cdcef0c9d021707c47d5aecda.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/db12137b26fb4e84e5261b2dcb49ddf9.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/b71d0cddd12a41ab5c9212b24497a92c.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/f319dc21af8e248c2e7418883f160097.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/b6b25908f6ab1c94d6d102191377160f.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/774dd0cfce8313c273f7155aa064869a.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/1b1dd8a7cbddd05425e6b728cbbac957.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/c649b0538387f6bac50010d96b8ca019.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/af7d6b80483a8a5ad04a78ebaabeca7d.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/134af70c48588b247e437f8a5cab420e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/7640e02d6663dd97ec7cf1e152041e1e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/4e15947a9ec31763d8545715e20e707c.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/2683ae07c70d727208561dc32a64d43a.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/d6b739666d9d7af497ce06ea4a3b14fc.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/a620354d4ceafdca5ca0f9ee8b5b658b.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/143d162f91004d79ff47338ad85be5d7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/d1ab68289592565fa9abf0df235039e3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/c629b0432b83a9875e5a80ebb2558484.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/b6ff6fb462ce466873c06b366060a817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/4560eb03dfac3d28c6e1e831295d64e7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/f16abb639f18e3ab3674c1db485590c8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/16d66c2dd1d9b048e93013002beef77e.png">
+<meta property="article:published_time" content="2020-07-18T08:00:31.000Z">
+<meta property="article:modified_time" content="2020-08-05T16:02:48.550Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="Deep learning">
+<meta property="article:tag" content="NLP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.ai-start.com/dl2017/images/ae2970d80a119cd341ef31c684bfac49.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Fazziekey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RNN" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/18/RNN/" class="article-date">
+  <time datetime="2020-07-18T08:00:31.000Z" itemprop="datePublished">2020-07-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RNN
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="循环序列模型"><a href="#循环序列模型" class="headerlink" title="循环序列模型"></a>循环序列模型</h1><h2 id="为什么选择序列模型"><a href="#为什么选择序列模型" class="headerlink" title="为什么选择序列模型"></a>为什么选择序列模型</h2><p><img src="http://www.ai-start.com/dl2017/images/ae2970d80a119cd341ef31c684bfac49.png" alt=""><br><a id="more"></a></p>
+<h2 id="数学符号"><a href="#数学符号" class="headerlink" title="数学符号"></a>数学符号</h2><ul>
+<li>输入$x^{<t>}$</li>
+<li>输出$y^{<t>}$</li>
+<li>序列长度$T_x$</li>
+<li>词向量one-hot编码<br><img src="http://www.ai-start.com/dl2017/images/8deca8a84f06466155d2d8d53d26e05d.png" alt=""></li>
+</ul>
+<h2 id="RNN模型"><a href="#RNN模型" class="headerlink" title="RNN模型"></a>RNN模型</h2><h3 id="用普通神经网络的问题"><a href="#用普通神经网络的问题" class="headerlink" title="用普通神经网络的问题"></a>用普通神经网络的问题</h3><ul>
+<li>输出和输入维度不对应</li>
+<li>序列前后不存在联系</li>
+</ul>
+<h3 id="解决，引入RNN"><a href="#解决，引入RNN" class="headerlink" title="解决，引入RNN"></a>解决，引入RNN</h3><p><img src="http://www.ai-start.com/dl2017/images/cb041c33b65e17600842ebf87174c4f2.png" alt=""></p>
+<script type="math/tex; mode=display">
+a^{<1>}=g_1(w_{aa}a^{<0>}+w_{<ax>x^{1}}+b_a)</script><script type="math/tex; mode=display">
+\hat{y}=g_2(w_{ya}a^{<1>}+b_y)</script><h3 id="更一般情况"><a href="#更一般情况" class="headerlink" title="更一般情况"></a>更一般情况</h3><script type="math/tex; mode=display">
+a^{<t>}=g_1(w_{aa}a^{<t-1>}+w_{<ax>x^{t}}+b_a)</script><script type="math/tex; mode=display">
+\hat{y}=g_2(w_{ya}a^{<t>}+b_y)</script><h3 id="进一步化简"><a href="#进一步化简" class="headerlink" title="进一步化简"></a>进一步化简</h3><script type="math/tex; mode=display">
+a^{<t>}=g_1(w_{a}[a^{<t-1>},x^{t}]+b_a)</script><script type="math/tex; mode=display">
+\hat{y}=g_2(w_{ya}a^{<t>}+b_y)</script><h3 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h3><p><img src="http://www.ai-start.com/dl2017/images/rnn-f.png" alt=""></p>
+<h3 id="RNN常用激活函数"><a href="#RNN常用激活函数" class="headerlink" title="RNN常用激活函数"></a>RNN常用激活函数</h3><ul>
+<li>tanh</li>
+<li>ReLU</li>
+</ul>
+<h2 id="通过时间的反向传播"><a href="#通过时间的反向传播" class="headerlink" title="通过时间的反向传播"></a>通过时间的反向传播</h2><h3 id="单个单元Loss-Function"><a href="#单个单元Loss-Function" class="headerlink" title="单个单元Loss Function"></a>单个单元Loss Function</h3><script type="math/tex; mode=display">
+L^{<t>}(\hat{y}^{<t>},y^{<t>})=
+-y^{<t>}log\hat{y}^{<t>}-(1-y^{<t>})log(1-\hat{y}^{<t>})</script><h3 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h3><script type="math/tex; mode=display">
+L(\hat{y}^{<t>},y^{<t>})=
+\sum_{t=1}^{T_n}L^{<t>}(\hat{y}^{<t>},y^{<t>})</script><h3 id="RNN反向传播计算"><a href="#RNN反向传播计算" class="headerlink" title="RNN反向传播计算"></a>RNN反向传播计算</h3><p><img src="http://www.ai-start.com/dl2017/images/rnn_cell_backprop.png" alt=""></p>
+<h2 id="不同类型的RNN结构"><a href="#不同类型的RNN结构" class="headerlink" title="不同类型的RNN结构"></a>不同类型的RNN结构</h2><p><img src="http://www.ai-start.com/dl2017/images/329b0748f7282efc206ea8de6a709833.png" alt=""></p>
+<h3 id="多对一"><a href="#多对一" class="headerlink" title="多对一"></a>多对一</h3><p><img src="http://www.ai-start.com/dl2017/images/14e1df0a7a8cdd1584b2e92e87e23aa7.png" alt=""></p>
+<h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><p><img src="http://www.ai-start.com/dl2017/images/14e1df0a7a8cdd1584b2e92e87e23aa7.png" alt=""></p>
+<h3 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h3><p><img src="http://www.ai-start.com/dl2017/images/db580f1dfd6095d672fc62cce74ce5e2.png" alt=""></p>
+<h2 id="语言模型和序列生成"><a href="#语言模型和序列生成" class="headerlink" title="语言模型和序列生成"></a>语言模型和序列生成</h2><p>语言模型所做的就是，它会告诉你某个特定的句子它出现的概率是多少</p>
+<h3 id="语言模型建立步骤"><a href="#语言模型建立步骤" class="headerlink" title="语言模型建立步骤"></a>语言模型建立步骤</h3><ul>
+<li>获取大量数据集</li>
+<li>句子标记化</li>
+<li>构建RNN</li>
+</ul>
+<h2 id="RNN梯度消失的问题"><a href="#RNN梯度消失的问题" class="headerlink" title="RNN梯度消失的问题"></a>RNN梯度消失的问题</h2><p><img src="http://www.ai-start.com/dl2017/images/8fb1c4afe30b7a0ede26522b355068ba.png" alt=""></p>
+<h3 id="RNN存在问题"><a href="#RNN存在问题" class="headerlink" title="RNN存在问题"></a>RNN存在问题</h3><ul>
+<li>缺乏长期记忆，如cat和were</li>
+<li>梯度爆炸</li>
+</ul>
+<h3 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h3><ul>
+<li>GRU</li>
+<li>LSTM</li>
+</ul>
+<h2 id="GRU"><a href="#GRU" class="headerlink" title="GRU"></a>GRU</h2><h3 id="cell单元"><a href="#cell单元" class="headerlink" title="cell单元"></a>cell单元</h3><ul>
+<li>功能：记忆<script type="math/tex; mode=display">
+\hat{c}^{<t>}=tanh(W_c[c^{<t-1>},x^{<t>}]+b_c)</script><h3 id="记忆门"><a href="#记忆门" class="headerlink" title="记忆门"></a>记忆门</h3><script type="math/tex; mode=display">
+\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)</script></li>
+</ul>
+<h3 id="GRU简化模型"><a href="#GRU简化模型" class="headerlink" title="GRU简化模型"></a>GRU简化模型</h3><script type="math/tex; mode=display">
+c^{<t>}=\Gamma \hat{c}^{<t>}+(1-\Gamma_u)c^{<t-1>}</script><h3 id="相关性"><a href="#相关性" class="headerlink" title="相关性"></a>相关性</h3><script type="math/tex; mode=display">
+\Gamma_r=\sigma(W_r[c^{<t-1>},x^{<t>}]+b_r)</script><script type="math/tex; mode=display">
+\hat{c}^{<t>}=tanh(W_c[\Gamma_r*c^{<t-1>},x^{<t>}]+b_c)</script><h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><h3 id="LSTM模型图"><a href="#LSTM模型图" class="headerlink" title="LSTM模型图"></a>LSTM模型图</h3><p><img src="http://www.ai-start.com/dl2017/images/LSTM.png" alt=""></p>
+<h3 id="LSTM单元"><a href="#LSTM单元" class="headerlink" title="LSTM单元"></a>LSTM单元</h3><ul>
+<li>更新门</li>
+<li>遗忘门</li>
+<li>输出门</li>
+<li>激活函数</li>
+<li>相关性门</li>
+</ul>
+<h3 id="LSTM的前向传播"><a href="#LSTM的前向传播" class="headerlink" title="LSTM的前向传播"></a>LSTM的前向传播</h3><p><img src="http://www.ai-start.com/dl2017/images/LSTM_rnn.png" alt=""></p>
+<h3 id="LSTM反向传播"><a href="#LSTM反向传播" class="headerlink" title="LSTM反向传播"></a>LSTM反向传播</h3><h4 id="门求偏导"><a href="#门求偏导" class="headerlink" title="门求偏导"></a>门求偏导</h4><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200712162521.png" alt=""></p>
+<h4 id="参数求偏导"><a href="#参数求偏导" class="headerlink" title="参数求偏导"></a>参数求偏导</h4><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200712162520.png" alt=""></p>
+<h4 id="参数更新"><a href="#参数更新" class="headerlink" title="参数更新"></a>参数更新</h4><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200712162522.png" alt=""></p>
+<h2 id="双向RNN"><a href="#双向RNN" class="headerlink" title="双向RNN"></a>双向RNN</h2><p><img src="http://www.ai-start.com/dl2017/images/48c787912f7f8daee638dd311583d6cf.png" alt=""></p>
+<h2 id="深层RNN"><a href="#深层RNN" class="headerlink" title="深层RNN"></a>深层RNN</h2><p><img src="http://www.ai-start.com/dl2017/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png" alt=""></p>
+<hr>
+<h1 id="自然语言处理和词嵌入"><a href="#自然语言处理和词嵌入" class="headerlink" title="自然语言处理和词嵌入"></a>自然语言处理和词嵌入</h1><p><img src="http://www.ai-start.com/dl2017/images/68d7c930146724f39782cb57d33161e9.png" alt=""></p>
+<h2 id="词汇表征"><a href="#词汇表征" class="headerlink" title="词汇表征"></a>词汇表征</h2><h3 id="one-hot编码的缺点"><a href="#one-hot编码的缺点" class="headerlink" title="one-hot编码的缺点"></a>one-hot编码的缺点</h3><ul>
+<li>每个词孤立，泛化能力不强</li>
+<li>数据量太大</li>
+</ul>
+<h3 id="如何改进？"><a href="#如何改进？" class="headerlink" title="如何改进？"></a>如何改进？</h3><h4 id="应用特征向量"><a href="#应用特征向量" class="headerlink" title="应用特征向量"></a>应用特征向量</h4><p><img src="http://www.ai-start.com/dl2017/images/ce30c9ae7912bdb3562199bf85eca1cd.png" alt=""></p>
+<h3 id="t-SNE-算法"><a href="#t-SNE-算法" class="headerlink" title="t-SNE 算法"></a>t-SNE 算法</h3><p>将一维词向量转化为二维可视化<br><img src="http://www.ai-start.com/dl2017/images/59fb45cfdf7faa53571ec7b921b78358.png" alt=""></p>
+<h2 id="使用词嵌入"><a href="#使用词嵌入" class="headerlink" title="使用词嵌入"></a>使用词嵌入</h2><p><img src="http://www.ai-start.com/dl2017/images/b4bf4b0cdcef0c9d021707c47d5aecda.png" alt=""></p>
+<h3 id="词嵌入做迁移学习的方法"><a href="#词嵌入做迁移学习的方法" class="headerlink" title="词嵌入做迁移学习的方法"></a>词嵌入做迁移学习的方法</h3><ul>
+<li>先从大量的文本集中学习词嵌入。一个非常大的文本集，或者下载预训练好的词嵌入模型</li>
+<li><p>用这些词嵌入模型把它迁移到新的只有少量标注训练集的任务中，比如说用这个300维的词嵌入来表示的单词。这样做的一个好处就是可以用更低维度的特征向量代替原来的10000维的one-hot向量，现在你可以用一个300维更加紧凑的向量。尽管one-hot向量很快计算，而学到的用于词嵌入的300维的向量会更加紧凑。</p>
+</li>
+<li><p>在你的任务上训练模型时，在你的命名实体识别任务上，只有少量的标记数据集上，你可以自己选择要不要继续微调，用新的数据调整词嵌入。实际中，只有这个第二步中有很大的数据集你才会这样做，如果你标记的数据集不是很大，通常我不会在微调词嵌入上费力气。</p>
+</li>
+</ul>
+<h2 id="词嵌入的特性"><a href="#词嵌入的特性" class="headerlink" title="词嵌入的特性"></a>词嵌入的特性</h2><ul>
+<li>类比推理</li>
+</ul>
+<script type="math/tex; mode=display">
+e_{man}-e_{women}=
+\begin{bmatrix}
+-1\\
+0.01\\
+0.03
+\\0.09
+\end{bmatrix}
+-
+\begin{bmatrix}
+-1\\
+0.02\\
+0.02
+\\0.01
+\end{bmatrix}
+
+=
+\begin{bmatrix}
+-2\\
+-0.01\\
+0.01
+\\0.08
+\end{bmatrix}
+\approx
+\begin{bmatrix}
+-2\\
+0\\
+0
+\\0
+\end{bmatrix}</script><script type="math/tex; mode=display">
+e_{king}-e_{queen}=
+\begin{bmatrix}
+-0.95\\
+0.093\\
+0.70
+\\0.09
+\end{bmatrix}
+-
+\begin{bmatrix}
+0.97\\
+0.95\\
+0.69
+\\0.01
+\end{bmatrix}
+
+=
+\begin{bmatrix}
+-1.92\\
+-0.02\\
+0.01
+\\0.01
+\end{bmatrix}
+\approx
+\begin{bmatrix}
+-2\\
+0\\
+0
+\\0
+\end{bmatrix}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/db12137b26fb4e84e5261b2dcb49ddf9.png" alt=""></p>
+<script type="math/tex; mode=display">
+e_{man}-e_{woman}\approx e_{king}-e_{queen}</script><h3 id="如何反映相似度？"><a href="#如何反映相似度？" class="headerlink" title="如何反映相似度？"></a>如何反映相似度？</h3><p><strong>余弦相似度</strong></p>
+<script type="math/tex; mode=display">
+sim(u,v)=\frac{u^Tv}{|u|_2|v|_2}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/b71d0cddd12a41ab5c9212b24497a92c.png" alt=""></p>
+<h2 id="嵌入矩阵"><a href="#嵌入矩阵" class="headerlink" title="嵌入矩阵"></a>嵌入矩阵</h2><p>学习词嵌入其实是学习一个嵌入矩阵<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/f319dc21af8e248c2e7418883f160097.png" alt=""></p>
+<script type="math/tex; mode=display">
+E\cdot o_i=e_{i}</script><h2 id="学习词嵌入"><a href="#学习词嵌入" class="headerlink" title="学习词嵌入"></a>学习词嵌入</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/b6b25908f6ab1c94d6d102191377160f.png" alt=""></p>
+<h3 id="skip-gram"><a href="#skip-gram" class="headerlink" title="skip-gram"></a>skip-gram</h3><p><strong>输入：预测的词汇前n个单词，上下文</strong></p>
+<p><strong>输出：softmax的rank</strong></p>
+<ul>
+<li>随机生成一个嵌入矩阵</li>
+<li>学习嵌入矩阵参数</li>
+</ul>
+<h2 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h2><p>学习映射关系</p>
+<script type="math/tex; mode=display">
+o_c \to E \to e_c\to o_{softmax}\to \hat{y}</script><ul>
+<li>随机选择目标单词上下文的另一个单词</li>
+<li>输入one-hot向量</li>
+<li>监督学习</li>
+</ul>
+<blockquote>
+<p>softmax:</p>
+</blockquote>
+<script type="math/tex; mode=display">
+p(t|c)=\frac{e^{\theta_t^T}e_c}{\sum_{j=1}^{10000}e^{\theta_t^T}e_c}</script><h3 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h3><p>softmax运算量太大</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ul>
+<li>分级</li>
+<li>负采样</li>
+</ul>
+<h3 id="CBOM和skip-gram"><a href="#CBOM和skip-gram" class="headerlink" title="CBOM和skip-gram"></a>CBOM和skip-gram</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/774dd0cfce8313c273f7155aa064869a.png" alt=""></p>
+<h2 id="负采样（Negative-Sampling）"><a href="#负采样（Negative-Sampling）" class="headerlink" title="负采样（Negative Sampling）"></a>负采样（Negative Sampling）</h2><ul>
+<li>给定一对单词和target</li>
+<li>使用逻辑回归</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/16/1b1dd8a7cbddd05425e6b728cbbac957.png" alt=""></p>
+<script type="math/tex; mode=display">
+P(y=1|c,t)=\sigma(\theta_t^Te_c)</script><ul>
+<li>输入one-hot向量</li>
+<li>传递给嵌入矩阵</li>
+<li>得到10000个逻辑回归问题</li>
+<li>只选取其中K个进行训练</li>
+<li>转化为K个二分类问题</li>
+</ul>
+<h2 id="Glove-global-vectors-for-word-represengtation"><a href="#Glove-global-vectors-for-word-represengtation" class="headerlink" title="Glove(global vectors for word represengtation)"></a>Glove(global vectors for word represengtation)</h2><ul>
+<li>$x_{ij}$:单词i和单词j在上下文出现的次数</li>
+</ul>
+<script type="math/tex; mode=display">
+minimize\sum_{i=1}^{10000}\sum_{j=1}^{10000}f(x_{ij})(\theta_i^Te_j+b_i-b_j+\log x_{ij})^2</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/c649b0538387f6bac50010d96b8ca019.png" alt=""></p>
+<h2 id="情感分类"><a href="#情感分类" class="headerlink" title="情感分类"></a>情感分类</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/af7d6b80483a8a5ad04a78ebaabeca7d.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/134af70c48588b247e437f8a5cab420e.png" alt=""></p>
+<h2 id="词嵌入除偏（Debiasing-Word-Embeddings）"><a href="#词嵌入除偏（Debiasing-Word-Embeddings）" class="headerlink" title="词嵌入除偏（Debiasing Word Embeddings）"></a>词嵌入除偏（Debiasing Word Embeddings）</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/17/7640e02d6663dd97ec7cf1e152041e1e.png" alt=""></p>
+<ul>
+<li>求平均</li>
+<li>中和</li>
+<li>均衡步</li>
+</ul>
+<h1 id="序列模型和注意力机制（Sequence-models-amp-Attention-mechanism"><a href="#序列模型和注意力机制（Sequence-models-amp-Attention-mechanism" class="headerlink" title="序列模型和注意力机制（Sequence models &amp; Attention mechanism"></a>序列模型和注意力机制（Sequence models &amp; Attention mechanism</h1><h2 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h2><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>机器翻译</li>
+<li>语言识别</li>
+</ul>
+<h3 id="机器翻译"><a href="#机器翻译" class="headerlink" title="机器翻译"></a>机器翻译</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/4e15947a9ec31763d8545715e20e707c.png" alt=""></p>
+<ul>
+<li>输入法语，输出英语</li>
+<li>网络结构：LSTM或GR</li>
+</ul>
+<h3 id="图片描述"><a href="#图片描述" class="headerlink" title="图片描述"></a>图片描述</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/2683ae07c70d727208561dc32a64d43a.png" alt=""></p>
+<ul>
+<li>输入图片</li>
+<li>进入卷积神经网络如AlexNet</li>
+<li>把softmax单元更换为RNN结构</li>
+<li>输出描述图片的序列</li>
+</ul>
+<h2 id="选择最可能的句子（Picking-the-most-likely-sentence）"><a href="#选择最可能的句子（Picking-the-most-likely-sentence）" class="headerlink" title="选择最可能的句子（Picking the most likely sentence）"></a>选择最可能的句子（Picking the most likely sentence）</h2><h3 id="语言模型和机器翻译模型的区别"><a href="#语言模型和机器翻译模型的区别" class="headerlink" title="语言模型和机器翻译模型的区别"></a>语言模型和机器翻译模型的区别</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/d6b739666d9d7af497ce06ea4a3b14fc.png" alt=""></p>
+<ul>
+<li>语言模型以零向量开始，翻译模型从句子开始</li>
+<li>翻译模型为条件语言模型</li>
+</ul>
+<p><strong>最大化以下式子</strong></p>
+<script type="math/tex; mode=display">
+P(y^{<1>},...,t^{<T_y>}|x)</script><h3 id="为什么不用Greed-search"><a href="#为什么不用Greed-search" class="headerlink" title="为什么不用Greed search"></a>为什么不用Greed search</h3><ul>
+<li>我们需要一次性输出整个句子而不是一个单词</li>
+<li>运算量太大</li>
+</ul>
+<blockquote>
+<p>贪心搜索是一种来自计算机科学的算法，生成第一个词的分布以后，它将会根据你的条件语言模型挑选出最有可能的第一个词进入你的机器翻译模型中，在挑选出第一个词之后它将会继续挑选出最有可能的第二个词，然后继续挑选第三个最有可能的词，这种算法就叫做贪心搜索。</p>
+</blockquote>
+<h2 id="Beam-Search"><a href="#Beam-Search" class="headerlink" title="Beam Search"></a>Beam Search</h2><ul>
+<li>beam width$B=3$,选择softmax前三个最大值</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/a620354d4ceafdca5ca0f9ee8b5b658b.png" alt=""></p>
+<ul>
+<li>输入句子，如“Jane visite l’Afrique en Septembre”</li>
+<li>选择第一个单词，保留前三的可能性</li>
+<li>确认单词对的最大可能性</li>
+<li>继续重复该步骤</li>
+</ul>
+<h2 id="Beam-search-改进"><a href="#Beam-search-改进" class="headerlink" title="Beam search 改进"></a>Beam search 改进</h2><h3 id="Length-normalization"><a href="#Length-normalization" class="headerlink" title="Length normalization"></a>Length normalization</h3><script type="math/tex; mode=display">
+arg max\prod_{t=1}^
+{T_y}P(y^{<t>}|x,y^{<1>},...,y^{<t-1>})</script><p>加入log函数</p>
+<script type="math/tex; mode=display">
+arg max\sum_{t=1}^
+{T_y}\log P(y^{<t>}|x,y^{<1>},...,y^{<t-1>})</script><p>加入参数$\alpha$</p>
+<script type="math/tex; mode=display">
+\frac{1}{T_y^{\alpha}}arg max\sum_{t=1}^
+{T_y}\log P(y^{<t>}|x,y^{<1>},...,y^{<t-1>})</script><h3 id="how-to-choose-Beam-width-B"><a href="#how-to-choose-Beam-width-B" class="headerlink" title="how to choose Beam width B"></a>how to choose Beam width B</h3><ul>
+<li>B=1贪心算法</li>
+<li>B过大，计算量大，效果没有显著提升</li>
+</ul>
+<h2 id="Beam-search-误差分析"><a href="#Beam-search-误差分析" class="headerlink" title="Beam search 误差分析"></a>Beam search 误差分析</h2><ul>
+<li>$P(y^*|x)&gt;P(\hat{y}|x)$束搜索算法出错</li>
+<li>$P(y^*|x)&lt;P(\hat{y}|x)$RNN模型出错</li>
+</ul>
+<blockquote>
+<p>RNN实际上是一个编码器合解码器</p>
+</blockquote>
+<h2 id="如何评价一个翻译系统的好坏"><a href="#如何评价一个翻译系统的好坏" class="headerlink" title="如何评价一个翻译系统的好坏"></a>如何评价一个翻译系统的好坏</h2><ul>
+<li>与人工翻译进行对比</li>
+<li>观察输出是否在参考中</li>
+<li>每个单词加入计分上限</li>
+</ul>
+<h3 id="Blue-score"><a href="#Blue-score" class="headerlink" title="Blue score"></a>Blue score</h3><p>考虑词组得分</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/143d162f91004d79ff47338ad85be5d7.png" alt=""></p>
+<h2 id="注意力模型（Attention-Model）"><a href="#注意力模型（Attention-Model）" class="headerlink" title="注意力模型（Attention Model）"></a>注意力模型（Attention Model）</h2><h3 id="长句子的问题"><a href="#长句子的问题" class="headerlink" title="长句子的问题"></a>长句子的问题</h3><p>blue score降低<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/d1ab68289592565fa9abf0df235039e3.png" alt=""></p>
+<h3 id="注意力权重-alpha-lt-t-t’-gt"><a href="#注意力权重-alpha-lt-t-t’-gt" class="headerlink" title="注意力权重$\alpha&lt;t,t’&gt;$"></a>注意力权重$\alpha&lt;t,t’&gt;$</h3><p>第t个输出单词对应第t‘个输入单词的权重<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/c629b0432b83a9875e5a80ebb2558484.png" alt=""></p>
+<script type="math/tex; mode=display">
+c^{<t>}=\sum_{t'}\alpha^{<t,t'>}a^{<t'>}</script><script type="math/tex; mode=display">
+\alpha^{<t,t'>}=\frac{exp(e^{<t,t'>})}{\sum_{t'=1}^{T_x}exp(e^{<t,t'>})}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/b6ff6fb462ce466873c06b366060a817.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/4560eb03dfac3d28c6e1e831295d64e7.png" alt=""></p>
+<h3 id="网络结构梳理"><a href="#网络结构梳理" class="headerlink" title="网络结构梳理"></a>网络结构梳理</h3><script type="math/tex; mode=display">
+activate：x^t \to a^t</script><script type="math/tex; mode=display">
+a^t,s^{t-1}\to e^t</script><script type="math/tex; mode=display">
+softmax:e \to \alpha</script><script type="math/tex; mode=display">
+\alpha,a\to c</script><script type="math/tex; mode=display">
+activate：c \to s</script><script type="math/tex; mode=display">
+s^t\to y^t</script><h2 id="语音识别"><a href="#语音识别" class="headerlink" title="语音识别"></a>语音识别</h2><ul>
+<li>输入音频</li>
+<li>输出文字序列</li>
+</ul>
+<h3 id="phonemes方法"><a href="#phonemes方法" class="headerlink" title="phonemes方法"></a>phonemes方法</h3><p>将声音分解为最基本的音位</p>
+<h3 id="CTC-cost（Connectionist-temporal-classification）"><a href="#CTC-cost（Connectionist-temporal-classification）" class="headerlink" title="CTC cost（Connectionist temporal classification）"></a>CTC cost（Connectionist temporal classification）</h3><ul>
+<li>折叠重复字符<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/f16abb639f18e3ab3674c1db485590c8.png" alt=""></li>
+</ul>
+<h2 id="触发字检测（Trigger-Word-Detection）"><a href="#触发字检测（Trigger-Word-Detection）" class="headerlink" title="触发字检测（Trigger Word Detection）"></a>触发字检测（Trigger Word Detection）</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/18/16d66c2dd1d9b048e93013002beef77e.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fazziekey.github.io/2020/07/18/RNN/" data-id="ckk51g3po001as8u06iw317e1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/18/note-of-deeplearning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          note of deeplearning 
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/18/CNN%E2%80%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CNN“</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Beam-tracking/" rel="tag">Beam tracking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Statistic-Analysis/" rel="tag">Statistic Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication/" rel="tag">communication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" rel="tag">优化理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" rel="tag">手撕拉普拉斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" rel="tag">手撕麦克斯韦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" rel="tag">矩阵论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A6%99%E5%86%9Cyyds/" rel="tag">香农yyds</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Beam-tracking/" style="font-size: 10px;">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CV/" style="font-size: 12px;">CV</a> <a href="/tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/RL/" style="font-size: 12px;">RL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 12px;">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 10px;">communication</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pytorch/" style="font-size: 14px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 10px;">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 18px;">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 20px;">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12px;">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 20px;">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 12px;">香农yyds</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/19/information-encoder/">信息编码</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-model-free/">RL:model free</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/RL-base/">强化学习基础和马尔科夫决策过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/optimize/">优化理论</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/matrix-partial/">矩阵微分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Fazzie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
