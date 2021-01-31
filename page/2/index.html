@@ -1,7 +1,331 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hexo</title><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://fazziekey.github.io/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://fazziekey.github.io/null">
+<meta property="article:author" content="Fazzie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fazziekey.github.io/null"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-01-31 20:47:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  include ./includes/mixins/post-ui.pug
-  #recent-posts.recent-posts
-    +postUI
-    include includes/pagination.pug
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">47</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/10/21/SVD/" title="奇异值SVD">奇异值SVD</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-10-21T00:51:25.000Z" title="Created 2020-10-21 08:51:25">2020-10-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span></div><div class="content">数值的稳定性与条件数当输入d受到扰动时，输出f(d) 的扰动情况目的：解决病态问题
+条件数
+A 数据矩阵 n*n
+b 数据向量 n*1
+x 未知向量 n*1
+
+在这里我们研究x受A，或者b扰动的影响
+
+A(x+\delta x)=b+\delta b
+A\delta x=\delta b
+\delta x=A^{-1}\delta b由
+
+||AB||</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/10/19/Bandit/" title="Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning">Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-10-19T11:02:08.000Z" title="Created 2020-10-19 19:02:08">2020-10-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></span></div><div class="content">AbstractMillimeter wave (mmwave) communications have attracted increasing attention thanks to the abundant spectrum resource. The short wave-length of mmwave signals facilitates exploiting large antenna arrays to achieve large array gains and combat the large path-loss. However, the use of large antenna arrays along with narrow beams leads to a large overhead in beam training for obtaining channel state information, especially in dynamic environments. To reduce the overhead of beam training, in  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/10/06/xinxilun/" title="信息熵">信息熵</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-10-06T06:30:14.000Z" title="Created 2020-10-06 14:30:14">2020-10-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">信息的基本分类
+语法信息
+语义信息
+语用信息
+符号系统
+X，Y：随机变量
+$x_k,y_j$ 变量取值
+$a_k,b_j$变量取值
+$\chi=\{x_k;k=1,2…K\},\gamma=\{y_j;j=1,2…,J\}$
+事件：$X=x_k$
+$q_k=Pr\{X=x_k\}$
+
+事件自信息我们将特定事件$X=x_k$发生后给外界带来的信息量定义为事件的自信息
+
+I(X=x_k)=I(x_k)=-\log q(x_k)a=2的单位为比特
+a=e的单位为奈特
+
+事件自信息的本质既是事件对外界提供的信息，也是外界观察心信息付出的代价,通常认为概率越小的事件的信息量越大
+
+条件自信息
+I(x_k|y_j)=-\log_ap(x_k|y_j)
+事件Y=yj发生后X=xk发生给外界带来的信息
+联合自信息
+
+I(x_k,y_j)=-\log_ap(x_k,y_j)
+X=xk,Y=yj一起发生的信息量
+
+事件互信息
+I(x_k;y_j)=\log_a\frac{p(x_k|y_j)}{q(x_k)}
+互信息的本质为事件Y=yj中包含的有关事件X=xk信息量，即可以是事件X发生的信息量减去事件Y发 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/08/30/digital-circle%E2%80%9C/" title="数字电路笔记">数字电路笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-30T06:38:11.000Z" title="Created 2020-08-30 14:38:11">2020-08-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">逻辑运算基本公式
+
+基本定理代入定理反演定理
+逻辑函数表示方法
+真值表
+逻辑式
+将输入/输出之间的逻辑关系用与/或/非的运算式表示 就得到逻辑式
+
+
+逻辑图
+波形图
+卡诺图
+
+标准形式
+最小项之和
+利用公式:A=(B’+B)A 
+A’B’C’=000=m0
+
+
+最大项之积
+A+B+C=000=M0
+A’+B’+C’=111=M7转化方式
+Y=\sum m_i
+\to Y'=\sum_{k=\not i} m_k
+\to Y=(\sum_{k=\not i} m_k)'
+\to Y=\prod_{i=\not k}m_k'=\prod_{i=\not k}M_k'
+
+
+
+逻辑函数化简公式法
+AB+A’C+BC=AB+A’C
+A+AB=A卡诺图
+
+
+用卡诺图表示逻辑函数
+找出可合并的最小项
+化简后的乘积项相加
+
+约束项在逻辑函数中，对输入变量取值的 限制，在这些取值下为1的最小项称 为约束项
+任意项在输入变量某些取值下，函数值为1或 为0不影响逻辑电路的功能，在这些取 值下为1的最小项称为任意项
+常用编码补码反码反码
+
+(N)_{1NV}=
+\begin{cases}
+N&N>0\\
+2^ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/08/21/z-transformation/" title="z变换">z变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-21T08:01:57.000Z" title="Created 2020-08-21 16:01:57">2020-08-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">意义傅里叶变换的推广
+针对离散信号
+双边z变换选择合适的指数信号$r^{-n}$,使得，可以进行傅里叶变换
+假设r使X(z)收敛
+
+x[n]r^{-n}=F^{-1}\{X(re^{iw})\}
+x[n]=r^{n}F^{-1}\{X(re^{iw})\}
+x[n]=\frac{1}{2\pi}\int_{2\pi} X(re^{iw})(re^{jw})^ndw
+令z=re^{jw}
+\to
+x[n]=\frac{1}{2\pi j}\oint_{2\pi} X(z)z^{n-1}dz
+X(z)=\sum_{n=-\infty}^{\infty}x[n]z^{-n}
+$\oint$围线积分，以原点为中心，逆时针的线积分
+
+==z变换需要明确收敛域==
+常见离散信号z变换
+单边指数信号
+x[n]=u[n]a^n
+X(z)=\frac{z}{z-a} 
+(|z|>|a|)
+x[n]=-u[-n-1]a^n
+X(z)=\frac{z}{z-a} 
+(|z|1)
+x[n]=r^ncos[w_0n]u[n]
+X(z)=\frac{1-z^{-1}[rcosw_0]}{1-2z^{-1}[2rc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/08/21/laplace-transformation/" title="拉普拉斯变换">拉普拉斯变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-21T08:01:42.000Z" title="Created 2020-08-21 16:01:42">2020-08-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">拉普拉斯变换作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛
+
+
+F\{x(t)e^{-\sigma t}\}=\int_{-\infty}^{\infty}x(t)e^{-\sigma t}e^{-jwt}dt=\int_{-\infty}^{\infty}x(t)e^{-t(\sigma+jw)}dt
+X(\sigma+jw)=\int_{-\infty}^{\infty}x(t)e^{-(\sigma+jw)t}dt其傅里叶反变换
+
+x(t)e^{-\sigma t}=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\sigma+jw)e^{jwt}dt
+x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\sigma+jw)e^{t(\sigma+jw)}dt令$s=\sigma+jw$
+
+X(s)=\int_{-\infty}^{\infty}x(t)e^{-st}dt
+x(t)=\frac{1}{2\pi j}\int ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/08/21/Sampling-and-modulation/" title="采样和调制">采样和调制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-21T07:57:08.000Z" title="Created 2020-08-21 15:57:08">2020-08-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">连续时间采样定理冲激串采样定理
+x_p(t)=x(t)p(t)
+p(t)=\sum_{n=-\infty}^\infty\delta(t-nT)T为采样周期
+
+
+X_p(jw)=\frac{1}{2\pi}X(jw)*P(jw)
+=\frac{1}{T}\sum_{k=-\infty}^\infty X(j(w-kw_s))相当于将信号频域的图像左右平移
+采样定理
+$x(t)$是一带限信号，$X(jw)=0,|w|&gt;w_M$
+采样频率$w_s&gt;2w_M$,其中$w_s=2\pi/T$,T为抽样周期，当$w_s=2w_M$,称作奈奎斯特率。满足条件的信号可以采样后重建。
+
+
+
+H( jw)为一低通滤波器
+
+
+x_r(t)=\sum_{n=-\infty}^\infty x(nT)\delta(t-nT)*h(t)
+=\sum_{n=-\infty}^\infty x(nT)h(t-nT)带限内插
+当h(t)为理想滤波器时，即
+
+
+h(t)=T\frac{w_c}{\pi}Sa(w_ct)当$w_c$满足：$w_M&lt;w_c&lt;w_s-w_M$时，重建是精确的。 
+
+
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/08/20/DFT/" title="离散时间信号频域分析">离散时间信号频域分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-20T13:58:19.000Z" title="Created 2020-08-20 21:58:19">2020-08-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">离散时间傅里叶级数
+x[n]=\sum_{k=}a_ke^{jkw_0n}=\sum_{k=}a_ke^{jk\frac{2\pi}{T_0}n}
+a_k=\frac{1}{N}\sum_{n=}x[n]e^{-jkw_0n}
+
+离散时间傅里叶级数不存在着收敛问题和吉布斯现象
+
+离散傅里叶变换
+X(e^{jw})=\sum_{n=-\infty}^\infty x[n]e^{-jwn}
+x[n]=\frac{1}{2\pi}\int_{2\pi}X(e^{jw})e^{jwn}dw
+X(e^{jw})=|X(e^{jw})|e^{j\theta(w)}离散时间傅里叶变换的收敛性与吉布斯现象x[n]要求绝对可和并能量有限
+
+\sum_{n=-\infty}^\infty |x[n]|</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/08/19/constant-Flourier/" title="连续时间信号频域分析">连续时间信号频域分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-19T07:58:36.000Z" title="Created 2020-08-19 15:58:36">2020-08-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">连续时间周期信号的傅里叶级数复指数信号是LTI系统的特征函数，对于连续时间周期信号，都可以表示为成谐波关系的复指数信号
+
+x(t)=\sum_ka_ke^{jkw_0t}=\sum_ka_ke^{jk\frac{2\pi}{T_0}t}
+a_k=\frac{1}{T_0}\int_{T_0}x(t)e^{-jkw_0t}dt三角形式的傅里叶级数
+x(t)=B_0+\sum_{k=1}^{\infty}(B_k\cos kw_0t+C_k\sin kw_0t)
+B_0=\frac{1}{T_0}\int_{T_0}x(t)dt
+B_k=\frac{2}{T_0}\int_{T_0}x(t)\cos kw_0tdt
+C_k=\frac{2}{T_0}\int_{T_0}x(t)\sin kw_0tdt常见信号的傅里叶级数三角信号
+x(t)=\sin w_0t=\frac{1}{2j}(e^{jw_0t}-e^{-jw_0t})周期方波
+x(t)=
+\begin{cases}
+1&|t|</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/08/18/LTI/" title="LTI系统时域分析">LTI系统时域分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-18T05:55:29.000Z" title="Created 2020-08-18 13:55:29">2020-08-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="content">离散时间LTI系统离散信号单位脉冲分解对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示
+
+x[n]=\sum_{k=-\infty}^{\infty}x[k]\delta[n-k]
+离散时间LTI系统的卷积和h[n]为系统对单位脉冲信号的响应
+
+x[n]=\sum_{k=-\infty}^{\infty}x[k]\delta[n-k]
+y[n]=\sum_{k=-\infty}^{\infty}x[k]h[n-k]=x[n]*h[n]卷积计算方法
+公式
+列表法：适合小量数据
+画图
+
+卷积的性质
+交换
+结合
+分配
+
+x[n] 不为0的区间长度为m，h[n] 为 n，卷积后区间为m+n-1
+x[n] 区间为 [m,n],    h[n] 区间为 [q,p]卷积后区间为 [m+q,n+p]
+特殊函数的卷积
+x[n]*\delta[n]=x[n]
+x[n]*\delta[n-n_0]=x[n-n_0]
+x[n]*u[n]=\sum_{k=-\infty}^{\infty}x[k]u[n-k]=\sum_{k=-\infty}^{n}x[k]连续时间LTI系统的卷积积分任何连续信号也 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">47</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2021/01/19/information-encoder/" title="信息编码">信息编码</a><time datetime="2021-01-19T06:30:14.000Z" title="Created 2021-01-19 14:30:14">2021-01-19</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2020/11/23/RL-model-free/" title="RL:model free">RL:model free</a><time datetime="2020-11-23T15:15:08.000Z" title="Created 2020-11-23 23:15:08">2020-11-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2020/11/23/RL-base/" title="强化学习基础和马尔科夫决策过程">强化学习基础和马尔科夫决策过程</a><time datetime="2020-11-23T11:13:01.000Z" title="Created 2020-11-23 19:13:01">2020-11-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2020/11/17/optimize/" title="优化理论">优化理论</a><time datetime="2020-11-17T03:54:12.000Z" title="Created 2020-11-17 11:54:12">2020-11-17</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2020/11/16/matrix-partial/" title="矩阵微分">矩阵微分</a><time datetime="2020-11-16T15:02:28.000Z" title="Created 2020-11-16 23:02:28">2020-11-16</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/"><span class="card-category-list-name">《搬砖狗的日常》</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/"><span class="card-category-list-name">《柯西的传世绝学》</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/"><span class="card-category-list-name">《栈溢出工程师》</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/"><span class="card-category-list-name">《炼金术士修炼手册》</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/"><span class="card-category-list-name">《行于黑暗，侍奉光明，我们是电工》</span><span class="card-category-list-count">19</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/Beam-tracking/" style="font-size: 1.1em; color: #999">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/CV/" style="font-size: 1.18em; color: #999ca1">CV</a> <a href="/tags/Deep-learning/" style="font-size: 1.34em; color: #99a3b0">Deep learning</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/JavaScript/" style="font-size: 1.18em; color: #999ca1">JavaScript</a> <a href="/tags/NLP/" style="font-size: 1.1em; color: #999">NLP</a> <a href="/tags/RL/" style="font-size: 1.18em; color: #999ca1">RL</a> <a href="/tags/SQL/" style="font-size: 1.1em; color: #999">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 1.18em; color: #999ca1">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 1.1em; color: #999">communication</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/pytorch/" style="font-size: 1.26em; color: #999fa8">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 1.1em; color: #999">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.26em; color: #999fa8">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 1.42em; color: #99a6b7">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 1.5em; color: #99a9bf">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 1.1em; color: #999">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.18em; color: #999ca1">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 1.5em; color: #99a9bf">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 1.18em; color: #999ca1">香农yyds</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">January 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">November 2020</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">October 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">August 2020</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">July 2020</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">June 2020</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/04/"><span class="card-archive-list-date">April 2020</span><span class="card-archive-list-count">5</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">47</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-31T12:47:37.507Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Fazzie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
