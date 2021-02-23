@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (detectJgJsLoad) btf.initJustifiedGallery($justifiedGallery)
     else {
       $('head').append(`<link rel="stylesheet" type="text/css" href="${GLOBAL_CONFIG.source.justifiedGallery.css}">`)
-      $.getScript(`${GLOBAL_CONFIG.source.justifiedGallery.js}`, function () {
+      $.getScript(${GLOBAL_CONFIG.source.justifiedGallery.js}`, function () {
         btf.initJustifiedGallery($justifiedGallery)
       })
       detectJgJsLoad = true
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (typeof $.fancybox === 'undefined') {
       $('head').append(`<link rel="stylesheet" type="text/css" href="${GLOBAL_CONFIG.source.fancybox.css}">`)
-      $.getScript(`${GLOBAL_CONFIG.source.fancybox.js}`, function () {
+      $.getScript(${GLOBAL_CONFIG.source.fancybox.js}`, function () {
         runFancybox($(ele))
       })
     } else {
