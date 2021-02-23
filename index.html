@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fazzie</title><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Fazzie">
+<meta property="og:url" content="https://fazziekey.github.io/index.html">
+<meta property="og:site_name" content="Fazzie">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fazziekey.github.io/img/head.jpg">
+<meta property="article:author" content="Fazzie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fazziekey.github.io/img/head.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-02-23 23:44:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Knowledge nn</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/20771.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fazzie</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Knowledge nn</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Fazzie</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="mailto:1240419984@qq.com" target="_blank" title="挖掘机之王#5585"><i class="fab fa-battle-net"></i></a><a class="social-icon" href="https://s.team/p/fkph-wvkj/MKGKGKCB" target="_blank" title="933625462"><i class="fab fa-steam"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/23/com-theory/" title="com theory">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="com theory"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/23/com-theory/" title="com theory">com theory</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-23T15:36:24.000Z" title="发表于 2021-02-23 23:36:24">2021-02-23</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/01/19/information-encoder/" title="信息编码">信息编码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-19T06:30:14.000Z" title="发表于 2021-01-19 14:30:14">2021-01-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%A6%99%E5%86%9Cyyds/">香农yyds</a></span></div><div class="content">信息获取的本质
+
+ 本体信息论-->信息获取
+
+ 信息获取-->认识论信息 
+离散无记忆信源DMS的编码 目标：在代价最小的意义上来有效表达一个信源，包括量化，压缩，映射，变化，自然语言翻译等许多抽象的过程
+
+ 信源编码
+ \begin{cases}
+无损编码
+    \begin{cases}
+    绝对无差错编码:P_e^{(n)}=0\\
+    渐进无差错编码:lim_{n\to \infty}P_e^{(n)}\to n
+    \end{cases}\\
+有损编码
+ \end{cases}DMS编解码系统概念框图 
+绝对无差错编码
+DMS
+
+...U_1,U_2,U_3...U_L...
+
+U_i == 
+\begin{bmatrix}
+a_1&a_2&...&a_k\\
+p_1&p_2&...&p_k
+\end{bmatrix}
+编码符号集
+\Beta=\{b_1,b_2,...b_D\}
+对于源U的任意L长序列用编码符号集$\Beta$进行绝对无差错等长编码，则必有
+D^N>=K^L编码速率
+
+
+R=\frac{N\log D}{L}>=\log K
+平均每个信源符号 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/11/23/RL-model-free/" title="RL:model free">RL:model free</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-23T15:15:08.000Z" title="发表于 2020-11-23 23:15:08">2020-11-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/RL/">RL</a></span></div><div class="content">当模型太大，无法通过迭代得到最佳策略，我们就需要使用model free RL
+Model-free predictionMonre Carlo policy evaluation
+Return: $G_t=R_{t+1}＋\gamma R_{t+2}+\gamma^2R_{t+3}+…$ under policy$\pi$ 
+$v^\pi(s)=E_{\tau-\pi}[G_t|s_t = s]$, thus expectation over trajectories $\tau$Tgenerated by following $\pi$
+MC simulation: we can simply sample a lot of trajectories, computethe actual returns for all the trajectories, then average them
+MC policy evaluation uses empirical mean return instead of expectedreturn
+MC does not require MDP ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/11/23/RL-base/" title="强化学习基础和马尔科夫决策过程">强化学习基础和马尔科夫决策过程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-23T11:13:01.000Z" title="发表于 2020-11-23 19:13:01">2020-11-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/RL/">RL</a></span></div><div class="content">强化学习基本过程
+
+强化学习基本要素
+模型
+政策
+价值
+
+深度学习不同点
+没有标签，只有反馈
+学习的过程来自于试错
+学习的反馈有延迟
+动作会影响数据
+观察数据有时间的关联
+
+马尔科夫基本过程（MDP）马尔科夫过程的下一状态只取决于当前状态
+马尔科夫奖励过程
+S：state
+R: Reward,$R(s_t=s)$
+Discount factor $\gamma\in [0,1]$
+P:dynamics/transition model 
+
+Horizon
+Number of maximum time steps in each episode
+Can be infinite,otherwise called finite Markov (reward) Process
+
+Return
+G_t=R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}...\gamma^{T-t-1}R_T
+可以看出随着时间变化，奖励值会衰减，只有离开某个状态才能获得奖励，所以奖励来自于未来的状态
+
+state value function Vt(s) for a MRPExpecte ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/11/17/optimize/" title="优化理论">优化理论</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-17T03:54:12.000Z" title="发表于 2020-11-17 11:54:12">2020-11-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">矩阵论</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a></span></div><div class="content">实变量函数无约束优化的梯度分析
+松弛序列:称序列 $\{a_k\}_{k=0}^{\infty},a_{k+1}0凸优化理论最陡下降法(SDA)
+\nabla x_k=-\nabla f(x_k)
+x_{k+1}=x_k-\mu_k\nabla f(x_k)牛顿法
+\nabla x_k=-(\nabla^2f(x_k))^{-1}\nabla f(x_k)
+x_k=x_{k-1}-\mu_k(\nabla^2 f(x_{k-1}))^{-1}\nabla f(x_{k-1})
+H=\nabla^2 f(X)
+(\nabla^2 f(x_k))^{-1}\nabla f(x_k)
+=\Delta x_k
+修正牛顿法
+（\nabla^2 f(x)+EI）\Delta x=\nabla f(x)
+梯度步长的选择$\mu_k$，可以是固定，也可以是不断衰减，比如$\mu_k=\frac{h}{\sqrt{k+1}}$ 
+
+
+
+次梯度法对于梯度部分不存在的函数,比如y=|x|,(x=0)
+
+x_k=x_{k-1}-u\nabla_xf(x_{k-1})f(x)的泰勒展开为
+
+f(x+\Delta ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/11/16/matrix-partial/" title="矩阵微分">矩阵微分</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-16T15:02:28.000Z" title="发表于 2020-11-16 23:02:28">2020-11-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">矩阵论</a></span></div><div class="content">雅可比矩阵和矩阵微分实值函数分类
+雅可比矩阵在向量分析中，雅可比矩阵是函数以一阶偏导数以一定方式排列成的矩阵，其行列式称为雅可比行列式
+
+$1\times m$行向量偏导算子定义为
+D_x\overset{def}{=}\frac{\partial}{\partial x^T}=[\frac{\partial}{\partial x_1}...\frac{\partial}{\partial x_m}]所以实值标量函数f（x）在x的偏导向量由$1\times m$行向量给出
+
+
+D_x f(x)=\frac{\partial f(x)}{\partial x^T}
+=[\frac{ \partial f(x)}{\partial x_1},...,\frac{\partial f(x)}{\partial x_m}]当实值标量函数f（X）的变元为实值矩阵$X\in R^{m\times n}$，可能存在两种定义
+
+Jacobian偏导
+D_xf(x)\overset{def}{=}\frac{\partial f(X)}{\partial X^T}
+=\begin{bmatrix}
+\ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/11/16/child-space/" title="子空间理论">子空间理论</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-16T13:36:39.000Z" title="发表于 2020-11-16 21:36:39">2020-11-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">矩阵论</a></span></div><div class="content">子空间的基本理论子空间的基定义：若$S=\{u_1,u_2…u_m\}$是向量空间V的向量子集合，则向量所有的线性组合W，称为$u_1,u_2…u_m$构成的子空间
+
+W=span\{u_1,u_2...u_m\}=\{u|u=a_1u_1+...+a_mu_m\}当这些向量线性无关时，称为W的一组基
+张成集定理(spanning set theorem)令S ={u…,um}是向量空间V的一个子集，并且W= Span{u,…,um}是由S的m个列向量张成的一个子空间。
+
+如果S内有某个向量(例如uk)是其他向量的线性组合，则从S中删去向量uk后，其他向量仍然张成子空间W。
+若W≠{0}即W为非平凡子空间，则在S内一定存在某个由线性无关的向量组成的子集合，它张成子空间W。
+
+矩阵行空间，列空间对于矩阵$A\in C^{m\times n}$
+
+A=[a_1,a_2...a_n]
+=\begin{bmatrix}
+r_1\\r_2\\...\\r_m
+\end{bmatrix}矩阵的列空间为矩阵列向量张成
+
+Col(A)=span\{a_1,a_2...a_n\}行空间同理
+
+Row(A ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/11/15/spacial-matrix/" title="特殊矩阵">特殊矩阵</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-15T07:42:25.000Z" title="发表于 2020-11-15 15:42:25">2020-11-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">矩阵论</a></span></div><div class="content">Hermitian矩阵复共轭对称矩阵
+
+R=R^H置换矩阵一个正方矩阵称为置换矩阵(permutation matrix)，若它的每一行和每一列有一个且仅有一个非零元素1。
+
+\begin{array}{l}
+P_{m\times n}^T=P_{n\times m}\\
+P^TP=PP^T=I\\
+P^T=P^{-1}
+\end{array}
+置换矩阵是正交矩阵。
+
+互换矩阵
+\boldsymbol{J}=\left[\begin{array}{ccc}
+0 & & &1 \\
+& & 1 \\
+& \cdot \cdot & \\
+1 & & & 0
+\end{array}\right]
+左乘：矩阵的行顺序反转
+右乘：矩阵的列顺序反转
+
+正交矩阵和酉矩阵
+U非奇异且，$U^H=U^{-1}$
+$UU^H=U^HU=I$
+U的行列向量组成标准正交组
+
+酉不变性
+=
+||Ax||^2 =||x||^2
+cos\theta=\frac{}{||Ax||||Ay||}=\frac{}{||x|| ||y||}三角矩阵
+上三角
+下三角
+
+相似矩阵S为非奇异矩阵
+
+B=S^{-1}AS
+特征值 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/11/15/matrix-basic/" title="矩阵代数基础">矩阵代数基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-15T06:09:01.000Z" title="发表于 2020-11-15 14:09:01">2020-11-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">矩阵论</a></span></div><div class="content">典型物理模型多个信号观测模型
+x(n)=As(n)+v(n)
+书写规范
+大写字母下加两线：矩阵
+加一线：向量
+不加：变量
+
+矩阵代数基本性质
+\begin{array}{l}
+(A+B)^*=A^*+B^*
+\\
+(A+B)^T=A^T+B^T
+\\
+(A+B)^H=A^H+B^H
+\\
+(AB)^T=B^TA^T
+\\
+(AB)^H=B^HA^H
+\\
+(AB)^{-1}=B^{-1}A^{-1}
+\\
+(A^*)^{-1}=(A^{-1})^T
+\\
+(A^H)^{-1}=(A^{-1})^H
+\end{array}对于任意矩阵A，矩阵$B=A^HA$都是Hermitndian
+导数积分
+\frac{dA}{dt}=
+\begin{bmatrix}
+\frac{da_{11}}{dt}&...&\frac{da_{1n}}{dt}\\
+...&...&...\\
+\frac{da_{m1}}{dt}&...&\frac{da_{mn}}{dt}
+\end{bmatrix}
+指数矩阵函数
+exp(At)=I+At+\frac{A^2t^2}{2!}...\frac{A^nt^n}{n ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/10/21/matrix-equation/" title="矩阵方程求解&amp;最小二乘法">矩阵方程求解&amp;最小二乘法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-21T15:12:15.000Z" title="发表于 2020-10-21 23:12:15">2020-10-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">矩阵论</a></span></div><div class="content">矩阵方程的求解主要分为三类
+
+超定矩阵方程，m&gt;n,A,b已知
+盲矩阵方程：b已知，A未知
+欠定稀疏矩阵方程:m&lt;n，A，b已知但x未知且稀疏
+
+
+最小二乘法（LS）普通最小二乘考虑超定矩阵方程Ax=b,m&gt;n，为了抵制误差对矩阵方程求解的影响，引入一校正向量△b，并用它去“扰动”有误差的数据向量b。我们的目标是，使校正项△b“尽可能小”
+
+Ax=bm&gt;n时为超定方程
+
+b=b_0+e
+b+\Delta b\to b_0问题可以理解为使
+
+||\Delta b||^2\to min的优化问题
+
+Ax=b+\Delta b
+L(x)=||Ax-b||_2^2
+=(Ax-b)^H(Ax-b)
+\frac{\partial L(x)}{\partial x^*}=A^HAx-A^Hb=0
+\to x_{LS}=(A^HA)^{-1}A^Hb对于秩亏缺$（rank（A）&lt;n）$的超定方程，最小二乘解为
+
+\to x_{LS}=(A^HA)^{\dagger}A^Hb高斯马尔可夫定理在参数估计理论中,称参数向量$\theta$的估计$\hat{\theta}$为无偏 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="mailto:1240419984@qq.com" target="_blank" title="挖掘机之王#5585"><i class="fab fa-battle-net"></i></a><a class="social-icon" href="https://s.team/p/fkph-wvkj/MKGKGKCB" target="_blank" title="933625462"><i class="fab fa-steam"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">wlecome to my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/23/com-theory/" title="com theory"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="com theory"/></a><div class="content"><a class="title" href="/2021/02/23/com-theory/" title="com theory">com theory</a><time datetime="2021-02-23T15:36:24.000Z" title="发表于 2021-02-23 23:36:24">2021-02-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/01/19/information-encoder/" title="信息编码">信息编码</a><time datetime="2021-01-19T06:30:14.000Z" title="发表于 2021-01-19 14:30:14">2021-01-19</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2020/11/23/RL-model-free/" title="RL:model free">RL:model free</a><time datetime="2020-11-23T15:15:08.000Z" title="发表于 2020-11-23 23:15:08">2020-11-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2020/11/23/RL-base/" title="强化学习基础和马尔科夫决策过程">强化学习基础和马尔科夫决策过程</a><time datetime="2020-11-23T11:13:01.000Z" title="发表于 2020-11-23 19:13:01">2020-11-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2020/11/17/optimize/" title="优化理论">优化理论</a><time datetime="2020-11-17T03:54:12.000Z" title="发表于 2020-11-17 11:54:12">2020-11-17</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-bolt"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/"><span class="card-category-list-name">《搬砖狗的日常》</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/"><span class="card-category-list-name">《柯西的传世绝学》</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/"><span class="card-category-list-name">《栈溢出工程师》</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/"><span class="card-category-list-name">《炼金术士修炼手册》</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/"><span class="card-category-list-name">《行于黑暗，侍奉光明，我们是电工》</span><span class="card-category-list-count">19</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Beam-tracking/" style="font-size: 1.1em; color: #999">Beam tracking</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/CV/" style="font-size: 1.18em; color: #999ca1">CV</a> <a href="/tags/Deep-learning/" style="font-size: 1.34em; color: #99a3b0">Deep learning</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/JavaScript/" style="font-size: 1.18em; color: #999ca1">JavaScript</a> <a href="/tags/NLP/" style="font-size: 1.1em; color: #999">NLP</a> <a href="/tags/RL/" style="font-size: 1.18em; color: #999ca1">RL</a> <a href="/tags/SQL/" style="font-size: 1.1em; color: #999">SQL</a> <a href="/tags/Statistic-Analysis/" style="font-size: 1.18em; color: #999ca1">Statistic Analysis</a> <a href="/tags/communication/" style="font-size: 1.1em; color: #999">communication</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/pytorch/" style="font-size: 1.26em; color: #999fa8">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 1.1em; color: #999">优化理论</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.26em; color: #999fa8">前端</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">强化学习</a> <a href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/" style="font-size: 1.42em; color: #99a6b7">手撕拉普拉斯</a> <a href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/" style="font-size: 1.5em; color: #99a9bf">手撕麦克斯韦</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 1.1em; color: #999">数字电路</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.18em; color: #999ca1">爬虫</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" style="font-size: 1.5em; color: #99a9bf">矩阵论</a> <a href="/tags/%E9%A6%99%E5%86%9Cyyds/" style="font-size: 1.18em; color: #999ca1">香农yyds</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/04/"><span class="card-archive-list-date">四月 2020</span><span class="card-archive-list-count">5</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">48</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-04-13T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-02-23T15:44:31.408Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "Nothing is true&#44;every is permitted,挥袂则九野生风&#44;慷慨则气成红霓,我们摸黑干活就是为了修好那发光二极管".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = 'Nothing is true&#44;every is permitted'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
