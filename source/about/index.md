@@ -1,0 +1,406 @@
+---
+title: 马千里(QianLi Ma)
+date: 2020-08-05 23:01:43
+type: "about"
+---
+
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EFCYZKM9Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-3EFCYZKM9Y');
+  </script>
+
+  <!-- <meta name=viewport content="width=800"> -->
+  <meta name=viewport content="width=device-width">
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <style type="text/css">
+    /* Color scheme stolen from Sergey Karayev */
+
+    a {
+      color: #1772d0;
+      /* color: #07889b; */
+      text-decoration: none;
+    }
+
+    a:focus,
+    a:hover {
+      color: #e37222;
+      /* #f09228; */
+      text-decoration: none;
+    }
+
+    body,
+    td,
+    th,
+    tr,
+    p,
+    a {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+
+    p.introduction {
+      line-height: 1.8;
+    }
+
+    strong {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+
+    heading {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 22px;
+      color: #e37222;
+    }
+
+    heading2 {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 20px;
+    }
+
+    papertitle {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    name {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 32px;
+    }
+
+    .footer {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px;
+      opacity: 0.75;
+      color: #777;
+    }
+
+    .one {
+      width: 160px;
+      height: 160px;
+      position: relative;
+    }
+
+    .two {
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+
+    .fade {
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+
+    span {
+      line-height: 1.5;
+    }
+
+    span.highlight {
+      background-color: #ffffd0;
+    }
+
+    span.artifact {
+      color: #6cb41b;
+      padding: 1px;
+    }
+
+    span.underline {
+      border-bottom: 1px solid black;
+      padding-bottom: 1px;
+    }
+
+    span.tldr {
+      color: #555555;
+    }
+
+    em.highlight {
+      color: #e37222;
+    }
+    .circular--square{
+        border-radius:7%;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <title>马千里</title>
+  <meta name="description" content="马千里">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/academicons.min.css">
+</head>
+
+<div id="about" style="width:100%;height:2000px;">
+  <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" frame=void>
+    <tr>
+      <td>
+        <!-- Intro Begin -->
+        <table width="100%" align="left" border="0" cellspacing="0" cellpadding="12" frame=void rules=none>
+          <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 70%;">
+          </colgroup>
+          <tr>
+            <td valign="middle">
+              <p align=middle>
+                <img class="circular--square" src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211121142400.jpg" />
+              </p>
+            </td>
+            <td valign="middle">
+              <p align="middle">
+                <name>马千里 &nbsp; Qianli Ma </name>
+              </p>
+              <p class="introduction">
+                你好，我是新加坡国立大学在读计算机硕士，是一名程序员，鼓手，对人工智能的落地，创业感兴趣，同时喜欢电子竞技、电子和金属音乐。
+              </p>
+              <p class="introduction">
+                想了解更多我的个人经历和知识技能可以查看我的神经网络知识图谱:
+              </p>
+              <p>
+              <a href="../nn/">超级智能体Fazzie</a>
+              </p>
+              <p>
+                <a href="../CV/Maqianli_CV.pdf">个人简历</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <!-- Intro End -->
+ <!-- Education Begin -->
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void>
+          <tr>
+            <td>
+              <heading>教育经历</heading>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellpadding="10" border-width:0px frame=void border-style=none>
+          <colgroup>
+            <col span="1" style="width: 20%;" >
+            <col span="1" style="width: 80%;">
+          </colgroup>
+          <tr>
+            <td valign="center"> 2022.8 - 至今 </td>
+            <td valign="center">
+              新加坡国立大学 计算机科学
+            </td>
+          </tr>
+          <tr>
+            <td valign="center"> 2018.9 - 2022.7 </td>
+            <td valign="center">
+              浙江大学 电子科学与技术 信电学院香农卓越班
+            </td>
+          </tr>
+          <tr>
+            <td valign="center"> 2019.11 - 2022.7 </td>
+            <td valign="center">
+              浙江大学 创新与创业管理强化班（ITP）
+            </td>
+          </tr>
+        </table>
+        <!-- Education End -->
+        <!-- News Begin -->
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void>
+          <tr>
+            <td>
+              <heading>工作经历</heading>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
+          <colgroup>
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 80%;">
+          </colgroup>
+          <tr>
+            <td valign="center"> 2021.7 - 2021.12 </td>
+            <td valign="center">
+                </p>
+                    华为2012实验室 算法工程实习生
+                </p>
+                </p>
+                    分布式并行实验室 <a href="https://gitee.com/Fazzie/mindspore">MindSpore</a>深度学习框架组
+                </p>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
+          <colgroup>
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 80%;">
+          </colgroup>
+          <tr>
+            <td valign="center"> 2021.12 - 2022.6 </td>
+            <td valign="center">
+                </p>
+                    商汤科技 算法研究实习生
+                </p>
+                </p>
+                    大规模训练
+                </p>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
+          <colgroup>
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 80%;">
+          </colgroup>
+          <tr>
+            <td valign="center"> 2022.7 -  </td>
+            <td valign="center">
+                </p>
+                    潞晨科技 机器学习系统工程师
+                </p>
+                </p>
+                    深度学习系统 <a href="https://github.com/hpcaitech/ColossalAI">ColossalAI</a>
+                </p>
+            </td>
+          </tr>
+        </table>
+        <!-- News End -->
+        <!-- Research Interest Begin -->
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void rows=none>
+          <tr>
+            <td>
+              <heading>研究经历</heading>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void rows=none>
+          <colgroup>
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 80%;">
+          </colgroup>
+          <tr>
+            <td valign="center"> 2019.10 - Now </td>
+            <td valign="center">
+                </p>
+                    浙江大学智能通信网络与安全研究所
+                </p>
+                </p>
+                    机器学习在毫米波通讯中应用
+                </p>
+            </td>
+          </tr>
+        </table>
+        <!-- Research Interest End -->
+        <!-- Societies Begin -->
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void rows=none>
+          <tr>
+            <td>
+              <heading>社团组织</heading>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void rows=none>
+            <colgroup>
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 80%;">
+             </colgroup>
+          <tr>           
+           <td valign="center">
+                2018.9 - 2020.6
+            </td>
+            <td valign="center">
+                浙江大学勤工助学与创业指导中心
+            </td>
+          </tr>
+          <tr>
+            <td valign="center">
+                2018.11 - 2021.1
+            </td>
+            <td valign="center">
+                Six o'clock studio 乐队 鼓手
+            </td>
+          </tr>
+          <tr>
+            <td valign="center">
+                2021.10 - 至今
+            </td>
+            <td valign="center">
+               浙江大学互联网协会 AI lab
+            </td>
+          </tr>
+        </table>
+        <!-- Societies End -->
+        <!-- Awards Begin -->
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="6" frame=void>
+          <tr>
+            <td>
+              <heading>奖项荣誉</heading>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellpadding="6" style="table-layout:fixed;" frame=void>
+          <colgroup>
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 80%;">
+          </colgroup>
+          <tr>
+            <td valign="center"> 2019 </td>
+            <td>
+              <span> 浙江大学三等奖学金</span>
+            </td>
+          </tr>
+          <tr>
+            <td valign="center"> 2020 </td>
+            <td>
+              <span>浙江大学一等奖学金</span>
+            </td>
+          </tr>
+          <tr>
+            <td valign="center"> 2017 </td>
+            <td>
+              <span>挑战杯大学生创新创业大赛金奖</span>
+            </td>
+          </tr>
+          <tr>
+            <td valign="center"> 2016 </td>
+            <td>
+              <span>英特尔嵌入式邀请赛全国二等奖</span>
+            </td>
+          </tr>
+        </table>
+        <!-- Awards End -->
+        <!-- Github Begin -->
+        <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void>
+          <tr>
+            <td>
+                <a href="https://github.com/Fazziekey">
+                  <img align="left" width=53% src="https://github-readme-stats.vercel.app/api?username=Fazziekey&show_icons=true&theme=tokyonight" />
+                </a>
+                <a href="https://github.com/Fazziekey">
+                  <img align="right" width=45% src="https://github-readme-stats.vercel.app/api/top-langs/?username=Fazziekey&layout=compact" />
+                </a>
+            </td>
+          </tr>
+        </table> -->
+        <!-- Github End -->
+        <table width="100%" align="center" border="0" cellpadding="6" frame=void>
+          <tr>
+            <td width="100%" valign="center">
+              <p class="footer">
+                最后更新: 2022.9.9
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+</html>
