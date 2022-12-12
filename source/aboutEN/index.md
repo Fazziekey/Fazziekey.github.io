@@ -173,7 +173,7 @@ type: "about"
               <a href="../nn">Super intelligence Fazzie</a>
               </p>
               <p>
-                <a href="..\CV\Maqianli_CV_EN.pdf">CV</a>
+                <a href="..\CV\Maqianli_CV_EN.html">CV</a>
               </p>
             </td>
           </tr>

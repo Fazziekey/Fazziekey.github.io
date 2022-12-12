@@ -30,8 +30,9 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-    - "CV/Maqianli_CV.html"
-    - "CV/Maqianli_CV_EN.html"
+  - "CV/*"
+    # - "CV/Maqianli_CV.html"
+    # - "CV/Maqianli_CV_EN.html"
 
 # Writing
 new_post_name: :title.md # File name of new posts

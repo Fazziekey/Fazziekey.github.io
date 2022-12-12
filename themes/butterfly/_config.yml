@@ -7,18 +7,21 @@
 #   name || link || icon
 
 menu:
-   Home: / || fas fa-home
-   Archives: /archives/ || fas fa-archive
-   Tags: /tags/ || fas fa-tags
-   Categories: /categories/ || fas fa-folder-open
+  Home: / || fas fa-home
+  Archives: /archives/ || fas fa-archive
+  Tags: /tags/ || fas fa-tags
+  Categories: /categories/ || fas fa-folder-open
    #List||fas fa-list:
      #- Music || /music/ || fas fa-music
      #- Movie || /movies/ || fas fa-video
-   Link: /link/ || fas fa-link
-   About|| fas fa-heart:
-     - CN || /about/ || fas fa-id-card
-     - EN || /aboutEN/ || far fa-id-card
-   Super Intelligence: /nn/ || fas fa-network-wired
+  Link: /link/ || fas fa-link
+  About || fas fa-heart:
+    - CN || /about/ || fas fa-id-card
+    - EN || /aboutEN/ || far fa-id-card
+  CV || fa fa-file: 
+    - CN || /CV/Maqianli_CV.html || fas fa-file-alt
+    - EN || /CV/Maqianli_CV_EN.html || far fa-file-alt
+  Super Intelligence: /nn/ || fas fa-network-wired
 
 # Hide the child menu items in mobile sidebar
 hide_sidebar_menu_child: true

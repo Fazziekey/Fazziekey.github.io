@@ -173,7 +173,7 @@ type: "about"
               <a href="../nn/">超级智能体Fazzie</a>
               </p>
               <p>
-                <a href="../CV/Maqianli_CV.pdf">个人简历</a>
+                <a href="../CV/Maqianli_CV.html">个人简历</a>
               </p>
             </td>
           </tr>
