@@ -115,7 +115,7 @@ HPC祖师爷 Jim Demmel 22 spring最新版本,
 - Pipeline Parallel(流水并行)
     - [GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism](https://arxiv.org/abs/1811.06965)
 - Auto Parallel(自动并行)
-    - [Alpa\:Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning](https://arxiv.org/abs/2201.12023)
+    - [Alpa:Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning](https://arxiv.org/abs/2201.12023)
 - Sequence Parallel(序列并行)
     - [Sequence Parallelism: Long Sequence Training from
         System Perspective](https://arxiv.org/abs/2105.13120)
@@ -141,7 +141,7 @@ HPC祖师爷 Jim Demmel 22 spring最新版本,
 - Quant(量化)
     - [SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models](https://arxiv.org/abs/2211.10438)
 - 大语言模型推理
-    - [FlexGen\:High-throughput Generative Inference of Large Language Models with a Single GPU](https://github.com/FMInference/FlexGen/blob/main/docs/paper.pdf)
+    - [FlexGen: High-throughput Generative Inference of Large Language Models with a Single GPU](https://github.com/FMInference/FlexGen/blob/main/docs/paper.pdf)
 
 > 每个细分领域的论文还有很多,不一一列举了,对于入坑来说,抓住主线即可.
 
