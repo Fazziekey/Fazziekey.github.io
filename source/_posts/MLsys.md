@@ -120,7 +120,7 @@ HPC祖师爷 Jim Demmel 22 spring最新版本,
     - [Sequence Parallelism: Long Sequence Training from
         System Perspective](https://arxiv.org/abs/2105.13120)
 - Large batchsize(超大batch size)
-    - [LARS\:Large Batch Training of Convolutional Networks](https://arxiv.org/abs/1708.03888)
+    - [LARS:Large Batch Training of Convolutional Networks](https://arxiv.org/abs/1708.03888)
 - MOE(混合专家模型)
     - [GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding](https://arxiv.org/abs/2006.16668)
 - Kernal Fusion(算子融合)
