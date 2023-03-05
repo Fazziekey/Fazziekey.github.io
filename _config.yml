@@ -32,6 +32,7 @@ i18n_dir: :lang
 skip_render:
   - "CV/*"
   - "about/*"
+  - "aboutEN/*"
     # - "CV/Maqianli_CV.html"
     # - "CV/Maqianli_CV_EN.html"
 

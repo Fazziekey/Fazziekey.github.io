@@ -16,8 +16,8 @@ menu:
      #- Movie || /movies/ || fas fa-video
   Link: /link/ || fas fa-link
   About || fas fa-heart:
-    - CN || /about/ || fas fa-id-card
-    - EN || /aboutEN/ || far fa-id-card
+    - CN || /about/index.html || fas fa-id-card
+    - EN || /aboutEN/index.html || far fa-id-card
   CV || fa fa-file: 
     - CN || /CV/Maqianli_CV.html || fas fa-file-alt
     - EN || /CV/Maqianli_CV_EN.html || far fa-file-alt
