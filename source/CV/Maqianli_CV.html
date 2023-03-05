@@ -64,14 +64,14 @@ body {
 
 <!--联系方式-->
 <div class="contact">
-      <img align="center" src="https://img.shields.io/badge/mobile-(+86)17855801919-25D366?logo=whatsapp" /> 
-      <img align="center" src="https://img.shields.io/badge/wechat-Fazzie17855801919-07C160?logo=wechat&amp" />
-      <a href="https://fazzie-key.cool/CV/Maqianli_CV.html"><img align="center" src="https://img.shields.io/badge/CV-View on Browser-4285F4?logo=Google Chrome" /></a> 
+      <img alt="mobile" align="center" src="https://img.shields.io/badge/mobile-(+86)17855801919-25D366?logo=whatsapp" /> 
+      <img alt="wechat" align="center" src="https://img.shields.io/badge/wechat-Fazzie17855801919-07C160?logo=wechat&amp" />
+      <a href="https://fazzie-key.cool/CV/Maqianli_CV.html"><img alt="CV" align="center" src="https://img.shields.io/badge/CV-View on Browser-4285F4?logo=Google Chrome" /></a> 
 <br>
-      <a href="mailto:1240419984@qq.com"><img align="center" src="https://img.shields.io/badge/mail-fazzie@qq.com-F06B66?logo=mailgun" /></a> 
-      <a href="https://github.com/Fazziekey"><img align="center" src="https://img.shields.io/badge/github-Fazziekey-181717?logo=github" /></a> 
-      <a href="https://fazzie-key.cool/nn/"><img align="center" src="https://img.shields.io/badge/blog-fazzie--key.cool-FFA500?logo=rss" /></a>
-      <a href="https://www.linkedin.com/in/qianli-ma-fazzie-313272207/"><img align="center" src="https://img.shields.io/badge/Linkin-Qianli Ma-0A66C2?logo=linkedin"/></a>
+      <a href="mailto:1240419984@qq.com"><img alt="mail" align="center" src="https://img.shields.io/badge/mail-fazzie@qq.com-F06B66?logo=mailgun" /></a> 
+      <a href="https://github.com/Fazziekey"><img alt="github" align="center" src="https://img.shields.io/badge/github-Fazziekey-181717?logo=github" /></a> 
+      <a href="https://fazzie-key.cool/nn/"><img alt="blog" align="center" src="https://img.shields.io/badge/blog-fazzie--key.cool-FFA500?logo=rss" /></a>
+      <a href="https://www.linkedin.com/in/qianli-ma-fazzie-313272207/"><img alt="linkin" align="center" src="https://img.shields.io/badge/Linkin-Qianli Ma-0A66C2?logo=linkedin"/></a>
 </div>
 <!--联系方式-->
 <!--教育背景-->
@@ -130,20 +130,28 @@ body {
       </div>
       <div class="li">
             <ul>
-                  <li>参与深度学习大模型训练系统 <a href="https://github.com/hpcaitech/ColossalAI">colossal-AI</a>的开发,核心API重构</li>
+                  <li>参与深度学习大模型训练系统 <a href="https://github.com/hpcaitech/ColossalAI">colossal-AI</a>的开发</li>
+                  <ul>
+                        <li>
+                              参与ColossalAI 异构显存管理,分布式模型保存等核心API重构, 提升ColossalAI API易用性, 降低用户使用门槛
+                        </li>
+                        <li>
+                              参与支持ColossalAI作为pytorch-lightning分布式后端的开发,使得ColossalAI可以更加方便的与pytorch-lightning集成
+                        </li>
+                  </ul>
                   <li>主导AIGC大模型<a href="https://github.com/hpcaitech/ColossalAI/tree/main/examples/images/diffusion">ColoDiffusion</a>训练方案研发</li>
                   <ul>
                         <li>
                               作为核心开发者搭建了以pytorch-lightning + ColosaalAI为基础的Diffusion训练框架,支持多种训练模式
                         </li>
                         <li>
-                              使用zero优化器, auto chunk, flash-attention, cpu offload等技术打破显存墙,支持超大bacth加速训练,
+                              使用zero优化器, auto chunk, flash-attention, cpu offload等技术打破显存墙,支持超大bacth加速训练,Blog链接
                               <a href="https://medium.com/@yangyou_berkeley/diffusion-pretraining-and-hardware-fine-tuning-can-be-almost-7x-cheaper-85e970fe207b#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjU1MmRlMjdmNTE1NzM3NTM5NjAwZDg5YjllZTJlNGVkNTM1ZmI1MTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NzA1NTIwMTUsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExNDQ0NTU4OTczMzAwODY1OTM5OSIsImVtYWlsIjoiZmF6emlla2V5QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiUWlhbmxpIE1hIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FFZEZUcDYtTElFbXRlRjYzTzk3SjR1UDdxWGNXb2piX0pid2pJbkczd05XPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlFpYW5saSIsImZhbWlseV9uYW1lIjoiTWEiLCJpYXQiOjE2NzA1NTIzMTUsImV4cCI6MTY3MDU1NTkxNSwianRpIjoiZDc5OTRmMWVjZWM3M2VjZWY2ZThiZmY2MjY5ZDc0ZDcwYjA1Yjc2OSJ9.YQ8po4QvTZ0hiMMV7SNK6IejtQ-viPcW-ZSP6wpb8HtDV2o1_DVfwSU3adHjppI_JHBI9WE2Lr6-CXTBn3w8nYCzolhpmHY4Yrz7Ju-70hxPuRLKxG0KfAcDZm-6NHOF6VLOxRfeU84t1X7loV4O0Wt4JpbwUOCQ3nd_J_OJ4A4Nu553dn3SU_MRmD9ASPhr9o0hXIhqWMZtQt86UyqwLD2Zg0qMJVLJxkEO5U3tafsiB0CUsvmd7fNNCIMBCJSZei_2yw8JFzN8sADD_aWvIsYPGN6KE7uS5s9iMHikYAfustex9ivj-DB1cpFcg1rHugQIYxI-ippkvyrBwoDQTQ">
                               降低训练成本7倍</a>
                         </li>
                         <li>
                               作为<a href="https://huggingface.co/"><b>Huggingface</b></a> 外部开发者, 支持huggingface <a href="https://github.com/huggingface/diffusers"><b>diffusers</b></a>
-                              <a href="https://github.com/huggingface/diffusers/pull/1793">Dreambooth</a> 在4G显存的消费级GPU进行Finetone任务,是目前最快的Dreambooth版本
+                              <a href="https://github.com/huggingface/diffusers/pull/1793">Dreambooth</a> 在4G显存的消费级GPU进行Finetone任务,是目前最低显存开销(不考虑LoRA)的Dreambooth加速版本
                         </li>
                   </ul>
                   <li>
@@ -151,10 +159,13 @@ body {
                   </li>
                   <ul>
                         <li>
-                              从0开始调研Instruct GPT, LaMDA, CoT等一系列相关论文, 理清ChatGPT关键技术点, 并实现RLHF基本流程
+                              从0开始调研Instruct GPT, LaMDA, CoT等一系列相关论文, 理清ChatGPT关键技术点, 并基于ColossalAI实现RLHF基本流程
                         </li>
                         <li>
                               支持LoRA Fine-tone, 在最低1.6GB显存的跑通Bloom 125M模型, 极大降低训练成本
+                        </li>
+                        <li>
+                              使用张量并行等并行技术, 在8张A100支持Facebook 开源的LLaMA大语言模型(65B)在整套RLHF流程下的训练
                         </li>
                   </ul>
                   <li>参与蛋白质折叠模型<a href="https://github.com/hpcaitech/ColossalAI">Fastfold</a>(Alphafold 并行加速版本)开发,加速工作</li>
@@ -163,7 +174,7 @@ body {
                               使用<a href="https://docs.ray.io/en/latest/index.html">Ray</a>支持Fastfold数据前处理并行,加速三倍, 解决MSA特征搜索,预处理时间长的推理训练核心瓶颈</a>
                         </li>
                         <li>
-                              支持Fastfold多序列(Mutimer)预测任务
+                              支持Fastfold多序列(Mutimer)预测任务, 加速2倍, 解决多序列预测任务的训练瓶颈
                         </li>
                   </ul>
                   <li>技术栈:Python,C++,Cuda,Pytorch,Ray,colossal-AI,Pytorch-lightning,TensorRT,DeepSpeed,Huggingface</li>
