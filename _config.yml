@@ -31,6 +31,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - "CV/*"
+  - "about/*"
     # - "CV/Maqianli_CV.html"
     # - "CV/Maqianli_CV_EN.html"
 
