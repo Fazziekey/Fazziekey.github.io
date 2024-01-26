@@ -1,3 +1,14 @@
+---
+title: 流水线并行论文总结
+toc: true
+copyright: true
+date: 2023-2-21 15:49:43
+tags:
+    - Mlsys
+categories:
+    - 《三分算法,三分系统,三分产品,一分销售》
+reward:
+---
 ### 基础概念
 
 模型并行 模型并行分为两种：流水线并行和张量并行，也可以称作算子内并行（intra-operator parallelism）和算子间并行（interoperator parallelism）（Alpa 中的叫法）
