@@ -1,433 +1,236 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name=viewport content=“width=800”>
-    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-    <link rel="stylesheet" href="styles.css">
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Academic Webpage" />
+    <meta name="author" content="senli1073" />
+    <title id="title"></title>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
+        rel="stylesheet" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link type="text/css" href="/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="/css/main.css" rel="stylesheet" />
+
+    <!-- Bootstrap core JS-->
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+
+    <!-- For Compatability -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
+    <!-- Markdown -->
+    <script type="text/javascript" src="/js/marked.min.js"></script>
+
+    <!-- Mathematics -->
     <script>
-      function changeLanguage() {
-        pass
-      }
+        // See https://docs.mathjax.org/en/latest/index.html for more details.
+        MathJax = {
+            tex: {
+                packages: {},              // extensions to use
+                inlineMath: [              // start/end delimiter pairs for in-line math
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                displayMath: [             // start/end delimiter pairs for display math
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ],
+                processEscapes: false,      // use \$ to produce a literal dollar sign
+                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+                processRefs: true,         // process \ref{...} outside of math mode
+                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
+                tags: 'all',              // or 'ams' or 'all'
+                tagSide: 'right',          // side for \tag macros
+                tagIndent: '0.8em',        // amount to indent tags
+                useLabelIds: true,         // use label name rather than tag for ids
+                maxMacros: 10000,          // maximum number of macro substitutions per expression
+                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
+                formatError:               // function called when TeX syntax errors occur
+                    (jax, err) => jax.formatError(err)
+            }
+        };
     </script>
-    <style type="text/css">
-        /* Color scheme stolen from Sergey Karayev */
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Core JS-->
+    <script type="text/javascript" src="/js/scripts.js"></script>
+    <script type="text/javascript" src="/js/js-yaml.min.js"></script>
 
-        a {
-            color: #1772d0;
-            text-decoration: none;
-        }
-
-        a:focus,
-        a:hover {
-            color: #f09228;
-            text-decoration: none;
-        }
-
-        body,
-        td,
-        th,
-        tr,
-        p,
-        a {
-            font-family: 'Lato', Verdana, Helvetica, sans-serif;
-            font-size: 14px
-        }
-
-        strong {
-            font-family: 'Lato', Verdana, Helvetica, sans-serif;
-            font-size: 14px;
-        }
-
-        heading {
-            font-family: 'Lato', Verdana, Helvetica, sans-serif;
-            font-size: 22px;
-        }
-
-        papertitle {
-            font-family: 'Lato', Verdana, Helvetica, sans-serif;
-            font-size: 14px;
-            font-weight: 700
-        }
-
-        name {
-            font-family: 'Lato', Verdana, Helvetica, sans-serif;
-            font-size: 32px;
-        }
-
-        subname {
-            font-family: 'Lato', Verdana, Helvetica, sans-serif;
-            font-size: 20px;
-        }
-
-        .one {
-            width: 160px;
-            height: 160px;
-            position: relative;
-        }
-
-        .two {
-            width: 160px;
-            height: 160px;
-            position: absolute;
-            transition: opacity .2s ease-in-out;
-            -moz-transition: opacity .2s ease-in-out;
-            -webkit-transition: opacity .2s ease-in-out;
-        }
-
-        .fade {
-            transition: opacity .2s ease-in-out;
-            -moz-transition: opacity .2s ease-in-out;
-            -webkit-transition: opacity .2s ease-in-out;
-        }
-
-        span.highlight {
-            background-color: #ffffd0;
-        }
-
-        .circle_image {
-            width: 250px;
-            border-radius: 40px;
-        }
-
-        .github {
-            height: 18px;
-        }
-    </style>
-    <title>Qianli Ma</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
 </head>
 
-<body>
-<!-- <div>
-  <button align="right" class="button" onclick="changeLanguage()">中文</button>
-  <button align class="button" onclick="changeLanguage()">English</button>
-</div> -->
-<table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tr>
-        <td>
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                <tr>
-                    <td width="67%" valign="middle">
-                        <p align="center">
-                            <name>Qianli Ma | 马千里</name>
-                            <br>
-                            <a href="mailto:1240419984@qq.com"><img alt="mail" align="center" src="https://img.shields.io/badge/mail-fazzie@qq.com-F06B66?logo=mailgun" /></a> 
-                            <a href="https://github.com/Fazziekey"><img alt="github" align="center" src="https://img.shields.io/badge/github-Fazziekey-181717?logo=github" /></a> 
-                            <a href="https://fazzie-key.cool/nn/"><img alt="blog" align="center" src="https://img.shields.io/badge/blog-fazzie--key.cool-FFA500?logo=rss" /></a>
-                            <a href="https://www.linkedin.com/in/qianli-ma-fazzie-313272207/"><img alt="linkin" align="center" src="https://img.shields.io/badge/Linkin-Qianli Ma-0A66C2?logo=linkedin"/></a>
-                            <a href="https://www.zhihu.com/people/fazzie"><img alt="zhihu" align="center" src="https://img.shields.io/badge/Zhihu-Fazzie-0084FF?logo=zhihu"/></a>
-                        </p>
-                        <p>
-                          I am Large Launguage Model Engineer at ByteDance AML, focusing on machine Learning system and Large Launguage Model </a>.
-                          Previously, I received my bachelor's degree major in electronic science and technology from Zhejiang University,
-                          master's degree major in computer science from National University of Singapore,
-                          and I also get a minor in Intensive training Program of Innovation and Entrepreneeyrship(ITP) from <a href="http://ckc.zju.edu.cn/ckcen/">Chu Kechen Honors College</a> in Zhejiang University.
-                          I used to work in <a href="https://ai.comp.nus.edu.sg/">HPC-AI lab</a> supervised by Prof <a href="https://www.comp.nus.edu.sg/~youy/">Yang You</a>.
-                        </p>
-                        <p>
-                          I am an interdisciplinary learner from electronic engineering, computer science and entrepreneurial management, 
-                          and I have intensive passion in AI landing and entrepreneurship.
-                        </p>
-                        <p>
-                          I was also a drummer of Six o'clock Studio rock band in Zhejiang University, who was interested in electronic and metal music. Now I am also interested in bartending and photography
-                        </p>
-                        <p class="introduction">
-                          To learn more about my personal experience and skills, check out my Neural Network Knowledge Map:
-                        </p>
-                        <p>
-                        <a href="../nn">Super intelligence Fazzie</a>
-                        </p>
-                        Here is my detail CV:
-                        <p>
-                          <a href="..\CV\Maqianli_CV_EN.html">CV</a>
-                        </p>
-                    </td>
-                    <td width="33%">
-                        <!-- <img alt="“portrait”" src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211121142400.jpg" class="circle_image"> -->
-                        <img alt="“portrait”" src="/img/Avatar2.jpeg" class="circle_image">
-                    </td>
-                </tr>
-            </table>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top"></a>
+            <!-- <a href="#page-top"><img src="/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                MENU
+                <i class="bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#news">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#education">EDUCATION</a>
+                    </li>                   
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#work">WORKING EXPERIENCE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#societies">SOCIETIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#awards">AWARDS</a>
+                    </li>
 
-            <!--News Begin-->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void>
-              <tr>
-                <td>
-                  <heading>News</heading>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
-              <colgroup>
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2023.3.29 </td>
-                <td valign="center">
-                    </p>
-                      We released Coati(Colossal AI Talking intelligence): An Open-Source Solution for Cloning ChatGPT With a Complete RLHF Pipeline, <a href="https://medium.com/@yangyou_berkeley/colossalchat-an-open-source-solution-for-cloning-chatgpt-with-a-complete-rlhf-pipeline-5edf08fb538b">Link</a>
-                    </p>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2023.2.22 </td>
-                <td valign="center">
-                    </p>
-                      My work for stable diffusion training acceleration was officially reposted by Pytorch, <a href="https://www.hpc-ai.tech/blog/colossal-ai-chatgpt">Link</a>
-                    </p>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2023.2.14 </td>
-                <td valign="center">
-                    </p>
-                      We released a open source solution replicates ChatGPT training process! ready to go with only 1.6GB GPU Memory, <a href="https://twitter.com/PyTorch/status/1628076104626974732?t=y656lK4VtI4EC3WkgaKPbQ&s=19">Link</a>
-                    </p>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2023.1.31 </td>
-                <td valign="center">
-                    </p>
-                    We support the stable diffusion v2 with Colossal-AI, link: <a href="https://medium.com/pytorch/latest-colossal-ai-boasts-novel-automatic-parallelism-and-offers-savings-up-to-46x-for-stable-1453b48f3f02">Latest Colossal-AI boasts novel automatic parallelism and offers savings up to 46x for Stable Diffusion 2</a>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2022.11.9 </td>
-                <td valign="center">
-                    </p>
-                    We have open sourced the stable diffusion training acceleration sulotion with Colossal-AI, link: <a href="https://medium.com/@yangyou_berkeley/diffusion-pretraining-and-hardware-fine-tuning-can-be-almost-7x-cheaper-85e970fe207b">Diffusion Pretraining and Hardware Fine-Tuning Can Be Almost 7X Cheaper! Colossal-AI's Open Source Solution Accelerates AIGC at a Low Cost</a>
-                    </p>
-                </td>
-              </tr>
-            </table>
-            <!--News end-->
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            <!-- Education begin-->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void>
-              <tr>
-                <td>
-                  <heading>Education</heading>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" border-width:0px frame=void border-style=none>
-              <colgroup>
-                <col span="1" style="width: 20%;" >
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2022.8 - Now </td>
-                <td valign="center">
-                  National University of Singapore major in Computer Science
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2018.9 - 2022.7 </td>
-                <td valign="center">
-                  Zhejiang University  major in Electronic Science and Technology(Shannon Excellence Class)
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2019.11 - 2022.7 </td>
-                <td valign="center">
-                  Zhejiang University  minor in Intensive training Program of Innovation and Entrepreneeyrship(ITP)
-                </td>
-              </tr>
-            </table>
-            <!-- Education End -->
-            <!-- Work experience Begin -->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void>
-              <tr>
-                <td>
-                  <heading>Work experience</heading>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
-              <colgroup>
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2023.5 - Now </td>
-                <td valign="center">
-                    <p>
-                     ByteDance AML Large Launguage Model Engineer
-                    </p>
-                    <p>
-                      Machine Learning system | Large Launguage Model for code | RLHF
-                    </p>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
-              <colgroup>
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2022.7 - 2023.5</td>
-                <td valign="center">
-                    <p>
-                        HPC-AI Technology Machine Learning System Engineer
-                    </p>
-                    <p>
-                        Machine Learning system <a href="https://github.com/hpcaitech/ColossalAI">ColossalAI</a>
-                    </p>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
-              <colgroup>
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2021.12 - 2022.6</td>
-                <td valign="center">
-                    <p>
-                     SenseTime: Algorithm Research Intern
-                    </p>
-                    <p>
-                        Large-scale training
-                    </p>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void>
-              <colgroup>
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2021.7 - 2021.11 </td>
-                <td valign="center">
-                    <p>
-                     Huawei 2012 lab: Algorithm Engineering Intern
-                    </p>
-                    <p>
-                        Group of <a href="https://gitee.com/Fazzie/mindspore">MindSpore</a> Deep Learning Framework in Distributed and Parallel Lab
-                    </p>
-                </td>
-              </tr>
-            </table>
-            <!-- Work experience End -->
-            <!-- Research Interest Begin -->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void rows=none>
-              <tr>
-                <td>
-                  <heading>Research</heading>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void rows=none>
-              <colgroup>
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2019.9 - 2021.7 </td>
-                <td>
-                <p>Institute of Intelligent Communication Network and Security of zju supervised by Prof <a href="https://person.zju.edu.cn/limin">Min Li</a> </p>
-                <p>
-                    Apply machine learning in millimetre wave communications system, including channel estimation, beamforming, and signal detection.
-                </p>
-                </td>
-              </tr>
-            </table>
-            <!-- Societies Begin -->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10" frame=void rows=none>
-              <tr>
-                <td>
-                  <heading>Societies</heading>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="10" style="table-layout:fixed;" frame=void rows=none>
-                <colgroup>
-                    <col span="1" style="width: 20%;">
-                    <col span="1" style="width: 80%;">
-                </colgroup>
-              <tr>
-                <td valign="center">
-                    2018.9 - 2020.6
-                </td>
-                <td valign="center">
-                    Pioneering and Participating work Instructing Center of zju
-                </td>
-              </tr>
-              <tr>
-                <td valign="center">
-                    2018.11 - 2021.1
-                </td>
-                <td valign="center">
-                   Drummer of Rock band Six o'clock studio 
-                </td>
-              </tr>
-              <tr>
-                <td valign="center">
-                    2021.10 - Now
-                </td>
-                <td valign="center">
-                    AI lab of Internet Society of zju
-                </td>
-              </tr>
-            </table>
-            <!-- Societies End -->
-            <!-- Awards Begin -->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="6" frame=void>
-              <tr>
-                <td>
-                  <heading>Awards</heading>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="6" style="table-layout:fixed;" frame=void>
-              <colgroup>
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 80%;">
-              </colgroup>
-              <tr>
-                <td valign="center"> 2019 </td>
-                <td>
-                  <span> Zhejiang University Third Class Scholarship </span>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2020 </td>
-                <td>
-                  <span>Zhejiang University First Class Scholarship</span>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2020 </td>
-                <td>
-                  <span>Gold Prize of Challenge Cup Competition of National </span>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2020 </td>
-                <td>
-                  <span>Second Prize of Intel Cup Embedded System Invitational Competition </span>
-                </td>
-              </tr>
-              <tr>
-                <td valign="center"> 2022 </td>
-                <td>
-                  <span> Excellent Graduate of Zhejiang University </span>
-                </td>
-              </tr>
-            </table>
-        </td>
-    </tr>
-</table>
+    <!-- Top Section -->
+    <!-- <section class="top-section" style="background-image: url('/img/background.jpeg');"> -->
+    <section class="top-section" style="background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);">
+        
+        <div class="top-section-content">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 id="top-section-bg-text" class="text-white display-3 lh-1 mb-4 font-alt"></h2>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="user-photo photo"><img class="shadow" src="/img/Avatar2.jpeg", title="portrait"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Top Section -->
+
+
+    <!-- Home -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
+        <div class="container px-5">
+            <header>
+                <h2 id="home-subtitle"> </h2>
+                <!-- <span class="bi bi-list"></span> -->
+            </header>
+            <div class="main-body" id="home-md"></div>
+        </div>
+    </section>
+    <!-- Home -->
+
+    <!-- News -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="news">
+        <div class="container px-5">
+            <header>
+                <h2 id="news-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;NEWS</h2>
+            </header>
+            <div class="main-body" id="news-md"></div>
+
+        </div>
+    </section>
+    <!-- News  -->
+
+    <!-- Education -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="publications">
+        <div class="container px-5">
+            <header>
+                <h2 id="publications-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;EDUCATION</h2>
+            </header>
+            <div class="main-body" id="education-md"></div>
+
+        </div>
+    </section>
+    <!-- Education  -->
+
+    <!-- Work -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="work">
+        <div class="container px-5">
+            <header>
+                <h2 id="publications-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;WORK EXPERIENCE</h2>
+            </header>
+            <div class="main-body" id="work-md"></div>
+
+        </div>
+    </section>
+    <!-- Work  -->
+
+    <!-- Publications -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="publications">
+        <div class="container px-5">
+            <header>
+                <h2 id="publications-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;PUBLICATIONS</h2>
+            </header>
+            <div class="main-body" id="publications-md"></div>
+
+        </div>
+    </section>
+    <!-- Publications  -->
+
+    <!-- Societies -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="societies">
+        <div class="container px-5">
+            <header>
+                <h2 id="societies-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;SOCIETIES</h2>
+            </header>
+            <div class="main-body" id="societies-md"></div>
+
+        </div>
+    </section>
+    <!-- Societies  -->
+
+    <!-- Awards -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
+        <div class="container px-5">
+            <header>
+                <h2 id="awards-subtitle"><i class="bi bi-award-fill"></i>AWARDS </h2>
+            </header>
+            <div class="main-body" id="awards-md"></di>
+
+        </div>
+    </section>
+    <!-- Awards -->
+
+
+    <!-- Footer-->
+    <footer class="bg-bottom text-center py-5">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2"></div>
+                <a id="github-link" href="https://github.com/senli1073">Github</a>
+                <span class="mx-1">&middot;</span>
+                <a id="license-link" href="https://github.com/senli1073/senli1073.github.io/blob/main/LICENSE">License</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 </html>
