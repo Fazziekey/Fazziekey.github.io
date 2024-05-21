@@ -1,5 +1,5 @@
 ---
-title: big model
+title: 超大模型加载转换Trick
 toc: true
 copyright: true
 date: 2024-05-20 14:15:55
