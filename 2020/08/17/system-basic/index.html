@@ -1,0 +1,414 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>系统的基本概念 | 摸黑干活</title><meta name="keywords" content="手撕拉普拉斯"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="信号的分类 随机信号和确定信号 连续和离散 周期 奇偶 所有信号可以被分解为奇偶信号      功率和能量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统的基本概念">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/17/system-basic/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="信号的分类 随机信号和确定信号 连续和离散 周期 奇偶 所有信号可以被分解为奇偶信号      功率和能量">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-08-17T03:34:53.000Z">
+<meta property="article:modified_time" content="2024-05-28T06:13:36.219Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/08/17/system-basic/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 14:13:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">系统的基本概念</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-17T03:34:53.000Z" title="发表于 2020-08-17 11:34:53">2020-08-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T06:13:36.219Z" title="更新于 2024-05-28 14:13:36">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="信号的分类"><a href="#信号的分类" class="headerlink" title="信号的分类"></a>信号的分类</h1><ul>
+<li>随机信号和确定信号</li>
+<li>连续和离散</li>
+<li>周期</li>
+<li>奇偶<ul>
+<li>所有信号可以被分解为奇偶信号   </li>
+</ul>
+</li>
+<li>功率和能量</li>
+</ul>
+<span id="more"></span>
+<p>能量信号（能量有限信号）：<br>如果信号x(t)满足: 0&lt;E &lt;$\infin$,而P = 0。</p>
+<p>功率信号（功率有限信号）:<br>如果信号x(t)满足：0 &lt; P &lt;$\infin$, 而E=$\infin$。</p>
+<blockquote>
+<p>周期信号一般属于功率信号，属于能量信号的非周期信号也称为脉冲信号</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/74b0c8b8c1a8b64273a37443ae7599b6.png" alt=""></p>
+</blockquote>
+<h1 id="复指数信号与正弦信号"><a href="#复指数信号与正弦信号" class="headerlink" title="复指数信号与正弦信号"></a>复指数信号与正弦信号</h1><h2 id="连续时间复指数信号"><a href="#连续时间复指数信号" class="headerlink" title="连续时间复指数信号"></a>连续时间复指数信号</h2><script type="math/tex; mode=display">
+x(t)=ce^{st}
+
+s=\sigma+jw
+
+T_0=\frac{2\pi}{|w_0|}</script><h2 id="正弦与复指数信号转换"><a href="#正弦与复指数信号转换" class="headerlink" title="正弦与复指数信号转换"></a>正弦与复指数信号转换</h2><script type="math/tex; mode=display">
+\cos wt=\frac{1}{2}(e^{jwt}+e^{-jwt})</script><script type="math/tex; mode=display">
+\sin wt=\frac{1}{2j}(e^{jwt}-e^{-jwt})</script><script type="math/tex; mode=display">
+A\cos(wt+\phi)=\frac{A}{2}e^{j\phi}e^{jwt}+\frac{A}{2}e^{-j\phi}e^{-jwt}=ARe\{e^{j(wt+\phi)}\}</script><script type="math/tex; mode=display">
+A\sin(wt+\phi)=Aim\{e^{j(wt+\phi)}\}</script><h2 id="离散时间复指数信号"><a href="#离散时间复指数信号" class="headerlink" title="离散时间复指数信号"></a>离散时间复指数信号</h2><script type="math/tex; mode=display">
+x[n]=e^{jwn}=\cos wn+\sin wn</script><p>当$\frac{2\pi}{w}$为有理数数时为周期信号</p>
+<h1 id="单位冲击和单位阶跃函数"><a href="#单位冲击和单位阶跃函数" class="headerlink" title="单位冲击和单位阶跃函数"></a>单位冲击和单位阶跃函数</h1><h2 id="离散脉冲阶跃"><a href="#离散脉冲阶跃" class="headerlink" title="离散脉冲阶跃"></a>离散脉冲阶跃</h2><h3 id="单位脉冲"><a href="#单位脉冲" class="headerlink" title="单位脉冲"></a>单位脉冲</h3><script type="math/tex; mode=display">
+\delta[n]=
+\begin{cases}
+0& n \not= 0 \\
+1& n=0
+\end{cases}</script><p><strong>采样特性</strong></p>
+<script type="math/tex; mode=display">
+\delta[n]x[n]=x[0]\delta[n]</script><script type="math/tex; mode=display">
+x[n]\delta[n-n_0]=x[n_0]\delta[n-n_0]</script><h3 id="单位阶跃"><a href="#单位阶跃" class="headerlink" title="单位阶跃"></a>单位阶跃</h3><script type="math/tex; mode=display">
+u[n]=
+\begin{cases}
+0& n < 0 \\
+1& n>=0
+\end{cases}</script><p><strong>单位脉冲和阶跃关系</strong></p>
+<script type="math/tex; mode=display">
+\delta[n]=u[n]-u[n-1]</script><script type="math/tex; mode=display">
+u[n]=\sum_{k=0}^{\infin}\delta[n-k]=\sum_{k=-\infin}^{n}\delta[k]</script><h3 id="矩形序列"><a href="#矩形序列" class="headerlink" title="矩形序列"></a>矩形序列</h3><script type="math/tex; mode=display">
+g_N[n]=
+\begin{cases}
+0& 0<n < N-1 \\
+1& other
+\end{cases}</script><script type="math/tex; mode=display">
+=u[n]-u[n-N]</script><h3 id="单位斜坡"><a href="#单位斜坡" class="headerlink" title="单位斜坡"></a>单位斜坡</h3><script type="math/tex; mode=display">
+r[n]=
+\begin{cases}
+n& n >= 0 \\
+0& n<0
+\end{cases}</script><script type="math/tex; mode=display">
+=nu[n]</script><h3 id="单位脉冲串"><a href="#单位脉冲串" class="headerlink" title="单位脉冲串"></a>单位脉冲串</h3><script type="math/tex; mode=display">
+\delta_N[n]=\sum_{k=-\infin}^{\infin}\delta[n-kN]</script><h2 id="连续时间阶跃冲激"><a href="#连续时间阶跃冲激" class="headerlink" title="连续时间阶跃冲激"></a>连续时间阶跃冲激</h2><h3 id="单位阶跃-1"><a href="#单位阶跃-1" class="headerlink" title="单位阶跃"></a>单位阶跃</h3><script type="math/tex; mode=display">
+u(t)=
+\begin{cases}
+0& t < 0 \\
+1& t>0
+\end{cases}</script><p>t=0处无定义</p>
+<h3 id="矩形脉冲"><a href="#矩形脉冲" class="headerlink" title="矩形脉冲"></a>矩形脉冲</h3><script type="math/tex; mode=display">
+g(t)=u(t)-u(t-t_0)</script><h3 id="符号函数sgn"><a href="#符号函数sgn" class="headerlink" title="符号函数sgn"></a>符号函数sgn</h3><script type="math/tex; mode=display">
+sgn(t)=
+\begin{cases}
+1& t > 0 \\
+-1& t<0
+\end{cases}</script><script type="math/tex; mode=display">
+=u(t)-u(-t)</script><script type="math/tex; mode=display">
+=2u(t)-1</script><h3 id="单位冲激信号"><a href="#单位冲激信号" class="headerlink" title="单位冲激信号"></a>单位冲激信号</h3><p><strong>狄拉克定义</strong></p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\int_{-\infin}^{+\infin}\delta(t)dt=1\\
+\delta(t)=0 & t=\not0
+\end{cases}</script><script type="math/tex; mode=display">
+\delta(t)=\frac{du(t)}{dt}</script><script type="math/tex; mode=display">
+u(t)=\int_{-\infin}^{t}\delta(\tau)d\tau</script><h4 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h4><ul>
+<li>抽样<script type="math/tex; mode=display">
+x(t)\delta(t)=x(0)\delta(t)</script><script type="math/tex; mode=display">
+x(t)\delta(t-t_0)=x(0)\delta(t-t_0)</script></li>
+<li>筛选<script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}x(t)\delta(t)=x(0)</script><script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}x(t)\delta(t-t_0)=x(t_0)</script></li>
+<li>偶函数</li>
+</ul>
+<h3 id="冲激偶信号"><a href="#冲激偶信号" class="headerlink" title="冲激偶信号"></a>冲激偶信号</h3><p>冲激函数的微分称为冲激偶信号</p>
+<script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}\delta'(t)dt=0</script><script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}\delta'(t)x(t)dt=-x'(0)</script><h3 id="单位冲激串"><a href="#单位冲激串" class="headerlink" title="单位冲激串"></a>单位冲激串</h3><script type="math/tex; mode=display">
+\delta_T(t)=\sum_{n=-\infin}^{\infin}\delta(t-nT)</script><h3 id="Sa"><a href="#Sa" class="headerlink" title="Sa"></a>Sa</h3><script type="math/tex; mode=display">
+Sa(t)=\frac{\sin t}{t}</script><script type="math/tex; mode=display">
+\int_{-\infin}^{\infin}Sa(t)dt=\pi</script><h1 id="信号的运算和变换"><a href="#信号的运算和变换" class="headerlink" title="信号的运算和变换"></a>信号的运算和变换</h1><h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
+<li>相加</li>
+<li>相乘</li>
+<li>微分积分<script type="math/tex; mode=display">
+x(t)=u(t-1)-u(t-2)</script><script type="math/tex; mode=display">
+\frac{dx(t)}{dt}=\delta(t-1)-\delta(t-2)</script></li>
+</ul>
+<blockquote>
+<p>对于任意函数可以用u(t)进行分段表示，然后利用积分的变换进行计算</p>
+</blockquote>
+<h2 id="自变量变换"><a href="#自变量变换" class="headerlink" title="自变量变换"></a>自变量变换</h2><ul>
+<li>平移，正左负右</li>
+<li>反褶</li>
+<li>尺度变化</li>
+<li><p>抽取</p>
+<script type="math/tex; mode=display">
+x_1=x[Nn]</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/9bd9b1dad2d3e0646bff6332d2e3862d.png" alt=""></p>
+<blockquote>
+<p>信号间隔不变，抽取部分信号</p>
+</blockquote>
+</li>
+<li><p>内插</p>
+<blockquote>
+<p>在信号间插入0信号</p>
+<script type="math/tex; mode=display">
+x_2[n]=
+\begin{cases}
+x[n/N]\\
+0
+\end{cases}</script></blockquote>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/17/10d0da71152d6e8de478c5c36d2979d7.png" alt=""></p>
+<h1 id="系统基本性质"><a href="#系统基本性质" class="headerlink" title="系统基本性质"></a>系统基本性质</h1><p>连续系统可以用微分方程表示</p>
+<p>离散系统可以用差分方程表示</p>
+<h2 id="线性"><a href="#线性" class="headerlink" title="线性"></a>线性</h2><p>满足,离散同理</p>
+<script type="math/tex; mode=display">
+ax_1(t)+bx_2(t)\to ay_1(t)+by_2(t)</script><h3 id="常见线性"><a href="#常见线性" class="headerlink" title="常见线性"></a>常见线性</h3><script type="math/tex; mode=display">
+y(t)=x(t)</script><script type="math/tex; mode=display">
+y(t)=tx(t)</script><script type="math/tex; mode=display">
+y(t)=dx(t)/dt</script><script type="math/tex; mode=display">
+y[t]=x[n+1]-x[n]</script><h3 id="常见非线性"><a href="#常见非线性" class="headerlink" title="常见非线性"></a>常见非线性</h3><script type="math/tex; mode=display">
+y(t)=x^2(t)</script><script type="math/tex; mode=display">
+y(t)=e^{x(t)}</script><script type="math/tex; mode=display">
+y(t)=2x(t)+3</script><h3 id="判断方法"><a href="#判断方法" class="headerlink" title="判断方法"></a>判断方法</h3><ul>
+<li>直接利用定义</li>
+<li>与x括号内参数无关，x(t)需要为一次且x(t)外无常数项</li>
+</ul>
+<h2 id="时变，时不变"><a href="#时变，时不变" class="headerlink" title="时变，时不变"></a>时变，时不变</h2><script type="math/tex; mode=display">
+x[n]\to y[n]</script><script type="math/tex; mode=display">
+x[n-n_0]\to y[n-n_0]</script><script type="math/tex; mode=display">
+x(t)\to y(t)</script><script type="math/tex; mode=display">
+x(t-t_0)\to y(t-t_0)</script><h3 id="判断方法-1"><a href="#判断方法-1" class="headerlink" title="判断方法"></a>判断方法</h3><ul>
+<li>定义</li>
+<li>t只在x括号内且为一次</li>
+</ul>
+<script type="math/tex; mode=display">
+y=x(sin(t))</script><script type="math/tex; mode=display">
+y_1(t)=x_1(sin(t))</script><script type="math/tex; mode=display">
+x_2(t)=x_1(t-t_0)=x_1(sin(t-t_0))</script><script type="math/tex; mode=display">
+y_2(t)=x_2(sin(t))=x_1(sin(sin(t)-t_0))</script><script type="math/tex; mode=display">
+\not =
+y_1(t-t_0)=x_1(sin(t-t_0))</script><h3 id="记忆和无记忆"><a href="#记忆和无记忆" class="headerlink" title="记忆和无记忆"></a>记忆和无记忆</h3><p>输入仅取决于当前输出为无机盐</p>
+<p>输入取决于其他时间为记忆<br>比如累加器，延迟单元</p>
+<h3 id="因果"><a href="#因果" class="headerlink" title="因果"></a>因果</h3><p>系统输出不取决于未来</p>
+<p>非因果系统如</p>
+<script type="math/tex; mode=display">
+y(t)=x(t+2)</script><p>在图像处理中就会有非因果系统</p>
+<p>通常把0时刻开始的信号称为因果信号</p>
+<script type="math/tex; mode=display">
+x(t)=0 ,t<0</script><h2 id="可逆"><a href="#可逆" class="headerlink" title="可逆"></a>可逆</h2><p>不可逆</p>
+<script type="math/tex; mode=display">
+y(t)=x^2(t)</script><p>可逆</p>
+<script type="math/tex; mode=display">
+y[n]=\sum x[k]</script><h2 id="稳定"><a href="#稳定" class="headerlink" title="稳定"></a>稳定</h2><p>输入有界则输出有界</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/08/17/system-basic/">https://fazziekey.github.io/2020/08/17/system-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/">手撕拉普拉斯</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/18/LTI/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">LTI系统时域分析</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/15/com-base/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">com base</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/08/20/DFT/" title="离散时间信号频域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-20</div><div class="title">离散时间信号频域分析</div></div></a></div><div><a href="/2020/08/18/LTI/" title="LTI系统时域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-18</div><div class="title">LTI系统时域分析</div></div></a></div><div><a href="/2020/08/21/Sampling-and-modulation/" title="采样和调制"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">采样和调制</div></div></a></div><div><a href="/2020/08/19/constant-Flourier/" title="连续时间信号频域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-19</div><div class="title">连续时间信号频域分析</div></div></a></div><div><a href="/2020/08/21/laplace-transformation/" title="拉普拉斯变换"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">拉普拉斯变换</div></div></a></div><div><a href="/2020/08/21/z-transformation/" title="z变换"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">z变换</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">信号的分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E6%8C%87%E6%95%B0%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%AD%A3%E5%BC%A6%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">复指数信号与正弦信号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%A4%8D%E6%8C%87%E6%95%B0%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.1.</span> <span class="toc-text">连续时间复指数信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%BC%A6%E4%B8%8E%E5%A4%8D%E6%8C%87%E6%95%B0%E4%BF%A1%E5%8F%B7%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">正弦与复指数信号转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%A4%8D%E6%8C%87%E6%95%B0%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.3.</span> <span class="toc-text">离散时间复指数信号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E5%86%B2%E5%87%BB%E5%92%8C%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">单位冲击和单位阶跃函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E8%84%89%E5%86%B2%E9%98%B6%E8%B7%83"><span class="toc-number">3.1.</span> <span class="toc-text">离散脉冲阶跃</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E8%84%89%E5%86%B2"><span class="toc-number">3.1.1.</span> <span class="toc-text">单位脉冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83"><span class="toc-number">3.1.2.</span> <span class="toc-text">单位阶跃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E5%BD%A2%E5%BA%8F%E5%88%97"><span class="toc-number">3.1.3.</span> <span class="toc-text">矩形序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E6%96%9C%E5%9D%A1"><span class="toc-number">3.1.4.</span> <span class="toc-text">单位斜坡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E8%84%89%E5%86%B2%E4%B8%B2"><span class="toc-number">3.1.5.</span> <span class="toc-text">单位脉冲串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E9%98%B6%E8%B7%83%E5%86%B2%E6%BF%80"><span class="toc-number">3.2.</span> <span class="toc-text">连续时间阶跃冲激</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">单位阶跃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E5%BD%A2%E8%84%89%E5%86%B2"><span class="toc-number">3.2.2.</span> <span class="toc-text">矩形脉冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%87%BD%E6%95%B0sgn"><span class="toc-number">3.2.3.</span> <span class="toc-text">符号函数sgn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E5%86%B2%E6%BF%80%E4%BF%A1%E5%8F%B7"><span class="toc-number">3.2.4.</span> <span class="toc-text">单位冲激信号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">3.2.4.1.</span> <span class="toc-text">基本性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B2%E6%BF%80%E5%81%B6%E4%BF%A1%E5%8F%B7"><span class="toc-number">3.2.5.</span> <span class="toc-text">冲激偶信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E5%86%B2%E6%BF%80%E4%B8%B2"><span class="toc-number">3.2.6.</span> <span class="toc-text">单位冲激串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sa"><span class="toc-number">3.2.7.</span> <span class="toc-text">Sa</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%BF%90%E7%AE%97%E5%92%8C%E5%8F%98%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">信号的运算和变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">4.1.</span> <span class="toc-text">运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8F%98%E9%87%8F%E5%8F%98%E6%8D%A2"><span class="toc-number">4.2.</span> <span class="toc-text">自变量变换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.</span> <span class="toc-text">系统基本性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7"><span class="toc-number">5.1.</span> <span class="toc-text">线性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BA%BF%E6%80%A7"><span class="toc-number">5.1.1.</span> <span class="toc-text">常见线性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%9D%9E%E7%BA%BF%E6%80%A7"><span class="toc-number">5.1.2.</span> <span class="toc-text">常见非线性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95"><span class="toc-number">5.1.3.</span> <span class="toc-text">判断方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%8F%98%EF%BC%8C%E6%97%B6%E4%B8%8D%E5%8F%98"><span class="toc-number">5.2.</span> <span class="toc-text">时变，时不变</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">判断方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E5%92%8C%E6%97%A0%E8%AE%B0%E5%BF%86"><span class="toc-number">5.2.2.</span> <span class="toc-text">记忆和无记忆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A0%E6%9E%9C"><span class="toc-number">5.2.3.</span> <span class="toc-text">因果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%80%86"><span class="toc-number">5.3.</span> <span class="toc-text">可逆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A"><span class="toc-number">5.4.</span> <span class="toc-text">稳定</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

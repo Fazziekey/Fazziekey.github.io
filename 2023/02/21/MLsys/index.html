@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ML system 入坑指南 | 摸黑干活</title><meta name="keywords" content="Mlsys"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ML system 入坑指南最近ChatGpt大火,越来越多开始关注大模型2,但对于大模型落地而言,除了先进的算法,其背后的MLsystem(机器学习系统), 从分布式训练到高效推理的完整链路同样重要, 好的基础设施是应用爆发的基础. 作为一个入坑MLsys快两年半的练习生, 本文主要围绕自己学习的经历来构筑,会持续更新,希望能给希望入坑的新人一个指引,也给非Mlsys背景但感兴趣的其他领域的同学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ML system 入坑指南">
+<meta property="og:url" content="https://fazziekey.github.io/2023/02/21/MLsys/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="ML system 入坑指南最近ChatGpt大火,越来越多开始关注大模型2,但对于大模型落地而言,除了先进的算法,其背后的MLsystem(机器学习系统), 从分布式训练到高效推理的完整链路同样重要, 好的基础设施是应用爆发的基础. 作为一个入坑MLsys快两年半的练习生, 本文主要围绕自己学习的经历来构筑,会持续更新,希望能给希望入坑的新人一个指引,也给非Mlsys背景但感兴趣的其他领域的同学">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2023-02-21T07:49:43.000Z">
+<meta property="article:modified_time" content="2024-05-28T06:13:36.211Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="Mlsys">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2023/02/21/MLsys/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 14:13:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ML system 入坑指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T06:13:36.211Z" title="更新于 2024-05-28 14:13:36">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E4%B8%89%E5%88%86%E7%AE%97%E6%B3%95-%E4%B8%89%E5%88%86%E7%B3%BB%E7%BB%9F-%E4%B8%89%E5%88%86%E4%BA%A7%E5%93%81-%E4%B8%80%E5%88%86%E9%94%80%E5%94%AE%E3%80%8B/">《三分算法,三分系统,三分产品,一分销售》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ML-system-入坑指南"><a href="#ML-system-入坑指南" class="headerlink" title="ML system 入坑指南"></a>ML system 入坑指南</h1><p>最近ChatGpt大火,越来越多开始关注大模型2,但对于大模型落地而言,除了先进的算法,其背后的MLsystem(机器学习系统), 从分布式训练到高效推理的完整链路同样重要, 好的基础设施是应用爆发的基础.</p>
+<p>作为一个入坑MLsys快两年半的练习生, 本文主要围绕自己学习的经历来构筑,会持续更新,希望能给希望入坑的新人一个指引,也给非Mlsys背景但感兴趣的其他领域的同学一些启发.</p>
+<hr>
+<h2 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h2><p>首先是课程,入坑MLsys,基本的计算机背景知识比如数据结构就不多聊了,更多讲讲一些更加专业性的进阶课程,</p>
+<h3 id="Operating-System"><a href="#Operating-System" class="headerlink" title="Operating System"></a>Operating System</h3><h4 id="南京大学JYY-OS"><a href="#南京大学JYY-OS" class="headerlink" title="南京大学JYY OS"></a>南京大学JYY OS</h4><p>南京大学JYY老师开的操作系统课内容非常硬核, workload巨大,课程质量比肩四大</p>
+<h4 id="MIT-6-S081"><a href="#MIT-6-S081" class="headerlink" title="MIT 6.S081"></a>MIT 6.S081</h4><p>MIT经典OS课,资料,lab都非常全</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2020/schedule.html">课程主页</a></li>
+<li><a target="_blank" rel="noopener" href="https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/">MIT 6.S081 中文 Tutorial Book</a></li>
+</ul>
+<h3 id="Parallel-computing"><a href="#Parallel-computing" class="headerlink" title="Parallel computing"></a>Parallel computing</h3><h4 id="CMU15418-Parallel-computing"><a href="#CMU15418-Parallel-computing" class="headerlink" title="CMU15418 Parallel computing"></a>CMU15418 Parallel computing</h4><p>并行计算非常好的入门课,内容硬核,workload巨大,涉及现代多处理器,CPU加速比如SIMD,分布式通讯协议MPI,GPU加速Cuda编程,异构计算,同步,Cache</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://15418.courses.cs.cmu.edu/spring2016/">课程主页</a></li>
+</ul>
+<h4 id="UCB-cs267-Applications-of-Parallel-Computers"><a href="#UCB-cs267-Applications-of-Parallel-Computers" class="headerlink" title="UCB cs267 Applications of Parallel Computers"></a>UCB cs267 Applications of Parallel Computers</h4><p>HPC祖师爷 Jim Demmel 22 spring最新版本,</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://sites.google.com/lbl.gov/cs267-spr2022?pli=1">课程主页</a></li>
+</ul>
+<h3 id="Distributed-system"><a href="#Distributed-system" class="headerlink" title="Distributed system"></a>Distributed system</h3><h4 id="MIT6-824分布式系统"><a href="#MIT6-824分布式系统" class="headerlink" title="MIT6.824分布式系统"></a>MIT6.824分布式系统</h4><p>这门课推荐的人也非常多了,用go实现,了解传统的分布式系统知识和历史对现代的分布式机器学习系统的学习还是有一定的帮助,不过对于做MLsys不是必须.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mit-public-courses-cn-translatio.gitbook.io/mit6-824/">课程主页</a></li>
+</ul>
+<h3 id="MLSystem"><a href="#MLSystem" class="headerlink" title="MLSystem"></a>MLSystem</h3><h4 id="CMU-DL-System"><a href="#CMU-DL-System" class="headerlink" title="CMU DL System"></a>CMU DL System</h4><p>陈天奇老师的课,涉及nn库实现,自动微分,GPU加速,模型部署和部分AI编译内容,内容除了分布式训练涉及的不够,基础的MLsys还是非常全面的.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dlsyscourse.org/">课程主页</a></li>
+</ul>
+<h4 id="Mini-torch"><a href="#Mini-torch" class="headerlink" title="Mini torch"></a>Mini torch</h4><p>完全用python实现的简单torch版本,涉及自动微分,张量,GPU加速.适合新手入门</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://minitorch.github.io/">课程主页</a></li>
+</ul>
+<h4 id="机器学习系统-设计和实现"><a href="#机器学习系统-设计和实现" class="headerlink" title="机器学习系统:设计和实现"></a>机器学习系统:设计和实现</h4><p>华为Mindspore团队(没错,就是我打过工的Team)和一群大佬AP搞的, 计算图,编译器前后端,分布式训练都有涉及,内容比较全面,比较适合有一定基础的人阅读或者作为工具书.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://openmlsys.github.io/#">主页</a></li>
+</ul>
+<h4 id="System-for-AI"><a href="#System-for-AI" class="headerlink" title="System for AI"></a>System for AI</h4><p>微软发起的,目前还在快速迭代更新的工具书,舍和补全基础.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/AI-System">主页</a></li>
+</ul>
+<h3 id="AI-Compilation"><a href="#AI-Compilation" class="headerlink" title="AI Compilation"></a>AI Compilation</h3><h4 id="Machine-Learning-Compilation"><a href="#Machine-Learning-Compilation" class="headerlink" title="Machine Learning Compilation"></a>Machine Learning Compilation</h4><p>还是陈天奇老师的课,以TVM为基础, AI编译器这样前沿的领域为数不多的课.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mlc.ai/summer22-zh/">课程主页</a></li>
+</ul>
+<h3 id="Large-model"><a href="#Large-model" class="headerlink" title="Large model"></a>Large model</h3><p>对于做ML system 的同学而言,了解一些最新的算法也是非常必要的,不用过度关系一些fancy的技巧,更多关注模型架构,参数,大的范式上的变化即可.<br>算法的业界进展确实太快了,很难有系统的课,某些顶级大学会用讲座的形式开展,去讲GPT,PLAM这样的大模型, 看论文和官方网站,blog是更好的选择.</p>
+<p>可以看李沐老师论文精讲去follow一些比较新且影响力巨大的工作, Muli is all you need !!!</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/mli/paper-reading">paper-reading github 主页</a></li>
+</ul>
+<h3 id="Large-model-training-amp-paper"><a href="#Large-model-training-amp-paper" class="headerlink" title="Large model training &amp; paper"></a>Large model training &amp; paper</h3><p>这块目前还没有比较系统的课,大规模的分布式训练开始应用也就这几年的事情,也是MLsys领域的最大热点,这里简单总结一下需要掌握的知识点和参考论文</p>
+<ul>
+<li>Data Parallel(数据并行)</li>
+<li>Distributed Data Parallel(分布式数据并行)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.15704">PyTorch Distributed: Experiences on Accelerating Data Parallel Training</a></li>
+</ul>
+</li>
+<li>Mix precise Training(混合精度训练)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.03740">Mix precise Training</a></li>
+</ul>
+</li>
+<li>Zero Optimizer(零冗余优化器)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.07857">ZeRO-Infinity: Breaking the GPU Memory Wall for Extreme Scale Deep Learning</a></li>
+</ul>
+</li>
+<li>Tensor Parallel(张量并行)<ul>
+<li>1D并行:<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.08053">Megatron-LM</a></li>
+</ul>
+</li>
+<li>Pipeline Parallel(流水并行)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.06965">GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism</a></li>
+</ul>
+</li>
+<li>Auto Parallel(自动并行)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.12023">Alpa:Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning</a></li>
+</ul>
+</li>
+<li>Sequence Parallel(序列并行)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.13120">Sequence Parallelism: Long Sequence Training from<br>  System Perspective</a></li>
+</ul>
+</li>
+<li>Large batchsize(超大batch size)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1708.03888">LARS:Large Batch Training of Convolutional Networks</a></li>
+</ul>
+</li>
+<li>MOE(混合专家模型)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.16668">GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding</a></li>
+</ul>
+</li>
+<li>Kernal Fusion(算子融合)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.14135">Flash attention: Fast and Memory-Efficient Exact Attention with IO-Awareness</a></li>
+</ul>
+</li>
+<li>Optimizer Fusion(优化器融合)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.00237">OPTIMIZER FUSION: EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a></li>
+</ul>
+</li>
+<li>Activation checkpoint<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1604.06174">Training Deep Nets with Sublinear Memory Cost</a></li>
+</ul>
+</li>
+<li>Fine-tune accelerate(微调加速)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation of Large Language Models</a></li>
+</ul>
+</li>
+<li>Isomorphic training(异构训练)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.05818">PatrickStar: Parallel Training of Pre-trained Models via<br>  Chunk-based Dynamic Memory Management</a></li>
+</ul>
+</li>
+<li>Asynchronous Distributed Dataflow(异步数据流)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.12533">PATHWAYS: ASYNCHRONOUS DISTRIBUTED DATAFLOW FOR ML</a></li>
+</ul>
+</li>
+<li>Distributed Scheduling(分布式调度)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.09381">RLlib: Abstractions for Distributed Reinforcement Learning</a></li>
+</ul>
+</li>
+<li>Quant(量化)<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2211.10438">SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models</a></li>
+</ul>
+</li>
+<li>大语言模型推理<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/FMInference/FlexGen/blob/main/docs/paper.pdf">FlexGen: High-throughput Generative Inference of Large Language Models with a Single GPU</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>每个细分领域的论文还有很多,不一一列举了,对于入坑来说,抓住主线即可.</p>
+</blockquote>
+<h2 id="Programming-Languages"><a href="#Programming-Languages" class="headerlink" title="Programming Languages"></a>Programming Languages</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.hahack.com/codes/cmake/">Cmake</a></li>
+<li><a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/01-intro/">现代CPP</a></li>
+</ul>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>Python基础课这个太多了,不作推荐了,做MLsys比较需要掌握用python调用C,比如Cpython,pybind,以及一些python高级特性,比如hook,装饰器</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11">pybind</a></li>
+</ul>
+<h3 id="Cuda"><a href="#Cuda" class="headerlink" title="Cuda"></a>Cuda</h3><p>这个可以参考的也比较多,英伟达的官方手册永远是最好的参考.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/">Cuda programming guide</a></li>
+</ul>
+<h3 id="OpenCL"><a href="#OpenCL" class="headerlink" title="OpenCL"></a>OpenCL</h3><p>对于非Nvidia芯片的设备,比如手机Soc,移动端推理芯片大多不支持cuda,那么用OpenCL来做异构加速就是一个更通用的方案</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/Heterogeneous-Computing-with-OpenCL-2.0/README.md">OpenCL异构计算</a></li>
+</ul>
+<h1 id="军火库"><a href="#军火库" class="headerlink" title="军火库"></a>军火库</h1><p>这里会简单总结我接触或使用和直接参与开发的Mlsys的军火库,会持续更新.</p>
+<h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p>对于MLsys这样前沿的领域而言,因为很多方面并没有足够的资料,经常被迫去直接学习源码,以实际的case作为学习手段也是非常好的方式.这里简单归类一下我遇到过的MLsys,大多数处于简单了解和使用,有少部分比较深入看过源码.</p>
+<h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><h4 id="TensorRT"><a href="#TensorRT" class="headerlink" title="TensorRT"></a>TensorRT</h4><p>英伟达的推理方案, 目前整体上在英伟达GPU上做的最好的推理框架,比较是自己的卡.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/NVIDIA/TensorRT">github</a></li>
+</ul>
+<h4 id="AI-Template"><a href="#AI-Template" class="headerlink" title="AI Template"></a>AI Template</h4><p>FaceBook刚搞的一个推理库,在很多硬件上速度性能都超过TensorRT, 还比较新的框架</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebookincubator/AITemplate">github</a></li>
+</ul>
+<h3 id="Severing"><a href="#Severing" class="headerlink" title="Severing"></a>Severing</h3><h4 id="triton-inference-server"><a href="#triton-inference-server" class="headerlink" title="triton-inference-server"></a>triton-inference-server</h4><p>英伟达的ML serving框架,比较成熟</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/server">github</a></li>
+</ul>
+<h4 id="clip-as-service"><a href="#clip-as-service" class="headerlink" title="clip-as-service"></a>clip-as-service</h4><p>Jina-AI做的,一家中国 start up, 在mass(model as service)上是一个非常不错的落地产品,特别喜欢</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/jina-ai/clip-as-service">github</a></li>
+</ul>
+<h3 id="Mobile-inference"><a href="#Mobile-inference" class="headerlink" title="Mobile inference"></a>Mobile inference</h3><p>移动端推理是我比较深入做过的,对其底层了解的比较多</p>
+<h4 id="Mindsporelite"><a href="#Mindsporelite" class="headerlink" title="Mindsporelite"></a>Mindsporelite</h4><p>我有幸参与写过的推理引擎,对于全流程在mindspore上做的体验还是不错的.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/mindspore/mindspore">gitee</a></li>
+</ul>
+<h4 id="MNN"><a href="#MNN" class="headerlink" title="MNN"></a>MNN</h4><p>阿里达摩院做的,我写mindsporelite的遇到问题的时候经常被mentor叫去学习一下友商的代码,CPU的一些kernel用汇编写的,这点映像非常深刻,代码质量非常高.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/alibaba/MNN">github</a></li>
+</ul>
+<h4 id="TensorFlowlite"><a href="#TensorFlowlite" class="headerlink" title="TensorFlowlite"></a>TensorFlowlite</h4><p>集成在Tensorflow的移动端推引擎,国际上应该是最早做的移动端推理.没错,TFlite的大哥就是那个从谷歌跑路重回斯坦福读博的皮特·沃登,他写了TinyML这本书,对整个移动端推理都是有重要意义的.我也从这学习了不少.google的代码质量太高了,看注释都能学很多.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite">github</a></li>
+</ul>
+<h4 id="NCNN"><a href="#NCNN" class="headerlink" title="NCNN"></a>NCNN</h4><p>国内做的最早的端侧推理引擎,腾讯搞的,不得不说,很多东西还是需求驱动, 靠各种移动APP为主要产品的中国互联网公司,移动推理引擎做的都不错.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Tencent/ncnn">github</a></li>
+</ul>
+<h2 id="DeepLearning-Framework"><a href="#DeepLearning-Framework" class="headerlink" title="DeepLearning Framework"></a>DeepLearning Framework</h2><p>大的深度学习的框架的介绍太多了,不一一介绍了,大同小异,做ML系统多少都会看看各种框架做的一些新特性,Torch2.0的一些东西可以关注.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pytorch/pytorch">Torch</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow">TensorFlow</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/mindspore/mindspore">Mindspore</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/google/jax">Jax</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Oneflow-Inc/oneflow">oneflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Paddle">paddle</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/unifyai/ivy">ivy</a></li>
+</ul>
+<h2 id="AI-compiler"><a href="#AI-compiler" class="headerlink" title="AI compiler"></a>AI compiler</h2><p>编译这块我接触的不多,这两个项目可以参考</p>
+<h3 id="TVM"><a href="#TVM" class="headerlink" title="TVM"></a>TVM</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/apache/tvm">github</a></li>
+</ul>
+<h3 id="BladeDISC"><a href="#BladeDISC" class="headerlink" title="BladeDISC"></a>BladeDISC</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/alibaba/BladeDISC">github</a></li>
+</ul>
+<h2 id="Distributed-training"><a href="#Distributed-training" class="headerlink" title="Distributed training"></a>Distributed training</h2><p>对于大模型而言,分布式训练是比不缺的,除了最基本的分布式数据并行,各种混合并行策略,显存优化策略必不可缺,也因此出现了一系列的大模型训练框架.</p>
+<h3 id="ColossalAI"><a href="#ColossalAI" class="headerlink" title="ColossalAI"></a>ColossalAI</h3><p>All in 参与的项目,刚刚star接近15k了,在torch生态下支持各种并行和显存优化策略,给自己打个广告,欢迎各位朋友star,关注</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/hpcaitech/ColossalAI">github</a></li>
+</ul>
+<h3 id="Megatron-LM"><a href="#Megatron-LM" class="headerlink" title="Megatron-LM"></a>Megatron-LM</h3><p>NVIDIA做的模型并行库,也是最早开源的模型并行,但对缺乏分布式训练背景的人使用不太友好.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/NVIDIA/Megatron-LM">Github</a></li>
+</ul>
+<h3 id="Deepspeed"><a href="#Deepspeed" class="headerlink" title="Deepspeed"></a>Deepspeed</h3><p>微软的大模型训练框架,核心技术是Zero infinity相关的一系列paper,使用Megatron-LM作为张量并行的支持</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/DeepSpeed-MII">github</a></li>
+</ul>
+<h3 id="huggingface-accelerate"><a href="#huggingface-accelerate" class="headerlink" title="huggingface accelerate"></a>huggingface accelerate</h3><p>huggingface的加速器,对各种不同硬件做了兼容,在huggingface生态下非常好用,在分布式上做了比较多的封装,可以直接调用Deepspeed.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/huggingface/accelerate">github</a></li>
+</ul>
+<h3 id="Bagua"><a href="#Bagua" class="headerlink" title="Bagua"></a>Bagua</h3><p>Bagua在多机通讯上做了非常多的工作,对allreduce等分布式通讯做了不少优化.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/BaguaSys/bagua">github</a></li>
+</ul>
+<h3 id="lightning"><a href="#lightning" class="headerlink" title="lightning"></a>lightning</h3><p>lightning集成了各种分布式后端,可以很方便的启动各种分布式策略,lightning本身是一套更好的MLflow,设计理念是算法和工程分开,提供了大量自定义hook,对于大型AI项目而言,是个不错的选择,但是学习门槛不低,对团队人员水平要求比较高.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Lightning-AI/lightning">github</a></li>
+</ul>
+<h2 id="Distributed-Communication"><a href="#Distributed-Communication" class="headerlink" title="Distributed Communication"></a>Distributed Communication</h2><p>在nccl之前MPI是分布式通讯的主要方式,简单了解一下还是有必要的</p>
+<h3 id="MPI-the-Message-Passing-Interface"><a href="#MPI-the-Message-Passing-Interface" class="headerlink" title="MPI(the Message Passing Interface)"></a>MPI(the Message Passing Interface)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://mpitutorial.com/tutorials/">MPI Tutorials</a></li>
+</ul>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>最后简单给几个Tips,</p>
+<ul>
+<li>尽可能参与到业界的项目去,多注重落地,在实验玩一些很fancy但不落地的东西意义不大,目前MLsys业界比学界跑的快太多了,学界比较有影响力的工作往往也是何大公司合作的,比如前面提到的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.12023">Alpa</a>的实验就是在Google的TPU集群和AWS上做的,一般的lab更本没有条件.</li>
+<li>及时关注各种Blog,新的论文,这个领域每天都有新的东西出来,比如我就比较喜欢每天去twitter,一些Discord channel挖宝,总能带来一些惊喜</li>
+<li>Mlsys是一个交叉全面的领域,除了软件和算法,懂点基本的硬件,学会做产品也很重要,更多时候易用性大于性能.</li>
+<li>新的东西肯定是看不完的,抓住主干即可,在自己做的部分保证专注</li>
+<li>拥抱开源社区,不管是github还是huggingface,你永远想象不出开源社区的老哥的创造力</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2023/02/21/MLsys/">https://fazziekey.github.io/2023/02/21/MLsys/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Mlsys/">Mlsys</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/20/big-model/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">超大模型加载转换Trick</div></div></a></div><div class="next-post pull-right"><a href="/2023/02/21/pipeline-paralism/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">流水线并行论文总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">超大模型加载转换Trick</div></div></a></div><div><a href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-21</div><div class="title">流水线并行论文总结</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ML-system-%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">ML system 入坑指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Course"><span class="toc-number">1.1.</span> <span class="toc-text">Course</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Operating-System"><span class="toc-number">1.1.1.</span> <span class="toc-text">Operating System</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6JYY-OS"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">南京大学JYY OS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MIT-6-S081"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">MIT 6.S081</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-computing"><span class="toc-number">1.1.2.</span> <span class="toc-text">Parallel computing</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CMU15418-Parallel-computing"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">CMU15418 Parallel computing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UCB-cs267-Applications-of-Parallel-Computers"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">UCB cs267 Applications of Parallel Computers</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Distributed-system"><span class="toc-number">1.1.3.</span> <span class="toc-text">Distributed system</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MIT6-824%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">MIT6.824分布式系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MLSystem"><span class="toc-number">1.1.4.</span> <span class="toc-text">MLSystem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CMU-DL-System"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">CMU DL System</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mini-torch"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">Mini torch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">机器学习系统:设计和实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#System-for-AI"><span class="toc-number">1.1.4.4.</span> <span class="toc-text">System for AI</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-Compilation"><span class="toc-number">1.1.5.</span> <span class="toc-text">AI Compilation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Machine-Learning-Compilation"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">Machine Learning Compilation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Large-model"><span class="toc-number">1.1.6.</span> <span class="toc-text">Large model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Large-model-training-amp-paper"><span class="toc-number">1.1.7.</span> <span class="toc-text">Large model training &amp; paper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Programming-Languages"><span class="toc-number">1.2.</span> <span class="toc-text">Programming Languages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-number">1.2.1.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-number">1.2.2.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cuda"><span class="toc-number">1.2.3.</span> <span class="toc-text">Cuda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCL"><span class="toc-number">1.2.4.</span> <span class="toc-text">OpenCL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%9B%E7%81%AB%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">军火库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Framework"><span class="toc-number">2.1.</span> <span class="toc-text">Framework</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Inference"><span class="toc-number">2.1.1.</span> <span class="toc-text">Inference</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TensorRT"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">TensorRT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AI-Template"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">AI Template</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Severing"><span class="toc-number">2.1.2.</span> <span class="toc-text">Severing</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#triton-inference-server"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">triton-inference-server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#clip-as-service"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">clip-as-service</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-inference"><span class="toc-number">2.1.3.</span> <span class="toc-text">Mobile inference</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mindsporelite"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">Mindsporelite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MNN"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">MNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TensorFlowlite"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">TensorFlowlite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NCNN"><span class="toc-number">2.1.3.4.</span> <span class="toc-text">NCNN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DeepLearning-Framework"><span class="toc-number">2.2.</span> <span class="toc-text">DeepLearning Framework</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-compiler"><span class="toc-number">2.3.</span> <span class="toc-text">AI compiler</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TVM"><span class="toc-number">2.3.1.</span> <span class="toc-text">TVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BladeDISC"><span class="toc-number">2.3.2.</span> <span class="toc-text">BladeDISC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributed-training"><span class="toc-number">2.4.</span> <span class="toc-text">Distributed training</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ColossalAI"><span class="toc-number">2.4.1.</span> <span class="toc-text">ColossalAI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Megatron-LM"><span class="toc-number">2.4.2.</span> <span class="toc-text">Megatron-LM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deepspeed"><span class="toc-number">2.4.3.</span> <span class="toc-text">Deepspeed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#huggingface-accelerate"><span class="toc-number">2.4.4.</span> <span class="toc-text">huggingface accelerate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bagua"><span class="toc-number">2.4.5.</span> <span class="toc-text">Bagua</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lightning"><span class="toc-number">2.4.6.</span> <span class="toc-text">lightning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributed-Communication"><span class="toc-number">2.5.</span> <span class="toc-text">Distributed Communication</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MPI-the-Message-Passing-Interface"><span class="toc-number">2.5.1.</span> <span class="toc-text">MPI(the Message Passing Interface)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips"><span class="toc-number">2.6.</span> <span class="toc-text">Tips</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>子空间理论 | 摸黑干活</title><meta name="keywords" content="矩阵论"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="子空间的基本理论子空间的基定义：若$S&#x3D;{u_1,u_2…u_m}$是向量空间V的向量子集合，则向量所有的线性组合W，称为$u_1,u_2…u_m$构成的子空间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="子空间理论">
+<meta property="og:url" content="https://fazziekey.github.io/2020/11/16/child-space/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="子空间的基本理论子空间的基定义：若$S&#x3D;{u_1,u_2…u_m}$是向量空间V的向量子集合，则向量所有的线性组合W，称为$u_1,u_2…u_m$构成的子空间">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-11-16T13:36:39.000Z">
+<meta property="article:modified_time" content="2024-05-28T06:13:36.214Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="矩阵论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/11/16/child-space/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 14:13:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">子空间理论</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-16T13:36:39.000Z" title="发表于 2020-11-16 21:36:39">2020-11-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T06:13:36.214Z" title="更新于 2024-05-28 14:13:36">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E6%9F%AF%E8%A5%BF%E7%9A%84%E4%BC%A0%E4%B8%96%E7%BB%9D%E5%AD%A6%E3%80%8B/">《柯西的传世绝学》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="子空间的基本理论"><a href="#子空间的基本理论" class="headerlink" title="子空间的基本理论"></a>子空间的基本理论</h1><h2 id="子空间的基"><a href="#子空间的基" class="headerlink" title="子空间的基"></a>子空间的基</h2><p><strong>定义</strong>：若$S={u_1,u_2…u_m}$是向量空间V的向量子集合，则向量所有的线性组合<br>W，称为$u_1,u_2…u_m$构成的子空间<br><span id="more"></span></p>
+<script type="math/tex; mode=display">
+W=span\{u_1,u_2...u_m\}=\{u|u=a_1u_1+...+a_mu_m\}</script><p>当这些向量线性无关时，称为W的一组基</p>
+<h2 id="张成集定理-spanning-set-theorem"><a href="#张成集定理-spanning-set-theorem" class="headerlink" title="张成集定理(spanning set theorem)"></a>张成集定理(spanning set theorem)</h2><p>令S ={u…,um}是向量空间V的一个子集，并且W= Span{u,…,um}是由S的m个列向量张成的一个子空间。</p>
+<ul>
+<li>如果S内有某个向量(例如uk)是其他向量的线性组合，则从S中删去向量uk后，其他向量仍然张成子空间W。</li>
+<li>若W≠{0}即W为非平凡子空间，则在S内一定存在某个由线性无关的向量组成的子集合，它张成子空间W。</li>
+</ul>
+<h1 id="矩阵行空间，列空间"><a href="#矩阵行空间，列空间" class="headerlink" title="矩阵行空间，列空间"></a>矩阵行空间，列空间</h1><p>对于矩阵$A\in C^{m\times n}$</p>
+<script type="math/tex; mode=display">
+A=[a_1,a_2...a_n]</script><script type="math/tex; mode=display">
+=\begin{bmatrix}
+r_1\\r_2\\...\\r_m
+\end{bmatrix}</script><p>矩阵的列空间为矩阵列向量张成</p>
+<script type="math/tex; mode=display">
+Col(A)=span\{a_1,a_2...a_n\}</script><p>行空间同理</p>
+<script type="math/tex; mode=display">
+Row(A)=span\{r_1^*,r_2^*...r_m^*\}</script><h1 id="基本空间的标准正交基的构造：奇异值分解"><a href="#基本空间的标准正交基的构造：奇异值分解" class="headerlink" title="基本空间的标准正交基的构造：奇异值分解"></a>基本空间的标准正交基的构造：奇异值分解</h1><p>根据奇异值分解的性质，我们知道矩阵A可以被分解为</p>
+<script type="math/tex; mode=display">
+A=U_r\Sigma_rV_r^H</script><script type="math/tex; mode=display">
+=sum_{i=1}^r \sigma_i u_iv_i</script><p>定义$A\in C^{m\times n},A$的值域Range定义为</p>
+<script type="math/tex; mode=display">
+Rang(A)=\{y\in C^m|Ax=y,x\in C^n\}</script><p>此时的线性映射从$C^n$空间到$C^m$</p>
+<h2 id="零空间"><a href="#零空间" class="headerlink" title="零空间"></a>零空间</h2><p><strong>零空间</strong>被定义为满足</p>
+<script type="math/tex; mode=display">
+Ax=0</script><p>的向量x集合</p>
+<script type="math/tex; mode=display">
+Null(A)=ker(A)=\{x\in C^n|Ax=0\}</script><h2 id="列空间的标准正交基"><a href="#列空间的标准正交基" class="headerlink" title="列空间的标准正交基"></a>列空间的标准正交基</h2><p>与r个非零奇异值所对于的左奇异向量$u_1,u_2…u_r$构成列空间col（A）的一组基</p>
+<script type="math/tex; mode=display">
+Range(A)=\{y\in c^m|y=Ax,x\in C^n\}</script><script type="math/tex; mode=display">
+=\{y|y=\sum_{i=1}^ru_i(\sigma_iv_i^Hx)\}</script><script type="math/tex; mode=display">
+=\{y|y=\sum_{i=1}^r\alpha_iu_i，\alpha_i=\sigma_iv_i^Hx\}</script><script type="math/tex; mode=display">
+=span\{u_1,u_2...u_r\}</script><h1 id="行空间标准正交基"><a href="#行空间标准正交基" class="headerlink" title="行空间标准正交基"></a>行空间标准正交基</h1><p>与列空间的推导同理</p>
+<script type="math/tex; mode=display">
+Range(A^H)=\{y\in C^n|y=\sum_{i=1}^r \alpha_iv_i,\alpha_i=\sigma_iu_i^Hx\}</script><h1 id="信号子空间和噪声子空间"><a href="#信号子空间和噪声子空间" class="headerlink" title="信号子空间和噪声子空间"></a>信号子空间和噪声子空间</h1><p>如果观测数据A存在噪声误差</p>
+<script type="math/tex; mode=display">
+X=A+W=[x_1,x_2...x_n]\in C^{m\times n}</script><p>定义</p>
+<ul>
+<li>观测数据子空间<script type="math/tex; mode=display">
+span(X)=span\{x_1,x_2...x_n\}</script></li>
+<li><p>噪声子空间</p>
+<script type="math/tex; mode=display">
+span(W)=span\{w_1,w_2...w_n\}</script></li>
+<li><p>X的协方差矩阵为</p>
+<script type="math/tex; mode=display">
+E\{x^Hx\}=E\{(A+W)^H(A+W)\}</script><script type="math/tex; mode=display">
+=E\{A^HA\}+E\{W^HW\}</script><script type="math/tex; mode=display">
+=R+\sigma_wI</script><p>令A的秩为r</p>
+</li>
+</ul>
+<p>则</p>
+<script type="math/tex; mode=display">
+R_X=U\Sigma U^H+\sigma_w^2I=U(\Sigma+\sigma_w^2 I)U^H</script><script type="math/tex; mode=display">
+\Sigma+\sigma_w^2I=diag(\sigma_1^2+\sigma_w^2...\sigma_r^2+\sigma_w^2,\sigma_w^2...\sigma_w^2)</script><p>如果信噪比足够大，即$\sigma_r^2&gt;\sigma_w^2$</p>
+<p>则前r个大特征值称为<strong>主特征</strong></p>
+<p>剩余n-r个称为<strong>次特征</strong></p>
+<script type="math/tex; mode=display">
+R_x=[S,G]\begin{bmatrix}\Sigma_s&0\\
+0&\Sigma_n
+\end{bmatrix}
+\begin{bmatrix}
+S^H\\G^H
+\end{bmatrix}</script><script type="math/tex; mode=display">
+=S\Sigma_sS^H+G\Sigma_nG^H</script><p>此时</p>
+<script type="math/tex; mode=display">
+S=[s_1..s_2...s_r]=[u_1,u_2...u_r]
+\\
+G=[g_1,g_2...g_{n-r}]=[u_{r+1}...u_n]
+\\
+\Sigma_s=diag(\sigma_1^2+\sigma_w^2...\sigma_r^2+\sigma_w^2)
+\\
+\Sigma_n=diag(\sigma_w^2...\sigma_w^2)</script><ul>
+<li><p>$Range(S)$称为信号子空间</p>
+</li>
+<li><p>$Range(G)$称为噪声子空间</p>
+</li>
+</ul>
+<h2 id="重要性质"><a href="#重要性质" class="headerlink" title="重要性质"></a>重要性质</h2><p>噪声子空间和信号子空间正交</p>
+<script type="math/tex; mode=display">
+UU^H=SS^H+GG^H=I</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/11/16/child-space/">https://fazziekey.github.io/2020/11/16/child-space/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">矩阵论</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/11/16/matrix-partial/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">矩阵微分</div></div></a></div><div class="next-post pull-right"><a href="/2020/11/15/spacial-matrix/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">特殊矩阵</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/10/21/SVD/" title="奇异值SVD"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-21</div><div class="title">奇异值SVD</div></div></a></div><div><a href="/2020/10/21/feature-analysis/" title="矩阵特征分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-21</div><div class="title">矩阵特征分析</div></div></a></div><div><a href="/2020/11/15/matrix-basic/" title="矩阵代数基础"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-15</div><div class="title">矩阵代数基础</div></div></a></div><div><a href="/2020/10/21/matrix-equation/" title="矩阵方程求解&最小二乘法"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-21</div><div class="title">矩阵方程求解&最小二乘法</div></div></a></div><div><a href="/2020/11/16/matrix-partial/" title="矩阵微分"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-16</div><div class="title">矩阵微分</div></div></a></div><div><a href="/2020/11/17/optimize/" title="优化理论"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-17</div><div class="title">优化理论</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%90%86%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">子空间的基本理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9F%BA"><span class="toc-number">1.1.</span> <span class="toc-text">子空间的基</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%A0%E6%88%90%E9%9B%86%E5%AE%9A%E7%90%86-spanning-set-theorem"><span class="toc-number">1.2.</span> <span class="toc-text">张成集定理(spanning set theorem)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%A1%8C%E7%A9%BA%E9%97%B4%EF%BC%8C%E5%88%97%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">矩阵行空间，列空间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%A9%BA%E9%97%B4%E7%9A%84%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%9F%BA%E7%9A%84%E6%9E%84%E9%80%A0%EF%BC%9A%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">基本空间的标准正交基的构造：奇异值分解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E7%A9%BA%E9%97%B4"><span class="toc-number">3.1.</span> <span class="toc-text">零空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E7%A9%BA%E9%97%B4%E7%9A%84%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="toc-number">3.2.</span> <span class="toc-text">列空间的标准正交基</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%8C%E7%A9%BA%E9%97%B4%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="toc-number">4.</span> <span class="toc-text">行空间标准正交基</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E5%AD%90%E7%A9%BA%E9%97%B4%E5%92%8C%E5%99%AA%E5%A3%B0%E5%AD%90%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">信号子空间和噪声子空间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">重要性质</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

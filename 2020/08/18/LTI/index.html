@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LTI系统时域分析 | 摸黑干活</title><meta name="keywords" content="手撕拉普拉斯"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="离散时间LTI系统离散信号单位脉冲分解对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示  x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LTI系统时域分析">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/18/LTI/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="离散时间LTI系统离散信号单位脉冲分解对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示  x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k]">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-08-18T05:55:29.000Z">
+<meta property="article:modified_time" content="2024-05-28T06:13:36.211Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/08/18/LTI/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 14:13:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LTI系统时域分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-18T05:55:29.000Z" title="发表于 2020-08-18 13:55:29">2020-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T06:13:36.211Z" title="更新于 2024-05-28 14:13:36">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="离散时间LTI系统"><a href="#离散时间LTI系统" class="headerlink" title="离散时间LTI系统"></a>离散时间LTI系统</h1><h2 id="离散信号单位脉冲分解"><a href="#离散信号单位脉冲分解" class="headerlink" title="离散信号单位脉冲分解"></a>离散信号单位脉冲分解</h2><p>对于任意离散信号x[n]，都可以利用移位脉冲的加权之和来表示</p>
+<script type="math/tex; mode=display">
+x[n]=\sum_{k=-\infty}^{\infty}x[k]\delta[n-k]</script><span id="more"></span>
+<h2 id="离散时间LTI系统的卷积和"><a href="#离散时间LTI系统的卷积和" class="headerlink" title="离散时间LTI系统的卷积和"></a>离散时间LTI系统的卷积和</h2><p>h[n]为系统对单位脉冲信号的响应</p>
+<script type="math/tex; mode=display">
+x[n]=\sum_{k=-\infty}^{\infty}x[k]\delta[n-k]</script><script type="math/tex; mode=display">
+y[n]=\sum_{k=-\infty}^{\infty}x[k]h[n-k]=x[n]*h[n]</script><h3 id="卷积计算方法"><a href="#卷积计算方法" class="headerlink" title="卷积计算方法"></a>卷积计算方法</h3><ul>
+<li>公式</li>
+<li>列表法：适合小量数据</li>
+<li>画图</li>
+</ul>
+<h2 id="卷积的性质"><a href="#卷积的性质" class="headerlink" title="卷积的性质"></a>卷积的性质</h2><ul>
+<li>交换</li>
+<li>结合</li>
+<li>分配</li>
+</ul>
+<p><strong>x[n]</strong> 不为<strong>0</strong>的区间长度为<strong>m</strong>，<strong>h[n]</strong> 为 <strong>n</strong>，卷积后区间为<strong>m+n-1</strong></p>
+<p><strong>x[n]</strong> 区间为 <strong>[m,n]</strong>,    <strong>h[n]</strong> 区间为 <strong>[q,p]</strong><br>卷积后区间为 <strong>[m+q,n+p]</strong></p>
+<h3 id="特殊函数的卷积"><a href="#特殊函数的卷积" class="headerlink" title="特殊函数的卷积"></a>特殊函数的卷积</h3><script type="math/tex; mode=display">
+x[n]*\delta[n]=x[n]</script><script type="math/tex; mode=display">
+x[n]*\delta[n-n_0]=x[n-n_0]</script><script type="math/tex; mode=display">
+x[n]*u[n]=\sum_{k=-\infty}^{\infty}x[k]u[n-k]=\sum_{k=-\infty}^{n}x[k]</script><h1 id="连续时间LTI系统的卷积积分"><a href="#连续时间LTI系统的卷积积分" class="headerlink" title="连续时间LTI系统的卷积积分"></a>连续时间LTI系统的卷积积分</h1><p>任何连续信号也可以分解为脉冲信号，我们可以由此得到连续系统的卷积积分</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{\infty}x(\tau)h(t-\tau)d\tau=x(t)*h(t)</script><p>连续卷积的积分计算通常要分段积分</p>
+<h2 id="连续卷积的性质"><a href="#连续卷积的性质" class="headerlink" title="连续卷积的性质"></a>连续卷积的性质</h2><p>交换结合分配与离散情况相同</p>
+<ul>
+<li>卷积微分</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{d}{dt}[x(t)*h(t)]</script><script type="math/tex; mode=display">
+=\frac{dx(t)}{dt}*h(t)</script><script type="math/tex; mode=display">
+=\frac{dh(t)}{dt}*x(t)</script><ul>
+<li>卷积积分<script type="math/tex; mode=display">
+\int_{-\infty}^t[x(\lambda)*h(\lambda)]d\lambda</script><script type="math/tex; mode=display">
+=x(\lambda)*\int_{-\infty}^th(\lambda)d\lambda</script><script type="math/tex; mode=display">
+=h(\lambda)*\int_{-\infty}^tx(\lambda)d\lambda</script></li>
+</ul>
+<h3 id="积分与微分性质推广"><a href="#积分与微分性质推广" class="headerlink" title="积分与微分性质推广"></a>积分与微分性质推广</h3><script type="math/tex; mode=display">
+r^{(i)}(t)=x_1^{(j)}*x_2^{(i-j)}(t)</script><p>其中<strong>i, j, i-j</strong>取正数时为导数的阶次，负数时为重积分的次数</p>
+<blockquote>
+<p>离散域的差分和累加性质与之类似</p>
+</blockquote>
+<h2 id="与冲激阶跃函数卷积"><a href="#与冲激阶跃函数卷积" class="headerlink" title="与冲激阶跃函数卷积"></a>与冲激阶跃函数卷积</h2><script type="math/tex; mode=display">
+x(t)*\delta(t)=x(t)</script><script type="math/tex; mode=display">
+x(t)*\delta(t-t_0)=x(t-t_0)</script><script type="math/tex; mode=display">
+x(t)*\delta'(t)=x'(t)</script><script type="math/tex; mode=display">
+x(t)*u(t)=\int_{-\infty}^{t}x(\tau)d\tau</script><h1 id="LTI系统性质"><a href="#LTI系统性质" class="headerlink" title="LTI系统性质"></a>LTI系统性质</h1><h2 id="可逆性"><a href="#可逆性" class="headerlink" title="可逆性"></a>可逆性</h2><p>如果一个LTI系统是可逆，那么它就有一个LTI的逆系<br>统存在，原系统和其逆系统的级联为一恒等系统</p>
+<h2 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h2><p>LTI系统稳定性充要条件为：</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{\infty}|h(t)|dt<\infty</script><script type="math/tex; mode=display">
+\sum_{n=-\infty}^{\infty}|h[n]|<\infty</script><h2 id="因果性"><a href="#因果性" class="headerlink" title="因果性"></a>因果性</h2><p>LTI系统因果性的充要条件</p>
+<script type="math/tex; mode=display">
+h[n]=0,n<0</script><script type="math/tex; mode=display">
+h(t)=0,t<0</script><h2 id="LTI系统单位阶跃响应"><a href="#LTI系统单位阶跃响应" class="headerlink" title="LTI系统单位阶跃响应"></a>LTI系统单位阶跃响应</h2><ul>
+<li>连续<script type="math/tex; mode=display">
+s(t)=u(t)*h(t)=\int_{-\infty}^t=h(\tau)d\tau</script></li>
+<li>离散<script type="math/tex; mode=display">
+s[n]=u[n]*h[n]=\sum_{k=-\infty}^nh[k]</script></li>
+<li>与单位冲激响应关系<script type="math/tex; mode=display">
+h(t)=\frac{ds(t)}{dt}</script><script type="math/tex; mode=display">
+h[n]=s[n]-s[n-1]</script></li>
+</ul>
+<h2 id="LTI系统的特征函数"><a href="#LTI系统的特征函数" class="headerlink" title="LTI系统的特征函数"></a>LTI系统的特征函数</h2><p>复指数信号的重要性在于它是LTI系统的特征函数，利用这样的性质和线性性质，将输入信号分解为指数信号的线性组合就可以化简</p>
+<script type="math/tex; mode=display">
+y(t)=e^{st}*h(t)=e^{st}\int_{-\infty}^{\infty}h(\tau)e^{-s\tau}d\tau=H(s)e^{st}</script><script type="math/tex; mode=display">
+y[n]=z^n\sum_{k=-\infty}^{\infty}h[k]z^{-k}=H(z)z^n</script><h1 id="差分方程和微分方程"><a href="#差分方程和微分方程" class="headerlink" title="差分方程和微分方程"></a>差分方程和微分方程</h1><p>任意LTI系统的响应都可以利用微分和差分方程表示，比如LC电路</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^na_k\frac{d^k}{dt^k}y(t)=\sum_{k=0}^mb_k\frac{d^k}{dt^k}x(t)</script><h2 id="微分方程解法"><a href="#微分方程解法" class="headerlink" title="微分方程解法"></a>微分方程解法</h2><p>微分方程的完全解由两部分组成</p>
+<script type="math/tex; mode=display">
+y(t)=y_h(t)+y_p(t)</script><ul>
+<li>求齐次解<ul>
+<li>转化为特征方程</li>
+<li>求特征根</li>
+<li>确定齐次解样式</li>
+</ul>
+</li>
+<li>求特解</li>
+<li>根据起始条件确定参数</li>
+</ul>
+<h3 id="特征根对应函数形式"><a href="#特征根对应函数形式" class="headerlink" title="特征根对应函数形式"></a>特征根对应函数形式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特征根$\lambda_i$</th>
+<th>函数样式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单实根</td>
+<td>$C_ie^{\lambda_i(t)}$</td>
+</tr>
+<tr>
+<td>k重实根</td>
+<td>$(C<em>1t^{k-1}+C_2t^{k-2}……C</em>{k-1}t+C_k)e^{\lambda_i(t)}$</td>
+</tr>
+<tr>
+<td>共轭复根$\alpha\pm j\beta$</td>
+<td>$e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t)$ </td>
+</tr>
+<tr>
+<td>k重共轭复根</td>
+<td>$(C<em>1t^{k-1}+C_2t^{k-2}……C</em>{k-1}t+C_k)e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t)$ </td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="常见激励函数对应特解"><a href="#常见激励函数对应特解" class="headerlink" title="常见激励函数对应特解"></a>常见激励函数对应特解</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>特解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常数C</td>
+<td>常数</td>
+</tr>
+<tr>
+<td>$t^m$</td>
+<td>$B<em>1t^m……+B_mt+B</em>{m+1}$特征根不等于0。$t^r(B<em>1t^m……+B_mt+B</em>{m+1})$，有r重等于0的实根</td>
+</tr>
+<tr>
+<td>$e^{at}$</td>
+<td>$Be^{at}$,a不等于特征根。 $B<em>1t^re^{at}……+B_rte^{at}+B</em>{r+1}e^{at}$,a=r重特征根</td>
+</tr>
+<tr>
+<td>$\cos\beta t,\sin\beta t$</td>
+<td>$B_1\cos\beta t+B_2\sin\beta t$</td>
+</tr>
+<tr>
+<td>$t^me^{at}\cos t$</td>
+<td>$(B<em>1t^m……+B_mt+B</em>{m+1})e^{at}\cos t+(D<em>1t^m……+D_mt+D</em>{m+1})e^{at}\sin t$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="带奇异函数的微分方程——冲激函数匹配法"><a href="#带奇异函数的微分方程——冲激函数匹配法" class="headerlink" title="带奇异函数的微分方程——冲激函数匹配法"></a>带奇异函数的微分方程——冲激函数匹配法</h3><p>例子</p>
+<script type="math/tex; mode=display">
+i''+4i'+3i=\delta'+3u</script><script type="math/tex; mode=display">
+求齐次解：\lambda=-3,-1</script><script type="math/tex; mode=display">
+i=(C_1e^{-3t}+C_2e^{-t})u(t)</script><script type="math/tex; mode=display">
+求特解，冲激函数匹配\delta '系数相同\to i=u(t)</script><script type="math/tex; mode=display">
+全解：i=(C_1e^{-3t}+C_2e^{-t}+1)u(t)</script><script type="math/tex; mode=display">
+i'=(C_1e^{-3t}+C_2e^{-t}+1)\delta(t)+(-3C_1e^{-3t}-C_2e^{-t})u(t)</script><script type="math/tex; mode=display">
+i''=(9C_1e^{-3t}+C_2e^{-t})u(t)+(-6C_1e^{-3t}-2C_2e^{-t})\delta(t)+(C_1e^{-3t}+C_2e^{-t}+1)\delta'(t)</script><script type="math/tex; mode=display">
+代入方程
+\begin{cases}
+-2C_1+2C_2+4=0\\
+C_1+C_2+1=1
+\end{cases}</script><script type="math/tex; mode=display">
+\to
+\begin{cases}
+C_1=1\\
+C_2=-1
+\end{cases}</script><script type="math/tex; mode=display">
+\to i=(e^{-3t}-e^{-t}+1)u(t)</script><h1 id="LTI系统响应分解"><a href="#LTI系统响应分解" class="headerlink" title="LTI系统响应分解"></a>LTI系统响应分解</h1><ul>
+<li><strong>零输入响应</strong> ：不考虑外加信号, 即输入信号等于零<br>（x(t)=0 ）, 仅由系统的起始状态（y(0)_ ）所产生的响应。<br><strong>x(t),t&lt;0部分的响应</strong></li>
+</ul>
+<ul>
+<li><strong>零状态响应</strong> ：不考虑系统的起始状态的作用, 即起始状态等于零（y(0)_ ） , 仅由系统的外加激励信号x(t)所产的响应。<br><strong>x(t),t&gt;0部分的响应</strong></li>
+</ul>
+<h2 id="LTI系统响应的求解方法"><a href="#LTI系统响应的求解方法" class="headerlink" title="LTI系统响应的求解方法"></a>LTI系统响应的求解方法</h2><h3 id="直接法"><a href="#直接法" class="headerlink" title="直接法"></a>直接法</h3><ul>
+<li>根据定义求解两个微分方程再组合</li>
+</ul>
+<h3 id="单位冲激函数法"><a href="#单位冲激函数法" class="headerlink" title="单位冲激函数法"></a>单位冲激函数法</h3><ul>
+<li>求解单位冲激响应</li>
+<li>通过卷积求解两部分响应</li>
+<li>利用线性性质进行组合计算</li>
+</ul>
+<h1 id="LTI框图"><a href="#LTI框图" class="headerlink" title="LTI框图"></a>LTI框图</h1><ul>
+<li><p>连续<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/29dc7afdd210ea6b1801166d5c6310e4.png" alt=""></p>
+</li>
+<li><p>离散</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/18/ddbaf52bda3ffa522bedd003f03c857c.png" alt=""></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/08/18/LTI/">https://fazziekey.github.io/2020/08/18/LTI/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/">手撕拉普拉斯</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/19/constant-Flourier/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">连续时间信号频域分析</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/17/system-basic/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">系统的基本概念</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/08/20/DFT/" title="离散时间信号频域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-20</div><div class="title">离散时间信号频域分析</div></div></a></div><div><a href="/2020/08/21/Sampling-and-modulation/" title="采样和调制"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">采样和调制</div></div></a></div><div><a href="/2020/08/19/constant-Flourier/" title="连续时间信号频域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-19</div><div class="title">连续时间信号频域分析</div></div></a></div><div><a href="/2020/08/21/laplace-transformation/" title="拉普拉斯变换"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">拉普拉斯变换</div></div></a></div><div><a href="/2020/08/17/system-basic/" title="系统的基本概念"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-17</div><div class="title">系统的基本概念</div></div></a></div><div><a href="/2020/08/21/z-transformation/" title="z变换"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">z变换</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4LTI%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">离散时间LTI系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E4%BF%A1%E5%8F%B7%E5%8D%95%E4%BD%8D%E8%84%89%E5%86%B2%E5%88%86%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">离散信号单位脉冲分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4LTI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8D%B7%E7%A7%AF%E5%92%8C"><span class="toc-number">1.2.</span> <span class="toc-text">离散时间LTI系统的卷积和</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.1.</span> <span class="toc-text">卷积计算方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">1.3.</span> <span class="toc-text">卷积的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.3.1.</span> <span class="toc-text">特殊函数的卷积</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4LTI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8D%B7%E7%A7%AF%E7%A7%AF%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">连续时间LTI系统的卷积积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%8D%B7%E7%A7%AF%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">2.1.</span> <span class="toc-text">连续卷积的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%AF%E5%88%86%E4%B8%8E%E5%BE%AE%E5%88%86%E6%80%A7%E8%B4%A8%E6%8E%A8%E5%B9%BF"><span class="toc-number">2.1.1.</span> <span class="toc-text">积分与微分性质推广</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E5%86%B2%E6%BF%80%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0%E5%8D%B7%E7%A7%AF"><span class="toc-number">2.2.</span> <span class="toc-text">与冲激阶跃函数卷积</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LTI%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">LTI系统性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%80%86%E6%80%A7"><span class="toc-number">3.1.</span> <span class="toc-text">可逆性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A0%E6%9E%9C%E6%80%A7"><span class="toc-number">3.3.</span> <span class="toc-text">因果性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LTI%E7%B3%BB%E7%BB%9F%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94"><span class="toc-number">3.4.</span> <span class="toc-text">LTI系统单位阶跃响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LTI%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81%E5%87%BD%E6%95%B0"><span class="toc-number">3.5.</span> <span class="toc-text">LTI系统的特征函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%92%8C%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">差分方程和微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E8%A7%A3%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">微分方程解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%A0%B9%E5%AF%B9%E5%BA%94%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">4.1.1.</span> <span class="toc-text">特征根对应函数形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0%E5%AF%B9%E5%BA%94%E7%89%B9%E8%A7%A3"><span class="toc-number">4.1.2.</span> <span class="toc-text">常见激励函数对应特解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%A5%87%E5%BC%82%E5%87%BD%E6%95%B0%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E2%80%94%E2%80%94%E5%86%B2%E6%BF%80%E5%87%BD%E6%95%B0%E5%8C%B9%E9%85%8D%E6%B3%95"><span class="toc-number">4.1.3.</span> <span class="toc-text">带奇异函数的微分方程——冲激函数匹配法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LTI%E7%B3%BB%E7%BB%9F%E5%93%8D%E5%BA%94%E5%88%86%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">LTI系统响应分解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LTI%E7%B3%BB%E7%BB%9F%E5%93%8D%E5%BA%94%E7%9A%84%E6%B1%82%E8%A7%A3%E6%96%B9%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">LTI系统响应的求解方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%B3%95"><span class="toc-number">5.1.1.</span> <span class="toc-text">直接法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E5%86%B2%E6%BF%80%E5%87%BD%E6%95%B0%E6%B3%95"><span class="toc-number">5.1.2.</span> <span class="toc-text">单位冲激函数法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LTI%E6%A1%86%E5%9B%BE"><span class="toc-number">6.</span> <span class="toc-text">LTI框图</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

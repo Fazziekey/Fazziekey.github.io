@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>拉普拉斯变换 | 摸黑干活</title><meta name="keywords" content="手撕拉普拉斯"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="拉普拉斯变换作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拉普拉斯变换">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/21/laplace-transformation/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="拉普拉斯变换作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-08-21T08:01:42.000Z">
+<meta property="article:modified_time" content="2024-05-28T06:13:36.217Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕拉普拉斯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/08/21/laplace-transformation/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 14:13:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">拉普拉斯变换</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-21T08:01:42.000Z" title="发表于 2020-08-21 16:01:42">2020-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T06:13:36.217Z" title="更新于 2024-05-28 14:13:36">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="拉普拉斯变换"><a href="#拉普拉斯变换" class="headerlink" title="拉普拉斯变换"></a>拉普拉斯变换</h2><p>作用：不是所有的信号可以进行傅里叶变换，引入衰减因子$e^{-\sigma t}$,使$x(t)e^{-\sigma t}$的傅里叶变换收敛</p>
+<span id="more"></span>
+<script type="math/tex; mode=display">
+F\{x(t)e^{-\sigma t}\}=\int_{-\infty}^{\infty}x(t)e^{-\sigma t}e^{-jwt}dt=\int_{-\infty}^{\infty}x(t)e^{-t(\sigma+jw)}dt</script><script type="math/tex; mode=display">
+X(\sigma+jw)=\int_{-\infty}^{\infty}x(t)e^{-(\sigma+jw)t}dt</script><p>其傅里叶反变换</p>
+<script type="math/tex; mode=display">
+x(t)e^{-\sigma t}=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\sigma+jw)e^{jwt}dt</script><script type="math/tex; mode=display">
+x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\sigma+jw)e^{t(\sigma+jw)}dt</script><p>令$s=\sigma+jw$</p>
+<script type="math/tex; mode=display">
+X(s)=\int_{-\infty}^{\infty}x(t)e^{-st}dt</script><script type="math/tex; mode=display">
+x(t)=\frac{1}{2\pi j}\int_{\sigma-j\infty}^{\sigma+j\infty}X(s)e^{st}dt</script><p>简写为</p>
+<script type="math/tex; mode=display">
+X(s)=L\{x(t)\}</script><script type="math/tex; mode=display">
+x(t)=L^{-1}\{X(s)\}</script><blockquote>
+<p>当x（t）满足傅里叶变换的条件，x（t）的拉普拉斯变换等价于傅里叶变换</p>
+</blockquote>
+<h2 id="拉普拉斯变换的收敛域"><a href="#拉普拉斯变换的收敛域" class="headerlink" title="拉普拉斯变换的收敛域"></a>拉普拉斯变换的收敛域</h2><p>ROC：能让x（t）收敛的s范围</p>
+<h3 id="x-t-的时域特性与拉氏变换X-s-的收敛域ROC关系"><a href="#x-t-的时域特性与拉氏变换X-s-的收敛域ROC关系" class="headerlink" title="x(t)的时域特性与拉氏变换X(s)的收敛域ROC关系"></a>x(t)的时域特性与拉氏变换X(s)的收敛域ROC关系</h3><ul>
+<li>X (s)的ROC在S平面上由平行于jω轴的带状区域构成。</li>
+<li>对有理拉氏变换来说，在ROC内不包含任何极点</li>
+<li>如果 是时限的，并且绝对可积, 则<br>ROC是整个S平面</li>
+<li>如果 是右边信号，<br>而且如果$Re{s}=\sigma_0$这条线位于<br>ROC 内，那么$Re{s}&gt;\sigma_0$的<br>全部s值在ROC内。左边信号相反，双边信号为带状</li>
+<li>:如果 的拉氏变换 是有理的，则ROC的边界由<br>极点限定，或延伸到无穷远，且在ROC内不包含任何极点</li>
+<li>如果 的拉氏变换 是有理的，若 是右边信<br>号，则其ROC 在s平面上位于最右边极点的右边；若 是左<br>边信号，则其ROC 在s平面上位于最左边极点的左边。</li>
+</ul>
+<h3 id="常见信号拉氏变换"><a href="#常见信号拉氏变换" class="headerlink" title="常见信号拉氏变换"></a>常见信号拉氏变换</h3><ul>
+<li>阶跃信号<script type="math/tex; mode=display">
+u(t)\underrightarrow{L}=\frac{1}{s}</script></li>
+<li>冲激信号<script type="math/tex; mode=display">
+\delta(t)\underrightarrow{L}=1</script></li>
+<li>单边指数信号<script type="math/tex; mode=display">
+x_1(t)=e^{-at}u(t)</script><script type="math/tex; mode=display">
+X_1(s)=\frac{1}{s+a} 
+(Re\{s\}>-a)</script><script type="math/tex; mode=display">
+x_2(t)=-e^{-at}u(-t)</script><script type="math/tex; mode=display">
+X_2(s)=\frac{1}{s+a} 
+(Re\{s\}<-a)</script></li>
+<li>双边指数信号</li>
+</ul>
+<script type="math/tex; mode=display">
+x(t)=e^{-|b|t}</script><script type="math/tex; mode=display">
+X_1(s)=\frac{2b}{s^2-b^2} 
+(Re\{s\}<|b|)</script><ul>
+<li>三角信号<script type="math/tex; mode=display">
+sinwtu(t)\underrightarrow{L^{-1}}\frac{w}{s^2+w^2}</script><script type="math/tex; mode=display">
+coswtu(t)\underrightarrow{L^{-1}}\frac{s}{s^2+w^2}</script></li>
+<li>幂函数<script type="math/tex; mode=display">
+t^nu(t)\underrightarrow{L}=\frac{n!}{s^{n+1}}</script></li>
+<li>指数三角信号<script type="math/tex; mode=display">
+e^{-at}sinwtu(t)\underrightarrow{L^{-1}}\frac{w}{(s+a)^2+w^2}</script><script type="math/tex; mode=display">
+e^{-at}coswtu(t)\underrightarrow{L^{-1}}\frac{s+a}{(s+a)^2+w^2}</script><h2 id="双边拉氏变换性质"><a href="#双边拉氏变换性质" class="headerlink" title="双边拉氏变换性质"></a>双边拉氏变换性质</h2></li>
+<li>线性性质<ul>
+<li>Roc=R1+R2</li>
+</ul>
+</li>
+<li>时移性质<script type="math/tex; mode=display">
+x(t-t_0)\underrightarrow{L}e^{-st_0}X(s)</script>ROC=R</li>
+<li>频移性质<script type="math/tex; mode=display">
+e^{s_0t}x(t)\underrightarrow{L}X(s-s_0)</script>ROC=R+Re{s0}</li>
+<li>尺度变换<script type="math/tex; mode=display">
+x(at)\underrightarrow{L}=\frac{1}{|a|}X(\frac{s}{a})</script>ROC=aR</li>
+<li>共轭</li>
+</ul>
+<script type="math/tex; mode=display">
+x^*(t)\underrightarrow{L}X^*(s^*)</script><ul>
+<li>时域卷积<script type="math/tex; mode=display">
+x_1(t)*x_2(t)\underrightarrow{L}X_1(s)X_2(s)</script></li>
+<li>时域微分<script type="math/tex; mode=display">
+\frac{dx(t)}{dt}\underrightarrow{L}sX(s)</script></li>
+<li>频域微分<script type="math/tex; mode=display">
+-tdx(t)\underrightarrow{L}\frac{dX(s)}{ds}</script></li>
+<li>时域积分<script type="math/tex; mode=display">
+\int_{-\infty}^{t}x(\tau)d\tau=\frac{1}{s}X(s)</script>R+Re{s}</li>
+<li>初值定理和终值定理<ul>
+<li>若t&lt;0,x(t)=0并且在t=0时,不包含冲激或高阶奇异函数<script type="math/tex; mode=display">
+x(0^+)=\underset{s\to\infty}{lim}sX(s)</script><script type="math/tex; mode=display">
+x(\infty)=\underset{s\to0}{lim}sX(s)</script></li>
+</ul>
+</li>
+</ul>
+<h2 id="周期信号与抽样信号的拉氏变换"><a href="#周期信号与抽样信号的拉氏变换" class="headerlink" title="周期信号与抽样信号的拉氏变换"></a>周期信号与抽样信号的拉氏变换</h2><h3 id="周期信号"><a href="#周期信号" class="headerlink" title="周期信号"></a>周期信号</h3><script type="math/tex; mode=display">
+X(s)=X_1(s)\sum_{n=0}^{\infty}e^{-nST}</script><script type="math/tex; mode=display">
+=X_1(s)\frac{e^{sT}}{e^{sT}-1}</script><script type="math/tex; mode=display">
+(Re\{s\}>0)</script><blockquote>
+<p>x1(t)为第一个周期内时间函数</p>
+</blockquote>
+<h2 id="抽样信号"><a href="#抽样信号" class="headerlink" title="抽样信号"></a>抽样信号</h2><script type="math/tex; mode=display">
+x_s(t)=x(t)\delta_T(t)\cdot u(t)</script><script type="math/tex; mode=display">
+=\sum_{n=0}^{\infty}x(nT)\delta(t-nT)</script><script type="math/tex; mode=display">
+\underrightarrow{L}\sum_{n=0}^{\infty}x(nT)(e^{-sT})^n</script><script type="math/tex; mode=display">
+如果令e^{sT}=z</script><script type="math/tex; mode=display">
+L[x_s(t)]=\sum_{n=0}^{\infty}x(nT)z^{-n}</script><script type="math/tex; mode=display">
+变为z变换</script><h2 id="拉氏反变换"><a href="#拉氏反变换" class="headerlink" title="拉氏反变换"></a>拉氏反变换</h2><ul>
+<li>长除法法</li>
+<li>公式法</li>
+</ul>
+<h2 id="单边拉氏变换"><a href="#单边拉氏变换" class="headerlink" title="单边拉氏变换"></a>单边拉氏变换</h2><ul>
+<li>时域微分<script type="math/tex; mode=display">
+\frac{dx(t)}{dt}\underrightarrow{UL}s\hat{X}(s)-x(0)</script></li>
+<li>时域积分<script type="math/tex; mode=display">
+\int_{-\infty}^{t}x(\tau)d\tau=\frac{1}{s}\hat{X}(s)+\frac{\int_{-\infty}^{0^-}x(\tau)d\tau}{s}</script></li>
+<li>卷积积分<script type="math/tex; mode=display">
+x_1(t)*x_2(t)\underrightarrow{L}\hat{X}_1(s)\hat{X}_2(s)</script></li>
+</ul>
+<h2 id="系统复频域分析"><a href="#系统复频域分析" class="headerlink" title="系统复频域分析"></a>系统复频域分析</h2><h3 id="因果性"><a href="#因果性" class="headerlink" title="因果性"></a>因果性</h3><p>一个因果LTI系统，其收敛域为右半平面；如果系<br>统是反因果的，收敛域为左半平面。 相反的结论不一<br>定都成立 。</p>
+<h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3><p>稳定系统的冲激响应应是绝对可积，表明稳定系统的频率响应存在。<br>稳定系统的ROC必包含虚轴（jw轴）</p>
+<h3 id="因果稳定系统"><a href="#因果稳定系统" class="headerlink" title="因果稳定系统"></a>因果稳定系统</h3><script type="math/tex; mode=display">
+H(s)=\frac{s-1}{(s+1)(s-2)}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/21/e33ee988b52c3100fb7d965ebd6c1420.png" alt=""></p>
+<h3 id="系统响应求解"><a href="#系统响应求解" class="headerlink" title="系统响应求解"></a>系统响应求解</h3><p>已知某因果的 LTI 系统的微分方程：$y^{‘’}+3y^{‘}+2y=x(t),y(0^-)=3,y^{‘}(0^-)=-5$，求当<br>x(t)=2u(t)时系统的全响应、零输入响应、零状态响应。</p>
+<script type="math/tex; mode=display">
+取拉氏变换
+s^2Y(s)-sy(0)-y^{'}(0)+3sY(s)-3y(0)+2Y(s)=X(s)</script><script type="math/tex; mode=display">
+\to Y(s)=\frac{X(s)+3(s+3)-5}{s^2+3s+2}</script><script type="math/tex; mode=display">
+\to Y_{zi}(s)=\frac{3(s+3)-5}{s^2+3s+2}=\frac{2}{s+2}+\frac{1}{s+1}</script><script type="math/tex; mode=display">
+\to Y_{zs}(s)=\frac{X(s)}{s^2+3s+2}=\frac{1}{s}-\frac{2}{s+1}+\frac{1}{s+2}</script><script type="math/tex; mode=display">
+\to 
+\begin{cases}
+零输入响应：y_{zi}(t)=(e^{-t}+2e^{-2t})u(t)\\
+零状态响应:y_{zs}(t)=(1-2e^{-t}+e^{-2t})u(t)\\
+全响应：y(t)=(1-e^{-t}+3e^{-2t})u(t)
+\end{cases}</script><h2 id="S域原件模型"><a href="#S域原件模型" class="headerlink" title="S域原件模型"></a>S域原件模型</h2><script type="math/tex; mode=display">
+\hat{V}_R(s)=R\hat{I}
+_R(s)</script><script type="math/tex; mode=display">
+\hat{V}_L(s)=sL\hat{I}_L
+(s)-Li_L
+(0^-)</script><script type="math/tex; mode=display">
+\hat{V}_C(s)=\frac{1}{sC}\hat{I}_C
+(s)+\frac{1}{s}v_C
+(0^-)</script><script type="math/tex; mode=display">
+\hat{I}_R(s)=\frac{1}{R}\hat{V}
+_R(s)</script><script type="math/tex; mode=display">
+\hat{I}_L(s)=\frac{1}{sL}\hat{V}_L
+(s)+\frac{1}{s}i_L
+(0^-)</script><script type="math/tex; mode=display">
+\hat{I}_C(s)=sC\hat{V}_C
+(s)-Cv_C
+(0^-)</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/08/21/laplace-transformation/">https://fazziekey.github.io/2020/08/21/laplace-transformation/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%8B%E6%92%95%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF/">手撕拉普拉斯</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/21/z-transformation/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">z变换</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/21/Sampling-and-modulation/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">采样和调制</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/08/20/DFT/" title="离散时间信号频域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-20</div><div class="title">离散时间信号频域分析</div></div></a></div><div><a href="/2020/08/18/LTI/" title="LTI系统时域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-18</div><div class="title">LTI系统时域分析</div></div></a></div><div><a href="/2020/08/21/Sampling-and-modulation/" title="采样和调制"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">采样和调制</div></div></a></div><div><a href="/2020/08/19/constant-Flourier/" title="连续时间信号频域分析"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-19</div><div class="title">连续时间信号频域分析</div></div></a></div><div><a href="/2020/08/17/system-basic/" title="系统的基本概念"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-17</div><div class="title">系统的基本概念</div></div></a></div><div><a href="/2020/08/21/z-transformation/" title="z变换"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-21</div><div class="title">z变换</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2"><span class="toc-number">1.</span> <span class="toc-text">拉普拉斯变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%9A%84%E6%94%B6%E6%95%9B%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">拉普拉斯变换的收敛域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#x-t-%E7%9A%84%E6%97%B6%E5%9F%9F%E7%89%B9%E6%80%A7%E4%B8%8E%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2X-s-%E7%9A%84%E6%94%B6%E6%95%9B%E5%9F%9FROC%E5%85%B3%E7%B3%BB"><span class="toc-number">2.1.</span> <span class="toc-text">x(t)的时域特性与拉氏变换X(s)的收敛域ROC关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E4%BF%A1%E5%8F%B7%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">常见信号拉氏变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2%E6%80%A7%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">双边拉氏变换性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%8A%BD%E6%A0%B7%E4%BF%A1%E5%8F%B7%E7%9A%84%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">周期信号与抽样信号的拉氏变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7"><span class="toc-number">4.1.</span> <span class="toc-text">周期信号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E6%A0%B7%E4%BF%A1%E5%8F%B7"><span class="toc-number">5.</span> <span class="toc-text">抽样信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E6%B0%8F%E5%8F%8D%E5%8F%98%E6%8D%A2"><span class="toc-number">6.</span> <span class="toc-text">拉氏反变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2"><span class="toc-number">7.</span> <span class="toc-text">单边拉氏变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%A4%8D%E9%A2%91%E5%9F%9F%E5%88%86%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">系统复频域分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A0%E6%9E%9C%E6%80%A7"><span class="toc-number">8.1.</span> <span class="toc-text">因果性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">8.2.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A0%E6%9E%9C%E7%A8%B3%E5%AE%9A%E7%B3%BB%E7%BB%9F"><span class="toc-number">8.3.</span> <span class="toc-text">因果稳定系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%93%8D%E5%BA%94%E6%B1%82%E8%A7%A3"><span class="toc-number">8.4.</span> <span class="toc-text">系统响应求解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S%E5%9F%9F%E5%8E%9F%E4%BB%B6%E6%A8%A1%E5%9E%8B"><span class="toc-number">9.</span> <span class="toc-text">S域原件模型</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
