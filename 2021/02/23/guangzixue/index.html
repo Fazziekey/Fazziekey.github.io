@@ -1,0 +1,645 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>光电子学 | 摸黑干活</title><meta name="keywords" content="physical,学废了"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="固体光的吸收 光到电光照射固体，电子没有溢出时，光能会转化为电能。  电到光电子注入后，半导体材料电子被激发，电子跃迁到高能级   光的吸收系数固体光学中固体的光学性质可以用折射率$n$和消光系数$\kappa$来描述，两者构成复折射率  \hat{n}&#x3D;n+j\kappa \lambda \leq \lambda_C&#x3D;\frac{1.24}{E_g}$E_g$单位为$\lambda$单位为$\m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="光电子学">
+<meta property="og:url" content="https://fazziekey.github.io/2021/02/23/guangzixue/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="固体光的吸收 光到电光照射固体，电子没有溢出时，光能会转化为电能。  电到光电子注入后，半导体材料电子被激发，电子跃迁到高能级   光的吸收系数固体光学中固体的光学性质可以用折射率$n$和消光系数$\kappa$来描述，两者构成复折射率  \hat{n}&#x3D;n+j\kappa \lambda \leq \lambda_C&#x3D;\frac{1.24}{E_g}$E_g$单位为$\lambda$单位为$\m">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-02-23T15:56:16.000Z">
+<meta property="article:modified_time" content="2024-05-28T06:13:36.216Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="physical">
+<meta property="article:tag" content="学废了">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2021/02/23/guangzixue/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 14:13:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">光电子学</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-23T15:56:16.000Z" title="发表于 2021-02-23 23:56:16">2021-02-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T06:13:36.216Z" title="更新于 2024-05-28 14:13:36">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="固体光的吸收"><a href="#固体光的吸收" class="headerlink" title="固体光的吸收"></a>固体光的吸收</h1><ul>
+<li><p>光到电<br>光照射固体，电子没有溢出时，光能会转化为电能。</p>
+</li>
+<li><p>电到光<br>电子注入后，半导体材料电子被激发，电子跃迁到高能级</p>
+</li>
+</ul>
+<h2 id="光的吸收系数"><a href="#光的吸收系数" class="headerlink" title="光的吸收系数"></a>光的吸收系数</h2><p>固体光学中固体的光学性质可以用折射率$n$和消光系数$\kappa$来描述，两者构成复折射率</p>
+<script type="math/tex; mode=display">
+\hat{n}=n+j\kappa</script><script type="math/tex; mode=display">
+\lambda \leq \lambda_C=\frac{1.24}{E_g}</script><p>$E_g$单位为$\lambda$单位为$\mu m$</p>
+<p>光的吸收系数$\alpha$：单位距离吸收的相对光子数</p>
+<script type="math/tex; mode=display">
+\alpha=\frac{4\pi \kappa}{\lambda_0}</script><h2 id="光的吸收过程"><a href="#光的吸收过程" class="headerlink" title="光的吸收过程"></a>光的吸收过程</h2><ul>
+<li>本征吸收</li>
+<li>激子吸收</li>
+<li>自由载流子吸收</li>
+<li>杂质与缺陷吸收</li>
+<li>晶格吸收</li>
+</ul>
+<h3 id="本征吸收"><a href="#本征吸收" class="headerlink" title="本征吸收"></a>本征吸收</h3><p><img src="15C2F69A0ECF4EFBB64B356119C492DF" alt="image"><br>电子从价带跃迁到导带，产生电子对空穴</p>
+<h4 id="直接跃迁-hv-gt-E-g"><a href="#直接跃迁-hv-gt-E-g" class="headerlink" title="直接跃迁($hv&gt;=E_g$)"></a>直接跃迁($hv&gt;=E_g$)</h4><p>导带最小值和价带最大值对应于相同的波矢,发生在直接带隙半导体</p>
+<ul>
+<li>能量守恒<script type="math/tex; mode=display">
+\hbar w=E_C(k_C)-E_V(k_V)</script></li>
+<li>动量守恒<script type="math/tex; mode=display">
+\hbar k_w=\hbar k_C-\hbar k_V</script></li>
+<li>光子动量远小于电子动量<script type="math/tex; mode=display">
+k_C\approx k_V</script><h4 id="间接跃迁-hv-lt-E-g"><a href="#间接跃迁-hv-lt-E-g" class="headerlink" title="间接跃迁($hv&lt;E_g$)"></a>间接跃迁($hv&lt;E_g$)</h4>导带最小值和价带最大值对应的波矢不同</li>
+</ul>
+<p>间接带隙半导体</p>
+<ul>
+<li>能量守恒<script type="math/tex; mode=display">
+\hbar w=E_C(k_C)-E_V(k_V)\pm E_p</script></li>
+<li>动量守恒<script type="math/tex; mode=display">
+\hbar k_w=\hbar k_C-\hbar k_V\pm \hbar k_p</script><blockquote>
+<p>间接跃迁需要声子参与，因此吸收率远小于直接跃迁</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="激子吸收"><a href="#激子吸收" class="headerlink" title="激子吸收"></a>激子吸收</h3><p>光子能量$hv&lt;E_g$发生</p>
+<p>价带电子和和导带空穴通过库伦力舒服在一起，产生电子空穴束缚系统，形成激子（电中性，一种激发的电子能量状态，能在固体中运动，但不传导电流）</p>
+<p>激子更具电子空穴检举可以分为</p>
+<ul>
+<li>紧束缚激子（数个晶格常数）</li>
+<li><p>松束缚激子 （数百个晶格常数）</p>
+</li>
+<li><p>激子复合</p>
+<ul>
+<li>激子消失，产生辐射</li>
+</ul>
+</li>
+<li>再激励<ul>
+<li>传导电流 </li>
+</ul>
+</li>
+</ul>
+<h3 id="自由载流子吸收"><a href="#自由载流子吸收" class="headerlink" title="自由载流子吸收"></a>自由载流子吸收</h3><p>光照射固体，扩散到红外和微博波段，电子和空穴吸收能量后再能带内部跃迁吸收</p>
+<blockquote>
+<p>动量守恒1:光子动量很小，电子动量改变由声子或电离杂质的散射补偿</p>
+</blockquote>
+<h3 id="杂质和缺陷吸收"><a href="#杂质和缺陷吸收" class="headerlink" title="杂质和缺陷吸收"></a>杂质和缺陷吸收</h3><p>束缚在杂质或者缺陷上的电子或者空穴吸收光子能量</p>
+<h3 id="晶格吸收"><a href="#晶格吸收" class="headerlink" title="晶格吸收"></a>晶格吸收</h3><p>光照射固体后晶格吸收光子能量，光子能量直接转化为声子动能</p>
+<h3 id="电子空穴产生速率"><a href="#电子空穴产生速率" class="headerlink" title="电子空穴产生速率"></a>电子空穴产生速率</h3><ul>
+<li>半导体吸收光子能量产生电子-空穴对<ul>
+<li>光子能量$hv&gt;= E_g$ </li>
+<li>光强：$I(x)=I_0exp(-\alpha x)$</li>
+<li>一个光子能产生一个电子-空穴对</li>
+</ul>
+</li>
+<li>产生电子-空穴对速率<script type="math/tex; mode=display">
+g(x)=\frac{\alpha I(x)}{hv}</script></li>
+<li>光子通量<script type="math/tex; mode=display">
+I(x)/hv</script></li>
+</ul>
+<h1 id="固体对光发射"><a href="#固体对光发射" class="headerlink" title="固体对光发射"></a>固体对光发射</h1><h2 id="发光过程中的激发"><a href="#发光过程中的激发" class="headerlink" title="发光过程中的激发"></a>发光过程中的激发</h2><ul>
+<li>激发：外界因素作用系统，使系统吸收能量，激发电子</li>
+<li>固体受激发光：被激发电子以光辐射形式释放能量</li>
+<li>主要的发光形式：光致发光、阴极射线发光、放射线发光、<br>生化发光、电致发光</li>
+</ul>
+<h3 id="光致发光"><a href="#光致发光" class="headerlink" title="光致发光"></a>光致发光</h3><ul>
+<li>光辐射照射固体<ul>
+<li>吸收能量</li>
+<li>电子能量增加</li>
+</ul>
+</li>
+<li>电子向上能级跃迁，进入非热平衡状态</li>
+<li>电子向下能级跃迁，恢复到热平衡状态</li>
+<li>固体发光<h3 id="阴极射线发光"><a href="#阴极射线发光" class="headerlink" title="阴极射线发光"></a>阴极射线发光</h3></li>
+<li>电子束或阴极射线轰击发光物体（如荧光屏）引起发光<h3 id="放射线发光"><a href="#放射线发光" class="headerlink" title="放射线发光"></a>放射线发光</h3></li>
+<li>快速粒子或高能射线(如X，α，β，γ及中子射线)<br>轰击发光物体引起的发光<h3 id="生化发光"><a href="#生化发光" class="headerlink" title="生化发光"></a>生化发光</h3></li>
+<li>人体热、化学反应、生物（萤火虫、某些鱼）发光<h3 id="电场发光"><a href="#电场发光" class="headerlink" title="电场发光"></a>电场发光</h3></li>
+<li>场致发光：薄膜发光材料、发光粉末（如荧光粉），<br>在外电压下产生的发光</li>
+<li>pn结或肖特基势垒发光：注入载流子复合导致的发光</li>
+<li>白炽灯：电流使钨丝发热，导致的发光</li>
+</ul>
+<h2 id="基本符合类型"><a href="#基本符合类型" class="headerlink" title="基本符合类型"></a>基本符合类型</h2><p>pn结正向偏置，激发电子注入，电子-空穴对复合</p>
+<ul>
+<li>光辐射：发射光子，辐射复合</li>
+<li>能量传递：激发，非辐射复合</li>
+</ul>
+<h3 id="带间复合过程"><a href="#带间复合过程" class="headerlink" title="带间复合过程"></a>带间复合过程</h3><ul>
+<li><p>导带底附近的电子和价带顶附近的空穴复合</p>
+</li>
+<li><p>辐射能量$hv \approx E_g$</p>
+</li>
+</ul>
+<h3 id="杂质，缺陷复合过程"><a href="#杂质，缺陷复合过程" class="headerlink" title="杂质，缺陷复合过程"></a>杂质，缺陷复合过程</h3><ul>
+<li>导带与受主之间的复合</li>
+<li>施主与价带之间的复合</li>
+<li>施主与受主之间</li>
+<li>深陷阱产生的非辐射复合</li>
+</ul>
+<h3 id="俄歇复合（非辐射）"><a href="#俄歇复合（非辐射）" class="headerlink" title="俄歇复合（非辐射）"></a>俄歇复合（非辐射）</h3><ul>
+<li>电子空穴复合后能量转移给同一能带的高能态自由载流子</li>
+<li>高能态自由载流子跃迁到导带底或价带顶</li>
+<li>激发多个声子使晶体发热<br><img src="C4D4E40C4BE04A6092A9E558649CDC58" alt="image"></li>
+</ul>
+<h2 id="发光效率"><a href="#发光效率" class="headerlink" title="发光效率"></a>发光效率</h2><p>量子效率$\eta_q\approx$辐射效率=辐射复合速率$R_r$/总复合速率<code>R</code></p>
+<script type="math/tex; mode=display">
+\eta_q\approx \frac{R_r}{R_{nr}+R_r}=\frac{\tau_{nr}}{\tau_{nr}+\tau_r}</script><ul>
+<li>辐射寿命$\tau_r$</li>
+<li>非辐射寿命$\tau_{nr}$</li>
+</ul>
+<blockquote>
+<p>复合速率与寿命$\tau$成反比，非辐射寿命越大，发光效率越高</p>
+</blockquote>
+<p>带间电子与空穴的复合速率，与电子浓度n和空穴浓度p成正比</p>
+<script type="math/tex; mode=display">
+R_r==Bnp</script><blockquote>
+<p>直接带隙半导体的B值比间接高$10^6$个数量级，所以间接材料很难发生辐射复合</p>
+</blockquote>
+<h3 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h3><ul>
+<li><p>直接带隙半导体</p>
+<ul>
+<li>GaAs</li>
+<li>$Al<em>xGa</em>{1-x}As$</li>
+<li>$GaAs_{1-x}P_x$</li>
+</ul>
+</li>
+<li><p>$Al<em>xGa</em>{1-x}$</p>
+<ul>
+<li>$0&lt;x&lt;0.45$<ul>
+<li>直接带隙</li>
+</ul>
+</li>
+<li>$x&gt;0.45$<ul>
+<li>间接带隙</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>$GaAs_{1-x}P_x$<ul>
+<li><code>0&lt;x&lt;0.45</code><ul>
+<li>直接带隙 </li>
+</ul>
+</li>
+<li><code>x&gt;0.45</code><ul>
+<li>间接带隙 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="pn结光升伏特和太阳能电池solar-cell"><a href="#pn结光升伏特和太阳能电池solar-cell" class="headerlink" title="pn结光升伏特和太阳能电池solar cell"></a>pn结光升伏特和太阳能电池solar cell</h1><h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><ul>
+<li>光照：$hν&gt;= E_g$</li>
+<li>产生光生电子—空穴对</li>
+<li>p区光生电子进入n区，在n区边界积累</li>
+<li>n区光生空穴进入p区，在p区边界积累</li>
+<li>部分空间电荷被中和</li>
+<li>在pn结建立光生电动势(电压)V<br>与内建电场方向相反</li>
+<li>pn结光生电动势(电压)V</li>
+<li>pn结势垒降低到$V_D - V$</li>
+<li>光生电流$I_L$</li>
+<li>光照恒定 接通外电路</li>
+<li>负载电流I</li>
+<li>pn结光生伏特效应</li>
+</ul>
+<h2 id="光电池的I-V特性"><a href="#光电池的I-V特性" class="headerlink" title="光电池的I-V特性"></a>光电池的I-V特性</h2><script type="math/tex; mode=display">
+I_F=I_s[exp(\frac{eV}{k_BT})-1]</script><ul>
+<li><p>正偏导致电流</p>
+<script type="math/tex; mode=display">
+I_F=I_S[exp(\frac{eV}{k_BT})-1]</script></li>
+<li><p>光生电流为$I_L$</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+I=I_L-I_F=I_L-I_S\{\exp[eV/(k_BT)]-1\}\\
+V=(k_BT/e)In[1+(I_L-I)/I_S]=V_TIn[1+(I_L-I)/I_S]</script><ul>
+<li>短路电流short-circuit current（V = 0）</li>
+</ul>
+<script type="math/tex; mode=display">
+I_{SC}=I_L</script><ul>
+<li>开路电压open-circuit voltage（I = 0）</li>
+</ul>
+<script type="math/tex; mode=display">
+V_OC=V_TIn[1+I_L/I_S]</script><p><img src="94AC520865A7412783C64927482B88ED" alt="image"></p>
+<h2 id="太阳电池的光电转换效率"><a href="#太阳电池的光电转换效率" class="headerlink" title="太阳电池的光电转换效率"></a>太阳电池的光电转换效率</h2><ul>
+<li>太阳辐射谱：主要波长范围在0.3 μm到1.5 μm，峰值约在0.5 μm</li>
+<li></li>
+</ul>
+<h3 id="太阳电池的光电转换效率（现有机理与技术）："><a href="#太阳电池的光电转换效率（现有机理与技术）：" class="headerlink" title="太阳电池的光电转换效率（现有机理与技术）："></a>太阳电池的光电转换效率（现有机理与技术）：</h3><ul>
+<li>最大输出的电功率$P_max$与输入光功率$P_in$之比<script type="math/tex; mode=display">
+\eta=\frac{P_{max}}{P_{in}}=\frac{I_mV_m}{P_{in}}=\frac{(FF)I_{SC}V_{OC}}{P_{in}}</script></li>
+</ul>
+<blockquote>
+<p>太阳电池的热力学极限效率为32%</p>
+<ul>
+<li>等功率线：<br>I-V特性曲线图中I·V =常数的曲线</li>
+<li>等效率线：<br>输入功率恒定时的等功率线</li>
+<li>pn结的光电转换效率：<br>与I-V曲线相切的等效率线对应的效率</li>
+</ul>
+</blockquote>
+<h2 id="非均匀吸收效应"><a href="#非均匀吸收效应" class="headerlink" title="非均匀吸收效应"></a>非均匀吸收效应</h2><p>光照半导体表面，光生载流子是非均匀的：</p>
+<ul>
+<li>光强：$I(x)=I_0exp(-\alpha x)$</li>
+<li>光子在表面的反射率R</li>
+</ul>
+<ul>
+<li>单位时间、单位体积，半导体吸收的光子数随深度x指数<br>衰减：<script type="math/tex; mode=display">
+N(x)=(1-R)\alpha I(x)/(hv)=\alpha (1-R)I_0
+/(hv)exp(-\alpha x)</script></li>
+<li>1个光子能产生1个电子—空穴对</li>
+<li>半导体吸收光子能量产生电子—空穴对的速率为<script type="math/tex; mode=display">
+G(x,\lambda)=\alpha(\lambda)[1-R(\lambda)]I_0(\lambda)/(hv) exp[-\alpha(\lambda)x]</script></li>
+</ul>
+<h1 id="非增益型半导体光电探测器"><a href="#非增益型半导体光电探测器" class="headerlink" title="非增益型半导体光电探测器"></a>非增益型半导体光电探测器</h1><p>半导体光电探测器是将光能转化为电能的光电器件</p>
+<p>主要用于检测光信号<br>半导体光电探测器：</p>
+<ul>
+<li>非增益型光电探测器<ul>
+<li>光电二极管(photodiode：pn结型、PIN型、肖特基型)</li>
+<li>光电导探测器(photoconductor)</li>
+</ul>
+</li>
+<li>增益型光电探测器<ul>
+<li>雪崩光电二极管(avalanche photodiode：APD)</li>
+<li>光晶体管(phototransistor or optical transistor)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>暗电流：无光照时产生的反向电流<br>光电流：光照产生</p>
+</blockquote>
+<h2 id="主要参数"><a href="#主要参数" class="headerlink" title="主要参数"></a>主要参数</h2><ul>
+<li><p>量子效率η：入射光子产生（有效）电子—空穴对的能力</p>
+<script type="math/tex; mode=display">
+η=（有效光生“电子—空穴对”数目）/（入射光子数目）\\
+=（光电流/单电子电量）/（光功率/单光子能量）\\
+=[I_{ph}/e]/[P/(hv)]\\
+=I_{ph}hv/(eP)</script></li>
+<li><p>$I_{ph}$：平均输出光电流</p>
+</li>
+<li>P：平均入射光功率</li>
+<li>量子效率η ：无量纲</li>
+</ul>
+<h3 id="响应度"><a href="#响应度" class="headerlink" title="响应度"></a>响应度</h3><p>响应度R：光电转换效率（外部特性）</p>
+<script type="math/tex; mode=display">
+R = 平均输出光电流 / 平均入射光功率\\
+= I_{ph}/P = eη/(hν)</script><p>量纲$[R] = V-1 或μA/μW$</p>
+<h3 id="频率响应与响应时间"><a href="#频率响应与响应时间" class="headerlink" title="频率响应与响应时间"></a>频率响应与响应时间</h3><ul>
+<li>光生载流子渡越耗尽层的漂移时间$t_r$ </li>
+<li>光生载流子扩散到耗尽层边界的扩散时间$t_d$ </li>
+<li>结电容与负载电阻电路的时间常数$t_RC$</li>
+</ul>
+<h3 id="噪声"><a href="#噪声" class="headerlink" title="噪声"></a>噪声</h3><p>噪声是一种随机信号，本质是物理量围绕其平均值的涨落。对于<br>平稳随机过程，对噪声度量通常采用先计算噪声电压（电流）的<br>平方值，然后对时间做平均，求噪声电流（电压）的均方值。</p>
+<h4 id="散粒噪声："><a href="#散粒噪声：" class="headerlink" title="散粒噪声："></a>散粒噪声：</h4><p>由于探测器在光辐射作用下，光电子或光生载流子的随机跃迁<br>所造成的。每一瞬间出现的载流子是不确定的。由于随机起伏<br>是一个个带电粒子引起的，所以称为散粒噪声。</p>
+<h4 id="热噪声"><a href="#热噪声" class="headerlink" title="热噪声"></a>热噪声</h4><p>由电阻中载流子的随机热运动引起的：任何处在热平衡条件下<br>的电阻，即使没有外加电压，也有一定的噪声。</p>
+<h2 id="肖特基势垒光电二极管"><a href="#肖特基势垒光电二极管" class="headerlink" title="肖特基势垒光电二极管"></a>肖特基势垒光电二极管</h2><ul>
+<li>金属同n型半导体接触构成<br>肖特基势垒光电二极管</li>
+<li>类似于p+n结器件</li>
+<li>肖特基势垒光电二极管，特点：<ul>
+<li>用很薄(~0.01μm)的、光学上透明的金属膜，消除p+层对高能光子(透入深度<br>&lt;0.1μm)的吸收，增强短波响应：适用于可见光和紫外区。</li>
+<li>耗尽层仅挨表面，有效减小表面复合，提高量子效率；</li>
+<li>镀增透膜，减少反射大部分入射光，在半导体表面附近吸收；</li>
+<li>并非所有的材料都能制作PN结。</li>
+<li>典型参数：量子效率为70%，响应时间约0.1ns；</li>
+</ul>
+</li>
+</ul>
+<h1 id="增益型和异质结半导体光电探测器"><a href="#增益型和异质结半导体光电探测器" class="headerlink" title="增益型和异质结半导体光电探测器"></a>增益型和异质结半导体光电探测器</h1><h2 id="雪崩光电二极管（APD）"><a href="#雪崩光电二极管（APD）" class="headerlink" title="雪崩光电二极管（APD）"></a>雪崩光电二极管（APD）</h2><ul>
+<li>PN-PD</li>
+<li>高反偏压 </li>
+<li>碰撞离化</li>
+<li>雪崩光电效应</li>
+<li>雪崩光电二极管（APD） </li>
+<li>内部电流增益，灵敏度高</li>
+<li>响应速度快，可达1000 GHz，即1 THz</li>
+</ul>
+<h3 id="电子（空穴）电离率-alpha-n-alpha-p"><a href="#电子（空穴）电离率-alpha-n-alpha-p" class="headerlink" title="电子（空穴）电离率$\alpha_n(\alpha_p)$"></a>电子（空穴）电离率$\alpha_n(\alpha_p)$</h3><p>一个电子（空穴）在单位距离上激发一个二次电子—空穴<br>对的概率, 是电场的强相关函数。<br>材料的电子—空穴电离率比：</p>
+<ul>
+<li><p>材料的电子—空穴电离率比：</p>
+<script type="math/tex; mode=display">
+K=\alpha_n/\alpha_p</script><blockquote>
+<p>如果电子和空穴有相同的电离化<br>率（K =1），雪崩过程不断重复，<br>不会停止：</p>
+</blockquote>
+</li>
+<li><p>增大器件增益；</p>
+</li>
+<li>耗时长，减小器件带宽；</li>
+<li>随机过程，增大器件噪声；</li>
+<li>不稳定会导致雪崩击穿。</li>
+</ul>
+<h3 id="增益带宽积"><a href="#增益带宽积" class="headerlink" title="增益带宽积"></a>增益带宽积</h3><script type="math/tex; mode=display">
+f_T= M·B</script><h3 id="过剩噪声因子noise-factor-F"><a href="#过剩噪声因子noise-factor-F" class="headerlink" title="过剩噪声因子noise factor: F"></a>过剩噪声因子noise factor: F</h3><ul>
+<li>理想的倍增过程：<ul>
+<li>通过倍增区的每个电子或空穴都倍增M倍</li>
+<li>光跃迁随机引起散粒噪声电流也相应倍增M倍</li>
+<li>散粒噪声均方电流增加了$M^2$倍</li>
+</ul>
+</li>
+</ul>
+<h2 id="异质结的窗口效应、光限制作用、光电二极管"><a href="#异质结的窗口效应、光限制作用、光电二极管" class="headerlink" title="异质结的窗口效应、光限制作用、光电二极管"></a>异质结的窗口效应、光限制作用、光电二极管</h2><p>光照射异质结宽带区Eg2</p>
+<ul>
+<li>低能光子 hν＜Eg1  <ul>
+<li>光子不能产生电子—空穴对  </li>
+<li>无光电流</li>
+</ul>
+</li>
+<li>Eg1＜hν＜Eg2<ul>
+<li>光子透过宽带材料进入窄带材料</li>
+<li>在窄带区产生电子—空穴对</li>
+<li>产生光电流</li>
+</ul>
+</li>
+<li>高能光子hν＞Eg2<ul>
+<li>宽带区产生电子—空穴对，光子不能进入窄带材料</li>
+<li>不能扩散到耗尽区 在窄带区<br>在窄带区不能产生电子—空穴对</li>
+<li>无光电流</li>
+</ul>
+</li>
+</ul>
+<h1 id="发光二极管-LED"><a href="#发光二极管-LED" class="headerlink" title="发光二极管(LED)"></a>发光二极管(LED)</h1><ul>
+<li>正向偏置pn结 (电子或空穴)  </li>
+<li>正向注入</li>
+<li>(空穴或电子) 复合</li>
+<li>自发辐射发光</li>
+<li>发光二极管(LED)</li>
+</ul>
+<ul>
+<li>紫外光</li>
+<li>可见光：电光源（显示、照明）</li>
+<li>红外光：通信（0.85 μm、1.31 μm、1.55 μm）</li>
+</ul>
+<ul>
+<li>自发辐射：无外电磁场作用时，电子自发从高能级向低能级跃迁，并发<br>射光子。</li>
+<li>受激辐射：当收到外来能量E=ћv=E1-E2的光照射时，高能级的电子受外<br>来光的激励作用向低能级跃迁，同时发射一个与外来光子完全相同的光子。</li>
+</ul>
+<ul>
+<li>辐射效率<script type="math/tex; mode=display">
+\eta=\frac{\tau_{nr}}{\tau_{nr}+\tau_r}</script></li>
+<li>内量子效率<script type="math/tex; mode=display">
+\eta_内= \gamma \eta =单位时间产生光子数/单位时间注入电子-空穴对数</script></li>
+<li>外量子效率<script type="math/tex; mode=display">
+\eta_外=单位时间从晶体发射出的光子数/单位时间注入的电子-空穴</script></li>
+</ul>
+<script type="math/tex; mode=display">
+η_外<η_内</script><p><strong>单位时间从晶体发射出的光子数&lt;单位时间产生的光子数:</strong></p>
+<ul>
+<li>体内光吸收  </li>
+<li>菲涅耳（反射）损耗</li>
+<li>临界角（全反射）损耗</li>
+</ul>
+<h1 id="半导体激光器"><a href="#半导体激光器" class="headerlink" title="半导体激光器"></a>半导体激光器</h1><h2 id="半导体受激光发射的产生"><a href="#半导体受激光发射的产生" class="headerlink" title="半导体受激光发射的产生"></a>半导体受激光发射的产生</h2><ul>
+<li>激光器三要素<ul>
+<li>粒子数分布反转population inversion（区域：有源区）</li>
+<li>谐振腔（产生单色性和方向性都很好的单色光）</li>
+<li>阈值条件（泵浦：提供能量获得增益，抵消内部损耗、<br>产生激光输出）</li>
+</ul>
+</li>
+</ul>
+<h3 id="产生粒子数反转方法"><a href="#产生粒子数反转方法" class="headerlink" title="产生粒子数反转方法"></a>产生粒子数反转方法</h3><ul>
+<li>光激励</li>
+<li>电子束激励</li>
+<li>雪崩碰撞激励</li>
+<li>pn结正向注入激励 </li>
+</ul>
+<h3 id="产生粒子数反转的原因"><a href="#产生粒子数反转的原因" class="headerlink" title="产生粒子数反转的原因"></a>产生粒子数反转的原因</h3><ul>
+<li>受激发射概率=受激吸收概率</li>
+<li>哪一种过程起主导取决于粒子分布情况</li>
+<li>处于激发态原子数大于基态原子数，受激发射将超过吸收（光增益）<br><img src="04DFD278024F4A8C8EE034FF5947AA0E" alt="image"></li>
+</ul>
+<h2 id="光学谐振腔"><a href="#光学谐振腔" class="headerlink" title="光学谐振腔"></a>光学谐振腔</h2><p>GaAs-pn结激光器，以严格垂直结面方向的一对(110)解理面<br>作为镜面构成平面谐振腔</p>
+<h2 id="阈值条件"><a href="#阈值条件" class="headerlink" title="阈值条件"></a>阈值条件</h2><ul>
+<li>增益系数g：光波沿z向传播单位长度内发射强度的增益</li>
+<li>损耗系数α：光波沿z向传播单位长度内发射强度的内部损耗</li>
+<li>阈值条件：光波在谐振腔内往返传播一次的增益大于损耗</li>
+</ul>
+<h2 id="半导体激光器的主要特性"><a href="#半导体激光器的主要特性" class="headerlink" title="半导体激光器的主要特性"></a>半导体激光器的主要特性</h2><p><img src="DC71C155D6984D89ADCBCAB6D0D9CDD8" alt="image"></p>
+<ul>
+<li>谐振腔的振幅条件（阈值条件）：<br>光波在谐振腔内往返传播一次的总增益为<script type="math/tex; mode=display">
+g>g_{th}
+=\alpha – In(R_1R_2 )/(2l) >\alpha</script></li>
+</ul>
+<h2 id="输出光功率和转换效率"><a href="#输出光功率和转换效率" class="headerlink" title="输出光功率和转换效率"></a>输出光功率和转换效率</h2><ul>
+<li>外量子效率: $η_外=P/(IV)$</li>
+<li>外微分量子效率: $η_D=(P-Pth)/[(I-Ith)V]≈P/[(I-Ith)V$</li>
+</ul>
+<h2 id="模式与光谱分布"><a href="#模式与光谱分布" class="headerlink" title="模式与光谱分布"></a>模式与光谱分布</h2><script type="math/tex; mode=display">
+λ_0 = 2nl/q</script><h2 id="分布反馈式-DFB-半导体激光器"><a href="#分布反馈式-DFB-半导体激光器" class="headerlink" title="分布反馈式(DFB) 半导体激光器"></a>分布反馈式(DFB) 半导体激光器</h2><script type="math/tex; mode=display">
+λ_0 = 2n_SΛ/m，(m=1, 2, 3, …为衍射级)</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2021/02/23/guangzixue/">https://fazziekey.github.io/2021/02/23/guangzixue/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/physical/">physical</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E5%BA%9F%E4%BA%86/">学废了</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/02/23/cidianzixue/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">磁电子学</div></div></a></div><div class="next-post pull-right"><a href="/2021/02/23/bandaotiqijian/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">半导体器件</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/02/23/bandaotiqijian/" title="半导体器件"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">半导体器件</div></div></a></div><div><a href="/2021/02/23/cidianzixue/" title="磁电子学"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">磁电子学</div></div></a></div><div><a href="/2021/02/23/liangzilixue/" title="量子力学"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">量子力学</div></div></a></div><div><a href="/2021/02/23/gutaidianzijichu/" title="固态电子基础"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">固态电子基础</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BA%E4%BD%93%E5%85%89%E7%9A%84%E5%90%B8%E6%94%B6"><span class="toc-number">1.</span> <span class="toc-text">固体光的吸收</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%9A%84%E5%90%B8%E6%94%B6%E7%B3%BB%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">光的吸收系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%9A%84%E5%90%B8%E6%94%B6%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">光的吸收过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%BE%81%E5%90%B8%E6%94%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">本征吸收</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E8%B7%83%E8%BF%81-hv-gt-E-g"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">直接跃迁($hv&gt;&#x3D;E_g$)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%B4%E6%8E%A5%E8%B7%83%E8%BF%81-hv-lt-E-g"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">间接跃迁($hv&lt;E_g$)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E5%AD%90%E5%90%B8%E6%94%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">激子吸收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%94%B1%E8%BD%BD%E6%B5%81%E5%AD%90%E5%90%B8%E6%94%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">自由载流子吸收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E8%B4%A8%E5%92%8C%E7%BC%BA%E9%99%B7%E5%90%B8%E6%94%B6"><span class="toc-number">1.2.4.</span> <span class="toc-text">杂质和缺陷吸收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%B6%E6%A0%BC%E5%90%B8%E6%94%B6"><span class="toc-number">1.2.5.</span> <span class="toc-text">晶格吸收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E7%A9%BA%E7%A9%B4%E4%BA%A7%E7%94%9F%E9%80%9F%E7%8E%87"><span class="toc-number">1.2.6.</span> <span class="toc-text">电子空穴产生速率</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BA%E4%BD%93%E5%AF%B9%E5%85%89%E5%8F%91%E5%B0%84"><span class="toc-number">2.</span> <span class="toc-text">固体对光发射</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%85%89%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E6%BF%80%E5%8F%91"><span class="toc-number">2.1.</span> <span class="toc-text">发光过程中的激发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%89%E8%87%B4%E5%8F%91%E5%85%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">光致发光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B4%E6%9E%81%E5%B0%84%E7%BA%BF%E5%8F%91%E5%85%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">阴极射线发光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BE%E5%B0%84%E7%BA%BF%E5%8F%91%E5%85%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">放射线发光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%8C%96%E5%8F%91%E5%85%89"><span class="toc-number">2.1.4.</span> <span class="toc-text">生化发光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%9C%BA%E5%8F%91%E5%85%89"><span class="toc-number">2.1.5.</span> <span class="toc-text">电场发光</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">基本符合类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E9%97%B4%E5%A4%8D%E5%90%88%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">带间复合过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E8%B4%A8%EF%BC%8C%E7%BC%BA%E9%99%B7%E5%A4%8D%E5%90%88%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.2.</span> <span class="toc-text">杂质，缺陷复合过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%84%E6%AD%87%E5%A4%8D%E5%90%88%EF%BC%88%E9%9D%9E%E8%BE%90%E5%B0%84%EF%BC%89"><span class="toc-number">2.2.3.</span> <span class="toc-text">俄歇复合（非辐射）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%85%89%E6%95%88%E7%8E%87"><span class="toc-number">2.3.</span> <span class="toc-text">发光效率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%90%E6%96%99"><span class="toc-number">2.3.1.</span> <span class="toc-text">材料</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pn%E7%BB%93%E5%85%89%E5%8D%87%E4%BC%8F%E7%89%B9%E5%92%8C%E5%A4%AA%E9%98%B3%E8%83%BD%E7%94%B5%E6%B1%A0solar-cell"><span class="toc-number">3.</span> <span class="toc-text">pn结光升伏特和太阳能电池solar cell</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%94%B5%E6%B1%A0%E7%9A%84I-V%E7%89%B9%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">光电池的I-V特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%AA%E9%98%B3%E7%94%B5%E6%B1%A0%E7%9A%84%E5%85%89%E7%94%B5%E8%BD%AC%E6%8D%A2%E6%95%88%E7%8E%87"><span class="toc-number">3.3.</span> <span class="toc-text">太阳电池的光电转换效率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%AA%E9%98%B3%E7%94%B5%E6%B1%A0%E7%9A%84%E5%85%89%E7%94%B5%E8%BD%AC%E6%8D%A2%E6%95%88%E7%8E%87%EF%BC%88%E7%8E%B0%E6%9C%89%E6%9C%BA%E7%90%86%E4%B8%8E%E6%8A%80%E6%9C%AF%EF%BC%89%EF%BC%9A"><span class="toc-number">3.3.1.</span> <span class="toc-text">太阳电池的光电转换效率（现有机理与技术）：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E5%9D%87%E5%8C%80%E5%90%B8%E6%94%B6%E6%95%88%E5%BA%94"><span class="toc-number">3.4.</span> <span class="toc-text">非均匀吸收效应</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E5%A2%9E%E7%9B%8A%E5%9E%8B%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%85%89%E7%94%B5%E6%8E%A2%E6%B5%8B%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">非增益型半导体光电探测器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%8F%82%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">主要参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%BA%A6"><span class="toc-number">4.1.1.</span> <span class="toc-text">响应度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E4%B8%8E%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4"><span class="toc-number">4.1.2.</span> <span class="toc-text">频率响应与响应时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%99%AA%E5%A3%B0"><span class="toc-number">4.1.3.</span> <span class="toc-text">噪声</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%A3%E7%B2%92%E5%99%AA%E5%A3%B0%EF%BC%9A"><span class="toc-number">4.1.3.1.</span> <span class="toc-text">散粒噪声：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%83%AD%E5%99%AA%E5%A3%B0"><span class="toc-number">4.1.3.2.</span> <span class="toc-text">热噪声</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%82%96%E7%89%B9%E5%9F%BA%E5%8A%BF%E5%9E%92%E5%85%89%E7%94%B5%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">4.2.</span> <span class="toc-text">肖特基势垒光电二极管</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A2%9E%E7%9B%8A%E5%9E%8B%E5%92%8C%E5%BC%82%E8%B4%A8%E7%BB%93%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%85%89%E7%94%B5%E6%8E%A2%E6%B5%8B%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">增益型和异质结半导体光电探测器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%AA%E5%B4%A9%E5%85%89%E7%94%B5%E4%BA%8C%E6%9E%81%E7%AE%A1%EF%BC%88APD%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">雪崩光电二极管（APD）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%EF%BC%88%E7%A9%BA%E7%A9%B4%EF%BC%89%E7%94%B5%E7%A6%BB%E7%8E%87-alpha-n-alpha-p"><span class="toc-number">5.1.1.</span> <span class="toc-text">电子（空穴）电离率$\alpha_n(\alpha_p)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E7%9B%8A%E5%B8%A6%E5%AE%BD%E7%A7%AF"><span class="toc-number">5.1.2.</span> <span class="toc-text">增益带宽积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E5%89%A9%E5%99%AA%E5%A3%B0%E5%9B%A0%E5%AD%90noise-factor-F"><span class="toc-number">5.1.3.</span> <span class="toc-text">过剩噪声因子noise factor: F</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E8%B4%A8%E7%BB%93%E7%9A%84%E7%AA%97%E5%8F%A3%E6%95%88%E5%BA%94%E3%80%81%E5%85%89%E9%99%90%E5%88%B6%E4%BD%9C%E7%94%A8%E3%80%81%E5%85%89%E7%94%B5%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">5.2.</span> <span class="toc-text">异质结的窗口效应、光限制作用、光电二极管</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%91%E5%85%89%E4%BA%8C%E6%9E%81%E7%AE%A1-LED"><span class="toc-number">6.</span> <span class="toc-text">发光二极管(LED)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%BF%80%E5%85%89%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">半导体激光器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%8F%97%E6%BF%80%E5%85%89%E5%8F%91%E5%B0%84%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-number">7.1.</span> <span class="toc-text">半导体受激光发射的产生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E7%B2%92%E5%AD%90%E6%95%B0%E5%8F%8D%E8%BD%AC%E6%96%B9%E6%B3%95"><span class="toc-number">7.1.1.</span> <span class="toc-text">产生粒子数反转方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E7%B2%92%E5%AD%90%E6%95%B0%E5%8F%8D%E8%BD%AC%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">7.1.2.</span> <span class="toc-text">产生粒子数反转的原因</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E5%AD%A6%E8%B0%90%E6%8C%AF%E8%85%94"><span class="toc-number">7.2.</span> <span class="toc-text">光学谐振腔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%88%E5%80%BC%E6%9D%A1%E4%BB%B6"><span class="toc-number">7.3.</span> <span class="toc-text">阈值条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%BF%80%E5%85%89%E5%99%A8%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E6%80%A7"><span class="toc-number">7.4.</span> <span class="toc-text">半导体激光器的主要特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E5%85%89%E5%8A%9F%E7%8E%87%E5%92%8C%E8%BD%AC%E6%8D%A2%E6%95%88%E7%8E%87"><span class="toc-number">7.5.</span> <span class="toc-text">输出光功率和转换效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%85%89%E8%B0%B1%E5%88%86%E5%B8%83"><span class="toc-number">7.6.</span> <span class="toc-text">模式与光谱分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%8F%8D%E9%A6%88%E5%BC%8F-DFB-%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%BF%80%E5%85%89%E5%99%A8"><span class="toc-number">7.7.</span> <span class="toc-text">分布反馈式(DFB) 半导体激光器</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

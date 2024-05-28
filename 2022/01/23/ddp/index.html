@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pytorch Distributed Data Parallal | 摸黑干活</title><meta name="keywords" content="模型训练,分布式机器学习,分布式数据并行"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="目前有不少博客都有对pytorch Distirbuted data parallel的介绍和使用，但大多是针对实际代码的使用，本篇文章更侧重Pytorch DDP论文中提到的低层机制的实现以及目前存在的一些问题。 数据并行基本概念（Data Parallel）如果工作节点没有共享的公共内存，只有容量受限的本地内存，而训练数据的规模很大，无法存储于本地内存，我们就需要对数据集进行划分，分配到各个工">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pytorch Distributed Data Parallal">
+<meta property="og:url" content="https://fazziekey.github.io/2022/01/23/ddp/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="目前有不少博客都有对pytorch Distirbuted data parallel的介绍和使用，但大多是针对实际代码的使用，本篇文章更侧重Pytorch DDP论文中提到的低层机制的实现以及目前存在的一些问题。 数据并行基本概念（Data Parallel）如果工作节点没有共享的公共内存，只有容量受限的本地内存，而训练数据的规模很大，无法存储于本地内存，我们就需要对数据集进行划分，分配到各个工">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2022-01-23T06:31:22.000Z">
+<meta property="article:modified_time" content="2024-05-28T06:13:36.215Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="模型训练">
+<meta property="article:tag" content="分布式机器学习">
+<meta property="article:tag" content="分布式数据并行">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2022/01/23/ddp/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 14:13:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-file"></i><span> CV</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/CV/Maqianli_CV.html"><i class="fa-fw fas fa-file-alt"></i><span> CN</span></a></li><li><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw far fa-file-alt"></i><span> EN</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Pytorch Distributed Data Parallal</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-23T06:31:22.000Z" title="发表于 2022-01-23 14:31:22">2022-01-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T06:13:36.215Z" title="更新于 2024-05-28 14:13:36">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>目前有不少博客都有对pytorch Distirbuted data parallel的介绍和使用，但大多是针对实际代码的使用，本篇文章更侧重Pytorch DDP论文中提到的低层机制的实现以及目前存在的一些问题。</p>
+<h1 id="数据并行基本概念（Data-Parallel）"><a href="#数据并行基本概念（Data-Parallel）" class="headerlink" title="数据并行基本概念（Data Parallel）"></a>数据并行基本概念（Data Parallel）</h1><p>如果工作节点没有共享的公共内存，只有容量受限的本地内存，而训练数据的规模很大，无法存储于本地内存，我们就需要对数据集进行划分，分配到各个工作节点上，然后工作节点依据各自分配的局部数据对模型进行训练 我们称此种并行模式为“数据并行模式。</p>
+<h2 id="数据并行的两种基本方式"><a href="#数据并行的两种基本方式" class="headerlink" title="数据并行的两种基本方式"></a>数据并行的两种基本方式</h2><h3 id="随机采样"><a href="#随机采样" class="headerlink" title="随机采样"></a>随机采样</h3><p>把原始训练数据集作为采样的数据集，通过有放回的方式进行随机采样，然后根据每个工作节点的内存容量为其分配相应数目的训练样本。随机采样方法可以保证每台机器上的局部训练数据与原始训练数据是独立同分布的。</p>
+<h3 id="置乱切分"><a href="#置乱切分" class="headerlink" title="置乱切分"></a>置乱切分</h3><p>将训练数据进行随机置乱，然后按照工作节点的个数将打乱后的数据顺序划分成相应的小份，随后将这些小份数据分配到各个工作节点上。每个工作节点在进行模型训练的过程中，只利用分配给向己的局部数据，并且会定期地（如每完成一个训练周期之后）将局部数据再打乱次 。 到一定阶段（如l完成多个训练周期之后），还可能再重新进行全局的数据打乱和重新分配 。</p>
+<h2 id="数据并行要求"><a href="#数据并行要求" class="headerlink" title="数据并行要求"></a>数据并行要求</h2><ul>
+<li>数学上等价：必须在数学上可以证明本地训练和数据并行训练对模型结果的影响是一致的</li>
+<li>非侵入和截断的 API：一般都是从本地开发然后扩展到分布式。API 需要允许内部实现可以即时拦截信号来做通信和系统优化</li>
+<li>高性能：数据并行训练受到计算和通信之间依赖关系的限制，所以设计和实现必须平衡两者之间的关系。</li>
+</ul>
+<h1 id="Pytorch-分布式数据并行（Distributed-Data-Parallel）"><a href="#Pytorch-分布式数据并行（Distributed-Data-Parallel）" class="headerlink" title="Pytorch 分布式数据并行（Distributed Data Parallel）"></a>Pytorch 分布式数据并行（Distributed Data Parallel）</h1><h2 id="DDP的原理"><a href="#DDP的原理" class="headerlink" title="DDP的原理"></a>DDP的原理</h2><p>DP模式是很早就出现的、单机多卡的、参数服务器架构的多卡训练模式，在PyTorch，即是：</p>
+<pre><code>model = torch.nn.DataParallel(model)
+</code></pre><p>在DP模式中，总共只有一个进程。master节点相当于参数服务器，其会向其他卡广播其参数；在梯度反向传播后，各卡将梯度集中到master节点，master节点对搜集来的参数进行平均后更新参数，再将参数统一发送到其他卡上。这种参数更新方式，会导致master节点的计算任务、通讯量很重，从而导致网络阻塞，降低训练速度。</p>
+<p>在分类上，DDP 属于Data Parallel。简单来讲，DDP就是在每个计算节点上复制模型，并独立地生成梯度，然后在每次迭代中互相传递这些梯度并同步，以保持各节点模型的一致性</p>
+<p>在Pytorch中DP和DDP的区别总结如下</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>进程和线程</th>
+<th>设备</th>
+<th>模型副本数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Parallel</td>
+<td>单进程多线程</td>
+<td>使用同一个机器上的多块卡</td>
+<td>一个模型</td>
+</tr>
+<tr>
+<td>Distributed Data Parallel</td>
+<td>多进程</td>
+<td>使用多个设备和其上的多个GPU</td>
+<td>每台设备上一个模型副本</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>对于分布式数据并行，其核心问题在于如何保持每个设备上模型的一致性以及计算和通信效率的平衡</strong></p>
+<h2 id="保持数据一致性两种方式"><a href="#保持数据一致性两种方式" class="headerlink" title="保持数据一致性两种方式"></a>保持数据一致性两种方式</h2><h3 id="参数平均"><a href="#参数平均" class="headerlink" title="参数平均"></a>参数平均</h3><p>参数平均则直接计算所有模型参数的平均值。参数平均的操作在优化器执行梯度下降后，这意味着其可以作为一个辅助步骤，非常的灵活，但是参数存在一定问题：</p>
+<ul>
+<li>数学上不等价</li>
+<li>各批次数据的梯度下降方向不同，不利于收敛</li>
+<li>计算和通信低效，两个阶段无法重叠</li>
+</ul>
+<p>所以Pytorch的DDP设计中放弃了参数平均的方式。</p>
+<h3 id="梯度平均"><a href="#梯度平均" class="headerlink" title="梯度平均"></a>梯度平均</h3><p>梯度平均是将各个设备的梯度求平均，然后将这个平均梯度在各个节点的模型上作更新，这样的方式一方面在数学上和本地训练完全等价，而且可以实现异步，比参数平均更加高效。</p>
+<h2 id="ALL-Reduce"><a href="#ALL-Reduce" class="headerlink" title="ALL Reduce"></a>ALL Reduce</h2><p>AllReduce是实现梯度平均最简单的方法。AllReduce是分布式数据并行用于计算所有进程的梯度总和的原始通信API。它由多个通信库支持，包括NCCL[2]、Gloo[1]和MPI[4]。AllReduce操作期望每个进程提供一个相同大小的张量，共同将给定的算术操作（例如，求和、平均、最小、最大）。最简单的实现方法是让每个进程将其输入张量广播给其他进程，然后每个进程独立地进行算术运算后进行梯度下降来更新模型参数。</p>
+<h3 id="ALLReduce的改进算法"><a href="#ALLReduce的改进算法" class="headerlink" title="ALLReduce的改进算法"></a>ALLReduce的改进算法</h3><ul>
+<li>RingALLReduce</li>
+<li>TreeAllReduce</li>
+</ul>
+<p>pytorch中实现DDP实际使用RingALLReduce实现AllReduce算法，Ring AllReduce的通信成本是恒定的，与 GPU 数量无关，其流程如下，具体细节本文不做过多介绍，可以参考</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/57799212/answer/612786337">ring allreduce和tree allreduce的具体区别是什么？</a>。</p>
+<p><img src="https://s2.loli.net/2022/01/11/cNQewRgA57HusBn.png" alt="v2-d725a864c17515b0677e37877693d84b_1440w.png"></p>
+<h3 id="ALLReduce-存在问题"><a href="#ALLReduce-存在问题" class="headerlink" title="ALLReduce 存在问题"></a>ALLReduce 存在问题</h3><ul>
+<li>集合通信在小张量上表现较差，这在具有大量小参数的大模型上尤为突出。</li>
+<li>梯度计算和同步分离开，就没有机会把计算和通信过程重叠到一起</li>
+</ul>
+<h2 id="梯度分桶-Gradient-Bucketing"><a href="#梯度分桶-Gradient-Bucketing" class="headerlink" title="梯度分桶(Gradient Bucketing)"></a>梯度分桶(Gradient Bucketing)</h2><p>Pytorch DDP设计最核心的机制就是<strong>Gradient Bucketing</strong>，其解决了直接ALLreduce存在的问题</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211230104223.png" alt=""></p>
+<p>上图是ALLreduce执行时间和Tensor大小之间关系，从图中可以看出传递Tensor的参数越多，效率越高，这是梯度分桶的思想来源，既然每次传递小Tensor效率低，为什么不将多个参数的梯度聚合后传递？所以梯度分桶的做法将模型的Model的参数逆序插入每个Bucket中，当一个Bucket的参数的梯度都已经更新时，开启Allreduce，向另一个节点的对应Bucket传递梯度，这样也同时实现了异步AllReduce。</p>
+<p><img src="https://s2.loli.net/2022/01/11/B2eOUNzFTHvdWMY.png" alt="图片1.png"></p>
+<h3 id="梯度分桶的两个要点"><a href="#梯度分桶的两个要点" class="headerlink" title="梯度分桶的两个要点"></a>梯度分桶的两个要点</h3><ul>
+<li>DDP的Bucket中的参数是按model.parameters()倒序插入的，在实际执行中$bucket_{i+1}$ 必须在$bucket_i$ 完成后才能进行，在文章中提到这是工程上的近似，因为模型梯度参数梯度更新的顺序不一定完全和模型参数的顺序一致，但在大多数情况这样方法是适用且高效的。所以，在创建model的时候，请务必把先进行计算的parameter注册在前面，后计算的在后面。不然，reducer会卡在某一个bucket等待，使训练时间延长，出现图（a)中的情况，进程2的$g_2$参数的梯度在$g_3,g_4$后更新导致进程2的第二个Bucket迟迟无法进行ALLReduce操作。</li>
+<li>因为pytorch是完全的动态图机制，每次训练中不是所有子图都会参与训练，在模型中部分子图被冻结，不参与梯度更新时，在创建ddp Model时需要把<code>find_unused_parameter</code>设置为true，否则一个Bucket中有一个参数的梯度没有ready就不会进行Allreduce,如图（b）。<code>find_unused_parameter</code>为true时在每次前向传播后会搜索所有没有参与梯度更新的参数并把它们的状态设置为ready。</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/01/11/QdlHorfgLtU3sZY.png" alt=""></p>
+<h2 id="hook机制"><a href="#hook机制" class="headerlink" title="hook机制"></a>hook机制</h2><p>前文提到pytorch DDP设计者在设计API时希望DDP的功能不会对原有训练流程有影响，即非侵入式的API，这利用了实现Pytorch中的hook实现。<br>用形象的话讲，hook提供了这么一种机制：程序提供hook接口，用户可以写一个hook函数，然后钩在hook接口，即程序的主体上从而可以插入到中间执行。DDP使用hook技术把自己的逻辑插入到module的训练过程中去。<br>parameter在反向梯度计算结束后提供了一个hook接口。DDP把Ring-Reduce的代码写成一个hook函数，插入到这里。每次parameter的反向梯度计算结束后，程序就会调用这个hook函数，从而开启Ring-Reduce流程。</p>
+<h2 id="DDP代码和执行流程"><a href="#DDP代码和执行流程" class="headerlink" title="DDP代码和执行流程"></a>DDP代码和执行流程</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>下面是实现DDP的一段最简单的代码Demo,对原有训练流程没有任何改动，只需额外的两行代码<code>dist.init_process_group(&quot;gloo&quot;, rank=rank, world_size=world_size)</code>和<br><code>ddp_model = DDP(model, device_ids=[rank])</code></p>
+<pre><code>import torch
+import torch.distributed as dist
+import torch.multiprocessing as mp
+import torch.nn as nn
+import torch.optim as optim
+from torch.nn.parallel import DistributedDataParallel as DDP
+
+
+def example(rank, world_size):
+    # 创建进程组
+    dist.init_process_group(&quot;gloo&quot;, rank=rank, world_size=world_size)
+    # 创建模型
+    model = nn.Linear(10, 10).to(rank)
+    # 创建DDP模型
+    ddp_model = DDP(model, device_ids=[rank])
+    # 定义损失函数和优化器
+    loss_fn = nn.MSELoss()
+    optimizer = optim.SGD(ddp_model.parameters(), lr=0.001)
+
+    # 前向传播
+    outputs = ddp_model(torch.randn(20, 10).to(rank))
+    labels = torch.randn(20, 10).to(rank)
+    # 反向传播
+    loss_fn(outputs, labels).backward()
+    # 更新参数
+    optimizer.step()
+</code></pre><h3 id="DDP执行流程"><a href="#DDP执行流程" class="headerlink" title="DDP执行流程"></a>DDP执行流程</h3><ul>
+<li>准备阶段<ul>
+<li>环境初始化<ul>
+<li>在各张卡上初始化进程并建立进程之间的通信</li>
+<li>对应代码：init_process_group</li>
+</ul>
+</li>
+<li>模型广播<ul>
+<li>将模型parameter，buffer广播到各节点</li>
+<li>对应代码：model = DDP(model)</li>
+</ul>
+</li>
+<li>初始化Bucket<ul>
+<li>将模型的参数倒序分配到各个桶中（为什么必须倒序后面会讲）</li>
+<li>对应代码：model = DDP(model)</li>
+</ul>
+</li>
+<li>创建管理器reducer，给每个parameter注册梯度平均的hook。</li>
+</ul>
+</li>
+<li>训练阶段<ul>
+<li>采样数据（for data, label in dataloader）<br>  +从dataloader得到一个batch的数据，用于当前计算。</li>
+<li>前向传播（output = model(data)）<ul>
+<li>同步各进程状态（parameter和buffer）</li>
+<li>前向计传播</li>
+<li>当DDP参数find_unused_parameter为true时，其会在forward结束时，启动一个回溯，标记出所有没被用到的parameter，提前把这些设定为ready。</li>
+</ul>
+</li>
+<li>计算梯度（loss.backward()）<ul>
+<li>reducer外面：各个进程各自开始反向地计算梯度。</li>
+<li>reducer外面：当某个parameter的梯度计算好了的时候，其之前注册的grad hook就会被触发，在reducer里把这个parameter的状态标记为ready。</li>
+<li>reducer里面：当某个bucket的所有parameter都是ready状态时，reducer会开始对这个bucket的所有parameter都开始一个异步的all-reduce梯度平均操作。</li>
+<li>reducer里面：当所有bucket的梯度平均都结束后，reducer才会把得到的平均grad结果正式写入到parameter.grad里面。</li>
+</ul>
+</li>
+<li>优化器optimizer应用gradient，更新参数（optimizer.step()）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="梯度累计"><a href="#梯度累计" class="headerlink" title="梯度累计"></a>梯度累计</h2><p>对于DDP的ALLreduce,文章中提到进一步的改进方法，使用梯度累计来进一步减少通信次数，DDP的梯度同步在<code>loss.backward()</code>阶段进行，Pytorch提供了<code>model.no_sync()</code>接口，可以使反向传播取消梯度同步，这样我们可以选择K次迭代进行一次梯度同步，当然K不建议取的过大，代码如下。</p>
+<pre><code>model = DDP(model)
+
+for 每次梯度累加循环
+    optimizer.zero_grad()
+    # 前accumulation_step-1个step，不进行梯度同步，累积梯度。
+    for _ in range(K-1)::
+        with model.no_sync():
+            prediction = model(data)
+            loss = loss_fn(prediction, label) / K
+            loss.backward()  # 积累梯度，不应用梯度改变
+    # 第K个step，进行梯度同步
+    prediction = model(data)
+    loss = loss_fn(prediction, label) / K
+    loss.backward()  # 积累梯度，不应用梯度改变
+    optimizer.step()
+</code></pre><h2 id="DDP未来可能的改进方式"><a href="#DDP未来可能的改进方式" class="headerlink" title="DDP未来可能的改进方式"></a>DDP未来可能的改进方式</h2><p>对于当前基于Bucket的DDP实现，文章提到了下面三种可能改进的方式</p>
+<h3 id="梯度顺序预测"><a href="#梯度顺序预测" class="headerlink" title="梯度顺序预测"></a>梯度顺序预测</h3><p>目前DDP的模型parameter和Bucket的参数的map映射关系是直接将模型的参数按model.parameter() reverse后将Bucket一一填满，每个Bucket的容量默认为25MB个参数，，所以实际执行时可能出现阻塞现象，所以可以考虑更加智能的parameter到Bucket的映射算法</p>
+<h3 id="layer-dropping"><a href="#layer-dropping" class="headerlink" title="layer dropping"></a>layer dropping</h3><p>在网络采用dropout时每次前向传播都会构建一个新的计算图，DDP同样也支持Dropout，但是由于parameter到bucket的映射是固定的，虽然没次前向传播后会把这些dropout的参数设定为ready，但是这也带来了额外的内存开销。解决这样的方法一种是修改parameter到bucket的映射，另一种是将一个layer映射到bucket，每次更新直接跳过一个bucket。</p>
+<h3 id="梯度压缩"><a href="#梯度压缩" class="headerlink" title="梯度压缩"></a>梯度压缩</h3><p>DDP的另一种改进是压缩梯度，将FP64，FP32，压缩为更低精度的IN8，所以可以考虑使用自适应的梯度压缩策略。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.15704">论文原文：PyTorch Distributed: Experiences on Accelerating<br>Data Parallel Training</a></li>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/ddp.html">官方设计文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/343951042">OpenMMlab:PyTorch 源码解读之 DP &amp; DDP：模型并行和分布式训练解析</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/178402798">PyTorch DDP系列解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html#torch.nn.parallel.DistributedDataParallel">Pytoech文档：torch.nn.parallel.DistributedDataParallel</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2022/01/23/ddp/">https://fazziekey.github.io/2022/01/23/ddp/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/">模型训练</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">分布式机器学习</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C/">分布式数据并行</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/01/23/OPTIMIZER-FUSION/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/13/Lite-Transformer/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">论文解读：Lite Transformer</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-23</div><div class="title">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/img/QQ.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title=""><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%88Data-Parallel%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">数据并行基本概念（Data Parallel）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">数据并行的两种基本方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E9%87%87%E6%A0%B7"><span class="toc-number">1.1.1.</span> <span class="toc-text">随机采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%AE%E4%B9%B1%E5%88%87%E5%88%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">置乱切分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C%E8%A6%81%E6%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">数据并行要求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Pytorch-%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C%EF%BC%88Distributed-Data-Parallel%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">Pytorch 分布式数据并行（Distributed Data Parallel）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDP%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">DDP的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">保持数据一致性两种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%B9%B3%E5%9D%87"><span class="toc-number">2.2.1.</span> <span class="toc-text">参数平均</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%B9%B3%E5%9D%87"><span class="toc-number">2.2.2.</span> <span class="toc-text">梯度平均</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ALL-Reduce"><span class="toc-number">2.3.</span> <span class="toc-text">ALL Reduce</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ALLReduce%E7%9A%84%E6%94%B9%E8%BF%9B%E7%AE%97%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text">ALLReduce的改进算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALLReduce-%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.2.</span> <span class="toc-text">ALLReduce 存在问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%88%86%E6%A1%B6-Gradient-Bucketing"><span class="toc-number">2.4.</span> <span class="toc-text">梯度分桶(Gradient Bucketing)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%88%86%E6%A1%B6%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A6%81%E7%82%B9"><span class="toc-number">2.4.1.</span> <span class="toc-text">梯度分桶的两个要点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hook%E6%9C%BA%E5%88%B6"><span class="toc-number">2.5.</span> <span class="toc-text">hook机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDP%E4%BB%A3%E7%A0%81%E5%92%8C%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">2.6.</span> <span class="toc-text">DDP代码和执行流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.6.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DDP%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">2.6.2.</span> <span class="toc-text">DDP执行流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E7%B4%AF%E8%AE%A1"><span class="toc-number">2.7.</span> <span class="toc-text">梯度累计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDP%E6%9C%AA%E6%9D%A5%E5%8F%AF%E8%83%BD%E7%9A%84%E6%94%B9%E8%BF%9B%E6%96%B9%E5%BC%8F"><span class="toc-number">2.8.</span> <span class="toc-text">DDP未来可能的改进方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E9%A1%BA%E5%BA%8F%E9%A2%84%E6%B5%8B"><span class="toc-number">2.8.1.</span> <span class="toc-text">梯度顺序预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#layer-dropping"><span class="toc-number">2.8.2.</span> <span class="toc-text">layer dropping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%8E%8B%E7%BC%A9"><span class="toc-number">2.8.3.</span> <span class="toc-text">梯度压缩</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
