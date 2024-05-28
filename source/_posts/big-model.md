@@ -390,7 +390,7 @@ for i in range(2):
 
 852.06 + 518.15 + 125.63 = 1495(s) = 25 (min)
 
-而使用 `mmap` + `meta device` 加载几乎没有时间开销, 只有模型真正运行时才会从硬盘拷贝权重到CPU RAM
+而使用 `mmap` + `meta device` 加载几乎没有时间开销, 只有模型真正运行时才会从硬盘拷贝权重到CPU RAM.
 
 ## 相关link
 
