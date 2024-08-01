@@ -1,4 +1,4 @@
-- **2023.12 - Now**  ByteDance Seed | Large Language Model Engineer | Machine Learning system, Large Language Model
+- **2023.12 - Now**  ByteDance Seed | Large Model Engineer | Machine Learning system, Large Language Model
 
 - **2023.5 - 2023.12**  ByteDance AML | Large Language Model Intern | Machine Learning system, Large Language Model for code, Agent
 
