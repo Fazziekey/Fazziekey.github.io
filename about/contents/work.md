@@ -6,5 +6,5 @@
 
 - **2021.12 - 2022.6**  SenseTime | Algorithm Research Intern | Large-scale training
 
-- **2021.7 - 2021.11** Huawei 2012 Distributed and Parallel Lab| Algorithm Engineering Intern | Deep Learning Framework MindSpore<a href="https://gitee.com/Fazzie/mindspore">MindSpore</a>
+- **2021.7 - 2021.11** Huawei 2012 Distributed and Parallel Lab| Algorithm Engineering Intern | Deep Learning Framework <a href="https://gitee.com/Fazzie/mindspore">MindSpore</a>
                     
