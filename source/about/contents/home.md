@@ -8,5 +8,3 @@ I am an interdisciplinary learner from electronic engineering, computer science,
 - To learn more about my personal experience and skills, check out my Neural Network Knowledge Map: <a href="../nn"><i class="bi bi-robot"></i>Super intelligence Fazzie</a>
   
 - Here is my detail CV: <a href="../CV/Maqianli_CV_EN.html"><i class="bi bi-download">CV</i></a>
-
-Super-large scale distributed training for any modality model on any hardware
