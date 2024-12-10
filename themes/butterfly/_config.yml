@@ -48,8 +48,8 @@ copy:
 #   icon: link || the description
 social:
    fas fa-envelope: mailto:3180104413@zju.edu.cn || Email
-   fab fa-qq: "/img/QQ.jpg"
-   fab fa-weixin: "/img/wechat.jpg"
+  #  fab fa-qq: "/img/QQ.jpg"
+  #  fab fa-weixin: "/img/wechat.jpg"
    fab fa-linkedin: "https://www.linkedin.com/in/qianli-ma-313272207/"
    fab fa-zhihu: "https://www.zhihu.com/people/fazzie"
 # search (搜索)
