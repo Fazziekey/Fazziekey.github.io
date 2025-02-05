@@ -1,3 +1,8 @@
+
+- **[2025.1.25]**  We released UI-TARS: Pioneering Automated GUI Interaction with Native Agents, 🤗 <a href="https://huggingface.co/bytedance-research/UI-TARS-7B-DPO">Hugging Face Models</a> | 🤖 <a href="https://github.com/bytedance/UI-TARS/tree/main">Code</a> | 📑 <a href="https://arxiv.org/abs/2501.12326">Paper</a> | <a herf="https://team.doubao.com/en/publication/ui-tars-pioneering-automated-gui-interaction-with-native-agents?view_from=homepage_recommend">Report</a>
+
+- **[2025.1.22]** Doubao-1.5-pro released <a href="https://team.doubao.com/zh/special/doubao_1_5_pro">[Link]</a>
+
 - **[2024.5.5]** Our Paper "InfiAgent-DABench: Evaluating Agents on Data Analysis Tasks" is accepted by ICML 2024
 
 - **[2023.3.29]** We released Coati(Colossal AI Talking intelligence): An Open-Source Solution for Cloning ChatGPT With a Complete RLHF Pipeline, <a href="https://medium.com/@yangyou_berkeley/colossalchat-an-open-source-solution-for-cloning-chatgpt-with-a-complete-rlhf-pipeline-5edf08fb538b">[Link]</a>
