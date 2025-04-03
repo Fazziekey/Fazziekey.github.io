@@ -1,4 +1,6 @@
 
+- **[2025.4.03]**  We released VeOmni: Scaling any Modality Model Training to any Accelerators with PyTorch native Training Framework <a href="https://github.com/ByteDance-Seed/VeOmni">[Code]</a>
+
 - **[2025.1.25]**  We released UI-TARS: Pioneering Automated GUI Interaction with Native Agents, 🤗 <a href="https://huggingface.co/bytedance-research/UI-TARS-7B-DPO">Hugging Face Models</a> | 🤖 <a href="https://github.com/bytedance/UI-TARS/tree/main">Code</a> | 📑 <a href="https://arxiv.org/abs/2501.12326">Paper</a> | <a href="https://team.doubao.com/en/publication/ui-tars-pioneering-automated-gui-interaction-with-native-agents?view_from=homepage_recommend">Report</a>
 
 - **[2025.1.22]** Doubao-1.5-pro released <a href="https://team.doubao.com/zh/special/doubao_1_5_pro">[Link]</a>
