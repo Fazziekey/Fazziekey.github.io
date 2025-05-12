@@ -1,4 +1,6 @@
 
+- **[2025.4.03]**  We released Seed-Thinking-v1.5: Advancing Superb Reasoning Models with Reinforcement Learning <a href="https://seed.bytedance.com/en/public_papers/seed-thinking-v1-5-advancing-superb-reasoning-models-with-reinforcement-learning?view_from=homepage_recommend">[Blog]</a> | <a href="https://arxiv.org/abs/2504.13914">[Paper]</a>
+
 - **[2025.4.03]**  We released VeOmni: Scaling any Modality Model Training to any Accelerators with PyTorch native Training Framework <a href="https://github.com/ByteDance-Seed/VeOmni">[Code]</a>
 
 - **[2025.1.25]**  We released UI-TARS: Pioneering Automated GUI Interaction with Native Agents, 🤗 <a href="https://huggingface.co/bytedance-research/UI-TARS-7B-DPO">Hugging Face Models</a> | 🤖 <a href="https://github.com/bytedance/UI-TARS/tree/main">Code</a> | 📑 <a href="https://arxiv.org/abs/2501.12326">Paper</a> | <a href="https://team.doubao.com/en/publication/ui-tars-pioneering-automated-gui-interaction-with-native-agents?view_from=homepage_recommend">Report</a>
