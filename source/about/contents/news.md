@@ -1,5 +1,5 @@
 
-- **[2025.4.03]**  We released Seed-Thinking-v1.5: Advancing Superb Reasoning Models with Reinforcement Learning <a href="https://seed.bytedance.com/en/public_papers/seed-thinking-v1-5-advancing-superb-reasoning-models-with-reinforcement-learning?view_from=homepage_recommend">[Blog]</a> | <a href="https://arxiv.org/abs/2504.13914">[Paper]</a>
+- **[2025.4.10]**  We released Seed-Thinking-v1.5: Advancing Superb Reasoning Models with Reinforcement Learning <a href="https://seed.bytedance.com/en/public_papers/seed-thinking-v1-5-advancing-superb-reasoning-models-with-reinforcement-learning?view_from=homepage_recommend">[Blog]</a> | <a href="https://arxiv.org/abs/2504.13914">[Paper]</a>
 
 - **[2025.4.03]**  We released VeOmni: Scaling any Modality Model Training to any Accelerators with PyTorch native Training Framework <a href="https://github.com/ByteDance-Seed/VeOmni">[Code]</a>
 
