@@ -18,9 +18,10 @@ menu:
   About: /about/index.html || fas fas fa-id-card
     # - CN || /about/index.html || fas fa-id-card
     # - EN || /aboutEN/index.html || far fa-id-card
-  CV || fa fa-file: 
-    - CN || /CV/Maqianli_CV.html || fas fa-file-alt
-    - EN || /CV/Maqianli_CV_EN.html || far fa-file-alt
+  CV: /CV/Maqianli_CV_EN.html || fas fa-file-alt
+  # CV || fa fa-file: 
+  #   - CN || /CV/Maqianli_CV.html || fas fa-file-alt
+  #   - EN || /CV/Maqianli_CV_EN.html || far fa-file-alt
   Super Intelligence: /nn/ || fas fa-network-wired
 
 # Hide the child menu items in mobile sidebar
