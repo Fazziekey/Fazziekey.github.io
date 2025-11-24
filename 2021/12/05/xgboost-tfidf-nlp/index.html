@@ -1,0 +1,352 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>基于tfidf和xgboost文本分类 | 摸黑干活</title><meta name="keywords" content="NLP,ML,xgboost"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="boost &amp; bagging &amp; stacking 区别     算法 模型 数据 作用 实现     Bagging 多个相同不稳定模型 对数据随机采样，每个模型不同 减少 variance 用多个模型平均或投票，并行   Boosting 多个相同弱模型 每次从样本分布不同的数据集采样，上个模型预测错误的数据有更大可能被选择 减少 bias 用多个相同弱模型不断拟合残差，减少">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于tfidf和xgboost文本分类">
+<meta property="og:url" content="https://fazziekey.github.io/2021/12/05/xgboost-tfidf-nlp/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="boost &amp; bagging &amp; stacking 区别     算法 模型 数据 作用 实现     Bagging 多个相同不稳定模型 对数据随机采样，每个模型不同 减少 variance 用多个模型平均或投票，并行   Boosting 多个相同弱模型 每次从样本分布不同的数据集采样，上个模型预测错误的数据有更大可能被选择 减少 bias 用多个相同弱模型不断拟合残差，减少">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-12-05T11:59:23.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.491Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="xgboost">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2021/12/05/xgboost-tfidf-nlp/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基于tfidf和xgboost文本分类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-05T11:59:23.000Z" title="发表于 2021-12-05 19:59:23">2021-12-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.491Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="boost-amp-bagging-amp-stacking-区别"><a href="#boost-amp-bagging-amp-stacking-区别" class="headerlink" title="boost &amp; bagging &amp; stacking 区别"></a>boost &amp; bagging &amp; stacking 区别</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>算法</th>
+<th>模型</th>
+<th>数据</th>
+<th>作用</th>
+<th>实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bagging</td>
+<td>多个相同不稳定模型</td>
+<td>对数据随机采样，每个模型不同</td>
+<td>减少 variance</td>
+<td>用多个模型平均或投票，并行</td>
+</tr>
+<tr>
+<td>Boosting</td>
+<td>多个相同弱模型</td>
+<td>每次从样本分布不同的数据集采样，上个模型预测错误的数据有更大可能被选择</td>
+<td>减少 bias</td>
+<td>用多个相同弱模型不断拟合残差，减少方差。串行</td>
+</tr>
+<tr>
+<td>Stacking</td>
+<td>多个不同模型</td>
+<td>全部数据</td>
+<td>增强预测效果</td>
+<td>用多个不同模型输出concat后生成一个新的数据后再通过一个分类器输出</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="baggingBagging"><a href="#baggingBagging" class="headerlink" title="baggingBagging"></a>baggingBagging</h2><p>是 bootstrap aggregation的缩写。bagging对于数据集进行取样，每个数据点有同等几率被采样，然后创建n个模型，每个模型进行m个数据采样，最后进行投票（voting）得出最后结果。</p>
+<h1 id="xgboost实现文本分类"><a href="#xgboost实现文本分类" class="headerlink" title="xgboost实现文本分类"></a>xgboost实现文本分类</h1><ul>
+<li>导入相关文件</li>
+</ul>
+<pre><code>  import xgboost as xgb
+  import pandas as pd
+  from sklearn.feature_extraction.text import TfidfVectorizer
+  from sklearn.metrics import f1_score
+</code></pre><ul>
+<li>数据读取并做TF-IDF处理<br>xgboost的输入数据要求为DMatrix类，所以要通过<code>xgb.DMatrix</code>方法进行转化</li>
+</ul>
+<pre><code>  model_path = &quot;./xgboost/&quot;
+
+  train_df = pd.read_csv(&#39;./train_set.csv/train_set.csv&#39;, sep=&#39;\t&#39;, nrows=50000)
+  tfidf = TfidfVectorizer(ngram_range=(1, 3), max_features=5000, smooth_idf=True)
+  label = train_df[&#39;label&#39;]
+train_test = tfidf.fit_transform(train_df[&#39;text&#39;])
+
+  train_data = train_test[:45000]
+  train_label = label[:45000]
+  dtrain = xgb.DMatrix(train_data, label=train_label, nthread=-1)
+
+  test_data = train_test[45000:50000]
+  test_label = label[45000:50000]
+  dtest = xgb.DMatrix(test_data, label=test_label, nthread=-1)
+</code></pre><ul>
+<li>设置训练参数</li>
+</ul>
+<pre><code>  params = &#123;
+        &#39;booster&#39;: &#39;gbtree&#39;,           # gbliner 或 gbtree树模型或者线性模型
+        &#39;objective&#39;: &#39;multi:softmax&#39;,  # 多分类的问题
+        &#39;num_class&#39;: 14,               # 类别数，与 multisoftmax 并用
+        &#39;gamma&#39;: 0.1,                  # 用于控制是否后剪枝的参数,越大越保守，一般0.1、0.2这样子。
+        &#39;max_depth&#39;: 12,               # 构建树的深度，越大越容易过拟合
+        &#39;lambda&#39;: 2,                   # 控制模型复杂度的权重值的L2正则化项参数，参数越大，模型越不容易过拟合。
+        &#39;subsample&#39;: 0.7,              # 随机采样训练样本
+        &#39;colsample_bytree&#39;: 0.7,       # 生成树时进行的列采样
+        &#39;min_child_weight&#39;: 3,         # 最小叶子节点样本权重和
+        &#39;silent&#39;: 1,                   # 设置成1则没有运行信息输出，最好是设置为0.
+        &#39;eta&#39;: 0.1,                  # 学习率
+        &#39;seed&#39;: 1000,
+        &#39;nthread&#39;: 4,                  # cpu 线程数
+&#125;
+</code></pre><ul>
+<li>训练模型并保存</li>
+</ul>
+<pre><code>print(&quot;start train xgboost classifier&quot;)
+xgbc = xgb.train(params, dtrain)  # 初始化xgboost分类器，原生接口默认启用全部线程
+xgbc.save_model(model_path+&#39;xgboost.model&#39;)  # 保存模型
+</code></pre><ul>
+<li>预测结果并打印和_score</li>
+</ul>
+<pre><code>print(&quot;xgboost train over&quot;)
+pre_train = xgbc.predict(xgb.DMatrix(train_data, nthread=-1))   # 训练数据的预测概率矩阵，启用全部线程
+pre_test = xgbc.predict(xgb.DMatrix(test_data, nthread=-1))     # 测试数据的预测概率矩阵，启用全部线程
+
+print(&quot;train data f1score:&quot;)
+print(f1_score(train_label, pre_train, average=&#39;macro&#39;))
+
+print(&quot;test data f1score:&quot;)
+print(f1_score(test_label, pre_test, average=&#39;macro&#39;))
+</code></pre><ul>
+<li><p>输出结果</p>
+<p>  train data f1score:<br>  0.9321652074415424<br>  test data f1score:<br>  0.8822079711934986</p>
+</li>
+</ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/">xgboost 调参指南</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2021/12/05/xgboost-tfidf-nlp/">https://fazziekey.github.io/2021/12/05/xgboost-tfidf-nlp/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NLP/">NLP</a><a class="post-meta__tags" href="/tags/ML/">ML</a><a class="post-meta__tags" href="/tags/xgboost/">xgboost</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/12/13/Lite-Transformer/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">论文解读：Lite Transformer</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/29/TFIDF/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">基于TF-IDF和线性回归的简单文本分类</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/11/29/TFIDF/" title="基于TF-IDF和线性回归的简单文本分类"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-29</div><div class="title">基于TF-IDF和线性回归的简单文本分类</div></div></a></div><div><a href="/2020/07/18/RNN/" title="RNN"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">RNN</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#boost-amp-bagging-amp-stacking-%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">boost &amp; bagging &amp; stacking 区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#baggingBagging"><span class="toc-number">1.1.</span> <span class="toc-text">baggingBagging</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xgboost%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">xgboost实现文本分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

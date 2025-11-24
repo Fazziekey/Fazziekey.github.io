@@ -1,0 +1,838 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS | 摸黑干活</title><meta name="keywords" content="CSS,前端"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CSS基础CSS全称为“层叠样式表 (Cascading Style Sheets)”，它主要是用于定义HTML内容在浏览器内的显示样式，如文字大小、颜色、字体加粗等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS">
+<meta property="og:url" content="https://fazziekey.github.io/2020/07/28/CSS/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="CSS基础CSS全称为“层叠样式表 (Cascading Style Sheets)”，它主要是用于定义HTML内容在浏览器内的显示样式，如文字大小、颜色、字体加粗等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-07-28T15:22:38.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.484Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/07/28/CSS/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CSS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-28T15:22:38.000Z" title="发表于 2020-07-28 23:22:38">2020-07-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.484Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E6%A0%88%E6%BA%A2%E5%87%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E3%80%8B/">《栈溢出工程师》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="CSS基础"><a href="#CSS基础" class="headerlink" title="CSS基础"></a>CSS基础</h1><p>CSS全称为“层叠样式表 (Cascading Style Sheets)”，它主要是用于定义HTML内容在浏览器内的显示样式，如文字大小、颜色、字体加粗等。</p>
+<span id="more"></span>
+<p>如下列代码：</p>
+<pre><code>p&#123;
+   font-size:12px;
+   color:red;
+   font-weight:bold;
+&#125;
+</code></pre><p>使用CSS样式的一个好处是通过定义某个样式，可以让不同网页位置的文字有着统一的字体、字号或者颜色等。</p>
+<h2 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h2><p>css 样式由选择符和声明组成，而声明又由属性和值组成。</p>
+<p>选择符：又称选择器，指明网页中要应用样式规则的元素，如本例中是网页中所有的段（p）的文字将变成蓝色，而其他的元素（如ol）不会受到影响。</p>
+<p>声明：在英文大括号“｛｝”中的的就是声明，属性和值之间用英文冒号“：”分隔。当有多条声明时，中间可以英文分号“;”分隔，如下所示：</p>
+<pre><code>p&#123;font-size:12px;color:red;&#125;
+</code></pre><p>注意：</p>
+<p>1、最后一条声明可以没有分号，但是为了以后修改方便，一般也加上分号。</p>
+<p>2、为了使用样式更加容易阅读，可以将每条代码写在一个新行内，如下所示：</p>
+<pre><code>p&#123;
+   font-size:12px;
+   color:red;
+&#125;
+</code></pre><h3 id="CSS注释"><a href="#CSS注释" class="headerlink" title="CSS注释"></a>CSS注释</h3><p><code>/*注释语句*/</code></p>
+<h2 id="CSS的插入方式"><a href="#CSS的插入方式" class="headerlink" title="CSS的插入方式"></a>CSS的插入方式</h2><p>？从CSS 样式代码插入的形式来看基本可以分为以下3种：内联式、嵌入式和外部式三种。</p>
+<h3 id="内联式"><a href="#内联式" class="headerlink" title="内联式"></a>内联式</h3><p>内联式css样式表就是把css代码直接写在现有的HTML标签中，如下面代码：</p>
+<pre><code>&lt;p style=&quot;color:red&quot;&gt;这里文字是红色。&lt;/p&gt;
+</code></pre><p>注意要写在元素的开始标签里，下面这种写法是错误的：</p>
+<pre><code>&lt;p&gt;这里文字是红色。&lt;/p style=&quot;color:red&quot;&gt;
+</code></pre><p>并且css样式代码要写在style=””双引号中，如果有多条css样式代码设置可以写在一起，中间用分号隔开。如下代码：</p>
+<pre><code>&lt;p style=&quot;color:red;font-size:12px&quot;&gt;这里文字是红色。&lt;/p&gt;
+</code></pre><p><strong>效果</strong></p>
+<p style="color:red;font-size:12px">这里文字是红色。</p>
+
+<h3 id="嵌入式"><a href="#嵌入式" class="headerlink" title="嵌入式"></a>嵌入式</h3><p>嵌入式css样式，就是可以把css样式代码写在<code>&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;</code>标签之间。如下面代码实现把三个<code>&lt;span&gt;</code>标签中的文字设置为红色：</p>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+span&#123;
+color:red;
+&#125;
+&lt;/style&gt;
+</code></pre><p>嵌入式css样式必须写在<code>&lt;style&gt;&lt;/style&gt;</code>之间，并且一般情况下嵌入式css样式写在<code>&lt;head&gt;&lt;/head&gt;</code>之间。如右边编辑器中的代码。</p>
+<h3 id="外部式"><a href="#外部式" class="headerlink" title="外部式"></a>外部式</h3><p>外部式css样式(也可称为外联式)就是把css代码写一个单独的外部文件中，这个css样式文件以“.css”为扩展名，在<code>&lt;head&gt;</code>内（不是在<code>&lt;style&gt;</code>标签内）使用<code>&lt;link&gt;</code>标签将css样式文件链接到HTML文件内，如下面代码：</p>
+<pre><code>&lt;link href=&quot;base.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+</code></pre><p>注意：</p>
+<p>1、css样式文件名称以有意义的英文字母命名，如 main.css。</p>
+<p>2、rel=”stylesheet” type=”text/css” 是固定写法不可修改。</p>
+<p>3、<code>&lt;link&gt;</code>标签位置一般写在<code>&lt;head&gt;</code>标签之内。</p>
+<h3 id="三种方式的优先级"><a href="#三种方式的优先级" class="headerlink" title="三种方式的优先级"></a>三种方式的优先级</h3><p>如果有一种情况：对于同一个元素我们同时用了三种方法设置css样式，那么哪种方法真正有效呢？</p>
+<p>1、使用内联式CSS设置文字为粉色。</p>
+<p>2、然后使用嵌入式CSS来设置文字为红色。</p>
+<p>3、最后又使用外部式设置文字为蓝色（style.css文件中设置）。</p>
+<p>但最终你可以观察到文本被设置为了粉色。因为这三种样式是有优先级的，记住他们的优先级：<strong>内联式 &gt; 嵌入式 &gt; 外部式</strong></p>
+<p>但是嵌入式&gt;外部式有一个前提：嵌入式css样式的位置一定在外部式的后面。如<code>&lt;link href=&quot;style.css&quot; ...&gt;代码在&lt;style type=&quot;text/css&quot;&gt;...&lt;/style&gt;</code></p>
+<p>其实总结来说，就是—就近原则（离被设置元素越近优先级别越高。</p>
+<h1 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h1><h2 id="什么是选择器？"><a href="#什么是选择器？" class="headerlink" title="什么是选择器？"></a>什么是选择器？</h2><p>每一条css样式声明（定义）由两部分组成，形式如下：</p>
+<pre><code>选择器&#123;
+    样式;
+&#125;
+</code></pre><p>在{}之前的部分就是“选择器”，“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+<p>标签选择器其实就是html代码中的标签。如右侧代码编辑器中的<code>&lt;html&gt;、&lt;body&gt;、&lt;h1&gt;、&lt;p&gt;、&lt;img&gt;</code>。例如下面代码：</p>
+<pre><code>p&#123;font-size:12px;line-height:1.6em;&#125;
+</code></pre><p>上面的css样式代码的作用：为p标签设置12px字号，行间距设置1.6em的样式。</p>
+<h2 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h2><p>类选择器在css样式编码中是最常用到的，如右侧代码编辑器中的代码:可以实现为“胆小如鼠”、“勇气”字体设置为红色。</p>
+<p><strong>语法</strong>：</p>
+<pre><code>.类选器名称&#123;css样式代码;&#125;
+</code></pre><p>注意：</p>
+<p>1、英文圆点开头</p>
+<p>2、其中类选器名称可以任意起名（但不要起中文噢）</p>
+<p>使用方法：</p>
+<p>第一步：使用合适的标签把要修饰的内容标记起来，如下：</p>
+<pre><code>&lt;span&gt;胆小如鼠&lt;/span&gt;
+</code></pre><p>第二步：使用class=”类选择器名称”为标签设置一个类，如下：</p>
+<pre><code>&lt;span class=&quot;stress&quot;&gt;胆小如鼠&lt;/span&gt;
+</code></pre><p>第三步：设置类选器css样式，如下：</p>
+<pre><code>.stress&#123;color:red;&#125;/*类前面要加入一个英文圆点*/
+</code></pre><h2 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h2><p>1、使用ID选择器，必须给标签添加上id属性，为标签设置id=”ID名称”，而不是class=”类名称”。</p>
+<p>2、ID选择符的前面是井号（#）号，而不是英文圆点（.）。</p>
+<p>3、id属性的值既为当前标签的id，尽量见名思意，语义化。</p>
+<h2 id="ID和类选择器的区别"><a href="#ID和类选择器的区别" class="headerlink" title="ID和类选择器的区别"></a>ID和类选择器的区别</h2><p><strong>相同点</strong>：可以应用于任何元素</p>
+<p><strong>不同点</strong>：</p>
+<p>1、ID选择器只能在文档中使用一次。与类选择器不同，在一个HTML文档中，ID选择器只能使用一次，而且仅一次。而类选择器可以使用多次。</p>
+<p>下面代码是正确的：</p>
+<pre><code> &lt;p&gt;三年级时，我还是一个&lt;span class=&quot;stress&quot;&gt;胆小如鼠&lt;/span&gt;的小女孩，
+
+ 上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个
+
+ &lt;span class=&quot;stress&quot;&gt;勇气&lt;/span&gt;来回答老师提出的问题。&lt;/p&gt;
+</code></pre><p>而下面代码是错误的：</p>
+<pre><code> &lt;p&gt;三年级时，我还是一个&lt;span id=&quot;stress&quot;&gt;胆小如鼠&lt;/span&gt;的小女孩，
+
+ 上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个&lt;span 
+ id=&quot;stress&quot;&gt;勇气&lt;/span&gt;来回答老师提出的问题。&lt;/p&gt;
+</code></pre><p>2、可以使用类选择器词列表方法为一个元素同时设置多个样式。我们可以为一个元素同时设多个样式，但只可以用类选择器的方法实现，ID选择器是不可以的（不能使用 ID 词列表）。</p>
+<p>下面的代码是正确的</p>
+<pre><code>.stress&#123;
+    color:red;
+&#125;
+.bigsize&#123;
+    font-size:25px;
+&#125;
+&lt;p&gt;到了&lt;span class=&quot;stress bigsize&quot;&gt;三年级&lt;/span&gt;下学期时，我们班上了一节公开课...&lt;/p&gt;
+</code></pre><p>上面代码的作用是为“三年级”三个文字设置文本颜色为红色并且字号为25px。</p>
+<p>下面的代码是不正确的</p>
+<pre><code>#stressid&#123;
+    color:red;
+&#125;
+#bigsizeid&#123;
+    font-size:25px;
+&#125;
+&lt;p&gt;到了&lt;span id=&quot;stressid bigsizeid&quot;&gt;三年级&lt;/span&gt;下学期时，我们班上了一节公开课...&lt;/p&gt;
+</code></pre><p>上面代码不可以实现为“三年级”三个文字设置文本颜色为红色并且字号为25px的作用。</p>
+<h2 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h2><p>还有一个比较有用的选择器子选择器，即大于符号(&gt;),用于选择指定标签元素的第一代子元素。如右侧代码编辑器中的代码：</p>
+<pre><code>.food&gt;li&#123;border:1px solid red;&#125;
+</code></pre><p>这行代码会使class名为food下的子元素li（水果、蔬菜）加入红色实线边框。</p>
+<h2 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h2><p>包含选择器，即加入空格,用于选择指定标签元素下的后辈元素。</p>
+<pre><code>.first  span&#123;color:red;&#125;
+</code></pre><p>请注意这个选择器与子选择器的区别，子选择器（child selector）仅是指它的直接后代，或者你可以理解为作用于子元素的第一代后代。而后代选择器是作用于所有子后代元素。后代选择器通过空格来进行选择，而子选择器是通过“&gt;”进行选择。</p>
+<blockquote>
+<p>总结：&gt;作用于元素的第一代后代，空格作用于元素的所有后代。</p>
+</blockquote>
+<h2 id="通用选择器"><a href="#通用选择器" class="headerlink" title="通用选择器"></a>通用选择器</h2><p>通用选择器是功能最强大的选择器，它使用一个（*）号指定，它的作用是匹配html中所有标签元素，如下使用下面代码使用html中任意标签元素字体颜色全部设置为红色：</p>
+<pre><code>* &#123;color:red;&#125;
+</code></pre><h2 id="伪选择器"><a href="#伪选择器" class="headerlink" title="伪选择器"></a>伪选择器</h2><p>更有趣的是伪类选择符，为什么叫做伪类选择符，它允许给html不存在的标签（标签的某种状态）设置样式，比如说我们给html中一个标签元素的鼠标滑过的状态来设置字体颜色：</p>
+<pre><code>a:hover&#123;color:red;&#125;
+</code></pre><p>上面一行代码就是为 a 标签鼠标滑过的状态设置字体颜色变红。这样就会使第一段文字内容中的“胆小如鼠”文字加入鼠标滑过字体颜色变为红色特效。</p>
+<h2 id="分组选择器"><a href="#分组选择器" class="headerlink" title="分组选择器"></a>分组选择器</h2><p>当你想为html中多个标签元素设置同一个样式时，可以使用分组选择符（，），如下代码为右侧代码编辑器中的h1、span标签同时设置字体颜色为红色：</p>
+<pre><code>h1,span&#123;color:red;&#125;
+</code></pre><p>它相当于下面两行代码：</p>
+<pre><code>h1&#123;color:red;&#125;
+span&#123;color:red;&#125;
+</code></pre><h2 id="CSS的继承"><a href="#CSS的继承" class="headerlink" title="CSS的继承"></a>CSS的继承</h2><p>CSS的某些样式是具有继承性的，那么什么是继承呢？继承是一种规则，它允许样式不仅应用于某个特定html标签元素，而且应用于其后代。比如下面代码：如某种颜色应用于p标签，这个颜色设置不仅应用p标签，还应用于p标签中的所有子元素文本，这里子元素为span标签。</p>
+<pre><code>p&#123;color:red;&#125;
+
+&lt;p&gt;三年级时，我还是一个&lt;span&gt;胆小如鼠&lt;/span&gt;的小女孩。&lt;/p&gt;
+</code></pre><p>可见右侧结果窗口中p中的文本与span中的文本都设置为了红色。但注意有一些css样式是不具有继承性的。如border:1px solid red;</p>
+<pre><code>p&#123;border:1px solid red;&#125;
+
+&lt;p&gt;三年级时，我还是一个&lt;span&gt;胆小如鼠&lt;/span&gt;的小女孩。&lt;/p&gt;
+</code></pre><p>在上面例子中它代码的作用只是给p标签设置了边框为1像素、红色、实心边框线，而对于子元素span是没用起到作用的。</p>
+<h2 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h2><p>1、如果一个元素使用了多个选择器,则会按照选择器的优先级来给定样式。</p>
+<p>2、选择器的优先级依次是: 内联样式 &gt; id选择器 &gt; 类选择器 &gt; 标签选择器 &gt; 通配符选择器</p>
+<h2 id="标签权值"><a href="#标签权值" class="headerlink" title="标签权值"></a>标签权值</h2><p>有的时候我们为同一个元素设置了不同的CSS样式代码，那么元素会启用哪一个CSS样式呢？下面我们一起来看一下代码：</p>
+<pre><code>p&#123;color:red;&#125;
+.first&#123;color:green;&#125;
+&lt;p class=&quot;first&quot;&gt;三年级时，我还是一个&lt;span&gt;胆小如鼠&lt;/span&gt;的小女孩。&lt;/p&gt;
+</code></pre><p>p和.first都匹配到了p这个标签上，那么会显示哪种颜色呢？green是正确的颜色，那么为什么呢？是因为浏览器是根据权值来判断使用哪种css样式的，权值高的就使用哪种css样式。</p>
+<p>下面是权值的规则：</p>
+<p>标签的权值为1，类选择符的权值为10，ID选择符的权值最高为100。例如下面的代码：</p>
+<pre><code>p&#123;color:red;&#125; /*权值为1*/
+p span&#123;color:green;&#125; /*权值为1+1=2*/
+.warning&#123;color:white;&#125; /*权值为10*/
+p span.warning&#123;color:purple;&#125; /*权值为1+1+10=12*/
+#footer .note p&#123;color:yellow;&#125; /*权值为100+10+1=111*/
+</code></pre><p>注意：还有一个权值比较特殊—继承也有权值但很低，有的文献提出它只有0.1，所以可以理解为继承的权值最低。</p>
+<h2 id="最高优先级"><a href="#最高优先级" class="headerlink" title="最高优先级"></a>最高优先级</h2><p>我们在做网页代码的时，有些特殊的情况需要为某些样式设置具有最高权值，怎么办？这时候我们可以使用!important来解决。</p>
+<p>如下代码：</p>
+<pre><code>p&#123;color:red!important;&#125;
+p&#123;color:green;&#125;
+&lt;p class=&quot;first&quot;&gt;三年级时，我还是一个&lt;span&gt;胆小如鼠&lt;/span&gt;的小女孩。&lt;/p&gt;
+这时 p 段落中的文本会显示的red红色。
+</code></pre><p>注意：<strong>!important</strong>要写在分号的前面</p>
+<p>这里注意当网页制作者不设置css样式时，浏览器会按照自己的一套样式来显示网页。并且用户也可以在浏览器中设置自己习惯的样式，比如有的用户习惯把字号设置为大一些，使其查看网页的文本更加清楚。这时注意样式优先级为：<strong>浏览器默认的样式 &lt; 网页制作者样式 &lt; 用户自己设置的样式</strong>，但记住!important优先级样式是个例外，权值高于用户自己设置的样式。</p>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><h2 id="更换字体"><a href="#更换字体" class="headerlink" title="更换字体"></a>更换字体</h2><p>我们可以使用css样式为网页中的文字设置字体、字号、颜色等样式属性。下面我们来看一个例子，下面代码实现：为网页中的文字设置字体为宋体。</p>
+<pre><code>body&#123;font-family:&quot;宋体&quot;;&#125;
+</code></pre><p>这里注意不要设置不常用的字体，因为如果用户本地电脑上如果没有安装你设置的字体，就会显示浏览器默认的字体。（因为用户是否可以看到你设置的字体样式取决于用户本地电脑上是否安装你设置的字体。）<br>现在一般网页喜欢设置“微软雅黑”，如下代码：</p>
+<pre><code>body&#123;font-family:&quot;Microsoft Yahei&quot;;&#125;
+</code></pre><p>或</p>
+<pre><code>body&#123;font-family:&quot;微软雅黑&quot;;&#125;
+</code></pre><p>注意：第一种方法比第二种方法兼容性更好一些。</p>
+<h2 id="字体大小、加粗、倾斜"><a href="#字体大小、加粗、倾斜" class="headerlink" title="字体大小、加粗、倾斜"></a>字体大小、加粗、倾斜</h2><p>可以使用下面代码设置网页中文字的字号为12像素：</p>
+<pre><code>body&#123;font-size:12px;&#125;
+</code></pre><p>我们还可以使用css样式来改变文字的样式：粗体、斜体、下划线、删除线，可以使用下面代码实现设置文字以粗体样式显示出来。</p>
+<pre><code>p span&#123;font-weight:bold;&#125;
+</code></pre><p>1、font-style可以设置字体样式，并且有种3设置方式。</p>
+<p>2、正常字体为normal,也是font-style的默认值。</p>
+<p>3、italic为设置字体为斜体，用于字体本身就有倾斜的样式。</p>
+<p>4、oblique为设置倾斜的字体，强制将字体倾斜。</p>
+<pre><code>p&#123;font-style:italic&#125;
+</code></pre><h2 id="字体颜色"><a href="#字体颜色" class="headerlink" title="字体颜色"></a>字体颜色</h2><p>技术点的解释：</p>
+<p>1、color属性可以设置字体颜色。</p>
+<p>2、color的值有3种设置方式：</p>
+<p>英文命令颜色</p>
+<pre><code>p&#123;color:red;&#125;
+</code></pre><p>RGB颜色<br>这个与 photoshop 中的 RGB 颜色是一致的，由 R(red)、G(green)、B(blue) 三种颜色的比例来配色。</p>
+<pre><code>p&#123;color:rgb(133,45,200);&#125;
+</code></pre><p>每一项的值可以是 0~255 之间的整数，也可以是 0%~100% 的百分数。如：</p>
+<pre><code>p&#123;color:rgb(20%,33%,25%);&#125;
+</code></pre><p>十六进制颜色<br>这种颜色设置方法是现在比较普遍使用的方法，其原理其实也是 RGB 设置，但是其每一项的值由 0-255 变成了十六进制 00-ff。</p>
+<pre><code>p&#123;color:#00ffff;&#125;
+</code></pre><h2 id="font字体简写"><a href="#font字体简写" class="headerlink" title="font字体简写"></a>font字体简写</h2><p>网页中的字体css样式代码也有他自己的缩写方式，下面是给网页设置字体的代码：</p>
+<pre><code>body&#123;
+    font-style:italic;
+    font-weight:bold; 
+    font-size:12px; 
+    line-height:1.5em; 
+    font-family:&quot;宋体&quot;,sans-serif;
+&#125;
+</code></pre><p>这么多行的代码其实可以缩写为一句：</p>
+<pre><code>body&#123;
+    font:italic  bold  12px/1.5em  &quot;宋体&quot;,sans-serif;
+&#125;
+</code></pre><p>注意：</p>
+<p>1、使用这一简写方式你至少要指定 font-size 和 font-family 属性，其他的属性(如 font-weight、font-style、font-variant、line-height)如未指定将自动使用默认值。</p>
+<p>2、在缩写时 font-size 与 line-height 中间要加入“/”斜扛。</p>
+<p>一般情况下因为对于中文网站，英文还是比较少的，所以下面缩写代码比较常用：</p>
+<pre><code>body&#123;
+    font:12px/1.5em  &quot;宋体&quot;,sans-serif;
+&#125;
+</code></pre><p>只是有字号、行间距、中文字体、英文字体设置。</p>
+<h1 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h1><h2 id="划线"><a href="#划线" class="headerlink" title="划线"></a>划线</h2><p>1、text-decoration可以设置添加到文本的修饰。</p>
+<p>2、text-decoration默认值为none, 定义标准的文本。</p>
+<p>3、text-decoration的值为underline为定义文本下的一条线。</p>
+<p>4、text-decoration的值为overline为定义文本上的一条线。</p>
+<p>5、text-decoration的值为line-through为定义穿过文本下的一条线，一般用于商品折扣价。</p>
+<h2 id="首行缩进"><a href="#首行缩进" class="headerlink" title="首行缩进"></a>首行缩进</h2><p><strong>语法</strong></p>
+<pre><code>p&#123;text-indent:2em;&#125;
+</code></pre><h2 id="行间距"><a href="#行间距" class="headerlink" title="行间距"></a>行间距</h2><pre><code>p&#123;line-height:1.5em;&#125;
+</code></pre><h2 id="字符间距"><a href="#字符间距" class="headerlink" title="字符间距"></a>字符间距</h2><p>中文字间隔、字母间隔设置：</p>
+<p>如果想在网页排版中设置文字间隔或者字母间隔就可以使用    letter-spacing 来实现，如下面代码：</p>
+<pre><code>h1&#123;
+    letter-spacing:50px;
+&#125;
+...
+&lt;h1&gt;了不起的盖茨比&lt;/h1&gt;
+</code></pre><p>注意：这个样式使用在英文单词时，是设置字母与字母之间的间距。</p>
+<p>单词间距设置：</p>
+<p>如果我想设置英文单词之间的间距呢？可以使用 word-spacing 来实现。如下代码：</p>
+<pre><code>h1&#123;
+    word-spacing:50px;
+&#125;
+...
+&lt;h1&gt;welcome to imooc!&lt;/h1&gt;
+</code></pre><h2 id="排列方式"><a href="#排列方式" class="headerlink" title="排列方式"></a>排列方式</h2><p>想为块状元素中的文本、图片设置居中样式，可以使用text-align样式代码，如下代码可实现文本居中显示。</p>
+<pre><code>h1&#123;
+    text-align:center;
+&#125;
+&lt;h1&gt;了不起的盖茨比&lt;/h1&gt;
+</code></pre><p>同样可以设置居左：</p>
+<pre><code>h1&#123;
+    text-align:left;
+&#125;
+&lt;h1&gt;了不起的盖茨比&lt;/h1&gt;
+</code></pre><p>还可以设置居右：</p>
+<pre><code>h1&#123;
+    text-align:right;
+&#125;
+&lt;h1&gt;了不起的盖茨比&lt;/h1&gt;
+</code></pre><h2 id="长度值"><a href="#长度值" class="headerlink" title="长度值"></a>长度值</h2><p>长度单位总结一下，目前比较常用到px（像素）、em、% 百分比，要注意其实这三种单位都是相对单位。</p>
+<p>1、像素</p>
+<p>像素为什么是相对单位呢？因为像素指的是显示器上的小点（CSS规范中假设“90像素=1英寸”）。实际情况是浏览器会使用显示器的实际像素值有关，在目前大多数的设计者都倾向于使用像素（px）作为单位。</p>
+<p>2、em</p>
+<p>就是本元素给定字体的 font-size 值，如果元素的 font-size 为 14px ，那么 1em = 14px；如果 font-size 为 18px，那么 1em = 18px。如下代码：</p>
+<pre><code>p&#123;font-size:12px;text-indent:2em;&#125;
+</code></pre><p>上面代码就是可以实现段落首行缩进 24px（也就是两个字体大小的距离）。</p>
+<p>下面注意一个特殊情况：</p>
+<p>但当给 font-size 设置单位为 em 时，此时计算的标准以 p 的父元素的 font-size 为基础。如下代码：</p>
+<p>html:</p>
+<pre><code>&lt;p&gt;以这个&lt;span&gt;例子&lt;/span&gt;为例。&lt;/p&gt;
+</code></pre><p>css:</p>
+<pre><code>p&#123;font-size:14px&#125;
+span&#123;font-size:0.8em;&#125;
+</code></pre><p>结果 span 中的字体“例子”字体大小就为 11.2px（14 * 0.8 = 11.2px）。</p>
+<p>3、百分比</p>
+<pre><code>p&#123;font-size:12px;line-height:130%&#125;
+</code></pre><p>设置行高（行间距）为字体的130%（12 * 1.3 = 15.6px）。</p>
+<h1 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h1><h2 id="元素分类"><a href="#元素分类" class="headerlink" title="元素分类"></a>元素分类</h2><p>在CSS中，html中的标签元素大体被分为三种不同的类型：块状元素、内联元素(又叫行内元素)和内联块状元素。</p>
+<p>常用的块状元素有：</p>
+<p><code>&lt;div&gt;、&lt;p&gt;、&lt;h1&gt;...&lt;h6&gt;、&lt;ol&gt;、&lt;ul&gt;、&lt;dl&gt;、&lt;table&gt;、&lt;address&gt;、&lt;blockquote&gt; 、&lt;form&gt;</code></p>
+<p>常用的内联元素有：</p>
+<p><code>&lt;a&gt;、&lt;span&gt;、&lt;br&gt;、&lt;i&gt;、&lt;em&gt;、&lt;strong&gt;、&lt;label&gt;、&lt;q&gt;、&lt;var&gt;、&lt;cite&gt;、&lt;code&gt;</code></p>
+<p>常用的内联块状元素有：</p>
+<p><code>&lt;img&gt;、&lt;input&gt;</code></p>
+<h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><p>什么是块级元素？在html中<code>&lt;div&gt;、 &lt;p&gt;、&lt;h1&gt;、&lt;form&gt;、&lt;ul&gt;</code>和 <code>&lt;li&gt;</code>就是块级元素。设置display:block就是将元素显示为块级元素。如下代码就是将内联元素a转换为块状元素，从而使a元素具有块状元素特点。</p>
+<p><code>a&#123;display:block;&#125;</code><br>块级元素特点：</p>
+<p>1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。</p>
+<p>2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+<p>3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。</p>
+<h2 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h2><p>在html中，<code>&lt;span&gt;、&lt;a&gt;、&lt;label&gt;、 &lt;strong&gt;</code> 和<code>&lt;em&gt;</code>就是典型的内联元素（行内元素）（inline）元素。当然块状元素也可以通过代码display:inline将元素设置为内联元素。如下代码就是将块状元素div转换为内联元素，从而使 div 元素具有内联元素特点。</p>
+<pre><code> div&#123;
+     display:inline;
+ &#125;
+
+......
+
+&lt;div&gt;我要变成内联元素&lt;/div&gt;
+内联元素特点：
+</code></pre><p>1、和其他元素都在一行上；</p>
+<p>2、元素的高度、宽度及顶部和底部边距不可设置；</p>
+<p>3、元素的宽度就是它包含的文字或图片的宽度，不可改变。</p>
+<h2 id="内联块状元素"><a href="#内联块状元素" class="headerlink" title="内联块状元素"></a>内联块状元素</h2><p>内联块状元素（inline-block）就是同时具备内联元素、块状元素的特点，代码display:inline-block就是将元素设置为内联块状元素。(css2.1新增)，<code>&lt;img&gt;、&lt;input&gt;</code>标签就是这种内联块状标签。</p>
+<p>inline-block 元素特点：</p>
+<p>1、和其他元素都在一行上；</p>
+<p>2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+<h2 id="元素隐藏"><a href="#元素隐藏" class="headerlink" title="元素隐藏"></a>元素隐藏</h2><p>none设置此元素不会被显示，当想要元素隐藏的时候可以使用此值。</p>
+<h2 id="盒子模型长宽"><a href="#盒子模型长宽" class="headerlink" title="盒子模型长宽"></a>盒子模型长宽</h2><p>盒模型宽度和高度和我们平常所说的物体的宽度和高度理解是不一样的，css内定义的宽（width）和高（height），指的是填充以里的内容范围。</p>
+<p>因此一个元素实际宽度（盒子的宽度）=左边界+左边框+左填充+内容宽度+右填充+右边框+右边界。<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/28/50582b4bd6adf5aa7daf256cb59cb258.png" alt=""></p>
+<p>元素的高度也是同理。</p>
+<p>比如：</p>
+<p>css代码：</p>
+<pre><code>div&#123;
+    width:200px;
+    padding:20px;
+    border:1px solid red;
+    margin:10px;    
+&#125;
+</code></pre><p>html代码：</p>
+<pre><code>&lt;body&gt;
+   &lt;div&gt;文本内容&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>元素的实际长度为：10px+1px+20px+200px+20px+1px+10px=262px。在chrome浏览器下可查看元素盒模型，如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/07/28/443afb8d1153a2a42ea2552f6f477c0b.png" alt=""></p>
+<h2 id="设置背景色"><a href="#设置背景色" class="headerlink" title="设置背景色"></a>设置背景色</h2><p>网页中的标签不论是行内元素还是块状元素都可以给它设置一个背景色。</p>
+<p>为标签设置背景颜色可以使background-color:颜色值来实现。</p>
+<p>例子如下：</p>
+<pre><code>div&#123;background-color:red;&#125;//为块状元素设置
+a&#123;background-color:green;&#125;//为行内元素设置
+</code></pre><h2 id="盒子边框"><a href="#盒子边框" class="headerlink" title="盒子边框"></a>盒子边框</h2><p>盒子模型的边框就是围绕着内容及补白的线，这条线你可以设置它的粗细、样式和颜色(边框三个属性)。</p>
+<p>如下面代码为 div 来设置边框粗细为 2px、样式为实心的、颜色为红色的边框：</p>
+<pre><code>div&#123;
+    border:2px  solid  red;
+&#125;
+</code></pre><p>上面是 border 代码的缩写形式，可以分开写：</p>
+<pre><code>div&#123;
+    border-width:2px;
+    border-style:solid;
+    border-color:red;
+&#125;
+</code></pre><p>注意：</p>
+<p>1、border-style（边框样式）常见样式有：</p>
+<p>dashed（虚线）| dotted（点线）| solid（实线）。</p>
+<p>2、border-color（边框颜色）中的颜色可设置为十六进制颜色，如:</p>
+<pre><code>border-color:#888;//前面的井号不要忘掉。
+</code></pre><p>3、border-width（边框宽度）中的宽度也可以设置为：</p>
+<p>thin | medium | thick（但不是很常用），最常还是用像素（px）。</p>
+<h3 id="特定边框"><a href="#特定边框" class="headerlink" title="特定边框"></a>特定边框</h3><p>现在有一个问题，如果有想为 p 标签单独设置下边框，而其它三边都不设置边框样式怎么办呢？css 样式中允许只为一个方向的边框设置样式：</p>
+<pre><code>div&#123;border-bottom:1px solid red;&#125;
+</code></pre><p>同样可以使用下面代码实现其它三边(上、右、左)边框的设置：</p>
+<pre><code>border-top:1px solid red;
+border-right:1px solid red; 
+border-left:1px solid red;
+</code></pre><h2 id="加入圆角"><a href="#加入圆角" class="headerlink" title="加入圆角"></a>加入圆角</h2><p>元素边框的圆角效果可以使用border-radius属性来设置。圆角可分为左上、右上、右下、左下。如下代码：</p>
+<pre><code> div&#123;border-radius: 20px 10px 15px 30px;&#125;
+</code></pre><p>也可以分开写：</p>
+<pre><code>div&#123;
+    border-top-left-radius: 20px;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 15px;
+   border-bottom-left-radius: 30px;
+&#125;
+</code></pre><p>如果四个圆角都为10px;可以这么写：</p>
+<pre><code>div&#123; border-radius:10px;&#125;
+</code></pre><p>如果左上角和右下角圆角效果一样为10px，右上角和左下角圆角一样为20px，可以这么写：</p>
+<pre><code>div&#123; border-radius:10px 20px;&#125;
+</code></pre><p>需要特别注意的：一个正方形，当设置圆角效果值为元素宽度一半时，显示效果为圆形。例如：</p>
+<pre><code> div &#123;
+        width: 200px;
+        height: 200px;
+        border: 5px solid red;
+        border-radius: 100px;
+    &#125;
+</code></pre><p>也可以写为百分比50%</p>
+<pre><code> div &#123;
+        width: 200px;
+        height: 200px;
+        border: 5px solid red;
+        border-radius: 100px;
+    &#125;
+</code></pre><h2 id="设置内边距"><a href="#设置内边距" class="headerlink" title="设置内边距"></a>设置内边距</h2><p>元素内容与边框之间是可以设置距离的，称之为“内边距（填充）”。填充也可分为上、右、下、左(顺时针)。如下代码：</p>
+<pre><code>div&#123;padding:20px 10px 15px 30px;&#125;
+</code></pre><p>顺序一定不要搞混。可以分开写上面代码：</p>
+<pre><code>div&#123;
+   padding-top:20px;
+   padding-right:10px;
+   padding-bottom:15px;
+   padding-left:30px;
+&#125;
+</code></pre><p>如果上、右、下、左的填充都为10px;可以这么写</p>
+<pre><code>div&#123;padding:10px;&#125;
+</code></pre><p>如果上下填充一样为10px，左右一样为20px，可以这么写：</p>
+<pre><code>div&#123;padding:10px 20px;&#125;
+</code></pre><h2 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h2><p>元素与其它元素之间的距离可以使用边界（margin）来设置。边界也是可分为上、右、下、左。如下代码：</p>
+<pre><code>div&#123;margin:20px 10px 15px 30px;&#125;
+</code></pre><p>也可以分开写：</p>
+<pre><code>div&#123;
+   margin-top:20px;
+   margin-right:10px;
+   margin-bottom:15px;
+   margin-left:30px;
+&#125;
+</code></pre><p>如果上右下左的边界都为10px;可以这么写：</p>
+<pre><code>div&#123; margin:10px;&#125;
+</code></pre><p>如果上下边界一样为10px，左右一样为20px，可以这么写：</p>
+<pre><code>div&#123; margin:10px 20px;&#125;
+</code></pre><p>总结一下：padding和margin的区别，padding在边框里，margin在边框外。</p>
+<h1 id="CSS布局模型"><a href="#CSS布局模型" class="headerlink" title="CSS布局模型"></a>CSS布局模型</h1><p>布局模型与盒模型一样都是 CSS3 最基本、 最核心的概念。 但布局模型是建立在盒模型基础之上，又不同于我们常说的 CSS3 布局样式或 CSS3 布局模板。如果说布局模型是本，那么 CSS3 布局模板就是末了，是外在的表现形式。<br>CSS3包含3种基本的布局模型，用英文概括为：Flow、Layer 和 Float。<br>在网页中，元素有三种布局模型：</p>
+<p>1、流动模型（Flow）</p>
+<p>2、浮动模型 (Float)</p>
+<p>3、层模型（Layer）</p>
+<h2 id="流动模型"><a href="#流动模型" class="headerlink" title="流动模型"></a>流动模型</h2><p>流动（Flow）是默认的网页布局模式。也就是说网页在默认状态下的 HTML 网页元素都是根据流动模型来分布网页内容的。</p>
+<p>流动布局模型具有2个比较典型的特征：</p>
+<p>第一点，块状元素都会在所处的包含元素内自上而下按顺序垂直延伸分布，因为在默认状态下，块状元素的宽度都为100%。实际上，块状元素都会以行的形式占据位置。如右侧代码编辑器中三个块状元素标签(div，h1，p)宽度显示为100%。</p>
+<p>第二点，在流动模型下，内联元素都会在所处的包含元素内从左到右水平分布显示。</p>
+<h2 id="浮动模型"><a href="#浮动模型" class="headerlink" title="浮动模型"></a>浮动模型</h2><p>任何元素在默认情况下是不能浮动的，但可以用 CSS 定义为浮动，如 div、p、table、img 等元素都可以被定义为浮动。如下代码可以实现两个 div 元素一行显示。</p>
+<pre><code>div&#123;
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    float:left;
+&#125;
+</code></pre><p>当然你也可以同时设置两个元素右浮动也可以实现一行显示。</p>
+<pre><code>div&#123;
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    float:right;
+&#125;
+</code></pre><p>两个元素一左一右可以实现一行显示吗？</p>
+<pre><code>div&#123;
+    width:200px;
+    height:200px;
+    border:2px red solid;
+&#125;
+</code></pre><h2 id="层模型"><a href="#层模型" class="headerlink" title="层模型"></a>层模型</h2><p>什么是层布局模型？层布局模型就像是图像软件PhotoShop中非常流行的图层编辑功能一样，每个图层能够精确定位操作，但在网页设计领域，由于网页大小的活动性，层布局没能受到热捧。但是在网页上局部使用层布局还是有其方便之处的。</p>
+<p>如何让html元素在网页中精确定位，就像图像软件PhotoShop中的图层一样可以对每个图层能够精确定位操作。CSS定义了一组定位（positioning）属性来支持层布局模型。</p>
+<p>层模型有三种形式：</p>
+<p>1、绝对定位(position: absolute)</p>
+<p>2、相对定位(position: relative)</p>
+<p>3、固定定位(position: fixed)</p>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><p>如果想为元素设置层模型中的绝对定位，需要设置position:absolute(表示绝对定位)，这条语句的作用将元素从文档流中拖出来，然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。</p>
+<p>如下面代码可以实现div元素相对于浏览器窗口向右移动100px，向下移动50px。</p>
+<pre><code>div&#123;
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:absolute;
+    left:100px;
+    top:50px;
+&#125;
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+</code></pre><h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2><pre><code>如果想为元素设置层模型中的相对定位，需要设置position:relative（表示相对定位），它通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，移动的方向和幅度由left、right、top、bottom属性确定，偏移前的位置保留不动。
+</code></pre><p>如下代码实现相对于以前位置向下移动50px，向右移动100px;</p>
+<pre><code>#div1&#123;
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:relative;
+    left:100px;
+    top:50px;
+&#125;
+
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+</code></pre><h3 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h3><p>fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。以下代码可以实现相对于浏览器视图向右移动100px，向下移动50px。并且拖动滚动条时位置固定不变。</p>
+<pre><code>#div1&#123;
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:fixed;
+    left:100px;
+    top:50px;
+&#125;
+</code></pre><h2 id="Relative与Absolute组合使用"><a href="#Relative与Absolute组合使用" class="headerlink" title="Relative与Absolute组合使用"></a>Relative与Absolute组合使用</h2><p>1、参照定位的元素必须是相对定位元素的前辈元素：</p>
+<pre><code>&lt;div id=&quot;box1&quot;&gt;&lt;!--参照定位的元素--&gt;
+    &lt;div id=&quot;box2&quot;&gt;相对参照元素进行定位&lt;/div&gt;&lt;!--相对定位元素--&gt;
+&lt;/div&gt;
+</code></pre><p>从上面代码可以看出box1是box2的父元素（父元素当然也是前辈元素了）。</p>
+<p>2、参照定位的元素必须加入position:relative;</p>
+<pre><code>#box1&#123;
+    width:200px;
+    height:200px;
+    position:relative;        
+&#125;
+</code></pre><p>3、定位元素加入position:absolute，便可以使用top、bottom、left、right来进行偏移定位了。</p>
+<pre><code>#box2&#123;
+    position:absolute;
+    top:20px;
+    left:30px;         
+&#125;
+</code></pre><p>这样box2就可以相对于父元素box1定位了（这里注意参照物就可以不是浏览器了，而可以自由设置了）。</p>
+<h1 id="弹性盒模型"><a href="#弹性盒模型" class="headerlink" title="弹性盒模型"></a>弹性盒模型</h1><pre><code>&lt;style type=&quot;text/css&quot;&gt;
+    .box &#123;
+        background: blue;
+        display: flex;
+    &#125;
+
+    .box div &#123;
+        width: 200px;
+        height: 200px;
+    &#125;
+
+    .box1 &#123;
+        background: red;
+    &#125;
+
+    .box2 &#123;
+        background: orange;
+    &#125;
+
+    .box3 &#123;
+        background: green;
+    &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>上面的代码：</p>
+<p>三个块元素设置大小以及背景色，在父容器中添加flex。</p>
+<p>技术点的解释：</p>
+<p>1、设置display: flex属性可以把块级元素在一排显示。</p>
+<p>2、flex需要添加在父元素上，改变子元素的排列顺序。</p>
+<p>3、默认为从左往右依次排列,且和父元素左边没有间隙。</p>
+<h2 id="横轴排列"><a href="#横轴排列" class="headerlink" title="横轴排列"></a>横轴排列</h2><p>justify-content属性，本属性定义了项目在主轴上的对齐方式。结合上一节的布局例子进行理解，属性值分别为：</p>
+<pre><code> justify-content: flex-start | flex-end | center | space-between | space-around;
+</code></pre><p>flex-start：交叉轴的起点对齐</p>
+<pre><code> .box &#123;
+        background: blue;
+        display: flex;
+        justify-content: flex-start;
+    &#125;
+</code></pre><p>flex-end：右对齐</p>
+<pre><code> .box &#123;
+        background: blue;
+        display: flex;
+        justify-content: flex-end;
+    &#125;
+</code></pre><p>center： 居中</p>
+<pre><code> .box &#123;
+        background: blue;
+        display: flex;
+        justify-content: center;
+    &#125;
+</code></pre><p>space-between：两端对齐，项目之间的间隔都相等。</p>
+<pre><code> .box &#123;
+        background: blue;
+        display: flex;
+        justify-content: space-between;
+    &#125;
+</code></pre><p>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
+<pre><code>.box &#123;
+        background: blue;
+        display: flex;
+        justify-content: space-around;
+    &#125;
+</code></pre><h2 id="竖轴"><a href="#竖轴" class="headerlink" title="竖轴"></a>竖轴</h2><p>align-items属性定义了项目在交叉轴上的对齐方式。属性值分别为：</p>
+<p>align-items: flex-start | flex-end | center | baseline | stretch;<br>结合右侧编辑器中的布局以及下面的样式设置进行理解：</p>
+<p>flex-start：默认值，左对齐</p>
+<pre><code>   .box &#123;
+        height: 700px;
+        background: blue;
+        display: flex;
+        align-items: flex-start;
+    &#125;
+</code></pre><p>flex-end：交叉轴的终点对齐</p>
+<pre><code> .box &#123;
+        height: 700px;
+        background: blue;
+        display: flex;
+        align-items: flex-end;
+    &#125;
+</code></pre><p>center： 交叉轴的中点对齐</p>
+<pre><code>.box &#123;
+        height: 700px;
+        background: blue;
+        display: flex;
+        align-items: center;
+    &#125;
+</code></pre><p>baseline：项目的第一行文字的基线对齐。</p>
+<pre><code>.box &#123;
+        height: 700px;
+        background: blue;
+        display: flex;
+        align-items: baseline;
+    &#125;
+</code></pre><p>三个盒子中设置不同的字体大小，可以参考右侧编辑器中的代码进行测试。</p>
+<p>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+<pre><code> .box &#123;
+        height: 300px;
+        background: blue;
+        display: flex;
+        align-items: stretch;
+    &#125;
+
+.box div &#123;
+    /*不设置高度，元素在垂直方向上铺满父容器*/
+    width: 200px;
+&#125;
+</code></pre><h2 id="子元素占比"><a href="#子元素占比" class="headerlink" title="子元素占比"></a>子元素占比</h2><p>1、给子元素设置flex属性,可以设置子元素相对于父元素的占比。</p>
+<p>2、flex属性的值只能是正整数,表示占比多少。</p>
+<p>3、给子元素设置了flex之后,其宽度属性会失效。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/07/28/CSS/">https://fazziekey.github.io/2020/07/28/CSS/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CSS/">CSS</a><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/07/31/JS-Basic/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JS Basic</div></div></a></div><div class="next-post pull-right"><a href="/2020/07/28/HTML/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HTML</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/07/28/HTML/" title="HTML"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-28</div><div class="title">HTML</div></div></a></div><div><a href="/2020/07/31/JS-Basic/" title="JS Basic"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-31</div><div class="title">JS Basic</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">CSS基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">CSS语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.1.</span> <span class="toc-text">CSS注释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E7%9A%84%E6%8F%92%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">CSS的插入方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">内联式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">嵌入式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%BC%8F"><span class="toc-number">1.2.3.</span> <span class="toc-text">外部式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.2.4.</span> <span class="toc-text">三种方式的优先级</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">CSS选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">什么是选择器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">类选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ID%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">ID选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ID%E5%92%8C%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.4.</span> <span class="toc-text">ID和类选择器的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.5.</span> <span class="toc-text">子选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.6.</span> <span class="toc-text">后代选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.7.</span> <span class="toc-text">通用选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.8.</span> <span class="toc-text">伪选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.9.</span> <span class="toc-text">分组选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="toc-number">2.10.</span> <span class="toc-text">CSS的继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.11.</span> <span class="toc-text">选择器优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E6%9D%83%E5%80%BC"><span class="toc-number">2.12.</span> <span class="toc-text">标签权值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E9%AB%98%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.13.</span> <span class="toc-text">最高优先级</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E4%BD%93"><span class="toc-number">3.</span> <span class="toc-text">字体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93"><span class="toc-number">3.1.</span> <span class="toc-text">更换字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E3%80%81%E5%8A%A0%E7%B2%97%E3%80%81%E5%80%BE%E6%96%9C"><span class="toc-number">3.2.</span> <span class="toc-text">字体大小、加粗、倾斜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2"><span class="toc-number">3.3.</span> <span class="toc-text">字体颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#font%E5%AD%97%E4%BD%93%E7%AE%80%E5%86%99"><span class="toc-number">3.4.</span> <span class="toc-text">font字体简写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">文本样式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%92%E7%BA%BF"><span class="toc-number">4.1.</span> <span class="toc-text">划线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B"><span class="toc-number">4.2.</span> <span class="toc-text">首行缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E9%97%B4%E8%B7%9D"><span class="toc-number">4.3.</span> <span class="toc-text">行间距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E9%97%B4%E8%B7%9D"><span class="toc-number">4.4.</span> <span class="toc-text">字符间距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%88%97%E6%96%B9%E5%BC%8F"><span class="toc-number">4.5.</span> <span class="toc-text">排列方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%BF%E5%BA%A6%E5%80%BC"><span class="toc-number">4.6.</span> <span class="toc-text">长度值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">CSS盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%88%86%E7%B1%BB"><span class="toc-number">5.1.</span> <span class="toc-text">元素分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-number">5.2.</span> <span class="toc-text">块元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0"><span class="toc-number">5.3.</span> <span class="toc-text">内联元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%9D%97%E7%8A%B6%E5%85%83%E7%B4%A0"><span class="toc-number">5.4.</span> <span class="toc-text">内联块状元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E9%9A%90%E8%97%8F"><span class="toc-number">5.5.</span> <span class="toc-text">元素隐藏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E9%95%BF%E5%AE%BD"><span class="toc-number">5.6.</span> <span class="toc-text">盒子模型长宽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E8%89%B2"><span class="toc-number">5.7.</span> <span class="toc-text">设置背景色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E5%AD%90%E8%BE%B9%E6%A1%86"><span class="toc-number">5.8.</span> <span class="toc-text">盒子边框</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E8%BE%B9%E6%A1%86"><span class="toc-number">5.8.1.</span> <span class="toc-text">特定边框</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E5%9C%86%E8%A7%92"><span class="toc-number">5.9.</span> <span class="toc-text">加入圆角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%86%85%E8%BE%B9%E8%B7%9D"><span class="toc-number">5.10.</span> <span class="toc-text">设置内边距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="toc-number">5.11.</span> <span class="toc-text">外边距</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">CSS布局模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E5%8A%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text">流动模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.2.</span> <span class="toc-text">浮动模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.3.</span> <span class="toc-text">层模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-number">6.3.1.</span> <span class="toc-text">绝对定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-number">6.4.</span> <span class="toc-text">相对定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D"><span class="toc-number">6.4.1.</span> <span class="toc-text">固定定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relative%E4%B8%8EAbsolute%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">6.5.</span> <span class="toc-text">Relative与Absolute组合使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%B9%E6%80%A7%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">7.</span> <span class="toc-text">弹性盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%AA%E8%BD%B4%E6%8E%92%E5%88%97"><span class="toc-number">7.1.</span> <span class="toc-text">横轴排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%96%E8%BD%B4"><span class="toc-number">7.2.</span> <span class="toc-text">竖轴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E5%85%83%E7%B4%A0%E5%8D%A0%E6%AF%94"><span class="toc-number">7.3.</span> <span class="toc-text">子元素占比</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

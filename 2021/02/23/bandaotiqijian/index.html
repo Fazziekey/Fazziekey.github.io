@@ -1,0 +1,628 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>半导体器件 | 摸黑干活</title><meta name="keywords" content="physical,学废了"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="PN结特性概述平衡PN结 n区 施主杂质   p区 受主杂质     因为存在载流子浓度差，空穴从p区向n区扩散，电子从n区向p区扩散，结p区侧聚集负离子(电离受主)，结n区侧聚集正离子(电离施主)，形成了，负空间电荷区，正空间电荷区，阻止进一步扩散，形成并增强相反方向的漂移运动，扩散与漂移的动态平衡  同质结：以两种相同的半导体单晶材料为基础 异质结：以两种不同的半导体单晶材料为基础 pn结：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="半导体器件">
+<meta property="og:url" content="https://fazziekey.github.io/2021/02/23/bandaotiqijian/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="PN结特性概述平衡PN结 n区 施主杂质   p区 受主杂质     因为存在载流子浓度差，空穴从p区向n区扩散，电子从n区向p区扩散，结p区侧聚集负离子(电离受主)，结n区侧聚集正离子(电离施主)，形成了，负空间电荷区，正空间电荷区，阻止进一步扩散，形成并增强相反方向的漂移运动，扩散与漂移的动态平衡  同质结：以两种相同的半导体单晶材料为基础 异质结：以两种不同的半导体单晶材料为基础 pn结：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-02-23T15:56:04.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.488Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="physical">
+<meta property="article:tag" content="学废了">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2021/02/23/bandaotiqijian/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">半导体器件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-23T15:56:04.000Z" title="发表于 2021-02-23 23:56:04">2021-02-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.488Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="PN结特性概述"><a href="#PN结特性概述" class="headerlink" title="PN结特性概述"></a>PN结特性概述</h1><h2 id="平衡PN结"><a href="#平衡PN结" class="headerlink" title="平衡PN结"></a>平衡PN结</h2><ul>
+<li>n区<ul>
+<li>施主杂质</li>
+</ul>
+</li>
+<li>p区<ul>
+<li>受主杂质 </li>
+</ul>
+</li>
+</ul>
+<p>因为存在载流子浓度差，空穴从p区向n区扩散，电子从n区向p区扩散，结p区侧聚集负离子(电离受主)，结n区侧聚集正离子(电离施主)，形成了，负空间电荷区，正空间电荷区，阻止进一步扩散，形成并增强相反方向的漂移运动，扩散与漂移的动态平衡<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/20/31a103daa21a51ddcebd8f920635f40d.png" alt=""></p>
+<ul>
+<li>同质结：以两种相同的半导体单晶材料为基础</li>
+<li>异质结：以两种不同的半导体单晶材料为基础</li>
+<li>pn结： 在导电类型相反的半导体单晶材料交界处形成</li>
+<li>高低结：在导电类型相同的半导体单晶材料交界处形成</li>
+</ul>
+<p>n区导带的电子进入p区导带存在$V_D$的势垒，称为内建电势，也称为接触电位差</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/20/4686255128c82592458eedbcfed0e058.png" alt=""></p>
+<p>对此，我们有关系</p>
+<script type="math/tex; mode=display">
+eV_D=e|\Phi_{Fn}|+e|\Phi_{Fp}|</script><script type="math/tex; mode=display">
+e\Phi_{Fn}=E_{Fi}(n区)-E_F</script><script type="math/tex; mode=display">
+e\Phi_{Fp}=E_{Fi}(p区)-E_F</script><ul>
+<li>n区导带电子浓度<script type="math/tex; mode=display">
+n=N_Cexp(-\frac{E_C-E_F}{k_BT})</script></li>
+<li>本征半导体<script type="math/tex; mode=display">
+n_i=N_Cexp(-\frac{E_C-E_{Fi}}{k_BT})</script>所以<script type="math/tex; mode=display">
+n=n_iexp(\frac{E_F-E_{Fi}}{k_BT})</script></li>
+<li>完全电离情况下<script type="math/tex; mode=display">
+n\approx N_D</script><script type="math/tex; mode=display">
+\Phi_{Fn}=\frac{E_{Fi}-E_F}{e}\approx-\frac{k_BT}{e}In(\frac{N_D}{n_i})</script>同理对于p区<script type="math/tex; mode=display">
+p=N_Vexp(-\frac{E_V-E_F}{k_BT})</script></li>
+<li>本征半导体<script type="math/tex; mode=display">
+p_i=N_Vexp(\frac{E_V-E_{Fi}}{k_BT})</script>所以<script type="math/tex; mode=display">
+p=n_iexp(\frac{E_{Fi}-E_F}{k_BT})</script></li>
+<li>完全电离情况下<script type="math/tex; mode=display">
+p\approx N_A</script><script type="math/tex; mode=display">
+\Phi_{Fn}=\frac{E_{Fi}-E_F}{e}\approx\frac{k_BT}{e}In(\frac{N_A}{n_i})</script></li>
+</ul>
+<p>我们可以得到</p>
+<script type="math/tex; mode=display">
+V_D=|\Phi_{Fn}|+|\Phi_{Fp}|
+\\
+=\frac{k_BT}{e}In(\frac{N_AN_D}{n_i^2})
+\\
+=V_TIn(\frac{N_AN_D}{n_i^2})</script><p>其中$V_T=\frac{k_BT}{e}$,称为热电压</p>
+<p>室温热电压（thermal voltage）:<br>$V_T= 0.026 V$</p>
+<h2 id="同质突变pn结"><a href="#同质突变pn结" class="headerlink" title="同质突变pn结"></a>同质突变pn结</h2><h3 id="同质突变pn结电荷分布和电场分布"><a href="#同质突变pn结电荷分布和电场分布" class="headerlink" title="同质突变pn结电荷分布和电场分布"></a>同质突变pn结电荷分布和电场分布</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/20/c6fb9e57004c2cf1d9ee425b6f616e26.png" alt=""></p>
+<h3 id="电位分布"><a href="#电位分布" class="headerlink" title="电位分布"></a>电位分布</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/20/66aac681fe0ef5a30504fe3195ad3721.png" alt=""></p>
+<script type="math/tex; mode=display">
+V_D=\frac{e}{2\epsilon_r\epsilon_0}(N_Ax_p^2+N_Dx_n^2)</script><p>$\epsilon_r$为半导体电容率</p>
+<p>空间电荷区宽度space charge width</p>
+<script type="math/tex; mode=display">
+X_{\mathrm{D}}=x_{\mathrm{n}}+x_{\mathrm{p}}=\sqrt{V_{\mathrm{D}}\left(\frac{2 \varepsilon_{\mathrm{r}} \varepsilon_{0}}{e}\right)\left(\frac{N+N_{\mathrm{D}}}{N_{\mathrm{A}} N_{\mathrm{D}}}\right)}</script><h1 id="3-3-5半导体连续性方程"><a href="#3-3-5半导体连续性方程" class="headerlink" title="3.3.5半导体连续性方程"></a>3.3.5半导体连续性方程</h1><p>均匀掺杂半导体在热平衡下，单位时间、单位体积<br>电子空穴对的：产生数 = 复合数</p>
+<p>在外界（光或电）作用下，载流子浓度与平衡值有偏离，产生非平衡载流子。n型半导体光照后增加载流子，非平衡少子浓度：$\Delta p$</p>
+<ul>
+<li>少子扩散<ul>
+<li>扩散diffusion流密度（单位时间、通过单位面积的粒子数）：</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+S_{\mathrm{p}}=-D_{\mathrm{p}} \frac{\mathrm{d} \Delta p(x)}{\mathrm{d} x}</script><ul>
+<li>空穴扩散流密度：$S_p$</li>
+<li>空穴扩散系数hole diffusion coefficient：$D_p$</li>
+<li>单位时间、单位体积内积累的空穴数</li>
+</ul>
+<script type="math/tex; mode=display">
+-\frac{\mathrm{d} S_p}{\mathrm{d} x}=D_{\mathrm{p}} \frac{\mathrm{d}^{2} \Delta p(x)}{\mathrm{d} x^{2}}</script><ul>
+<li>少子复合<br>+单位时间、单位体积内复合recombination的空穴数：$\frac{\Delta p(x,t)}{\tau_p}$</li>
+<li>非平衡少子寿命$\tau_p$</li>
+</ul>
+<ul>
+<li>单位时间、单位体积中空穴数的变化</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{dp(x,t)}{dt}=D_{\mathrm{p}} \frac{\mathrm{d}^{2} \Delta p(x)}{\mathrm{d} x^{2}}-\frac{\Delta p(x,t)}{\tau_p}</script><ul>
+<li>非平衡少子（空穴）浓度<script type="math/tex; mode=display">
+\Delta p(x)=\Delta p(0)exp(-x/L_p)</script></li>
+<li>扩散长度</li>
+</ul>
+<script type="math/tex; mode=display">
+L=\sqrt{D_p\tau_p}</script><ul>
+<li>扩散电流密度<script type="math/tex; mode=display">
+j_{p D i f f}=-e D_{p} p \frac{\mathrm{d} \Delta p(x)}{\mathrm{d} x}</script></li>
+</ul>
+<p>外电场E使少子（空穴）产生漂移drift运动</p>
+<ul>
+<li>漂移电流密度<script type="math/tex; mode=display">
+J_P=ep\mu_pE</script>$\mu_p$为空穴迁移率</li>
+</ul>
+<h2 id="整流特性"><a href="#整流特性" class="headerlink" title="整流特性"></a>整流特性</h2><p>pn结具有单向导电的整流特性，为了推导这一结果，我们假定</p>
+<ul>
+<li>pn结为突变耗尽层，其它区为电中性</li>
+<li>玻尔兹曼近似</li>
+<li>载流子小注入</li>
+</ul>
+<ul>
+<li>n区多子majority carrier（电子）浓度（完全电离）:$n_{n0}=N_D$</li>
+<li>p区多子（空穴）浓度（完全电离）：$p_{p0}=N_A$</li>
+<li>p区少子minority carrier（电子）浓度<br>$n<em>{p0}=n_i^2/p</em>{<br>p0}\approx n_{n0} exp(-\frac{eV_D}{k_BT})$</li>
+</ul>
+<h3 id="正向电压作用"><a href="#正向电压作用" class="headerlink" title="正向电压作用"></a>正向电压作用</h3><p>正向电压$V = V_F&gt; 0$</p>
+<p>势垒区内，载流子浓度小、电阻大势垒区外，载流子浓度大、电阻小,电压基本降落在势垒区势垒$x_D$区变窄、变低$e(V_D-V_F)$<br>破坏平衡，结区漂移运动<br>结区扩散运动 &gt; 漂移运动<br>破坏无偏压时的动态平衡<br>净扩散流，少子正向注入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/20/2e0e4e77b58912bc122a33bc974d7ef5.png" alt=""></p>
+<p>n区，p区中的多子浓度变化不大，但少子浓度会变化几个数量级</p>
+<ul>
+<li>p区电子浓度<script type="math/tex; mode=display">
+n_p=n_{p0}exp(\frac{eV_F}{k_BT})</script></li>
+<li>n区空穴浓度<script type="math/tex; mode=display">
+p_n=p_{n0}exp(\frac{eV_F}{k_BT})</script></li>
+</ul>
+<h3 id="理想二极管方程"><a href="#理想二极管方程" class="headerlink" title="理想二极管方程"></a>理想二极管方程</h3><script type="math/tex; mode=display">
+J=J_S[exp(\frac{eV_F}{k_BT})-1]</script><h3 id="反向电流饱和密度"><a href="#反向电流饱和密度" class="headerlink" title="反向电流饱和密度"></a>反向电流饱和密度</h3><script type="math/tex; mode=display">
+J_S=\frac{eD_nn_{p0}}{L_n}+\frac{eD_pp_{n0}}{L_P}</script><h3 id="反向电压作用"><a href="#反向电压作用" class="headerlink" title="反向电压作用"></a>反向电压作用</h3><p>反偏下，少子浓度很低，少子浓度梯度几乎不随电压变化，达到稳定值</p>
+<h2 id="电容特性"><a href="#电容特性" class="headerlink" title="电容特性"></a>电容特性</h2><h3 id="势垒电容"><a href="#势垒电容" class="headerlink" title="势垒电容"></a>势垒电容</h3><p>pn结的电容效应包括势垒电容和扩散电容两种</p>
+<ul>
+<li>单位面积势垒电容<script type="math/tex; mode=display">
+C_B=\epsilon_r\epsilon_0/X_D</script></li>
+<li><p>势垒宽度</p>
+<script type="math/tex; mode=display">
+X_D=\sqrt{(V_D-V)(\frac{2\epsilon_r\epsilon_0}{e})(\frac{N_A+N_D}{N_A+N_D})}</script><h3 id="扩散电容"><a href="#扩散电容" class="headerlink" title="扩散电容"></a>扩散电容</h3><script type="math/tex; mode=display">
+C_D=\frac{e^2(n_{p0}L_n+p_{n0}L_P)}{k_BT}exp(\frac{eV}{k_BT})</script></li>
+<li><p>正偏：主要是CD</p>
+</li>
+<li>反偏：主要是CB</li>
+</ul>
+<h2 id="击穿特性"><a href="#击穿特性" class="headerlink" title="击穿特性"></a>击穿特性</h2><p>反偏电压<code>V</code>增大到$V_B$（击穿电压）<br>反向电流激烈增大，pn结击穿,击穿<br>隧道击穿（齐纳击穿Zener breakdown）、<br>雪崩击穿avalanche breakdown、热电击穿</p>
+<h3 id="隧道击穿"><a href="#隧道击穿" class="headerlink" title="隧道击穿"></a>隧道击穿</h3><p>p侧价带内电子横穿禁带，直接进入n侧导带内，形成反向电流<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/8559c7b24b88a9c8d3339ffc3035fa9c.png" alt=""></p>
+<h3 id="雪崩击穿"><a href="#雪崩击穿" class="headerlink" title="雪崩击穿"></a>雪崩击穿</h3><ul>
+<li>少子扩散到势垒区</li>
+<li>少子在势垒区中高速漂移</li>
+<li>少子从电场获得足够大能量</li>
+<li>与耗尽区内晶格原子的电子碰</li>
+<li>产生许多电子—空穴对（二次电子—空穴对）</li>
+<li>二次电子—空穴对继续漂移、碰撞</li>
+<li>新的二次电子—空穴对（倍增效应）</li>
+<li>pn结雪崩击穿</li>
+</ul>
+<blockquote>
+<p>隧道效应和雪崩效应主要有载流子浓度决定，</p>
+</blockquote>
+<h3 id="热电击穿"><a href="#热电击穿" class="headerlink" title="热电击穿"></a>热电击穿</h3><p>温度升高，平衡少子浓度上升，电流上升，损坏后无法复原</p>
+<h1 id="pn二极管"><a href="#pn二极管" class="headerlink" title="pn二极管"></a>pn二极管</h1><h2 id="常见的pn结二极管"><a href="#常见的pn结二极管" class="headerlink" title="常见的pn结二极管"></a>常见的pn结二极管</h2><ul>
+<li>变容二极管</li>
+<li>开关二极管</li>
+<li>雪崩二极管</li>
+<li>隧道二极管</li>
+</ul>
+<h2 id="变容二极管"><a href="#变容二极管" class="headerlink" title="变容二极管"></a>变容二极管</h2><p>利用反偏pn结电容（势垒电容）随电压非线性变化制成的可变电抗器件<br>因为势垒电容会随电压变化</p>
+<ul>
+<li><p>理想阶跃结二极管单位面积势垒电容量</p>
+<script type="math/tex; mode=display">
+C_B=\epsilon_r\epsilon_0/X_D \propto (V_D+V_R)^{-1/2}</script></li>
+<li><p>线性缓变二极管单位面积势垒电容量</p>
+<script type="math/tex; mode=display">
+C_B= \propto (V_D+V_R)^{-1/3}</script></li>
+<li><p>更一般的情况</p>
+<script type="math/tex; mode=display">
+N=Bx^m</script></li>
+</ul>
+<script type="math/tex; mode=display">
+C_B\propto (V_D+V_R)^{-1/(m+2)}</script><blockquote>
+<p>m = 0，为均匀掺杂结 ;</p>
+<p>m = +1，为线性缓变结 ；</p>
+<p>m = +2、+3，重掺杂n+ 基片上外延低杂质浓度n层；</p>
+<p>m是负值，为超突变结</p>
+</blockquote>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>并联电感，做LC的谐振回路，其震荡频率为：</p>
+<script type="math/tex; mode=display">
+f_{\mathrm{r}}=\frac{1}{2 \pi \sqrt{L C_{\mathrm{B}}}} \propto\left(V_{\mathrm{D}}+V_{\mathrm{R}}\right) \frac{1}{2(m+2)}</script><blockquote>
+<p>超突变的谐振频率与反偏电压成正比</p>
+</blockquote>
+<h2 id="开关二极管"><a href="#开关二极管" class="headerlink" title="开关二极管"></a>开关二极管</h2><p>利用了二极管正向导通，反向不导通的特性</p>
+<ul>
+<li>t &lt; 0,落在结上正偏压为$V_D$，结两侧扩散区内少子积累，正偏电流为 ：<script type="math/tex; mode=display">
+I_F=(V_F-V_D)/R_F</script></li>
+<li>t =0, 结上压降保持$V_D$不变，反向电流为<script type="math/tex; mode=display">
+I_R=(V_R+V_D)R_R\approx V_R/R_R</script>• $0&lt;t &lt;t_s$反向电流近似恒定<script type="math/tex; mode=display">
+I_R\approx V_R/R_R</script>扩散区内存储的少子流出被消耗，<br>结上正偏压逐渐下降到0， $t_s$称为存储时间。</li>
+<li>$t &gt;t_s$,pn结开始反偏，p区和n区内部的少子被反向抽取，空间电荷区增大。</li>
+<li>$t &gt;t_s+ t_2$，pn结稳定， $V_R$电压全落在pn结上，电流为反向饱和电流。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/0e7f37fe8a30d8c512674c34a1c5e519.png" alt=""></p>
+<ul>
+<li>反向恢复总时间<script type="math/tex; mode=display">
+t_r=t_s+t_2</script><h2 id="隧道二极管"><a href="#隧道二极管" class="headerlink" title="隧道二极管"></a>隧道二极管</h2></li>
+<li>隧道二极管是n区，p区都重参杂的pn结二极管,使得n区和p区的费米能级分别进入导带和价带，只有这样的情况才会出现n区导带和p区价带出现相同能量的量子态</li>
+<li>重掺杂使耗尽区宽度变得很窄，隧道距离很小（约5 ~ 10 nm），提高了隧穿几率。$T  \propto epx(-2d)$</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/bfb319e9169a4237460e2ac51e96d785.png" alt=""></p>
+<p>掺杂浓度必须满足以下条件</p>
+<script type="math/tex; mode=display">
+\begin{array}{c}
+n=N_{\mathbf{D}}>N_{\mathbf{C}} \quad p=N_{\mathbf{A}}>N_{\mathbf{V}} \\
+E_{\mathbf{F}}(T)=E_{\mathrm{CO}}+k_{\mathrm{B}} T \ln \left(\frac{N_{\mathrm{D}}}{N_{\mathrm{C}}}\right) \quad E_{\mathrm{F}}(T)=E_{\mathrm{V} 0}-k_{\mathrm{B}} T \ln \left(\frac{N_{\mathrm{A}}}{N_{\mathrm{V}}}\right)
+\end{array}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/b7b33bef664ea58ef05b4a55d77b598b.png" alt=""></p>
+<p>上图展示了隧道二极管电流电压特性的四个阶段</p>
+<ul>
+<li>隧道效应：n区导带<br>电子进入p区价带，<br>产生正向隧道电流</li>
+<li>隧道效应：n区导带<br>电子进入p区价带，<br>产生正向隧道电流</li>
+<li>隧道效应：n区导带电子<br>进入p区价带，产生正向<br>隧道电流，但p区价带顶<br>介于n区导带底和EF之间</li>
+<li>只有热电流，<br>没有隧道效<br>应产生的隧<br>道电流</li>
+</ul>
+<h2 id="雪崩二极管"><a href="#雪崩二极管" class="headerlink" title="雪崩二极管"></a>雪崩二极管</h2><p>雪崩二极管是利用了雪崩效应和渡越效应<br>微波频率下的负阻效应</p>
+<h1 id="双极型晶体管"><a href="#双极型晶体管" class="headerlink" title="双极型晶体管"></a>双极型晶体管</h1><p>双极型的晶体管也就是三极管，有pnp和npn两种类型<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/1184c6b3ee7322484d9811c514f59e45.png" alt=""></p>
+<blockquote>
+<p>两个背靠背pn结互相影响：基区宽度比少子扩散区短</p>
+</blockquote>
+<h2 id="晶体管噪声"><a href="#晶体管噪声" class="headerlink" title="晶体管噪声"></a>晶体管噪声</h2><p>晶体管放大器的主要噪声：</p>
+<ul>
+<li>外界：输入、感应、耦合等方式引进的噪声</li>
+<li>晶体管本身：<ul>
+<li>热噪声：载流子无规则热运动引起电流起伏（温度愈<br>高，热噪声也愈大）</li>
+<li>散粒噪声：载流子数目将在平均值附近起伏</li>
+<li>低频1/f噪声（1/f）：表面能级、晶格缺陷、位错和<br>晶体不均匀性</li>
+</ul>
+</li>
+</ul>
+<h3 id="噪声系数"><a href="#噪声系数" class="headerlink" title="噪声系数"></a>噪声系数</h3><p>F = 输入信噪比 / 输出信噪比</p>
+<h1 id="金属-半导体和肖特基势垒"><a href="#金属-半导体和肖特基势垒" class="headerlink" title="金属-半导体和肖特基势垒"></a>金属-半导体和肖特基势垒</h1><p>金属—半导体（简称金—半或M-S）接触：整流器、检测器、二<br>极管、场效应晶体管、太阳能电池、半导体集成器件电极</p>
+<h2 id="理想肖特基势垒Schottky-barrier"><a href="#理想肖特基势垒Schottky-barrier" class="headerlink" title="理想肖特基势垒Schottky barrier"></a>理想肖特基势垒Schottky barrier</h2><ul>
+<li>真空能级$E_0$</li>
+</ul>
+<p>电子脱离固体的最小能量（真空能级连续）</p>
+<ul>
+<li>金属功函数$\phi_m$：</li>
+</ul>
+<p>电子从金属中逸出到表<br>面外的真空中去至少需要的能量。金属费米<br>能级以上为空态、以下充满电子。</p>
+<script type="math/tex; mode=display">
+\phi_m=E_0-E_{Fm}</script><ul>
+<li>半导体功函数$\phi_s$</li>
+</ul>
+<p>半导体费米能级与真空能级之差</p>
+<script type="math/tex; mode=display">
+\phi_s=E_0-E_{Fs}</script><ul>
+<li>电子亲和势</li>
+</ul>
+<p>真空能级与半导体导带底之差 （不变）</p>
+<script type="math/tex; mode=display">
+\chi= E_0 – E_C</script><blockquote>
+<p>真空能级到导带顶部的距离不变</p>
+</blockquote>
+<p>电子会从费米能级高的地方向低处流,所以整个接触过程如下</p>
+<ul>
+<li>电子从半导体流向金属</li>
+<li>金属表面负电荷、半导体表面带等量正电</li>
+<li>产生接触电势差（降低/提高了半导体/金属的电子势能）</li>
+<li>接触电势差阻止半导体中电子继续流向金属</li>
+<li>平衡状态时 统一的费米能级 没有电子的净流动</li>
+</ul>
+<p>接触电势差为</p>
+<script type="math/tex; mode=display">
+V_{ms}=(\phi_m-\phi_s)/e</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/6f4f3f8c2a0654e39b191e51c635ac41.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/8f0495e3d048fcb8b0ffddcac2cfdd6b.png" alt=""></p>
+<h3 id="肖特基势垒"><a href="#肖特基势垒" class="headerlink" title="肖特基势垒"></a>肖特基势垒</h3><ul>
+<li>半导体一侧的势垒高度(电子从半导体进入金属遇到的势垒)<script type="math/tex; mode=display">
+V_D=V_{ms}=(\phi_m-\phi_s)/e</script></li>
+<li>金属一侧的势垒（电子从金属进入半导体遇到的势垒）<script type="math/tex; mode=display">
+V_{Dm}=(\phi_m-\chi)/e</script></li>
+<li>空间电荷区内，电子浓度比内部小得多，形成高阻的区域，<br>称为<strong>阻挡层</strong>。</li>
+</ul>
+<h2 id="表面态和界面层对接触势垒的影响"><a href="#表面态和界面层对接触势垒的影响" class="headerlink" title="表面态和界面层对接触势垒的影响"></a>表面态和界面层对接触势垒的影响</h2><ul>
+<li>理想肖特基模型与实验结果不符合：</li>
+<li>模型：肖特基模型的势垒高度由金属和半导体的功函数决定</li>
+<li>实验：90%的金属同半导体接触的势垒高度几乎相同,与金属的功函数无关，只与所用半导体的种类相关</li>
+</ul>
+<ul>
+<li>理想半导体表面（n型半导体）<br>原子的周期性排列中断,出现半饱和的悬挂键、一些电子能量状态处于面能级（界面态）</li>
+</ul>
+<p>表面态一般分为施主型和受主型</p>
+<ul>
+<li>施主型：能级被电子占据时呈现电中性，施放电子后带正电；</li>
+<li>受主型：能级空着时呈电中性，接受电子后带负电</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/4795f8577421abf3f48e6e99631b17b4.png" alt=""></p>
+<ul>
+<li>电子正好填满$q\phi_0$以下所有的表面态时，表面呈电中性；</li>
+<li>$q\phi_0$以下的表面态空着时，表面带正电，呈施主型。</li>
+<li><p>$q\phi_0$以上的表面态被电子填充时，表面带负电，呈受主型。<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/68cd10c07e70a3bff0325e1a6b910f9b.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/10bb6ae494a18f7566934091e4b7d82a.png" alt=""></p>
+<h1 id="画能带的原则"><a href="#画能带的原则" class="headerlink" title="画能带的原则"></a>画能带的原则</h1></li>
+<li><p>真空能级$E_0$连续（一般性）</p>
+</li>
+<li>电子亲和势$\chi$始终不变$\chi=E_)-E_C$（一般性）</li>
+<li>费米能级的“钉扎”效应：价带以上$E_g/3$（特殊性）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/1962099e484eb41b7babbff05bc4d785.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/70790b44a486f0f6c6593b02565b43e5.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/67a002edbe030daf1339c90f5a96b2b5.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/d04d1dee52623a28d78132de665208fb.png" alt=""></p>
+<h2 id="能带草图画法"><a href="#能带草图画法" class="headerlink" title="能带草图画法"></a>能带草图画法</h2><ul>
+<li>真空能级$E_0$：表面外真空中电子势能（真空能级连续）</li>
+<li>电子亲和势$\chi$ ：真空能级与半导体导带底之差（不变） $\chi = E_0 – E_C$</li>
+<li>功函数$\phi$ ：电子从材料逸出到表面外的真空中，至少需要的能量<br>$\phi=E_0-E_F$</li>
+<li>金属功函数$\phi<em>m = E_0 – E</em>{Fm}$,金属$E<em>{Fm}$以上为空态、$E</em>{Fm}$以下充满电子</li>
+<li>半导体功函数$\phi_s = E_0 – E_F$</li>
+<li>热平衡态，统一的费米能级</li>
+<li>耗尽层部分能级弯曲</li>
+<li>中性区（N区、p区）能级不弯曲（有压降除外，例如欧姆接触）</li>
+</ul>
+<h2 id="肖特基势垒二极管Schottky-barrier-diode"><a href="#肖特基势垒二极管Schottky-barrier-diode" class="headerlink" title="肖特基势垒二极管Schottky barrier diode"></a>肖特基势垒二极管Schottky barrier diode</h2><p>肖特基势垒二极管I-V特性与pn结二极管类似</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+J=J_{\mathrm{ST}}\left[\exp \left(\frac{e V}{k_{\mathrm{B}} T}\right)-1\right] \\
+J_{\mathrm{ST}}=A^{*} T^{2} \exp \left(-\frac{e V_{\mathrm{Dm}}}{k_{\mathrm{B}} T}\right)
+\end{array}</script><blockquote>
+<p>$A^{*}$为有效理查逊常数</p>
+</blockquote>
+<h3 id="肖特基势垒二极管和pn结二极管的特性差异："><a href="#肖特基势垒二极管和pn结二极管的特性差异：" class="headerlink" title="肖特基势垒二极管和pn结二极管的特性差异："></a>肖特基势垒二极管和pn结二极管的特性差异：</h3><ul>
+<li>肖特基势垒二极管为多子越过势垒的热电子发射（微观机理）<br>thermionic emission of majority carrier</li>
+<li>pn结二极管为少子的注入和扩散（微观机理）<br>diffusion of minority carrier</li>
+<li>反向饱和电流密度特性（宏观特性）：<ul>
+<li>肖特基势垒二极管的反向饱和电流密度（$10^{-5}A/cm^2 $）</li>
+<li>pn结二极管（$10^{-11}A/cm^2 $）</li>
+</ul>
+</li>
+<li>开关特性（宏观特性）<br>肖特基势垒二极管是多子器件，正向偏置时没有扩散电容<br>（高频特性好，开关时间为ps，pn结二极管为ns） </li>
+<li>肖特基势垒二极管的导通电压比pn结二极管低（宏观特性）</li>
+</ul>
+<h2 id="欧姆接触ohmic-contact"><a href="#欧姆接触ohmic-contact" class="headerlink" title="欧姆接触ohmic contact"></a>欧姆接触ohmic contact</h2><p>任何半导体器件或集成电路必须要与外界电学接触,接触电阻由势垒高度、掺杂浓度决定</p>
+<p>欧姆接触的势垒有以下两种类型</p>
+<ul>
+<li>非整流势垒型接触nonrectifying barrier</li>
+<li>隧道势垒型接触tunneling barrie</li>
+</ul>
+<h1 id="场效应晶体管"><a href="#场效应晶体管" class="headerlink" title="场效应晶体管"></a>场效应晶体管</h1><p>半导体外加电场时，表面势变化、电阻率变化，在与电场垂直方向的电流变化，所谓场效应，就是垂直的电场控制半导体的导电能力。</p>
+<p>场效应晶体管主要有以下几种</p>
+<ul>
+<li>结型场效应晶体管JFET</li>
+<li>绝缘栅场效应晶体管IGFET<ul>
+<li>(主要是以SiO2作栅极绝缘物的金属Metal—氧化物Oxide—半导体Semiconductor场效应Field-Effect晶体管Transistor: MOSFET)</li>
+</ul>
+</li>
+<li>肖特基势垒栅场效应晶体管MESFET</li>
+</ul>
+<h2 id="结型场效应晶体管JFET-junction-FET"><a href="#结型场效应晶体管JFET-junction-FET" class="headerlink" title="结型场效应晶体管JFET: junction FET"></a>结型场效应晶体管JFET: junction FET</h2><p>漏极D正偏$V_{DS} &gt; 0$</p>
+<ul>
+<li>$V<em>{DS} &lt; V</em>{DS0}$： $I<em>D$与$V</em>{DS}$接近线性变化<br>（线性区）</li>
+<li>$V<em>{DS0} &lt; V</em>{DS} &lt; V_{DSa}$： $I_D$基本不变化<br>（饱和区）</li>
+<li>$V<em>{DS} &gt; V</em>{DSa}$： ID随VDS急剧增加<br>（雪崩区）</li>
+</ul>
+<h2 id="金属—氧化物—半导体场效应晶体管-MOSFET-metal-oxide-semiconductor-FET"><a href="#金属—氧化物—半导体场效应晶体管-MOSFET-metal-oxide-semiconductor-FET" class="headerlink" title="金属—氧化物—半导体场效应晶体管(MOSFET: metal-oxide-semiconductor FET)"></a>金属—氧化物—半导体场效应晶体管(MOSFET: metal-oxide-semiconductor FET)</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/9475b3e1a7e2256ce11a11f83d01602a.png" alt=""></p>
+<p>以氧化物作为绝缘层的IGFET，就是金属—氧化物—半导体<br>场效应管MOSFET</p>
+<h2 id="肖特基势垒栅场效应晶体管"><a href="#肖特基势垒栅场效应晶体管" class="headerlink" title="肖特基势垒栅场效应晶体管"></a>肖特基势垒栅场效应晶体管</h2><p>(MESFET: metal-semiconductor FET)</p>
+<p>肖特基势垒取代JFET的pn结势垒，形成肖特基势垒栅场效应管</p>
+<h1 id="异质结及其器件"><a href="#异质结及其器件" class="headerlink" title="异质结及其器件"></a>异质结及其器件</h1><p>两种不同半导体材料接触，形成异质结</p>
+<ul>
+<li>同型isotype（高低）异质结（pP、nN）：杂质类型相同</li>
+<li>异型anisotype（反型）异质结（pN、Pn）：杂质类型相反</li>
+</ul>
+<p>两种不同材料的禁带宽度，介电系数，晶格常数，热膨胀系数都不同</p>
+<ul>
+<li>晶格失配率<script type="math/tex; mode=display">
+2|a_1-a_2|/(a_1+a_2)</script></li>
+</ul>
+<h2 id="异质结的能带结构"><a href="#异质结的能带结构" class="headerlink" title="异质结的能带结构"></a>异质结的能带结构</h2><ul>
+<li>包纳straddling:<ul>
+<li>宽带隙wide-bandgap包纳窄带隙narrow-bandgap</li>
+</ul>
+</li>
+<li>交替错开staggered:<ul>
+<li>宽带隙与窄带隙交替错开</li>
+</ul>
+</li>
+<li>完全错开broken gap:<ul>
+<li>宽带隙与窄带隙完全错开<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/0d09eb1afe7fcc5e6e72861cc8647446.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="异质结特性"><a href="#异质结特性" class="headerlink" title="异质结特性"></a>异质结特性</h2><h3 id="理想pN异质结热平衡能带图"><a href="#理想pN异质结热平衡能带图" class="headerlink" title="理想pN异质结热平衡能带图"></a>理想pN异质结热平衡能带图</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/12/21/6ec509e206dd89b157ab97f1d58650aa.png" alt=""></p>
+<ul>
+<li>N区能级向下平移$eV_{D2}$</li>
+<li>p区能级向上平移$eV_{D1}$</li>
+</ul>
+<script type="math/tex; mode=display">
+eV_D = eV_{D1} + eV_{D2}
+\\
+= E_{F2} – E_{F1}
+\\
+\phi_1-\phi_2</script><script type="math/tex; mode=display">
+\Delta E_C = \chi_1 – \chi_2</script><script type="math/tex; mode=display">
+\Delta E_V = \chi_2 + E_{g2} – (\chi_1 + E_{g1} )
+\\
+= \Delta E_g – \Delta E_C</script><script type="math/tex; mode=display">
+\Delta E_g = E_{g2} – E_{g1}</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2021/02/23/bandaotiqijian/">https://fazziekey.github.io/2021/02/23/bandaotiqijian/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/physical/">physical</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E5%BA%9F%E4%BA%86/">学废了</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/02/23/guangzixue/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">光电子学</div></div></a></div><div class="next-post pull-right"><a href="/2021/02/23/gutaidianzijichu/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">固态电子基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/02/23/cidianzixue/" title="磁电子学"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">磁电子学</div></div></a></div><div><a href="/2021/02/23/guangzixue/" title="光电子学"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">光电子学</div></div></a></div><div><a href="/2021/02/23/gutaidianzijichu/" title="固态电子基础"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">固态电子基础</div></div></a></div><div><a href="/2021/02/23/liangzilixue/" title="量子力学"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">量子力学</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PN%E7%BB%93%E7%89%B9%E6%80%A7%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">PN结特性概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1PN%E7%BB%93"><span class="toc-number">1.1.</span> <span class="toc-text">平衡PN结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E8%B4%A8%E7%AA%81%E5%8F%98pn%E7%BB%93"><span class="toc-number">1.2.</span> <span class="toc-text">同质突变pn结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E8%B4%A8%E7%AA%81%E5%8F%98pn%E7%BB%93%E7%94%B5%E8%8D%B7%E5%88%86%E5%B8%83%E5%92%8C%E7%94%B5%E5%9C%BA%E5%88%86%E5%B8%83"><span class="toc-number">1.2.1.</span> <span class="toc-text">同质突变pn结电荷分布和电场分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E4%BD%8D%E5%88%86%E5%B8%83"><span class="toc-number">1.2.2.</span> <span class="toc-text">电位分布</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-3-5%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%BF%9E%E7%BB%AD%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">3.3.5半导体连续性方程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%B5%81%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">整流特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E7%94%B5%E5%8E%8B%E4%BD%9C%E7%94%A8"><span class="toc-number">2.1.1.</span> <span class="toc-text">正向电压作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E4%BA%8C%E6%9E%81%E7%AE%A1%E6%96%B9%E7%A8%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">理想二极管方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E7%94%B5%E6%B5%81%E9%A5%B1%E5%92%8C%E5%AF%86%E5%BA%A6"><span class="toc-number">2.1.3.</span> <span class="toc-text">反向电流饱和密度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E7%94%B5%E5%8E%8B%E4%BD%9C%E7%94%A8"><span class="toc-number">2.1.4.</span> <span class="toc-text">反向电压作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AE%B9%E7%89%B9%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">电容特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%BF%E5%9E%92%E7%94%B5%E5%AE%B9"><span class="toc-number">2.2.1.</span> <span class="toc-text">势垒电容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E6%95%A3%E7%94%B5%E5%AE%B9"><span class="toc-number">2.2.2.</span> <span class="toc-text">扩散电容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BB%E7%A9%BF%E7%89%B9%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">击穿特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%A7%E9%81%93%E5%87%BB%E7%A9%BF"><span class="toc-number">2.3.1.</span> <span class="toc-text">隧道击穿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%AA%E5%B4%A9%E5%87%BB%E7%A9%BF"><span class="toc-number">2.3.2.</span> <span class="toc-text">雪崩击穿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E7%94%B5%E5%87%BB%E7%A9%BF"><span class="toc-number">2.3.3.</span> <span class="toc-text">热电击穿</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pn%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.</span> <span class="toc-text">pn二极管</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84pn%E7%BB%93%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text">常见的pn结二极管</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%AE%B9%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.2.</span> <span class="toc-text">变容二极管</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-number">3.2.1.</span> <span class="toc-text">用途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%85%B3%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.3.</span> <span class="toc-text">开关二极管</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%A7%E9%81%93%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.4.</span> <span class="toc-text">隧道二极管</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%AA%E5%B4%A9%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.5.</span> <span class="toc-text">雪崩二极管</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%9E%81%E5%9E%8B%E6%99%B6%E4%BD%93%E7%AE%A1"><span class="toc-number">4.</span> <span class="toc-text">双极型晶体管</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1%E5%99%AA%E5%A3%B0"><span class="toc-number">4.1.</span> <span class="toc-text">晶体管噪声</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%99%AA%E5%A3%B0%E7%B3%BB%E6%95%B0"><span class="toc-number">4.1.1.</span> <span class="toc-text">噪声系数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%91%E5%B1%9E-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%92%8C%E8%82%96%E7%89%B9%E5%9F%BA%E5%8A%BF%E5%9E%92"><span class="toc-number">5.</span> <span class="toc-text">金属-半导体和肖特基势垒</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E8%82%96%E7%89%B9%E5%9F%BA%E5%8A%BF%E5%9E%92Schottky-barrier"><span class="toc-number">5.1.</span> <span class="toc-text">理想肖特基势垒Schottky barrier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%82%96%E7%89%B9%E5%9F%BA%E5%8A%BF%E5%9E%92"><span class="toc-number">5.1.1.</span> <span class="toc-text">肖特基势垒</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E9%9D%A2%E6%80%81%E5%92%8C%E7%95%8C%E9%9D%A2%E5%B1%82%E5%AF%B9%E6%8E%A5%E8%A7%A6%E5%8A%BF%E5%9E%92%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">5.2.</span> <span class="toc-text">表面态和界面层对接触势垒的影响</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%BB%E8%83%BD%E5%B8%A6%E7%9A%84%E5%8E%9F%E5%88%99"><span class="toc-number">6.</span> <span class="toc-text">画能带的原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E5%B8%A6%E8%8D%89%E5%9B%BE%E7%94%BB%E6%B3%95"><span class="toc-number">6.1.</span> <span class="toc-text">能带草图画法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%82%96%E7%89%B9%E5%9F%BA%E5%8A%BF%E5%9E%92%E4%BA%8C%E6%9E%81%E7%AE%A1Schottky-barrier-diode"><span class="toc-number">6.2.</span> <span class="toc-text">肖特基势垒二极管Schottky barrier diode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%82%96%E7%89%B9%E5%9F%BA%E5%8A%BF%E5%9E%92%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%92%8Cpn%E7%BB%93%E4%BA%8C%E6%9E%81%E7%AE%A1%E7%9A%84%E7%89%B9%E6%80%A7%E5%B7%AE%E5%BC%82%EF%BC%9A"><span class="toc-number">6.2.1.</span> <span class="toc-text">肖特基势垒二极管和pn结二极管的特性差异：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E5%A7%86%E6%8E%A5%E8%A7%A6ohmic-contact"><span class="toc-number">6.3.</span> <span class="toc-text">欧姆接触ohmic contact</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%BA%E6%95%88%E5%BA%94%E6%99%B6%E4%BD%93%E7%AE%A1"><span class="toc-number">7.</span> <span class="toc-text">场效应晶体管</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E5%9E%8B%E5%9C%BA%E6%95%88%E5%BA%94%E6%99%B6%E4%BD%93%E7%AE%A1JFET-junction-FET"><span class="toc-number">7.1.</span> <span class="toc-text">结型场效应晶体管JFET: junction FET</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%91%E5%B1%9E%E2%80%94%E6%B0%A7%E5%8C%96%E7%89%A9%E2%80%94%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%9C%BA%E6%95%88%E5%BA%94%E6%99%B6%E4%BD%93%E7%AE%A1-MOSFET-metal-oxide-semiconductor-FET"><span class="toc-number">7.2.</span> <span class="toc-text">金属—氧化物—半导体场效应晶体管(MOSFET: metal-oxide-semiconductor FET)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%82%96%E7%89%B9%E5%9F%BA%E5%8A%BF%E5%9E%92%E6%A0%85%E5%9C%BA%E6%95%88%E5%BA%94%E6%99%B6%E4%BD%93%E7%AE%A1"><span class="toc-number">7.3.</span> <span class="toc-text">肖特基势垒栅场效应晶体管</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E8%B4%A8%E7%BB%93%E5%8F%8A%E5%85%B6%E5%99%A8%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">异质结及其器件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E8%B4%A8%E7%BB%93%E7%9A%84%E8%83%BD%E5%B8%A6%E7%BB%93%E6%9E%84"><span class="toc-number">8.1.</span> <span class="toc-text">异质结的能带结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E8%B4%A8%E7%BB%93%E7%89%B9%E6%80%A7"><span class="toc-number">8.2.</span> <span class="toc-text">异质结特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E6%83%B3pN%E5%BC%82%E8%B4%A8%E7%BB%93%E7%83%AD%E5%B9%B3%E8%A1%A1%E8%83%BD%E5%B8%A6%E5%9B%BE"><span class="toc-number">8.2.1.</span> <span class="toc-text">理想pN异质结热平衡能带图</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

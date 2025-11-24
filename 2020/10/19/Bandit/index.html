@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning | 摸黑干活</title><meta name="keywords" content="强化学习,Beam tracking"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="AbstractMillimeter wave (mmwave) communications have attracted increasing attention thanks to the abundant spectrum resource. The short wave-length of mmwave signals facilitates exploiting large anten">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning">
+<meta property="og:url" content="https://fazziekey.github.io/2020/10/19/Bandit/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="AbstractMillimeter wave (mmwave) communications have attracted increasing attention thanks to the abundant spectrum resource. The short wave-length of mmwave signals facilitates exploiting large anten">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-10-19T11:02:08.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.484Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="强化学习">
+<meta property="article:tag" content="Beam tracking">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/10/19/Bandit/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Beam Alignment and Tracking for Millimeter Wave Communications via Bandit Learning</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-19T11:02:08.000Z" title="发表于 2020-10-19 19:02:08">2020-10-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.484Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E6%90%AC%E7%A0%96%E7%8B%97%E7%9A%84%E6%97%A5%E5%B8%B8%E3%80%8B/">《搬砖狗的日常》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Millimeter wave (mmwave) communications have attracted increasing attention thanks to the abundant spectrum resource. The short wave-length of mmwave signals facilitates exploiting large antenna arrays to achieve large array gains and combat the large path-loss. However, the use of large antenna arrays along with narrow beams leads to a large overhead in beam training for obtaining channel state information, especially in dynamic environments. To reduce the overhead of beam training, in this paper we formulate the problem of <strong>beam alignment and tracking</strong> (BA/T) as a <strong>stochastic bandit</strong> problem. In particular, to sense the change of the environments, the actions<br>are designed based on the offset of successive beam indexes，beam index difference), which measures the rate of change of the envir-onments. Then, we propose two efficient BA/T algorithms based on the stochastic bandit learning. To reveal useful insights,the performance of effective achievable rate is further analyzed for the proposed BA/T algorithms. The analytical results show that the algorithms can sense the change of the environments and adjust beam training strategies intelligently. In addition, they do not require any priori knowledge of dynamic channel modeling, and thus are applicable to a variety of complicated scenarios. Simulation results demonstrate the effectiveness and superiority of the proposed algorithms.<br><span id="more"></span></p>
+<p><strong>Index Terms— Beam alignment, beam tracking, beam training,<br>stochastic bandit learning, millimeter wave communication.</strong></p>
+<p>简单来说，就是毫米波通信比较严重的路径损耗，在动态环境的波束对准和跟踪问题中需要新的算法，本文使用了多臂老虎机算法进行了优化</p>
+<hr>
+<h1 id="什么是多臂老虎机？"><a href="#什么是多臂老虎机？" class="headerlink" title="什么是多臂老虎机？"></a>什么是多臂老虎机？</h1><h3 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h3><p>赌场的老虎机有一个绰号叫单臂强盗（single-armed bandit），因为它即使只有一只胳膊，也会把你的钱拿走。而多臂老虎机（或多臂强盗）就从这个绰号引申而来。假设你进入一个赌场，面对一排老虎机（所以有多个臂），由于不同老虎机的期望收益和期望损失不同，你采取什么老虎机选择策略来保证你的总收益最高呢？这就是经典的多臂老虎机问题。</p>
+<hr>
+<p>这个经典问题集中体现了在线学习及更宽泛的强化学习中一个核心的权衡问题：我们是应该探索（exploration）去尝试新的可能性，还是应该守成（exploitation），坚持目前已知的最好选择?在多臂老虎机问题中，探索意味着去玩还没玩过的老虎机，但这有可能使你花太多时间和金钱在收益不好的机器上；而守成意味着只玩目前为止给你收益最好的机器，但这又可能使你失去找到更好机器的机会。而类似抉择在日常生活中随处可见：去一个餐厅，你是不是也纠结于是点熟悉的菜品，还是点个新菜？去一个地方，是走熟知的老路还是选一条新路？而探索和守成的权衡就是在线学习的核心。</p>
+<hr>
+<p>如果我们考虑吧这种算法应用在通信的波束对准场景，通过环境感知来减少训练开销</p>
+<h1 id="System-Model"><a href="#System-Model" class="headerlink" title="System Model"></a>System Model</h1><p>我们只考虑一个点对点的毫米波通讯系统</p>
+<ul>
+<li>发射端 N个天线</li>
+<li>接收端一个天线</li>
+</ul>
+<p>我们构造长度为M的波束码本</p>
+<script type="math/tex; mode=display">
+C={f_i=a(-1+2i/M)|i=0,1,2,...M-1}</script><p>a表示响应向量</p>
+<script type="math/tex; mode=display">
+a(x)=\frac{1}{N}[1,e^{j2\pi/\lambda dx},e^{j2\pi/\lambda 2dx}...e^{j2\pi/\lambda(N-1) dx}]</script><ul>
+<li>λ:信号波长</li>
+<li>d：天线之间的距离</li>
+</ul>
+<p>由于毫米波通道的稀疏性，我们采用了扩展的SalehValenzuela几何通道模型。 给出了BS与UE之间的信道向量</p>
+<script type="math/tex; mode=display">
+h=\sqrt{N/\beta}\sum_{l=1}^L\alpha_l a(\phi_l)</script><ul>
+<li>$\beta$平均路损</li>
+<li>L:信道数量</li>
+<li>$\alpha_l$第l个信道的路径复增益</li>
+<li>$\phi_l=cos\theta_l,\theta_l$为第l个信道的发射角（AoD）</li>
+</ul>
+<p><strong>在UE处接受信号</strong></p>
+<script type="math/tex; mode=display">
+y_i=\sqrt{P}h^Hf_is+n_i</script><ul>
+<li>P：传输的功率</li>
+<li>s:试点序列</li>
+<li><p>$n_i==N(0,I)$噪声向量</p>
+<p>每个时隙由两个阶段组成，即波束训练和数据传输，采用有效可达速率(EAR)作为度量BA/T算法吞吐量性能的度量，定义为</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+R_{eff}=(1-T_B/T_S)\log(1+P|h^Hf_i|^2)</script><ul>
+<li>$T_B$训练时间</li>
+<li>$T_S$总时间</li>
+</ul>
+<p>数据吞吐量的大小和增益之间存在矛盾</p>
+<h1 id="Stochastic-Bandit-and-learning-policies"><a href="#Stochastic-Bandit-and-learning-policies" class="headerlink" title="Stochastic Bandit and learning policies"></a>Stochastic Bandit and learning policies</h1><p>随机老虎机可以定义为一个集合${P<em>a|a\in A}$和期望$\mu_a$,A是所有可行的操作，学习者和环境进行n轮互动，在每轮互动中，学习者从$A_t\in A$中选取一个操作，环境会给予反馈$R_t\in [0,1]$,学习者的目标是最大化反馈$S_n=\sum</em>{t=1}^n R_t$<br>。 由于Sn是一个随机数量，取决于所选择的动作和抽样的奖励，在实践中，我们试图最大化它的期望。</p>
+<p>下一个动作将会被过去的动作的时间序列和反馈决定，$S_n$的在行动$\pi$期望定义为</p>
+<script type="math/tex; mode=display">
+E_n(\pi,\varXi)=E_{\pi,\varXi}(\sum_{t=1}^nR_t)</script><p>在本文中我们把动作定义为集合</p>
+<script type="math/tex; mode=display">
+A=K=\{1,2,...,K\}</script><p>在一个n轮互动中选择动作a的次数定义为</p>
+<script type="math/tex; mode=display">
+T_a(n)=\sum_{t=1}^nII\{A_t=a\}</script><p>在前面讲到过随机老虎机的本质问题是探索未知选项和保留已有优质选择的矛盾，我们在这里提出两种算法$\epsilon$贪婪算法和UCB算法来平衡矛盾</p>
+<h1 id="epsilon-greedy-and-UCB"><a href="#epsilon-greedy-and-UCB" class="headerlink" title="$\epsilon$greedy and UCB"></a>$\epsilon$greedy and UCB</h1><h2 id="epsilon-greedy"><a href="#epsilon-greedy" class="headerlink" title="$\epsilon$greedy"></a>$\epsilon$greedy</h2><p>$\bar{\mu}_a(t)$表示t轮后从arm a得到的平均反馈</p>
+<script type="math/tex; mode=display">
+\bar{\mu}_a(t)=\frac{1}{T}\sum_{s=1}^t\{A_s=a\}R_s</script><p>$\epsilon$贪婪算法由参数$\epsilon_1,\epsilon_2…$决定，首先会选择所有arm一次，然后有$1-\epsilon_t$的概率选择$A_t=arg max_a \hat{\mu}_a(t-1)$,否则随机选择选择另一个arm</p>
+<ul>
+<li>input：action space[K] and exploration parameter $\epsilon_t$</li>
+<li>initialize:choose each arm once and let t=K+1</li>
+<li>repeat<ul>
+<li>$A_t=argmax_a\hat{\mu}_a(t-1)$ has highest reward</li>
+<li>choose with$1-\epsilon_t$possibility and otherwise choose other arm randomly</li>
+<li>t=t+1</li>
+</ul>
+</li>
+</ul>
+<h2 id="UCB-upper-confidence-Bound"><a href="#UCB-upper-confidence-Bound" class="headerlink" title="UCB:upper confidence Bound"></a>UCB:upper confidence Bound</h2><script type="math/tex; mode=display">
+UCB_a(t-1)=
+\begin{cases}
+\infty&if T_a(t-1)=0\\
+\hat{\mu}_a(t-1)+\sqrt{\frac{c\log(t)}{T_a(t-1)}}&otherwise
+\end{cases}</script><p>在第t轮选择$A_t$为</p>
+<script type="math/tex; mode=display">
+argmax_a UCB_a(t-1)</script><ul>
+<li>input :action space $[K]={1,2,…K}$</li>
+<li>initialize:t=1</li>
+<li>repeat<ul>
+<li>choose arm $A_t=argmax_aUCB_a(t-1)$</li>
+<li>play arm $A_t$and receive reward $R_t$</li>
+<li>update the UCB value $UCB_{A_t}(t)$</li>
+<li>t=t+1</li>
+</ul>
+</li>
+</ul>
+<h1 id="Stochastic-bandit-based-beam-aligment-and-tracking-algogithms"><a href="#Stochastic-bandit-based-beam-aligment-and-tracking-algogithms" class="headerlink" title="Stochastic bandit based beam aligment and tracking algogithms"></a>Stochastic bandit based beam aligment and tracking algogithms</h1><p>现在我们有了通信场景模型和老虎机算法的基本概念，我们问题的核心转化为了如何设计动作和反馈，在这里我们不是把每个波束定义为一个arm，而是基于两个波束之差定义</p>
+<h2 id="基于老虎机的通讯场景建模"><a href="#基于老虎机的通讯场景建模" class="headerlink" title="基于老虎机的通讯场景建模"></a>基于老虎机的通讯场景建模</h2><ul>
+<li>波束编码差</li>
+</ul>
+<p>比如，当前波束是10，在环境缓慢变化时，下一波束可能为11</p>
+<p>11-10=1</p>
+<p>环境快速变化时下一波束可能是7</p>
+<p>10-7=3</p>
+<p>我们用（u，b）两个值来定义一个arm，u为波束差，b为扫描的波束数量，动作空间可以描述为</p>
+<script type="math/tex; mode=display">
+B=\{(u_1,b_1)...(u_L,b_L)\}</script><p>L为空间大小，u为了测量环境的平均变化率，b测试变化方差</p>
+<p>若当前时刻t的波束为$f_c$,t+1时刻的波束在以下集合选取</p>
+<script type="math/tex; mode=display">
+F_{u,b}=\{f_{c+u},f_{c+u+1}...f_{c+u+b-1}\}</script><p>那么我们如何定义反馈，在上文通讯模型中我们定义过接受信号强度</p>
+<script type="math/tex; mode=display">
+y_i=\sqrt{P}h^Hf_is+n_i</script><p>平均接受功率为</p>
+<script type="math/tex; mode=display">
+Y_i=|1^Ty_i|^2/L_P</script><p>$L_P$为导频序列长度</p>
+<p> 下一次时隙t1用于数据传输的光束应该是$f^i<em>{u，b}，i</em>{u,b}=argmax<em>i{Y_i|f_i \in F</em>{u,b}}$ 设T0表示发射一个/单位导频信号的持续时间。 对应于arm(u，b)的奖励，由$R_{u,b}$表示，定义为</p>
+<script type="math/tex; mode=display">
+R_{u,b}=(1-bT_0/T_s)\log(1+P|h^Hf^i_{y,b}|^2)^6</script><p>$bT_0$为训练波束的时间开销</p>
+<p>所以此时我们的目标是优化时间1到n的EAR</p>
+<script type="math/tex; mode=display">
+max_{F_t}E(\sum_{t=1}^nR_{eff,t})</script><h2 id="波束对准和跟踪算法"><a href="#波束对准和跟踪算法" class="headerlink" title="波束对准和跟踪算法"></a>波束对准和跟踪算法</h2><ul>
+<li>input <ul>
+<li>codebook</li>
+<li>action space</li>
+</ul>
+</li>
+<li>find out the initial optimal beam from code book</li>
+<li>初始化老虎机参数</li>
+<li>repeat<ul>
+<li>choose optimal arm$(u^<em>,b^</em>)$</li>
+<li>choose optimal beam$f^*$</li>
+<li>transmit data with beam $f^*$</li>
+<li>update bandit information of the policy</li>
+</ul>
+</li>
+</ul>
+<h3 id="epsilon-greedy-1"><a href="#epsilon-greedy-1" class="headerlink" title="$\epsilon$greedy"></a>$\epsilon$greedy</h3><ul>
+<li>input <ul>
+<li>codebook</li>
+<li>action space with size K</li>
+</ul>
+</li>
+<li>initialize<ul>
+<li>$\epsilon$sequence${\epsilon_n\in (0,1]n&gt;=1 }$</li>
+<li>let $T<em>{u_i,b_i}=0$and$\hat{\mu}</em>{u_i,b_i}=0(i\in K)$</li>
+</ul>
+</li>
+<li>find out an initial optimal beam from code book</li>
+<li>choose each arm once,update bandit information,let n=K+1</li>
+<li>repeat <ul>
+<li>let$(u^<em>,b^</em>)$be the arm with highest current average reward</li>
+<li>play $(u^<em>,b^</em>)$with probability $1-\epsilon_n$and playa random arm with probalility $\epsilon_n/K$</li>
+<li>choose an optimal beam from $F_{u^<em>,b^</em>}$,to transmit data</li>
+<li>update $T<em>{u^<em>,b^</em>}$,and $\hat{\mu}</em>{u^*,b}$</li>
+<li>update counter:n=n+1</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>$T_{u,b}$为arm（u，b）被选择的次数</li>
+</ul>
+<h3 id="UCB-Based-BA-T-Algorithm"><a href="#UCB-Based-BA-T-Algorithm" class="headerlink" title="UCB Based BA/T Algorithm"></a>UCB Based BA/T Algorithm</h3><ul>
+<li>input <ul>
+<li>codebook C</li>
+<li>$B={(u_i,b_i)}$ of size K</li>
+</ul>
+</li>
+<li>find an initial optimal beam from codebook C</li>
+<li>play each arm once and update bandit information according to and n=K+1</li>
+<li>repeat <ul>
+<li>compute $UCB<em>{u_i,b_i}(n)$for each $(u_i,b_i)$and let $(u^<em>,b^</em>)=argmax</em>{(u<em>i,b_i)}UCB</em>{u_i,b_i}(n-1$</li>
+<li>play chosen arm</li>
+<li>choose $F_{u^*,b}$to transmit data</li>
+<li>update $T<em>{u^*,b}$and$\hat{\mu}</em>{u,b}$</li>
+<li>n=n+1</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/10/19/Bandit/">https://fazziekey.github.io/2020/10/19/Bandit/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a><a class="post-meta__tags" href="/tags/Beam-tracking/">Beam tracking</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/21/SVD/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">奇异值SVD</div></div></a></div><div class="next-post pull-right"><a href="/2020/10/06/xinxilun/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">信息熵</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%9A%E8%87%82%E8%80%81%E8%99%8E%E6%9C%BA%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什么是多臂老虎机？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-number">2.0.1.</span> <span class="toc-text">问题定义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#System-Model"><span class="toc-number">3.</span> <span class="toc-text">System Model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stochastic-Bandit-and-learning-policies"><span class="toc-number">4.</span> <span class="toc-text">Stochastic Bandit and learning policies</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#epsilon-greedy-and-UCB"><span class="toc-number">5.</span> <span class="toc-text">$\epsilon$greedy and UCB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#epsilon-greedy"><span class="toc-number">5.1.</span> <span class="toc-text">$\epsilon$greedy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UCB-upper-confidence-Bound"><span class="toc-number">5.2.</span> <span class="toc-text">UCB:upper confidence Bound</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stochastic-bandit-based-beam-aligment-and-tracking-algogithms"><span class="toc-number">6.</span> <span class="toc-text">Stochastic bandit based beam aligment and tracking algogithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%80%81%E8%99%8E%E6%9C%BA%E7%9A%84%E9%80%9A%E8%AE%AF%E5%9C%BA%E6%99%AF%E5%BB%BA%E6%A8%A1"><span class="toc-number">6.1.</span> <span class="toc-text">基于老虎机的通讯场景建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A2%E6%9D%9F%E5%AF%B9%E5%87%86%E5%92%8C%E8%B7%9F%E8%B8%AA%E7%AE%97%E6%B3%95"><span class="toc-number">6.2.</span> <span class="toc-text">波束对准和跟踪算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#epsilon-greedy-1"><span class="toc-number">6.2.1.</span> <span class="toc-text">$\epsilon$greedy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UCB-Based-BA-T-Algorithm"><span class="toc-number">6.2.2.</span> <span class="toc-text">UCB Based BA&#x2F;T Algorithm</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

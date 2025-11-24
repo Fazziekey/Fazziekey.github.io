@@ -1,0 +1,522 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pytorch basic | 摸黑干活</title><meta name="keywords" content="Deep learning,pytorch"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="激励函数常见激励函数    函数 作用场景     relu CNN   sigmoid 二分类   tanh RNN   softmax 多分类   softplus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pytorch basic">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/04/pytorch-basic/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="激励函数常见激励函数    函数 作用场景     relu CNN   sigmoid 二分类   tanh RNN   softmax 多分类   softplus">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-08-04T12:40:16.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.490Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="Deep learning">
+<meta property="article:tag" content="pytorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/08/04/pytorch-basic/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">pytorch basic</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-04T12:40:16.000Z" title="发表于 2020-08-04 20:40:16">2020-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.490Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h1><h2 id="常见激励函数"><a href="#常见激励函数" class="headerlink" title="常见激励函数"></a>常见激励函数</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>relu</td>
+<td>CNN</td>
+</tr>
+<tr>
+<td>sigmoid</td>
+<td>二分类</td>
+</tr>
+<tr>
+<td>tanh</td>
+<td>RNN</td>
+</tr>
+<tr>
+<td>softmax</td>
+<td>多分类</td>
+</tr>
+<tr>
+<td>softplus</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<span id="more"></span>
+<h2 id="导入函数包"><a href="#导入函数包" class="headerlink" title="导入函数包"></a>导入函数包</h2><pre><code>import torch.nn.functional as F
+</code></pre><h1 id="神经网络搭建基本步骤"><a href="#神经网络搭建基本步骤" class="headerlink" title="神经网络搭建基本步骤"></a>神经网络搭建基本步骤</h1><ul>
+<li>数据加载</li>
+<li>网络搭建</li>
+<li>优化器合损失函数定义</li>
+<li>训练</li>
+</ul>
+<h2 id="网络搭建"><a href="#网络搭建" class="headerlink" title="网络搭建"></a>网络搭建</h2><pre><code>class Net(torch.nn.Module):  # 继承 torch 的 Module
+    def __init__(self, n_feature, n_hidden, n_output):
+        super(Net, self).__init__()     # 继承 __init__ 功能
+        # 定义每层用什么样的形式
+        self.hidden = torch.nn.Linear(n_feature, n_hidden)   # 隐藏层线性输出
+        self.predict = torch.nn.Linear(n_hidden, n_output)   # 输出层线性输出
+
+def forward(self, x):   # 这同时也是 Module 中的 forward 功能
+    # 正向传播输入值, 神经网络分析出输出值
+    x = F.relu(self.hidden(x))      # 激励函数(隐藏层的线性值)
+    x = self.predict(x)             # 输出值
+    return x
+</code></pre><hr>
+<h3 id="查看网络结构"><a href="#查看网络结构" class="headerlink" title="查看网络结构"></a>查看网络结构</h3><pre><code>    print (net)
+</code></pre><h2 id="optimizer优化器选择和损失函数定义"><a href="#optimizer优化器选择和损失函数定义" class="headerlink" title="optimizer优化器选择和损失函数定义"></a>optimizer优化器选择和损失函数定义</h2><pre><code>optimizer = torch.optim.SGD(net.parameters(), lr=0.2)  # 传入 net 的所有参数, 学习率
+loss_func = torch.nn.MSELoss()      # 预测值和真实值的误差计算公式 (均方差)
+</code></pre><h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><pre><code>for t in range(100):
+    prediction = net(x)     # 喂给 net 训练数据 x, 输出预测值
+
+loss = loss_func(prediction, y)     # 计算两者的误差
+
+optimizer.zero_grad()   # 清空上一步的残余更新参数值
+loss.backward()         # 误差反向传播, 计算参数更新值
+optimizer.step()        # 将参数更新值施加到 net 的 parameters 上
+</code></pre><h1 id="快速搭建"><a href="#快速搭建" class="headerlink" title="快速搭建"></a>快速搭建</h1><p>使用<code>torch.nn.Sequential</code></p>
+<script type="math/tex; mode=display">python
+
+    net2 = torch.nn.Sequential(
+        torch.nn.Linear(1, 10),
+        torch.nn.ReLU(),
+        torch.nn.Linear(10, 1)
+    )</script><h1 id="保存提取"><a href="#保存提取" class="headerlink" title="保存提取"></a>保存提取</h1><h2 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h2><pre><code>torch.save(net1,&#39;net.pkl&#39;)#保存整个网络
+torch.save(net.state_dict(),&#39;net_params.pkl&#39;) #保存参数
+</code></pre><h2 id="提取"><a href="#提取" class="headerlink" title="提取"></a>提取</h2><h3 id="提取网络"><a href="#提取网络" class="headerlink" title="提取网络"></a>提取网络</h3><pre><code>def restore_net():
+    # restore entire net1 to net2
+    net2 = torch.load(&#39;net.pkl&#39;)
+    prediction = net2(x)
+</code></pre><h3 id="只提取参数（速度快）"><a href="#只提取参数（速度快）" class="headerlink" title="只提取参数（速度快）"></a>只提取参数（速度快）</h3><pre><code>def restore_params():
+    # 新建 net3
+    net3 = torch.nn.Sequential(
+        torch.nn.Linear(1, 10),
+        torch.nn.ReLU(),
+        torch.nn.Linear(10, 1)
+    )
+    # 将保存的参数复制到 net3
+net3.load_state_dict(torch.load(&#39;net_params.pkl&#39;))
+prediction = net3(x)
+</code></pre><h1 id="批训练"><a href="#批训练" class="headerlink" title="批训练"></a>批训练</h1><p>pytorch的dataloader模块提供的批训练的基本函数</p>
+<pre><code>import torch
+import torch.utils.data as Data
+torch.manual_seed(1)    # reproducible
+BATCH_SIZE = 5      # 批训练的数据个数
+x = torch.linspace(1, 10, 10)       # x data (torch tensor)
+y = torch.linspace(10, 1, 10)       # y data (torch tensor)
+# 先转换成 torch 能识别的 Dataset
+torch_dataset = Data.TensorDataset(data_tensor=x, target_tensor=y)
+# 把 dataset 放入 DataLoader
+loader = Data.DataLoader(
+    dataset=torch_dataset,      # torch TensorDataset format
+    batch_size=BATCH_SIZE,      # mini batch size
+    shuffle=True,               # 要不要打乱数据 (打乱比较好)
+    num_workers=2,              # 多线程来读数据
+)
+for epoch in range(3):   # 训练所有!整套!数据 3 次
+    for step, (batch_x, batch_y) in enumerate(loader):  # 每一步 loader 释放一小批数据用来学习
+        # 假设这里就是你训练的地方...
+        # 打出来一些数据
+        print(&#39;Epoch: &#39;, epoch, &#39;| Step: &#39;, step, &#39;| batch x: &#39;,
+              batch_x.numpy(), &#39;| batch y: &#39;, batch_y.numpy())
+&quot;&quot;&quot;
+Epoch:  0 | Step:  0 | batch x:  [ 6.  7.  2.  3.  1.] | batch y:  [  5.   4.   9.   8.  10.]
+Epoch:  0 | Step:  1 | batch x:  [  9.  10.   4.   8.   5.] | batch y:  [ 2.  1.  7.  3.  6.]
+Epoch:  1 | Step:  0 | batch x:  [  3.   4.   2.   9.  10.] | batch y:  [ 8.  7.  9.  2.  1.]
+Epoch:  1 | Step:  1 | batch x:  [ 1.  7.  8.  5.  6.] | batch y:  [ 10.   4.   3.   6.   5.]
+Epoch:  2 | Step:  0 | batch x:  [ 3.  9.  2.  6.  7.] | batch y:  [ 8.  2.  9.  5.  4.]
+Epoch:  2 | Step:  1 | batch x:  [ 10.   4.   8.   1.   5.] | batch y:  [  1.   7.   3.  10.   6.]
+&quot;&quot;&quot;
+</code></pre><h1 id="训练优化"><a href="#训练优化" class="headerlink" title="训练优化"></a>训练优化</h1><h2 id="常见优化方法"><a href="#常见优化方法" class="headerlink" title="常见优化方法"></a>常见优化方法</h2><ul>
+<li>SGD</li>
+<li>Momentum</li>
+<li>RMSprop</li>
+<li>Adam</li>
+</ul>
+<h2 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h2><p>将数据分批放入神经网络训练</p>
+<h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/04/df3fce20d20e210064dbf23356b81f15.png" alt=""></p>
+<h2 id="RMSprop"><a href="#RMSprop" class="headerlink" title="RMSprop"></a>RMSprop</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/04/0900f7953aa3ec6ef67a6c5329565975.png" alt=""></p>
+<h2 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/04/1c95af9622e62ebd91229abb64bf1ff2.png" alt=""></p>
+<h2 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/04/a30715a23498fb6271234e0cf101b31b.png" alt=""></p>
+<pre><code># different optimizers
+opt_SGD         = torch.optim.SGD(net_SGD.parameters(), lr=LR)
+opt_Momentum    = torch.optim.SGD(net_Momentum.parameters(), lr=LR, momentum=0.8)
+opt_RMSprop     = torch.optim.RMSprop(net_RMSprop.parameters(), lr=LR, alpha=0.9)
+opt_Adam        = torch.optim.Adam(net_Adam.parameters(), lr=LR, betas=(0.9, 0.99))
+optimizers = [opt_SGD, opt_Momentum, opt_RMSprop, opt_Adam]
+</code></pre><h1 id="卷积神经网络搭建"><a href="#卷积神经网络搭建" class="headerlink" title="卷积神经网络搭建"></a>卷积神经网络搭建</h1><pre><code>class CNN(nn.Module):
+    def __init__(self):
+        super(CNN, self).__init__()
+        self.conv1 = nn.Sequential(  # input shape (1, 28, 28)
+            nn.Conv2d(
+                in_channels=1,      # input height
+                out_channels=16,    # n_filters
+                kernel_size=5,      # filter size
+                stride=1,           # filter movement/step
+                padding=2,      # 如果想要 con2d 出来的图片长宽没有变化, padding=(kernel_size-1)/2 当 stride=1
+            ),      # output shape (16, 28, 28)
+            nn.ReLU(),    # activation
+            nn.MaxPool2d(kernel_size=2),    # 在 2x2 空间里向下采样, output shape (16, 14, 14)
+        )
+        self.conv2 = nn.Sequential(  # input shape (16, 14, 14)
+            nn.Conv2d(16, 32, 5, 1, 2),  # output shape (32, 14, 14)
+            nn.ReLU(),  # activation
+            nn.MaxPool2d(2),  # output shape (32, 7, 7)
+        )
+        self.out = nn.Linear(32 * 7 * 7, 10)   # fully connected layer, output 10 classes
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.conv2(x)
+        x = x.view(x.size(0), -1)   # 展平多维的卷积图成 (batch_size, 32 * 7 * 7)
+        output = self.out(x)
+</code></pre><h1 id="循环神经网络搭建"><a href="#循环神经网络搭建" class="headerlink" title="循环神经网络搭建"></a>循环神经网络搭建</h1><h2 id="RNN分类"><a href="#RNN分类" class="headerlink" title="RNN分类"></a>RNN分类</h2><pre><code>class RNN(nn.Module):
+    def __init__(self):
+        super(RNN, self).__init__()
+        self.rnn = nn.LSTM(     # LSTM 效果要比 nn.RNN() 好多了
+            input_size=28,      # 图片每行的数据像素点
+            hidden_size=64,     # rnn hidden unit
+            num_layers=1,       # 有几层 RNN layers
+            batch_first=True,   # input &amp; output 会是以 batch size 为第一维度的特征集 e.g. (batch, time_step, input_size)
+        )
+        self.out = nn.Linear(64, 10)    # 输出层
+    def forward(self, x):
+        # x shape (batch, time_step, input_size)
+        # r_out shape (batch, time_step, output_size)
+        # h_n shape (n_layers, batch, hidden_size)   LSTM 有两个 hidden states, h_n 是分线, h_c 是主线
+        # h_c shape (n_layers, batch, hidden_size)
+        r_out, (h_n, h_c) = self.rnn(x, None)   # None 表示 hidden state 会用全0的 state
+        # 选取最后一个时间点的 r_out 输出
+        # 这里 r_out[:, -1, :] 的值也是 h_n 的值
+        out = self.out(r_out[:, -1, :])
+        return out
+</code></pre><h2 id="RNN回归"><a href="#RNN回归" class="headerlink" title="RNN回归"></a>RNN回归</h2><pre><code>class RNN(nn.Module):
+    def __init__(self):
+        super(RNN, self).__init__()
+
+        self.rnn = nn.RNN(  # 这回一个普通的 RNN 就能胜任
+            input_size=1,
+            hidden_size=32,     # rnn hidden unit
+            num_layers=1,       # 有几层 RNN layers
+            batch_first=True,   # input &amp; output 会是以 batch size 为第一维度的特征集 e.g. (batch, time_step, input_size)
+        )
+        self.out = nn.Linear(32, 1)
+    def forward(self, x, h_state):  # 因为 hidden state 是连续的, 所以我们要一直传递这一个 state
+        # x (batch, time_step, input_size)
+        # h_state (n_layers, batch, hidden_size)
+        # r_out (batch, time_step, output_size)
+        r_out, h_state = self.rnn(x, h_state)   # h_state 也要作为 RNN 的一个输入
+
+        outs = []    # 保存所有时间点的预测值
+        for time_step in range(r_out.size(1)):    # 对每一个时间点计算 output
+            outs.append(self.out(r_out[:, time_step, :]))
+        return torch.stack(outs, dim=1), h_state
+</code></pre><p>前向传播也可以简化为</p>
+<pre><code>        def forward(self, x, h_state):
+    r_out, h_state = self.rnn(x, h_state)
+    r_out = r_out.view(-1, 32)
+    outs = self.out(r_out)
+    return outs.view(-1, 32, TIME_STEP), h_state
+</code></pre><h1 id="GPU加速"><a href="#GPU加速" class="headerlink" title="GPU加速"></a>GPU加速</h1><h3 id="将变量移动到GPU"><a href="#将变量移动到GPU" class="headerlink" title="将变量移动到GPU"></a>将变量移动到GPU</h3><pre><code>x.cuda()
+</code></pre><h3 id="计算图移动到GPU"><a href="#计算图移动到GPU" class="headerlink" title="计算图移动到GPU"></a>计算图移动到GPU</h3><pre><code>net.cuda()
+</code></pre><h3 id="训练移动到GPU"><a href="#训练移动到GPU" class="headerlink" title="训练移动到GPU"></a>训练移动到GPU</h3><pre><code>pred_y = torch.max(test_output, 1)[1].cuda().data.squeeze()  # 将操作放去 GPU
+</code></pre><blockquote>
+<p>pytorch 的GPU编号从0开始，调用多GPU时要注意</p>
+</blockquote>
+<h1 id="dropout防止过拟合"><a href="#dropout防止过拟合" class="headerlink" title="dropout防止过拟合"></a>dropout防止过拟合</h1><h2 id="无过拟合网络"><a href="#无过拟合网络" class="headerlink" title="无过拟合网络"></a>无过拟合网络</h2><pre><code>net_overfitting = torch.nn.Sequential(
+    torch.nn.Linear(1, N_HIDDEN),
+    torch.nn.ReLU(),
+    torch.nn.Linear(N_HIDDEN, N_HIDDEN),
+    torch.nn.ReLU(),
+    torch.nn.Linear(N_HIDDEN, 1),
+)
+</code></pre><h2 id="dropout网络"><a href="#dropout网络" class="headerlink" title="dropout网络"></a>dropout网络</h2><pre><code>net_dropped = torch.nn.Sequential(
+    torch.nn.Linear(1, N_HIDDEN),
+    torch.nn.Dropout(0.5),  # drop 50% of the neuron
+    torch.nn.ReLU(),
+    torch.nn.Linear(N_HIDDEN, N_HIDDEN),
+    torch.nn.Dropout(0.5),  # drop 50% of the neuron
+    torch.nn.ReLU(),
+    torch.nn.Linear(N_HIDDEN, 1),
+)
+</code></pre><h2 id="在使用预测时取出dropout"><a href="#在使用预测时取出dropout" class="headerlink" title="在使用预测时取出dropout"></a>在使用预测时取出dropout</h2><pre><code>net_dropped.eval()
+</code></pre><h1 id="Batch-Normalization归一化"><a href="#Batch-Normalization归一化" class="headerlink" title="Batch Normalization归一化"></a>Batch Normalization归一化</h1><h2 id="Batch-Normalization过程"><a href="#Batch-Normalization过程" class="headerlink" title="Batch Normalization过程"></a>Batch Normalization过程</h2><script type="math/tex; mode=display">
+ \frac{1}{m}\sum_{i=1}^m x_i \to \mu_{\beta}</script><script type="math/tex; mode=display">
+ \frac{1}{m}\sum_{i=1}^m (x_i-\mu_{\beta})^2 \to \sigma_{\beta}^2</script><script type="math/tex; mode=display">
+ \frac{x_i-\mu_{\beta}}{\sqrt{\sigma^2_{\beta}+\epsilon}} \to \hat{x_i}</script><script type="math/tex; mode=display">
+BN_{\gamma,\beta}(x_i)= \gamma\hat{x_i}+\beta \to y_i</script><hr>
+<pre><code> class Net(nn.Module):
+    def __init__(self, batch_normalization=False):
+        super(Net, self).__init__()
+        self.do_bn = batch_normalization
+        self.fcs = []   # 太多层了, 我们用 for loop 建立
+        self.bns = []
+        self.bn_input = nn.BatchNorm1d(1, momentum=0.5)   # 给 input 的 BN
+
+        for i in range(N_HIDDEN):               # 建层
+            input_size = 1 if i == 0 else 10
+            fc = nn.Linear(input_size, 10)
+            setattr(self, &#39;fc%i&#39; % i, fc)       # 注意! pytorch 一定要你将层信息变成 class 的属性! 我在这里花了2天时间发现了这个 bug
+            self._set_init(fc)                  # 参数初始化
+            self.fcs.append(fc)
+            if self.do_bn:
+                bn = nn.BatchNorm1d(10, momentum=0.5)
+                setattr(self, &#39;bn%i&#39; % i, bn)   # 注意! pytorch 一定要你将层信息变成 class 的属性! 我在这里花了2天时间发现了这个 bug
+                self.bns.append(bn)
+
+        self.predict = nn.Linear(10, 1)         # output layer
+        self._set_init(self.predict)            # 参数初始化
+
+    def _set_init(self, layer):     # 参数初始化
+        init.normal_(layer.weight, mean=0., std=.1)
+        init.constant_(layer.bias, B_INIT)
+
+    def forward(self, x):
+        pre_activation = [x]
+        if self.do_bn: x = self.bn_input(x)    # 判断是否要加 BN
+        layer_input = [x]
+        for i in range(N_HIDDEN):
+            x = self.fcs[i](x)
+            pre_activation.append(x)    # 为之后出图
+            if self.do_bn: x = self.bns[i](x)  # 判断是否要加 BN
+            x = ACTIVATION(x)
+            layer_input.append(x)       # 为之后出图
+        out = self.predict(x)
+        return out, layer_input, pre_activation
+
+# 建立两个 net, 一个有 BN, 一个没有
+nets = [Net(batch_normalization=False), Net(batch_normalization=True)]       
+</code></pre></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/08/04/pytorch-basic/">https://fazziekey.github.io/2020/08/04/pytorch-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Deep-learning/">Deep learning</a><a class="post-meta__tags" href="/tags/pytorch/">pytorch</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/05/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">爬虫基础-正则表达匹配</div></div></a></div><div class="next-post pull-right"><a href="/2020/07/31/JS-Basic/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS Basic</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/07/18/CNN“/" title="CNN“"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">CNN“</div></div></a></div><div><a href="/2021/12/13/Lite-Transformer/" title="论文解读：Lite Transformer"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-13</div><div class="title">论文解读：Lite Transformer</div></div></a></div><div><a href="/2020/07/18/RNN/" title="RNN"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">RNN</div></div></a></div><div><a href="/2021/03/14/deep-learning-sum/" title="深度学习激活函数和优化"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-14</div><div class="title">深度学习激活函数和优化</div></div></a></div><div><a href="/2020/07/18/note-of-deeplearning/" title="note of deeplearning "><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">note of deeplearning </div></div></a></div><div><a href="/2020/04/22/grad/" title="使用pytorch进行梯度运算"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-22</div><div class="title">使用pytorch进行梯度运算</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">激励函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">常见激励函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E5%87%BD%E6%95%B0%E5%8C%85"><span class="toc-number">1.2.</span> <span class="toc-text">导入函数包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">神经网络搭建基本步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA"><span class="toc-number">2.1.</span> <span class="toc-text">网络搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.1.</span> <span class="toc-text">查看网络结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#optimizer%E4%BC%98%E5%8C%96%E5%99%A8%E9%80%89%E6%8B%A9%E5%92%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-number">2.2.</span> <span class="toc-text">optimizer优化器选择和损失函数定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">2.3.</span> <span class="toc-text">训练</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">快速搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E6%8F%90%E5%8F%96"><span class="toc-number">4.</span> <span class="toc-text">保存提取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98"><span class="toc-number">4.1.</span> <span class="toc-text">保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%8F%96"><span class="toc-number">4.2.</span> <span class="toc-text">提取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E7%BD%91%E7%BB%9C"><span class="toc-number">4.2.1.</span> <span class="toc-text">提取网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AA%E6%8F%90%E5%8F%96%E5%8F%82%E6%95%B0%EF%BC%88%E9%80%9F%E5%BA%A6%E5%BF%AB%EF%BC%89"><span class="toc-number">4.2.2.</span> <span class="toc-text">只提取参数（速度快）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%B9%E8%AE%AD%E7%BB%83"><span class="toc-number">5.</span> <span class="toc-text">批训练</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E4%BC%98%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text">训练优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">6.1.</span> <span class="toc-text">常见优化方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SGD"><span class="toc-number">6.2.</span> <span class="toc-text">SGD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Momentum"><span class="toc-number">6.3.</span> <span class="toc-text">Momentum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RMSprop"><span class="toc-number">6.4.</span> <span class="toc-text">RMSprop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaGrad"><span class="toc-number">6.5.</span> <span class="toc-text">AdaGrad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adam"><span class="toc-number">6.6.</span> <span class="toc-text">Adam</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA"><span class="toc-number">7.</span> <span class="toc-text">卷积神经网络搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA"><span class="toc-number">8.</span> <span class="toc-text">循环神经网络搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RNN%E5%88%86%E7%B1%BB"><span class="toc-number">8.1.</span> <span class="toc-text">RNN分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RNN%E5%9B%9E%E5%BD%92"><span class="toc-number">8.2.</span> <span class="toc-text">RNN回归</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GPU%E5%8A%A0%E9%80%9F"><span class="toc-number">9.</span> <span class="toc-text">GPU加速</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E5%8F%98%E9%87%8F%E7%A7%BB%E5%8A%A8%E5%88%B0GPU"><span class="toc-number">9.0.1.</span> <span class="toc-text">将变量移动到GPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%9B%BE%E7%A7%BB%E5%8A%A8%E5%88%B0GPU"><span class="toc-number">9.0.2.</span> <span class="toc-text">计算图移动到GPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E7%A7%BB%E5%8A%A8%E5%88%B0GPU"><span class="toc-number">9.0.3.</span> <span class="toc-text">训练移动到GPU</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dropout%E9%98%B2%E6%AD%A2%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">10.</span> <span class="toc-text">dropout防止过拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E8%BF%87%E6%8B%9F%E5%90%88%E7%BD%91%E7%BB%9C"><span class="toc-number">10.1.</span> <span class="toc-text">无过拟合网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dropout%E7%BD%91%E7%BB%9C"><span class="toc-number">10.2.</span> <span class="toc-text">dropout网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E4%BD%BF%E7%94%A8%E9%A2%84%E6%B5%8B%E6%97%B6%E5%8F%96%E5%87%BAdropout"><span class="toc-number">10.3.</span> <span class="toc-text">在使用预测时取出dropout</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Batch-Normalization%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-number">11.</span> <span class="toc-text">Batch Normalization归一化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Normalization%E8%BF%87%E7%A8%8B"><span class="toc-number">11.1.</span> <span class="toc-text">Batch Normalization过程</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

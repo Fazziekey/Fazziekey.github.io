@@ -1,0 +1,595 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>信息编码 | 摸黑干活</title><meta name="keywords" content="香农yyds"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="信息获取的本质   本体信息论--&gt;信息获取   信息获取--&gt;认识论信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息编码">
+<meta property="og:url" content="https://fazziekey.github.io/2021/01/19/information-encoder/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="信息获取的本质   本体信息论--&gt;信息获取   信息获取--&gt;认识论信息">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-01-19T06:30:14.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.489Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="香农yyds">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2021/01/19/information-encoder/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">信息编码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-19T06:30:14.000Z" title="发表于 2021-01-19 14:30:14">2021-01-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.489Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="信息获取的本质"><a href="#信息获取的本质" class="headerlink" title="信息获取的本质"></a>信息获取的本质</h1><script type="math/tex; mode=display">
+
+ 本体信息论-->信息获取
+
+ 信息获取-->认识论信息</script> <span id="more"></span>
+<h1 id="离散无记忆信源DMS的编码"><a href="#离散无记忆信源DMS的编码" class="headerlink" title="离散无记忆信源DMS的编码"></a>离散无记忆信源DMS的编码</h1><p> <strong>目标</strong>：在代价最小的意义上来有效表达一个信源，包括量化，压缩，映射，变化，自然语言翻译等许多抽象的过程</p>
+<script type="math/tex; mode=display">
+ 信源编码
+ \begin{cases}
+无损编码
+    \begin{cases}
+    绝对无差错编码:P_e^{(n)}=0\\
+    渐进无差错编码:lim_{n\to \infty}P_e^{(n)}\to n
+    \end{cases}\\
+有损编码
+ \end{cases}</script><h2 id="DMS编解码系统概念框图"><a href="#DMS编解码系统概念框图" class="headerlink" title="DMS编解码系统概念框图"></a>DMS编解码系统概念框图</h2><p> <img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/10/23/26e237ee0433ed430c1e00dd257c0ad0.png" alt=""></p>
+<h2 id="绝对无差错编码"><a href="#绝对无差错编码" class="headerlink" title="绝对无差错编码"></a>绝对无差错编码</h2><ul>
+<li><p>DMS</p>
+<script type="math/tex; mode=display">
+...U_1,U_2,U_3...U_L...
+
+U_i == 
+\begin{bmatrix}
+a_1&a_2&...&a_k\\
+p_1&p_2&...&p_k
+\end{bmatrix}</script></li>
+<li>编码符号集<script type="math/tex; mode=display">
+\Beta=\{b_1,b_2,...b_D\}</script></li>
+<li>对于源U的任意L长序列用编码符号集$\Beta$进行绝对无差错等长编码，则必有<script type="math/tex; mode=display">
+D^N>=K^L</script><strong>编码速率</strong></li>
+</ul>
+<script type="math/tex; mode=display">
+R=\frac{N\log D}{L}>=\log K</script><blockquote>
+<p>平均每个信源符号编码所需时间</p>
+</blockquote>
+<ul>
+<li>信源熵<script type="math/tex; mode=display">
+H(U)=H(p_1,p_2...p_k)=-\sum_{k=1}^K p_k\log p_k</script><script type="math/tex; mode=display">
+R=\frac{N\log D}{L}\to H(U)</script></li>
+</ul>
+<h2 id="AEP性质-渐进等分"><a href="#AEP性质-渐进等分" class="headerlink" title="AEP性质(渐进等分)"></a>AEP性质(渐进等分)</h2><p>离散无记忆信源U输出一个L长的序列</p>
+<script type="math/tex; mode=display">
+u^L=(u_1,u_2,u_3...u_L)</script><p>因为无记忆性，所以</p>
+<script type="math/tex; mode=display">
+p(u^L)=\prod_{l=1}^Lp(u_l)</script><ul>
+<li>序列的信息为<script type="math/tex; mode=display">
+I(u^L)=-\log p(u^L)=\sum_{l=1}^L I(u_l)</script></li>
+<li>每个符号平均自信息为<script type="math/tex; mode=display">
+I_L=\frac{I(u^L)}{L}</script>期望方差性质<script type="math/tex; mode=display">
+E(I_L)=E(I(u))=H(U)</script><script type="math/tex; mode=display">
+Var(I_L)=\frac{\sigma_l^2}{L}</script>由切比雪夫不等式<script type="math/tex; mode=display">
+P\{|\xi-E(\xi)|>\epsilon\}<=\frac{Var(\xi)}{\epsilon^2}</script><script type="math/tex; mode=display">
+p\{I_L-H(U)>\epsilon\}<=\frac{\sigma_I^2}{L\epsilon^2}</script>给定$\epsilon$，当L充分大时<script type="math/tex; mode=display">
+\frac{\sigma_L^2}{L\epsilon}<\epsilon</script>所以<script type="math/tex; mode=display">
+P\{|I_L-H(U)|>\epsilon\}<=\epsilon</script>这表明当L充分大的时候$\frac{1}{L}I(u^L)\to H(U)$</li>
+</ul>
+<p>这一性质被称为渐进等分性质</p>
+<h2 id="典型列集合"><a href="#典型列集合" class="headerlink" title="典型列集合"></a>典型列集合</h2><script type="math/tex; mode=display">
+A_{\epsilon}^{(L)}(U)=\{u^L:|-\frac{1}{L}\log p(u^L)-H(U)|<\epsilon\}</script><p>为给定DMS输出长度为L的$\epsilon$ 典型列集合，简称典型列集，其中$u^L\in U^L$。</p>
+<blockquote>
+<p>典型列集合可以理解为序列的自信息接近信源熵的序列</p>
+</blockquote>
+<h3 id="典型列集合性质"><a href="#典型列集合性质" class="headerlink" title="典型列集合性质"></a>典型列集合性质</h3><ul>
+<li>当L足够大时</li>
+</ul>
+<script type="math/tex; mode=display">
+\operatorname{Pr}\left(\boldsymbol{u}^{L} \in A_{\varepsilon}^{(L)}(U)\right)>1-\varepsilon</script><script type="math/tex; mode=display">
+\operatorname{Pr}\left(A_{\varepsilon}^{(L)}(U)\right)=\sum_{u^{L} \in A_{s}^{(L)}} p\left(\boldsymbol{u}^{L}\right)=\sum_{u^{L} \in U^{L}} p\left(\boldsymbol{u}^{L}\right) \mathrm{I}\left(\boldsymbol{u}^{L} \in A_{\varepsilon}^{(L)}(U)\right)</script><script type="math/tex; mode=display">
+=E\left[\mathrm{I}\left(\boldsymbol{u}^{L} \in A_{\varepsilon}^{(L)}(U)\right)\right]=\operatorname{Pr}\left(\boldsymbol{u}^{L} \in A_{\varepsilon}^{(L)}(U)\right)>1-\varepsilon</script><ul>
+<li>典型列性质2<script type="math/tex; mode=display">
+2^{-L[H(U)+\varepsilon]} \leq p\left(\boldsymbol{u}^{L}\right) \leq 2^{-L[H(U)-\varepsilon]}, \quad \mathrm{i} \mathrm{f} \boldsymbol{u}^{L} \in A_{\varepsilon}^{(L)}(U)</script></li>
+<li>典型列性质3</li>
+</ul>
+<script type="math/tex; mode=display">
+(1-\varepsilon) 2^{L[H(U)-\delta]} \leq\left|A_{\varepsilon}^{(L)}(U)\right| \leq 2^{L[H(U)+\varepsilon]}</script><h2 id="DMS编码定理"><a href="#DMS编码定理" class="headerlink" title="DMS编码定理"></a>DMS编码定理</h2><p>对熵为H(U)的离散无记忆信源所输出的L长序列进行等长编码,编码序列长为N，编码符号表包括 D个可用编码符号.则当<strong>平均每信源符号所耗用的编码比特数</strong>(编码速率)$R=\frac{N\log D}{L}$满足</p>
+<script type="math/tex; mode=display">
+R>H(U)+\epsilon_L</script><p>可实现渐进无差错的编码</p>
+<h1 id="不等长码"><a href="#不等长码" class="headerlink" title="不等长码"></a>不等长码</h1><p><strong>平均码长定义</strong></p>
+<script type="math/tex; mode=display">
+\hat{n}=\sum_{k=1}^Kp_kn_k</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>信源消息</th>
+<th>出现概率</th>
+<th>码1</th>
+<th>码2</th>
+<th>码3</th>
+<th>码4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$a_1$</td>
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$a_2$</td>
+<td>0.25</td>
+<td>0</td>
+<td>1</td>
+<td>01</td>
+<td>10</td>
+</tr>
+<tr>
+<td>$a_3$</td>
+<td>0.125</td>
+<td>1</td>
+<td>00</td>
+<td>011</td>
+<td>110</td>
+</tr>
+<tr>
+<td>$a_4$</td>
+<td>0.125</td>
+<td>10</td>
+<td>11</td>
+<td>0111</td>
+<td>1110</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="唯一可译性"><a href="#唯一可译性" class="headerlink" title="唯一可译性"></a>唯一可译性</h3><p><strong>如果一个码的扩展是非奇异的，则该码唯一可译</strong></p>
+<p>所谓编码的后缀分解集就是如下递归构成的一系列集合，${S_i}$</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$S_0$</th>
+<th>$S_1$</th>
+<th>$S_2$</th>
+<th>$S_3$</th>
+<th>$S_4$</th>
+<th>$S_5$</th>
+<th>…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>…</td>
+</tr>
+<tr>
+<td>10</td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td></td>
+<td></td>
+<td>12</td>
+<td></td>
+<td>12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td></td>
+<td></td>
+<td>122</td>
+<td></td>
+<td>122</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1122</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>编码唯一可译的充要条件是所有的后缀分解集都不包含码字</strong></p>
+<h3 id="即时可译性"><a href="#即时可译性" class="headerlink" title="即时可译性"></a>即时可译性</h3><h2 id="异字头码"><a href="#异字头码" class="headerlink" title="异字头码"></a>异字头码</h2><p>如果一个码没有一个码字是其他码字的前缀，则该码被称为前缀码或者异字头码</p>
+<p>我门可以用D元树构造异字头码</p>
+<h3 id="Kraft定理"><a href="#Kraft定理" class="headerlink" title="Kraft定理"></a>Kraft定理</h3><p>Kraft定理阐明了什么样的码长可以构造一个唯一可译的码</p>
+<p>存在长度为$n_1,n_2…n_k$的D元异字头码的充要条件为</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^K D^{-n_k}<=1</script><p><strong>如果一个码可译，则Kraft不等式成立，存在一个同样长度的异字头码</strong></p>
+<h2 id="不等长编码定理"><a href="#不等长编码定理" class="headerlink" title="不等长编码定理"></a>不等长编码定理</h2><p><strong>任何D元唯一可译码满足</strong></p>
+<script type="math/tex; mode=display">
+\hat{n}>=\frac{H(U)}{\log D}</script><p><strong>证明</strong></p>
+<script type="math/tex; mode=display">
+H(U)-\hat{n}\log D=-\sum_{k=1}^K(p_k\log p_k+p_kn_k\log D)
+\\
+=\sum_{k=1}^K p_k\log \frac{D^{-n_k}}{p_k}
+\\
+<=\sum_{k=1}^K p_k(\frac{D^{-n_k}}{p_k}-1)
+\\
+=(\sum_{k=1}^K D^{-n_k}-1)<=0</script><p><strong>任何唯一可译码必然满足Kraft不等式。</strong></p>
+<blockquote>
+<p>当所有码字都在叶节点上取到等号</p>
+</blockquote>
+<p><strong>一定存在一个D元的唯一可译码，使得</strong></p>
+<script type="math/tex; mode=display">
+\hat{n}<=\frac{H(U)}{\log D}+1</script><h2 id="编码速率"><a href="#编码速率" class="headerlink" title="编码速率"></a>编码速率</h2><script type="math/tex; mode=display">
+H(U)+\log D>=R=\hat{n}\log D>=H(U)</script><h3 id="编码效率"><a href="#编码效率" class="headerlink" title="编码效率"></a>编码效率</h3><script type="math/tex; mode=display">
+\eta=\frac{H(U)}{R}</script><p>对于DMS</p>
+<script type="math/tex; mode=display">
+\lim_{l\to\infty}R=H(U)</script><h2 id="不等长编码定理扩展"><a href="#不等长编码定理扩展" class="headerlink" title="不等长编码定理扩展"></a>不等长编码定理扩展</h2><p>对于长度为L的平稳遍历源$U^L$<br>有</p>
+<script type="math/tex; mode=display">
+\frac{H(U^L)}{\log D}<=\hat{n}(U^L)<=\frac{H(U^L)}{\log D}+1</script><script type="math/tex; mode=display">
+\frac{H(U^L)}{L\log D}<=\hat{n}=\frac{\hat{n}(U^L)}{L}<\frac{H(U^L)}{L\log D}+1</script><p>若源离散无记忆，进一步有结论</p>
+<script type="math/tex; mode=display">
+\frac{H(U)}{\log D}<=\hat{n}<\frac{H(U)}{\log D}+\frac{1}{L}</script><h1 id="最佳不等长编码（Huffman编码）"><a href="#最佳不等长编码（Huffman编码）" class="headerlink" title="最佳不等长编码（Huffman编码）"></a>最佳不等长编码（Huffman编码）</h1><p>那么我们如何可以得到一个平均码长最短的编码？</p>
+<p><strong>最佳不等长码</strong>：在给定信源分布的情况下，在平均码长最短的意义上最佳</p>
+<p>我们从最简单的二元最佳码看起</p>
+<p>其符合性质</p>
+<ul>
+<li>出现概率越小的码越长</li>
+<li>出现概率最小的两个消息对应码长相等，且其码字只有最后一位不同</li>
+</ul>
+<p>我们把消息出现的概率降序排列，码字长度升序排列</p>
+<p>为什么出现概率最小的两个消息码长相等且只有一位相反？</p>
+<p>因为没有一个码是另一个码的前缀</p>
+<h2 id="辅助源"><a href="#辅助源" class="headerlink" title="辅助源"></a>辅助源</h2><p>对于辅助源的最佳编码也是</p>
+<script type="math/tex; mode=display">
+U=\begin{bmatrix}
+a_1&a_2&...&a_{K-1}&a_K\\
+p_1&>=p_2&...&>=p_{K-1}&>=p_K
+\end{bmatrix}</script><script type="math/tex; mode=display">
+U'=\begin{bmatrix}
+a_1'=a_1&a_2'=a_2&...&a_{K-1}'=a_{K-1}+a_K\\
+p_1'=p_1&p_2'=p_2&...&p_{K-1}'=p_{K-1}+p_K
+\end{bmatrix}</script><p>将辅助源的概率最小的两个编码在结尾分别加上0和1</p>
+<h3 id="可递归编码定理"><a href="#可递归编码定理" class="headerlink" title="可递归编码定理"></a>可递归编码定理</h3><p><strong>对辅助源U’对最佳编码也是对原始源的最佳编码</strong></p>
+<h2 id="Huffman编码案例"><a href="#Huffman编码案例" class="headerlink" title="Huffman编码案例"></a>Huffman编码案例</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/06/5d4b1fbf107cd22072a0fe00e605489b.png" alt=""></p>
+<h2 id="D元Huffman编码虚拟消息的合并"><a href="#D元Huffman编码虚拟消息的合并" class="headerlink" title="D元Huffman编码虚拟消息的合并"></a>D元Huffman编码虚拟消息的合并</h2><ul>
+<li>若$K=(D-1)i+1$，则每次均有D个消息要合并，短标号得到充分利用</li>
+<li>若$K=(D-1)i+M$,则每次必须增补D-M个概率为0的虚拟消息，使得最后一次合并仍然有D个消息，从而充分利用短标号<br>‘</li>
+</ul>
+<h2 id="Huffman编码的排序问题"><a href="#Huffman编码的排序问题" class="headerlink" title="Huffman编码的排序问题"></a>Huffman编码的排序问题</h2><p>在消息数量巨大的时候，对信息排序是不可能的，需要一些其他的算法</p>
+<h1 id="Shannon编码"><a href="#Shannon编码" class="headerlink" title="Shannon编码"></a>Shannon编码</h1><p>对于给定信源</p>
+<script type="math/tex; mode=display">
+U=\begin{bmatrix}
+a_1&a_2&...&a_{K-1}&a_K\\
+p_1&>=p_2&...&>=p_{K-1}&>=p_K
+\end{bmatrix}</script><script type="math/tex; mode=display">
+P_k=\sum_{i=1}^{k-1}p_i</script><p>用长度为</p>
+<script type="math/tex; mode=display">
+l_k=[\log \frac{1}{p_k}]</script><p>的编码将$P_k$二进制展开([x]表示大于x的最小整数)，截取前$l_k$作为编码</p>
+<script type="math/tex; mode=display">
+=0.c_1c_2c_3...c_{l_k-1}c_{l_k}...</script><p>第k个消息的自信息</p>
+<h2 id="香农yyds"><a href="#香农yyds" class="headerlink" title="香农yyds!!!"></a>香农yyds!!!</h2><ul>
+<li>唯一可译</li>
+<li>异字头</li>
+<li>融合自信息</li>
+</ul>
+<h2 id="Shannon编码的异字头性"><a href="#Shannon编码的异字头性" class="headerlink" title="Shannon编码的异字头性"></a>Shannon编码的异字头性</h2><h2 id="香农编码的效率"><a href="#香农编码的效率" class="headerlink" title="香农编码的效率"></a>香农编码的效率</h2><script type="math/tex; mode=display">
+H(U)<=\hat{n}=\sum_{k=1}^Nl_kp_k<H(U)+1</script><blockquote>
+<p>和哈夫曼编码比，香农编码渐进收敛性差，但竞争性更好</p>
+</blockquote>
+<h2 id="Fano编码"><a href="#Fano编码" class="headerlink" title="Fano编码"></a>Fano编码</h2><p>对<br>U进行概率对分</p>
+<script type="math/tex; mode=display">
+|\sum_{i=1}^kp_i-\sum_{i=k+1}^np_i|</script><p><strong>fano编码本质上是一个二叉决策树</strong></p>
+<script type="math/tex; mode=display">
+\hat{n}<=H(U)+1-2p_n</script><blockquote>
+<p>其中$p_n$为最小符号概率。<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/06/89cf705b8263a2aa7910d2a18caa2d5d.png" alt=""></p>
+</blockquote>
+<h2 id="Shannon-Fano-Elias编码"><a href="#Shannon-Fano-Elias编码" class="headerlink" title="Shannon-Fano-Elias编码"></a>Shannon-Fano-Elias编码</h2><p><strong>优点：不需要排序</strong></p>
+<p>记</p>
+<script type="math/tex; mode=display">
+\bar{F}(x)=\sum_{i<x}p(i)+\frac{1}{2}p(x)</script><script type="math/tex; mode=display">
+F(x)=\sum_{i<=x}p(i)</script><p>为累计概率分布</p>
+<script type="math/tex; mode=display">
+l(x)=[\log\frac{1}{p(x)}]+1</script><script type="math/tex; mode=display">
+\bar{F}(x)-\bar{F}(x-1)>\bar{F}(x)-F(x-1)=
+\frac{p(x)}{2}>2^{-l(x)}</script><script type="math/tex; mode=display">
+[\bar{F}(x)]_{l(x)}=0.z_1z_2...z_{l(x)}</script><script type="math/tex; mode=display">
+\bar F(x)-[\bar F(x)]_{l(x)}<2^{-l(x)}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/06/f3af62ed01694b1ed6cf0737b73bcf9b.png" alt=""></p>
+<h3 id="SFE编码效率"><a href="#SFE编码效率" class="headerlink" title="SFE编码效率"></a>SFE编码效率</h3><script type="math/tex; mode=display">
+\bar{n}=\sum_x p(x)l(x)=\sum_xp(x)\{\log\frac{1}{p(x)}]+1\}<H(U)+2</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/06/91c5fa240670b6274a891b58258aab9f.png" alt=""></p>
+<h2 id="算术编码"><a href="#算术编码" class="headerlink" title="算术编码"></a>算术编码</h2><p>sequential encoding的思想</p>
+<ul>
+<li>基本思想<ul>
+<li>SFE编码的直接推广（从单个符号到n长序列） </li>
+</ul>
+</li>
+<li>关键点<ul>
+<li>累计概率快速有效迭代算法</li>
+</ul>
+</li>
+</ul>
+<p><strong>定义</strong></p>
+<script type="math/tex; mode=display">
+x^n=x_1x_2...x_n>y_1y_2...y_n</script><p>是指</p>
+<script type="math/tex; mode=display">
+\sum_ix_i2^{-i}>\sum_i y_i2^{-i}</script><p>$x^n$对应的子区间</p>
+<script type="math/tex; mode=display">
+F(x^n)=\sum_{y^n<x^n}p(y^n)
+\\
+\bar{F}(x^n)=F(x^n)+\frac{1}{2}p(x^n)
+\\
+C(x^n)=[\bar{F}(x^n)]_{l(x_n)}
+\\
+l(x^n)=[\log\frac{1}{p(x^n)}]+1</script><h3 id="算术编码的基本算法"><a href="#算术编码的基本算法" class="headerlink" title="算术编码的基本算法"></a>算术编码的基本算法</h3><p>算数编码的关键思想在于建立了一套计算信源出现概率$p(x^n)$和累计概率$F(x^n)$的算法</p>
+<script type="math/tex; mode=display">
+P(T_{x_1x_2...x_{k-1}0})=\sum_{y_{k+1}...y_n}p(x_1x_2...x_{k-1}0y_{k+1}...y_{n})
+\\
+=p(x_1x_2...x_{k-1}0)</script><script type="math/tex; mode=display">
+F(x^n)=\sum_{y^n<x^n}p(y^n)
+\\
+=\sum_{T:在x^n左边的子树T}P(T)
+\\
+=\sum_{x_k=1}P(x_1x_2...x_{k-1}0)</script><p>比如，设二元消息$$</p>
+<p>这样的好处是当序列长度从n变到n+1时，容易计算概率</p>
+<script type="math/tex; mode=display">
+p(x^{n+1})=p(x^nx_{n+1})=p(x^n)p(x_{n+1})</script><script type="math/tex; mode=display">
+F(x^{n+1})=F(x^nx_{n+1})=\begin{cases}
+F(x^n)&x_{n+1}=0\\
+F(x^n)+p(x^n0)&x_{n+1}=1
+\end{cases}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/06/bfae6e21f0ee624501b043fecc7f76d0.png" alt=""></p>
+<h2 id="通用信源编码"><a href="#通用信源编码" class="headerlink" title="通用信源编码"></a>通用信源编码</h2><p>针对未知概率分布的信息</p>
+<script type="math/tex; mode=display">
+\bar n=-p\log p_0-(1-p)\log(1-p_0)</script><p>香农编码在不能准确获得信源分布的事性能恶化</p>
+<h2 id="Z-L编码"><a href="#Z-L编码" class="headerlink" title="Z-L编码"></a>Z-L编码</h2><h2 id="序列的分解"><a href="#序列的分解" class="headerlink" title="序列的分解"></a>序列的分解</h2><p>在每个前面未出现的最短序列编号</p>
+<p>1|0|11|01|010|00|10|…</p>
+<h2 id="平稳信源编码"><a href="#平稳信源编码" class="headerlink" title="平稳信源编码"></a>平稳信源编码</h2><p>令$\epsilon$是任意小正数，对平稳有记忆信源${U^L,p(u^L)}$进行不等长D元编码，则总可以找到一个$L(\epsilon)$,当$L&gt;L(\epsilon)$平均编码码长 $\bar n$满足</p>
+<script type="math/tex; mode=display">
+\frac{H(U|U^{\infty})}{\log D}<=\bar n<\frac{H(U|U^{\infty})}{\log D}+\epsilon</script><h2 id="马尔可夫源"><a href="#马尔可夫源" class="headerlink" title="马尔可夫源"></a>马尔可夫源</h2><script type="math/tex; mode=display">
+\frac{H{\infty}(U)}{\log D}<=\bar n<\frac{H_{\infty}(U)}{\log D}+\frac{1}{L}</script><script type="math/tex; mode=display">
+H_\infty(U)=\sum_{s\in S}q(S=s)H(U|S=s)=H(U|S)</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/11/06/79347e2c14f9116e3a9775a13f958919.png" alt=""></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2021/01/19/information-encoder/">https://fazziekey.github.io/2021/01/19/information-encoder/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A6%99%E5%86%9Cyyds/">香农yyds</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/02/23/com-theory/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">com theory</div></div></a></div><div class="next-post pull-right"><a href="/2020/11/23/RL-model-free/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RL:model free</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/02/23/com-theory/" title="com theory"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-23</div><div class="title">com theory</div></div></a></div><div><a href="/2020/10/06/xinxilun/" title="信息熵"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-06</div><div class="title">信息熵</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">信息获取的本质</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%A0%E8%AE%B0%E5%BF%86%E4%BF%A1%E6%BA%90DMS%E7%9A%84%E7%BC%96%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">离散无记忆信源DMS的编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DMS%E7%BC%96%E8%A7%A3%E7%A0%81%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%E6%A1%86%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text">DMS编解码系统概念框图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E6%97%A0%E5%B7%AE%E9%94%99%E7%BC%96%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">绝对无差错编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AEP%E6%80%A7%E8%B4%A8-%E6%B8%90%E8%BF%9B%E7%AD%89%E5%88%86"><span class="toc-number">2.3.</span> <span class="toc-text">AEP性质(渐进等分)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%88%97%E9%9B%86%E5%90%88"><span class="toc-number">2.4.</span> <span class="toc-text">典型列集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%88%97%E9%9B%86%E5%90%88%E6%80%A7%E8%B4%A8"><span class="toc-number">2.4.1.</span> <span class="toc-text">典型列集合性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DMS%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-number">2.5.</span> <span class="toc-text">DMS编码定理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E7%AD%89%E9%95%BF%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">不等长码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%94%AF%E4%B8%80%E5%8F%AF%E8%AF%91%E6%80%A7"><span class="toc-number">3.0.1.</span> <span class="toc-text">唯一可译性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">举例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B3%E6%97%B6%E5%8F%AF%E8%AF%91%E6%80%A7"><span class="toc-number">3.0.2.</span> <span class="toc-text">即时可译性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%AD%97%E5%A4%B4%E7%A0%81"><span class="toc-number">3.1.</span> <span class="toc-text">异字头码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kraft%E5%AE%9A%E7%90%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">Kraft定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E7%AD%89%E9%95%BF%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">不等长编码定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E9%80%9F%E7%8E%87"><span class="toc-number">3.3.</span> <span class="toc-text">编码速率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E6%95%88%E7%8E%87"><span class="toc-number">3.3.1.</span> <span class="toc-text">编码效率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E7%AD%89%E9%95%BF%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86%E6%89%A9%E5%B1%95"><span class="toc-number">3.4.</span> <span class="toc-text">不等长编码定理扩展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E4%B8%8D%E7%AD%89%E9%95%BF%E7%BC%96%E7%A0%81%EF%BC%88Huffman%E7%BC%96%E7%A0%81%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">最佳不等长编码（Huffman编码）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E6%BA%90"><span class="toc-number">4.1.</span> <span class="toc-text">辅助源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%80%92%E5%BD%92%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-number">4.1.1.</span> <span class="toc-text">可递归编码定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Huffman%E7%BC%96%E7%A0%81%E6%A1%88%E4%BE%8B"><span class="toc-number">4.2.</span> <span class="toc-text">Huffman编码案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D%E5%85%83Huffman%E7%BC%96%E7%A0%81%E8%99%9A%E6%8B%9F%E6%B6%88%E6%81%AF%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">4.3.</span> <span class="toc-text">D元Huffman编码虚拟消息的合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Huffman%E7%BC%96%E7%A0%81%E7%9A%84%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="toc-number">4.4.</span> <span class="toc-text">Huffman编码的排序问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Shannon%E7%BC%96%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">Shannon编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%99%E5%86%9Cyyds"><span class="toc-number">5.1.</span> <span class="toc-text">香农yyds!!!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shannon%E7%BC%96%E7%A0%81%E7%9A%84%E5%BC%82%E5%AD%97%E5%A4%B4%E6%80%A7"><span class="toc-number">5.2.</span> <span class="toc-text">Shannon编码的异字头性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%99%E5%86%9C%E7%BC%96%E7%A0%81%E7%9A%84%E6%95%88%E7%8E%87"><span class="toc-number">5.3.</span> <span class="toc-text">香农编码的效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fano%E7%BC%96%E7%A0%81"><span class="toc-number">5.4.</span> <span class="toc-text">Fano编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shannon-Fano-Elias%E7%BC%96%E7%A0%81"><span class="toc-number">5.5.</span> <span class="toc-text">Shannon-Fano-Elias编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SFE%E7%BC%96%E7%A0%81%E6%95%88%E7%8E%87"><span class="toc-number">5.5.1.</span> <span class="toc-text">SFE编码效率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81"><span class="toc-number">5.6.</span> <span class="toc-text">算术编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95"><span class="toc-number">5.6.1.</span> <span class="toc-text">算术编码的基本算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81"><span class="toc-number">5.7.</span> <span class="toc-text">通用信源编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Z-L%E7%BC%96%E7%A0%81"><span class="toc-number">5.8.</span> <span class="toc-text">Z-L编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-number">5.9.</span> <span class="toc-text">序列的分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E7%A8%B3%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81"><span class="toc-number">5.10.</span> <span class="toc-text">平稳信源编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%BA%90"><span class="toc-number">5.11.</span> <span class="toc-text">马尔可夫源</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

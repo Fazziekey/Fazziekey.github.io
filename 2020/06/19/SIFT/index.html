@@ -1,0 +1,411 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SIFT | 摸黑干活</title><meta name="keywords" content="CV"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="图像检索原理概述首先，我们要明白，图像检索，简单的说，便是从图片检索数据库中检索出满足条件的图片，图像检索技术的研究根据描述图像内容方式的不同可以分为两类： 一类是基于文本的图像检索技术，简称TBIR， 一类为基于内容的图像检索技术，简称CBIR。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SIFT">
+<meta property="og:url" content="https://fazziekey.github.io/2020/06/19/SIFT/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="图像检索原理概述首先，我们要明白，图像检索，简单的说，便是从图片检索数据库中检索出满足条件的图片，图像检索技术的研究根据描述图像内容方式的不同可以分为两类： 一类是基于文本的图像检索技术，简称TBIR， 一类为基于内容的图像检索技术，简称CBIR。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-06-19T00:05:38.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.487Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="CV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/06/19/SIFT/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SIFT</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-19T00:05:38.000Z" title="发表于 2020-06-19 08:05:38">2020-06-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.487Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="图像检索原理概述"><a href="#图像检索原理概述" class="headerlink" title="图像检索原理概述"></a>图像检索原理概述</h1><p>首先，我们要明白，图像检索，简单的说，便是从图片检索数据库中检索出满足条件的图片，图像检索技术的研究根据描述图像内容方式的不同可以分为两类：</p>
+<p>一类是基于文本的图像检索技术，简称TBIR，</p>
+<p>一类为基于内容的图像检索技术，简称CBIR。<br><span id="more"></span></p>
+<h2 id="两类图像检索技术"><a href="#两类图像检索技术" class="headerlink" title="两类图像检索技术"></a>两类图像检索技术</h2><p>基于文本的图像检索(TBIR)技术，其主要原理为利用文本描述，如文本描述图片的内容、作者等等的方式来检索图片；<br>基于图像的内容语义的图像检索技术（CBIR），利用图片的颜色、纹理及图片包含的物体、类别等信息检索图片，如给定检索目标图片，在图像检索数据库中检索出与它相似的图片。</p>
+<p>基于图像的内容语义的图像检索包括相同物体图像检索和相同类别图像检索，检索任务分别为检索同一个物体地不同图片和检索同一个类别地图片。例如，行人检索中检索的是同一个人即同一个身份在不同场景不同摄像头下拍得的图片属于相同物体的图像检索，而在3D形状检索中则是检索属于同一类的物品，如飞机等。<br> 图像检索技术的步骤<br>图像检索技术主要包含几个步骤，分别为：输入图片、特征提取、度量学习、重排序。<br>特征提取：即将图片数据进行降维，提取数据的判别性信息，一般将一张图片降维为一个向量；<br>度量学习：一般利用度量函数，计算图片特征之间的距离，作为loss，训练特征提取网络，使得相似图片提取的特征相似，不同类的图片提取的特征差异性较大。<br>重排序：利用数据间的流形关系，对度量结果进行重新排序，从而得到更好的检索结果。</p>
+<h1 id="基于SFIT的图像特征提取"><a href="#基于SFIT的图像特征提取" class="headerlink" title="基于SFIT的图像特征提取"></a>基于SFIT的图像特征提取</h1><p>尺度不变特征转换即SIFT (Scale-invariant feature transform)是一种计算机视觉的算法。它用来侦测与描述影像中的局部性特征，它在空间尺度中寻找极值点，并提取出其位置、尺度、旋转不变量，此算法由 David Lowe在1999年所发表，2004年完善总结。</p>
+<p>其应用范围包含物体辨识、机器人地图感知与导航、影像缝合、3D模型建立、手势辨识、影像追踪和动作比对。</p>
+<p>局部影像特征的描述与侦测可以帮助辨识物体，SIFT特征是基于物体上的一些局部外观的兴趣点而与影像的大小和旋转无关。对于光线、噪声、些微视角改变的容忍度也相当高。基于这些特性，它们是高度显著而且相对容易撷取，在母数庞大的特征数据库中，很容易辨识物体而且鲜有误认。使用 SIFT特征描述对于部分物体遮蔽的侦测率也相当高，甚至只需要3个以上的SIFT物体特征就足以计算出位置与方位。在现今的电脑硬件速度下和小型的特征数据库条件下，辨识速度可接近即时运算。SIFT特征的信息量大，适合在海量数据库中快速准确匹配。</p>
+<p>SIFT算法的实质是在不同的尺度空间上查找关键点(特征点)，并计算出关键点的方向。SIFT所查找到的关键点是一些十分突出，不会因光照，仿射变换和噪音等因素而变化的点，如角点、边缘点、暗区的亮点及亮区的暗点等。</p>
+<h1 id="opencv中的SIFT算法"><a href="#opencv中的SIFT算法" class="headerlink" title="opencv中的SIFT算法"></a>opencv中的SIFT算法</h1><p>下面为一个简单算法样例</p>
+<pre><code>import cv2  
+import numpy as np  
+img = cv2.imread(&#39;home.jpg&#39;)  
+gray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)  
+sift = cv2.SIFT()  
+kp = sift.detect(gray,None)  
+img=cv2.drawKeypoints(gray,kp)  
+cv2.imwrite(&#39;sift_keypoints.jpg&#39;,img)  
+</code></pre><p>函数 sift.detect() 可以在图像中找到关键点。如果只想在图像中的一个区域搜索的话，也可以创建一个掩模图像作为参数使用。返回的S关键点是一个<br>带有很多不同属性的特殊结构体，这些属性中包含它的坐标（x，y），有意义的<br>邻域大小，确定其方向的角度等。OpenCV 也提供了绘制关键点的函数：cv2.drawKeyPoints()，它可以在关键点的部位绘制一个小圆圈。如果设置参数为 cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS，就会绘制代表关键点大小的圆圈甚至可以绘制除关键点的方向。<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619084500.png" alt=""><br>关于计算关键点描述符，OpenCV 提供了两种方法。</p>
+<ol>
+<li>由于已经找到了关键点，可以使用函数 <code>sift.compute()</code> 来计<br>算这些关键点的描述符。例如：<code>kp, des = sif t.compute(gray, kp)</code>。</li>
+<li>如果还没有找到关键点，可以使用函数 <code>sift.detectAndCompute()</code><br>一步到位直接找到关键点并计算出其描述符。<br>这里 kp 返回的是一个关键点列表。<code>des</code> 是一个 <code>Numpy</code> 数组，其大小是关键点数目乘以 <strong>128</strong>。</li>
+</ol>
+<h1 id="代码框架"><a href="#代码框架" class="headerlink" title="代码框架"></a>代码框架</h1><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>这里我选用了选用了101_ObjectCategories的图片作为本次模型训练数据。数据集下载地址：<a target="_blank" rel="noopener" href="http://www.vision.caltech.edu/Image_Datasets/Caltech101/。">http://www.vision.caltech.edu/Image_Datasets/Caltech101/。</a> </p>
+<h3 id="代码运行环境需要"><a href="#代码运行环境需要" class="headerlink" title="代码运行环境需要"></a>代码运行环境需要</h3><ul>
+<li>python 3.7 (Anaconda python) </li>
+<li>Numpy 1.16.2 </li>
+<li>Matplotlib 3.1.1 </li>
+<li>opencv-contrib-python 3.4.2.16 </li>
+</ul>
+<h3 id="运行方法"><a href="#运行方法" class="headerlink" title="运行方法"></a>运行方法</h3><p>把run模块中的<code>image_path</code>更改为对应的文件路径运行即可</p>
+<h1 id="算法流程图"><a href="#算法流程图" class="headerlink" title="算法流程图"></a>算法流程图</h1><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200619084433.png" alt=""></p>
+<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><pre><code>    # Developer：Fazzie  
+    # Time: 2020/6/1420:25  
+    # File name: SIFT.py  
+    # Development environment: Anaconda Python  
+
+    import cv2  
+    import numpy as np  
+    import scipy  
+    import _pickle as pickle  
+    import random  
+    import os  
+    from matplotlib import pyplot as plt  
+    import scipy.spatial  
+
+    # 特征提取模块  
+    def feature_extract(image_path,vector_size=32):  
+        img = cv2.imread(image_path,1)#读取图片  
+        # 显示图片  
+        # cv2.imshow(&#39;image&#39;,img)  
+        # cv2.waitKey(0)  
+        # cv2.destroyAllWindows()  
+
+        # SIFT特征提取  
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  
+        sift = cv2.xfeatures2d.SIFT_create()  
+     kp = sift.detect(gray, None)  
+
+      # 画出特征点并保存  
+        img = cv2.drawKeypoints(gray, kp, img)  
+        cv2.imwrite(&#39;sift_keypoints.jpg&#39;, img)  
+
+        # 根据关键点的返回值进行排序（越大越好）  
+        kp = sorted(kp, key=lambda x: -x.response)[:vector_size]  
+
+        # 计算描述符向量  
+        kp, des = sift.compute(gray, kp)  
+
+        # 将其放在一个大的向量中，作为我们的特征向量  
+        des = des.flatten()  
+
+        # 使描述符的大小一致  
+        # 描述符向量的大小为128  
+        needed_size = (vector_size * 128)  
+        if des.size &lt; needed_size:  
+            # 如果少于32个描述符，则在特征向量后面补零  
+            des = np.concatenate([des, np.zeros(needed_size - des.size)])  
+
+        return des  
+
+    #   数据存储  
+    def batch_extractor(images_path, pickled_db_path=&quot;features.pck&quot;):  
+        files = [os.path.join(images_path, p) for p in sorted(os.listdir(images_path))]  
+        result = &#123;&#125;  
+        for f in files:  
+            print(&#39;Extracting features from image %s&#39; % f)  
+            name = f.split(&#39;/&#39;)[-1].lower()  
+            result[name] = feature_extract(f)  
+
+        # 将特征向量存于pickled 文件  
+        with open(pickled_db_path, &#39;wb&#39;) as fp:  
+            pickle.dump(result, fp)  
+
+    # 图像特征匹配模块  
+    class Matcher(object):  
+
+        def __init__(self, pickled_db_path=&quot;features.pck&quot;):  
+            with open(pickled_db_path,&quot;rb&quot;) as fp:  
+                self.data = pickle.load(fp)  
+            self.names = []  
+            self.matrix = []  
+            for k, v in self.data.items():  
+                self.names.append(k)  
+                self.matrix.append(v)  
+            self.matrix = np.array(self.matrix)  
+            self.names = np.array(self.names)  
+
+        def cos_cdist(self, vector):  
+            # 计算待搜索图像与数据库图像的余弦距离  
+            v = vector.reshape(1, -1)  
+            return scipy.spatial.distance.cdist(self.matrix, v, &#39;cosine&#39;).reshape(-1)  
+
+        def match(self, image_path, topn=5):  
+            features = feature_extract(image_path)  
+            img_distances = self.cos_cdist(features)  
+            # 获得前5个记录  
+            nearest_ids = np.argsort(img_distances)[:topn].tolist()  
+
+            nearest_img_paths = self.names[nearest_ids].tolist()  
+            return nearest_img_paths, img_distances[nearest_ids].tolist()  
+
+
+    def show_img(path):  
+        img = cv2.imread(path,1)  
+        plt.imshow(img)  
+        plt.show()  
+
+    # 主程序  
+    def run():  
+        images_path = &#39;E:/Code/SFIT/101_ObjectCategories/panda/&#39;  
+        files = [os.path.join(images_path, p) for p in sorted(os.listdir(images_path))]  
+        # 随机获取1张图  
+
+        sample = random.sample(files, 1)  
+
+        batch_extractor(images_path)  
+
+        ma = Matcher(&#39;features.pck&#39;)  
+
+        for s in sample:  
+            print(&#39;Query image ==========================================&#39;)  
+            show_img(s)  
+            names, match = ma.match(s, topn=3)  
+            print(&#39;Result images ========================================&#39;)  
+            for i in range(3):  
+
+                # 我们得到了余弦距离，向量之间的余弦距离越小表示它们越相似，因此我们从1中减去它以得到匹配值  
+                print(&#39;Match %s&#39; % (1 - match[i]))  
+                show_img(os.path.join(images_path, names[i]))  
+
+    run()  
+</code></pre><h1 id="可能遇见的问题和解决方案"><a href="#可能遇见的问题和解决方案" class="headerlink" title="可能遇见的问题和解决方案"></a>可能遇见的问题和解决方案</h1><ul>
+<li><code>opencv</code>库<code>SFIT</code>函数不可用（<code>Error:cv2 has no attribute SIFT</code>）</li>
+</ul>
+<p><strong>原因</strong>：在<code>opencv3.4</code>之后的版本<code>SIFT</code>，<code>SURF</code>等图像特征提取算法申请了专利，不包含在<code>opencv</code>的基本库里</p>
+<p><strong>解决方案</strong>：安装额外模块<code>opencv contrib</code>的，下载对应<code>whl</code>文件，在<code>Anaconda</code>对应目录的第三方包<code>site-packages</code>输入命令行：<code>pip install</code> 对应whl文件名</p>
+<ul>
+<li><code>cpickle</code>模块不可用<br>在python3中<code>cpikle</code>模块集成到了<code>_pickle</code>,<code>import _pickle</code>即可</li>
+<li>可以考虑使用SURF算法代替SIFT，进一步提高运算速率</li>
+</ul>
+<blockquote>
+<p>如果想下载源码，可以访问<a target="_blank" rel="noopener" href="https://github.com/Fazziekey/opencv_SIFT">https://github.com/Fazziekey/opencv_SIFT</a></p>
+<p>参考文章:<a target="_blank" rel="noopener" href="https://towardsdatascience.com/feature-extraction-and-similar-image-search-with-opencv-for-newbies-3c59796bf774">https://towardsdatascience.com/feature-extraction-and-similar-image-search-with-opencv-for-newbies-3c59796bf774</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/06/19/SIFT/">https://fazziekey.github.io/2020/06/19/SIFT/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CV/">CV</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/06/19/maxwell/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">从0开始手撕麦克斯韦</div></div></a></div><div class="next-post pull-right"><a href="/2020/06/18/Maxwell-s-Theory/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Maxwell's Theory</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/07/18/CNN“/" title="CNN“"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">CNN“</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">图像检索原理概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%B1%BB%E5%9B%BE%E5%83%8F%E6%A3%80%E7%B4%A2%E6%8A%80%E6%9C%AF"><span class="toc-number">1.1.</span> <span class="toc-text">两类图像检索技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ESFIT%E7%9A%84%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-number">2.</span> <span class="toc-text">基于SFIT的图像特征提取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#opencv%E4%B8%AD%E7%9A%84SIFT%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">opencv中的SIFT算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6"><span class="toc-number">4.</span> <span class="toc-text">代码框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">4.0.1.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%9C%80%E8%A6%81"><span class="toc-number">4.0.2.</span> <span class="toc-text">代码运行环境需要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%96%B9%E6%B3%95"><span class="toc-number">4.0.3.</span> <span class="toc-text">运行方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">5.</span> <span class="toc-text">算法流程图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">7.</span> <span class="toc-text">可能遇见的问题和解决方案</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

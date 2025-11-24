@@ -1,0 +1,330 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>流水线并行论文总结 | 摸黑干活</title><meta name="keywords" content="Mlsys"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基础概念模型并行 模型并行分为两种：流水线并行和张量并行，也可以称作算子内并行（intra-operator parallelism）和算子间并行（interoperator parallelism）（Alpa 中的叫法）  流水线并行（pipeline model parallel） 把模型不同的层放到不同设备之上，比如前面几层放到一个设备之上，中间几层放到另外一个设备上，最后几层放到第三个设备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="流水线并行论文总结">
+<meta property="og:url" content="https://fazziekey.github.io/2023/02/21/pipeline-paralism/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="基础概念模型并行 模型并行分为两种：流水线并行和张量并行，也可以称作算子内并行（intra-operator parallelism）和算子间并行（interoperator parallelism）（Alpa 中的叫法）  流水线并行（pipeline model parallel） 把模型不同的层放到不同设备之上，比如前面几层放到一个设备之上，中间几层放到另外一个设备上，最后几层放到第三个设备">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2023-02-21T07:49:43.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.490Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="Mlsys">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2023/02/21/pipeline-paralism/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">流水线并行论文总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.490Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E4%B8%89%E5%88%86%E7%AE%97%E6%B3%95-%E4%B8%89%E5%88%86%E7%B3%BB%E7%BB%9F-%E4%B8%89%E5%88%86%E4%BA%A7%E5%93%81-%E4%B8%80%E5%88%86%E9%94%80%E5%94%AE%E3%80%8B/">《三分算法,三分系统,三分产品,一分销售》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><p>模型并行 模型并行分为两种：流水线并行和张量并行，也可以称作算子内并行（intra-operator parallelism）和算子间并行（interoperator parallelism）（Alpa 中的叫法）</p>
+<ul>
+<li>流水线并行（pipeline model parallel）</li>
+<li>把模型不同的层放到不同设备之上，比如前面几层放到一个设备之上，中间几层放到另外一个设备上，最后几层放到第三个设备之上。</li>
+<li>张量并行</li>
+<li>层内分割，把某一个层做切分，放置到不同设备之上，也可以理解为把矩阵运算分配到不同的设备之上，比如把某个矩阵乘法切分成为多个矩阵乘法放到不同设备之上。</li>
+</ul>
+<p><img src="https://pica.zhimg.com/80/v2-5849c5b64d649fd4c4956818cba1a03a_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>通讯开销对比</p>
+<ul>
+<li>张量并行：</li>
+<li>通信发生在每层的前向传播和后向传播过程之中，通信类型是all-reduce，不但单次通信数据量大，并且通信频繁。</li>
+<li>通常适合节点内使用， 通过 NVLink 来进行加速</li>
+<li>流水线并行</li>
+<li>通信在流水线阶段相邻的切分点之上，通信类型是P2P通信，单次通信数据量较少但是比较频繁，而且因为流水线的特点，会产生GPU空闲时间，这里称为流水线气泡（Bubble）。</li>
+<li>通常更适合节点间使用，一般通过 Infiniband 交换机进行连接。</li>
+</ul>
+<p>流水并行（pipeline parallelism）的核心问题</p>
+<ol>
+<li>流水线并行的一个挑战是确保各个阶段在计算工作量方面得到适当平衡。 如果一个阶段的执行时间比其他阶段长得多，它可能会造成瓶颈，从而减慢整个训练的速度。 为了解决这个问题，可能需要调整每个阶段处理的数据批次的大小或实施动态负载平衡技术。</li>
+<li>流水线并行的另一个挑战是管理不同处理单元之间的通信。 在某些情况下，可能需要在不同阶段之间传输数据或中间结果，这样会引入通信开销和延迟。 为了解决这个问题，可能需要使用高效的数据传输协议或重叠计算和通信以最小化通信延迟的影响。 基础流水并行框架</li>
+</ol>
+<p><img src="https://picx.zhimg.com/80/v2-a3a9d7cd1773f6cfa57385901bcefe1a_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<ul>
+<li>计算资源利用率低：在任何一个时间，只有一个计算设备在执行计算，而其他的计算设备都处于空闲状态，每个计算设备在忽略通信时间的情况下，N个计算设备的情况下， 总的时间利用率只有 1/N, 如果增加更多的计算设备，那么每个设备的利用率会更低。因此需要对正在空闲的计算设备指定任务以此增加计算设备的利用率。这种下游设备需要长期持续处于空闲状态，等待上游设备的计算完成，才可以开始计算的现象被称为Bubble。</li>
+<li>计算和通信顺序执行：当在不同设备之间传输前向计算的中间结果和反向传播时的梯度时，没有任何的计算设备在计算，这也导致了资源的浪费，因此计算和通信需要仔细的设计来增加设备的使用效率。</li>
+<li>如何划分层：由于需要将模型的一系列层划分到不同设备之间，不同的划分策略往往会影响计算的性能，因此如何对模型进行划分也会对性能产生重要的影响。</li>
+</ul>
+<h3 id="GEMS-（SC-20）"><a href="#GEMS-（SC-20）" class="headerlink" title="GEMS （SC 20）"></a><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9355254">GEMS （SC 20）</a></h3><p><img src="https://picx.zhimg.com/80/v2-57a0fc14a966efb9effab23bf86d3ab2_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1811.06965.pdf">Gpipe （NeurIPS 19）</a></p>
+<p><img src="https://picx.zhimg.com/80/v2-7dc7d9e2309d861a4f55d5757072b5dc_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>&#x20;假设一个网络有L层，每一层L(i)包含对应的前向计算函数和一系列参数。GPipe对每层的计算有个成本计算函数， 给定划分的数量K，GPipe会根据成本计算函数将L层网络会被分成K组，每组中包含一定连续的层数，相邻的两组设备之间的通信操作也会自动设置好。在前向计算的过程中，GPipe会将batch 划分成M份相等的micro-batch，这样M份micro-batch就可以在M个计算设备之间进行流水。在反向传播计算期间，每个micro-batch的梯度是基于用于前向传播计算的模型参数计算的。 在最后对于每个micro-batch，将来自所有 M 个micro-batch的梯度累加起来并应用于更新所有计算设备的模型参数。</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2007.01045">DAPPLE（PPoPP‘21）</a></p>
+<p><img src="https://pic1.zhimg.com/80/v2-62ba8b5b3b3d023db28b39e5040c3396_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>&#x20;DAPPLE 是一个同步分布式训练框架，它结合了大型 DNN 模型的数据并行性和流水并行性。主要思想是更早地安排反向传播任务从而释放用于存储相应前向传播任务产生的激活的内存。DAPPLE相较于GPipe改变了排布，没有减小bubble rate，但是减小了activation的占用，对比GPipe的调度机制。 DAPPLE不是一次性执行所有 M 个mini-batch，而是在开始时执行K 个mini-batch (K &lt; M) 从而开始释放内存压力，同时到达内存使用的最高点。其次，严格安排一个mini-batch的前向传播后，紧接着就是一个反向传播，以保证反向传播可以提前执行。 下图 显示了GPipe 和 DAPPLE 中的内存消耗如何随时间变化。 在前K个min-batch, DAPPLE和 GPiped的内存消耗相同，直到第 K 个mini-batch, 然后由于更早的反向传播而DAPPLE达到内存使用的最大值。具体来说，严格控制执行前向传播和反向传播的顺序，由前向传播执行一个mini-batch之后，activation占用的内存由后向传播执行所释放。相比之下，GPipe 的峰值内存在K个mini-batch之后持续增长没有提早释放。 此外，DAPPLE 并不牺牲流水线训练效率。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-af16bce6e07df7817cd5c2ab493e05ed_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.03377">PipeDream （SOSP 19）</a></p>
+<p><img src="https://picx.zhimg.com/80/v2-45cd5329a9fd11a2bd71afc17671e309_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>&#x20;PipeDream 采用1F1B（One Forward pass followed by One Backward pass）模式，一种前向计算和反向计算交叉进行的方式。在 1F1B 模式下，前向计算和反向计算交叉进行，可以及时释放不必要的中间变量。 PipeDream 和 GPipe 之间的区别很明显：PipeDream 应用异步向后更新，而 GPipe 应用同步向后更新。 PipeDream-Flush and PipeDream-2BW（ICML21） PipeDream 使用权重存储方案来确保相同输入的前向和后向传播中使用相同的权重版本。 在最坏的情况下，隐藏的权重版本总数为 d，其中， d 是流水线深度，这对于大模型来说太高了。 而且使用 PipeDream 默认的权重更新语义，每个阶段（state）的权重更新都有不同的延迟项；同时，流水线内不会执行累积。</p>
+<p><img src="https://picx.zhimg.com/80/v2-81644db22a7d1cbaa40a0183fff877a0_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p><img src="https://pica.zhimg.com/80/v2-861f07004dab9864a44ad193efde5f7f_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>Virtual pipeline Megatron-LM</p>
+<p><img src="https://pica.zhimg.com/80/v2-e9f546935a34e0cbb74b694975ee68f0_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>&#x20;非交错式 schedule 可分为三个阶段。第一阶段是热身阶段，处理器进行不同数量的前向计算。在接下来的阶段，处理器进行一次前向计算，然后是一次后向计算。处理器将在最后一个阶段完成后向计算。这种模式比 GPipe 更节省内存。然而，它需要和 GPipe 一样的时间来完成一轮计算。 交错 Schedule要求microbatches的数量是流水线阶段的整数倍。在这个 schedule 中，每个设备可以对多个层的子集（称为模型块）进行计算，而不是一个连续层的集合。具体来看，之前设备1拥有层1-4，设备2拥有层5-8，以此类推；但现在设备1有层1,2,9,10，设备2有层3,4,11,12，以此类推。 在该模式下，流水线上的每个设备都被分配到多个流水线阶段，每个流水线阶段的计算量较少。 Virtual pipeline 降低了bubble，提升了通信次数。 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.06925">Chimera （SC’21）</a></p>
+<p><img src="https://picx.zhimg.com/80/v2-3d84b04a8101ec4c1c0c717c85365ba6_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p><img src="https://picx.zhimg.com/80/v2-29b8d8e0d56dddd4bb7dfa6ad920ba20_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>&#x20;Chimera 使用双流水线进行交叉排布，极大地减小了的bubble rate，但是增加了一倍weight的显存占用</p>
+<p><img src="https://pica.zhimg.com/80/v2-3d137e6f51ecec8e32b9a6344dee5030_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p><img src="https://picx.zhimg.com/80/v2-10fb24cd68e571085eac7e1cdcc5918e_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.12023">Alpa （OSDI22）</a></p>
+<p><img src="https://picx.zhimg.com/80/v2-4f1bb0fc42662a22ef1fbe3f4cba8b03_1440w.png?source=d16d100b" alt=""></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>&#x20;Alpa同时考虑PP+TP+DP，Alpa 将并行性视为两个层次级别：算子内并行（intra-operator parallelism）和算子间并行（interoperator parallelism。Alpa使用整数线性规划（ILP）完成算子间并行规划，动态规划算法来完成算子外并行规划。 常见分布式训练框架Pipeline parallelism方案</p>
+<ul>
+<li>在 PyTorch 中，采用的是GPipe方案。使用的是F-then-B调度策略。</li>
+<li>在 DeepSpeed 中，采用的是PipeDream-Flush，使用的是非交错式1F1B调度策略</li>
+<li>在 Megatron-LM 中，基于PipeDream-Flush进行了改进，提供了一种交错式1F1B方案。</li>
+<li>在 Colossal-AI 中，基于Megatron-LM的交错式1F1B方案，提供了非交错(PipelineSchedule) 和交错(InterleavedPipelineSchedule) 调度策略。</li>
+</ul>
+<p>Reference</p>
+<ol>
+<li>GEMS：<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9355254">https://ieeexplore.ieee.org/document/9355254</a></li>
+<li>GPipe ：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1811.06965.pdf">https://arxiv.org/pdf/1811.06965.pdf</a></li>
+<li>PipeDream：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.03377">https://arxiv.org/abs/1806.03377</a></li>
+<li>PipeDream-Flush and PipeDream-2BW：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.09503">https://arxiv.org/abs/2006.09503</a></li>
+<li>Virtual pipeline Megatron-LM: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.04473">https://arxiv.org/abs/2104.04473</a></li>
+<li>DAPPLE ：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2007.01045">https://arxiv.org/abs/2007.01045</a></li>
+<li>Chimera ：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.06925">https://arxiv.org/abs/2107.06925</a></li>
+<li>Alpa：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.12023">https://arxiv.org/abs/2201.12023</a></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2023/02/21/pipeline-paralism/">https://fazziekey.github.io/2023/02/21/pipeline-paralism/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Mlsys/">Mlsys</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/21/MLsys/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ML system 入坑指南</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/11/amp/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Mixed Precision Training</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-21</div><div class="title">ML system 入坑指南</div></div></a></div><div><a href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">超大模型加载转换Trick</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GEMS-%EF%BC%88SC-20%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">GEMS （SC 20）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

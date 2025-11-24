@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数字电路笔记 | 摸黑干活</title><meta name="keywords" content="数字电路"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="逻辑运算基本公式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路笔记">
+<meta property="og:url" content="https://fazziekey.github.io/2020/08/30/digital-circle%E2%80%9C/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="逻辑运算基本公式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-08-30T06:38:11.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.489Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="数字电路">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/08/30/digital-circle%E2%80%9C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数字电路笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-30T06:38:11.000Z" title="发表于 2020-08-30 14:38:11">2020-08-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.489Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h1><h2 id="基本公式"><a href="#基本公式" class="headerlink" title="基本公式"></a>基本公式</h2><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/8e92915a66d8d4f231c227da492da482.png" alt=""></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/29b4891c74db0d44aeb0aa57f0b3b7a5.png" alt=""></h2><h2 id="基本定理"><a href="#基本定理" class="headerlink" title="基本定理"></a>基本定理</h2><h3 id="代入定理"><a href="#代入定理" class="headerlink" title="代入定理"></a>代入定理</h3><h3 id="反演定理"><a href="#反演定理" class="headerlink" title="反演定理"></a>反演定理</h3><hr>
+<h2 id="逻辑函数表示方法"><a href="#逻辑函数表示方法" class="headerlink" title="逻辑函数表示方法"></a>逻辑函数表示方法</h2><ul>
+<li>真值表</li>
+<li>逻辑式<ul>
+<li>将输入/输出之间的逻辑关系用与/或/非的运算式表示 就得到逻辑式</li>
+</ul>
+</li>
+<li>逻辑图</li>
+<li>波形图</li>
+<li>卡诺图</li>
+</ul>
+<h2 id="标准形式"><a href="#标准形式" class="headerlink" title="标准形式"></a>标准形式</h2><ul>
+<li>最小项之和<ul>
+<li>利用公式:A=(B’+B)A </li>
+<li>A’B’C’=000=m0</li>
+</ul>
+</li>
+<li>最大项之积<ul>
+<li>A+B+C=000=M0</li>
+<li>A’+B’+C’=111=M7<h3 id="转化方式"><a href="#转化方式" class="headerlink" title="转化方式"></a>转化方式</h3><script type="math/tex; mode=display">
+Y=\sum m_i</script><script type="math/tex; mode=display">
+\to Y'=\sum_{k=\not i} m_k</script><script type="math/tex; mode=display">
+\to Y=(\sum_{k=\not i} m_k)'</script><script type="math/tex; mode=display">
+\to Y=\prod_{i=\not k}m_k'=\prod_{i=\not k}M_k'</script></li>
+</ul>
+</li>
+</ul>
+<h2 id="逻辑函数化简"><a href="#逻辑函数化简" class="headerlink" title="逻辑函数化简"></a>逻辑函数化简</h2><h3 id="公式法"><a href="#公式法" class="headerlink" title="公式法"></a>公式法</h3><ul>
+<li>AB+A’C+BC=AB+A’C</li>
+<li>A+AB=A<h3 id="卡诺图"><a href="#卡诺图" class="headerlink" title="卡诺图"></a>卡诺图</h3></li>
+</ul>
+<ul>
+<li>用卡诺图表示逻辑函数</li>
+<li>找出可合并的最小项</li>
+<li>化简后的乘积项相加</li>
+</ul>
+<h4 id="约束项"><a href="#约束项" class="headerlink" title="约束项"></a>约束项</h4><p>在逻辑函数中，对输入变量取值的 限制，在这些取值下为1的最小项称 为约束项</p>
+<h4 id="任意项"><a href="#任意项" class="headerlink" title="任意项"></a>任意项</h4><p>在输入变量某些取值下，函数值为1或 为0不影响逻辑电路的功能，在这些取 值下为1的最小项称为任意项</p>
+<h3 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h3><h4 id="补码反码"><a href="#补码反码" class="headerlink" title="补码反码"></a>补码反码</h4><p><strong>反码</strong></p>
+<script type="math/tex; mode=display">
+(N)_{1NV}=
+\begin{cases}
+N&N>0\\
+2^n-1-N&N<0
+\end{cases}</script><p>负数补码为反码+1</p>
+<h4 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h4><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/4b23dcbbf4bbab30acb637c5144ca451.png" alt=""></p>
+<h1 id="组合逻辑"><a href="#组合逻辑" class="headerlink" title="组合逻辑"></a>组合逻辑</h1><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>任意时刻输出仅取决于输入，没有反馈</li>
+<li>不含存储单元</li>
+</ul>
+<h2 id="编码器"><a href="#编码器" class="headerlink" title="编码器"></a>编码器</h2><h3 id="普通编码器"><a href="#普通编码器" class="headerlink" title="普通编码器"></a>普通编码器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/3dafecfcfdb8748e3b78aefe984b2e56.png" alt=""></p>
+<h3 id="优先编码器"><a href="#优先编码器" class="headerlink" title="优先编码器"></a>优先编码器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/3dafecfcfdb8748e3b78aefe984b2e56.png" alt=""></p>
+<h3 id="两片编码器合并"><a href="#两片编码器合并" class="headerlink" title="两片编码器合并"></a>两片编码器合并</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/47318ffa87981c9121cb533abd61cec9.png" alt=""></p>
+<h2 id="译码器"><a href="#译码器" class="headerlink" title="译码器"></a>译码器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/6407612531b958e19cb0b0c1d2a69d37.png" alt=""></p>
+<h2 id="数据选择器"><a href="#数据选择器" class="headerlink" title="数据选择器"></a>数据选择器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/3d478372091bf08492331f428a6cad30.png" alt=""></p>
+<h2 id="半加器"><a href="#半加器" class="headerlink" title="半加器"></a>半加器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/9e65b07450d9abe5d27e2c5e0a2388a0.png" alt=""></p>
+<h2 id="全加器"><a href="#全加器" class="headerlink" title="全加器"></a>全加器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/ef91ccff1032bc06f75fcee2dae18e95.png" alt=""></p>
+<h3 id="用半加器实现全加器"><a href="#用半加器实现全加器" class="headerlink" title="用半加器实现全加器"></a>用半加器实现全加器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/44f8cad67b8c43ce2173ec6d607e35d9.png" alt=""></p>
+<h2 id="数值比较器"><a href="#数值比较器" class="headerlink" title="数值比较器"></a>数值比较器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/8dd053a1a2eebc458891eb36e144a730.png" alt=""></p>
+<h3 id="多位数值比较器"><a href="#多位数值比较器" class="headerlink" title="多位数值比较器"></a>多位数值比较器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/7b7a86568eebce30b90f40ded69963e7.png" alt=""></p>
+<h3 id="组合电路的竞争和冒险"><a href="#组合电路的竞争和冒险" class="headerlink" title="组合电路的竞争和冒险"></a>组合电路的竞争和冒险</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/db54f98d06b427de82aeee77fb6804c4.png" alt=""><br>增加冗余项可以消除改现象</p>
+<hr>
+<h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><p><strong>如何存储数据？</strong></p>
+<h2 id="SR锁存器"><a href="#SR锁存器" class="headerlink" title="SR锁存器"></a>SR锁存器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/630ef5c5f7c05305a877cfc57244a195.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/a65bb1bd7eb84e3a2bd20298f9efd50b.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/c5ca359b23826a6067feb32316409faf.png" alt=""></p>
+<h2 id="电平触发器"><a href="#电平触发器" class="headerlink" title="电平触发器"></a>电平触发器</h2><ul>
+<li>只有在clk信号为高电平时才会改变输出</li>
+<li>缺陷：抗干扰能力差</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/e6452f3b86dbd3673f433dedb121c2cd.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/d7bcf2a902a5de57da284a9659bf3065.png" alt=""></p>
+<h2 id="边沿触发器"><a href="#边沿触发器" class="headerlink" title="边沿触发器"></a>边沿触发器</h2><ul>
+<li>仅在电平上升下降沿发生变化<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/5cef502bbb8a6f5462c3872ac4273d01.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/c47c4c90ad167daf01aacd2801e9f889.png" alt=""><h2 id="脉冲触发器"><a href="#脉冲触发器" class="headerlink" title="脉冲触发器"></a>脉冲触发器</h2></li>
+<li>把边沿触发器的D触发器变为SR触发器</li>
+<li>在clk高电平期间所有输入决定下降沿时的输出变化，因为SR都变为0时第一个触发器输出不变<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/b68a8737431ccac41aaa799f2eb60d97.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/33ced500518724939bd310f16b69d7e7.png" alt=""><h2 id="锁存器分类"><a href="#锁存器分类" class="headerlink" title="锁存器分类"></a>锁存器分类</h2><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/d7461cd449d4a8f8eeec95571e8d3ff8.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/e8a7d67812a0223a51e2be60e9994da4.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/bc22041af8755f0c05a063ee16e55152.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/24e4f04968e85fa665547aa6d3416e45.png" alt=""></li>
+</ul>
+<h3 id="D触发器实现JK触发器"><a href="#D触发器实现JK触发器" class="headerlink" title="D触发器实现JK触发器"></a>D触发器实现JK触发器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/19/6b9b912c12513e9003768e5b131de9b5.png" alt=""></p>
+<blockquote>
+<p>RS，T触发器都可以用JK触发器转化</p>
+</blockquote>
+<h2 id="触发器动态特性"><a href="#触发器动态特性" class="headerlink" title="触发器动态特性"></a>触发器动态特性</h2><ul>
+<li>建立时间</li>
+<li>保持时间</li>
+<li>传输延迟时间</li>
+<li>最高时钟频率</li>
+</ul>
+<hr>
+<h1 id="时序电路"><a href="#时序电路" class="headerlink" title="时序电路"></a>时序电路</h1><h2 id="时序逻辑电路类型"><a href="#时序逻辑电路类型" class="headerlink" title="时序逻辑电路类型"></a>时序逻辑电路类型</h2><ul>
+<li>Mealy型<ul>
+<li>输出信号取决于存储电路状态和输入变量</li>
+</ul>
+</li>
+<li>Moore型<ul>
+<li>输出只是存储电路现态的函数</li>
+<li>输出与时钟同步<h3 id="三个方程"><a href="#三个方程" class="headerlink" title="三个方程"></a>三个方程</h3></li>
+</ul>
+</li>
+<li>驱动方程</li>
+<li>状态方程</li>
+<li>输出方程</li>
+</ul>
+<h3 id="移位寄存器"><a href="#移位寄存器" class="headerlink" title="移位寄存器"></a>移位寄存器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/bf1491725d774e6f6a34c59b1c25f102.png" alt=""></p>
+<h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/338638bd127f0db616eb85bb84bacf50.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/50be44c389dee6a5afd71faf0ae7c04c.png" alt=""></p>
+<h4 id="计数器设计"><a href="#计数器设计" class="headerlink" title="计数器设计"></a>计数器设计</h4><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/6016833e368c940d14e84ac4bbbd568d.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/3e922bc992d2b179a0e86a1b3deea238.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/5c53976db301e995f1a45e296b027df8.png" alt=""></p>
+<h1 id="存储器与可编程逻辑阵列"><a href="#存储器与可编程逻辑阵列" class="headerlink" title="存储器与可编程逻辑阵列"></a>存储器与可编程逻辑阵列</h1><h2 id="只读存储器ROM"><a href="#只读存储器ROM" class="headerlink" title="只读存储器ROM"></a>只读存储器ROM</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/82e6321b289919805a28fa3486224e58.png" alt=""></p>
+<hr>
+<h1 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h1><h2 id="控制器设计基本方法"><a href="#控制器设计基本方法" class="headerlink" title="控制器设计基本方法"></a>控制器设计基本方法</h2><ul>
+<li>每个状态一个触发器（one-hot，热位）</li>
+<li>序列寄存器―译码器法</li>
+<li>可编程逻辑阵列PLA控制法（选择器法）</li>
+<li>微程序控制法<h2 id="算法流程图"><a href="#算法流程图" class="headerlink" title="算法流程图"></a>算法流程图</h2></li>
+<li><strong>状态框</strong><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/eee27af82e50fb299080b111f89d4d7b.png" alt=""></li>
+<li><strong>判断框</strong><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/c7a6bb0427add204d4253c4b9a2c1f58.png" alt=""></li>
+<li><strong>条件框</strong><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/08bc38c8212f168a1266030338b81dcd.png" alt=""><h2 id="控制器类型"><a href="#控制器类型" class="headerlink" title="控制器类型"></a>控制器类型</h2></li>
+<li>计数器型</li>
+<li>数据选择器型</li>
+</ul>
+<h2 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a>微程序控制器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/daec2de369c6936908f33be54d12d24b.png" alt=""></p>
+<h2 id="微命令"><a href="#微命令" class="headerlink" title="微命令"></a>微命令</h2><ul>
+<li>微指令除给出微命令信息外，还给出测试判别信息</li>
+<li>微指令中还包含一个下址字段，该字段将指明存储器中下一条<br>微指令的地址</li>
+<li>微程序是由若干条微码指令组成的序列<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/6cfc36e268cdcbbf284885f237e7c1d7.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/8c8bb5ea2d07bfc7bddae58a31ded079.png" alt=""></li>
+</ul>
+<h1 id="TTL电路"><a href="#TTL电路" class="headerlink" title="TTL电路"></a>TTL电路</h1><h3 id="三极管非门"><a href="#三极管非门" class="headerlink" title="三极管非门"></a>三极管非门</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/3c8b93eb14b3ab1a8a13403474e3c5a0.png" alt=""></p>
+<h3 id="TTL反相器"><a href="#TTL反相器" class="headerlink" title="TTL反相器"></a>TTL反相器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/67c76ff25dcdfbaea40046d47385b762.png" alt=""></p>
+<h1 id="CMOS"><a href="#CMOS" class="headerlink" title="CMOS"></a>CMOS</h1><h3 id="传输门"><a href="#传输门" class="headerlink" title="传输门"></a>传输门</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/cfc93ba8869ea0cb0ffe74cfb041d9cb.png" alt=""></p>
+<h3 id="三态门"><a href="#三态门" class="headerlink" title="三态门"></a>三态门</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/dfd338364f5507d127901f4c98c6e7f7.png" alt=""></p>
+<blockquote>
+<p>CMOS1和TTL电路最大区别，TTL电路输入端接大电阻变为高电平输入</p>
+</blockquote>
+<h1 id="脉冲电路"><a href="#脉冲电路" class="headerlink" title="脉冲电路"></a>脉冲电路</h1><h2 id="施密特电路"><a href="#施密特电路" class="headerlink" title="施密特电路"></a>施密特电路</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/b9eceacb663c025f80018e935ce1f091.png" alt=""></p>
+<ul>
+<li>正向阈值电压<script type="math/tex; mode=display">
+v_i=(1+\frac{R_1}{R_2})v_{TH}</script></li>
+<li>负向阈值电压<script type="math/tex; mode=display">
+v_i=(1-\frac{R_1}{R_2})v_{TH}</script></li>
+<li>特点：滞后特性</li>
+</ul>
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><ul>
+<li>波形变换（整形），抗干扰能力强</li>
+<li>用于脉冲鉴幅</li>
+</ul>
+<h2 id="单稳态电路"><a href="#单稳态电路" class="headerlink" title="单稳态电路"></a>单稳态电路</h2><h3 id="微分电路"><a href="#微分电路" class="headerlink" title="微分电路"></a>微分电路</h3><script type="math/tex; mode=display">
+t_w=In2RC=0.69RC</script><h3 id="积分电路"><a href="#积分电路" class="headerlink" title="积分电路"></a>积分电路</h3><script type="math/tex; mode=display">
+t_w=In2(R+R_o)C</script><h2 id="多谐振荡器"><a href="#多谐振荡器" class="headerlink" title="多谐振荡器"></a>多谐振荡器</h2><h3 id="对称式"><a href="#对称式" class="headerlink" title="对称式"></a>对称式</h3><script type="math/tex; mode=display">
+T=2R_ECIn\frac{V_E-V_{IK}}{V_E-V_{TH}}</script><h3 id="非对称"><a href="#非对称" class="headerlink" title="非对称"></a>非对称</h3><script type="math/tex; mode=display">
+T=2R_FCIn3</script><h3 id="环形震荡器"><a href="#环形震荡器" class="headerlink" title="环形震荡器"></a>环形震荡器</h3><script type="math/tex; mode=display">
+T=2nt_{pd}</script><h2 id="集电极开路门电路（OC门）"><a href="#集电极开路门电路（OC门）" class="headerlink" title="集电极开路门电路（OC门）"></a>集电极开路门电路（OC门）</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/0e1513e0c121639db13e6c9f646d925d.png" alt=""></p>
+<h2 id="555定时器"><a href="#555定时器" class="headerlink" title="555定时器"></a>555定时器</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/4e8155002d47fcee20b42b092cb84baf.png" alt=""></p>
+<h3 id="555做施密特触发器"><a href="#555做施密特触发器" class="headerlink" title="555做施密特触发器"></a>555做施密特触发器</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/7c554d55db34728ef6927b95ee8b7261.png" alt=""></p>
+<h3 id="555做单稳态"><a href="#555做单稳态" class="headerlink" title="555做单稳态"></a>555做单稳态</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/88368cda5707cf762cf0ffc5c255162b.png" alt=""></p>
+<script type="math/tex; mode=display">
+T=1.1RC</script><h3 id="555做多谐振荡"><a href="#555做多谐振荡" class="headerlink" title="555做多谐振荡"></a>555做多谐振荡</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/29/dcd9a43ac32ea76bda7fd73474811fb9.png" alt=""></p>
+<script type="math/tex; mode=display">
+T=(R_1+2R_2)CIn2</script><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="SA1-amp-SA0"><a href="#SA1-amp-SA0" class="headerlink" title="SA1&amp;SA0"></a>SA1&amp;SA0</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/9c23bda387263fbcd582641ee9b82d49.png" alt=""></p>
+<h2 id="路径敏化"><a href="#路径敏化" class="headerlink" title="路径敏化"></a>路径敏化</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/7eb382150ceac2caaea24b6392ace302.png" alt=""></p>
+<p>只考虑单个输入变化，其他输入固定，让门退化，与门输入1，或门输入0</p>
+<script type="math/tex; mode=display">
+w_2=1</script><script type="math/tex; mode=display">
+w_3=0</script><script type="math/tex; mode=display">
+w_4=1</script><p>可以测试</p>
+<script type="math/tex; mode=display">
+w_1=1</script><script type="math/tex; mode=display">
+a/0</script><script type="math/tex; mode=display">
+b/0</script><script type="math/tex; mode=display">
+c/1</script><hr>
+<script type="math/tex; mode=display">
+w_1=0</script><script type="math/tex; mode=display">
+a/1</script><script type="math/tex; mode=display">
+b/1</script><script type="math/tex; mode=display">
+c/0</script><blockquote>
+<p>路径敏化可以一组输入测试多个故障</p>
+</blockquote>
+<h2 id="树型结构"><a href="#树型结构" class="headerlink" title="树型结构"></a>树型结构</h2><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/680ed85a1bc29dd541011938feb141f6.png" alt=""></p>
+<h2 id="时序电路测试"><a href="#时序电路测试" class="headerlink" title="时序电路测试"></a>时序电路测试</h2><h3 id="扫描测试"><a href="#扫描测试" class="headerlink" title="扫描测试"></a>扫描测试</h3><p>加入多路选择器把内部状态逐级传递出来</p>
+<p>在测试时钟的控制下通过扫描输入（ScanIn）引线输入逻辑模块 A（和/或 B）的<br>激励向量并将其移入寄存器。<br>激励被加到逻辑模块的输入并传播到它的输出。通过产生一个系统时钟事件把它<br>的结果锁存到寄存器中。<br>寄存器中的结果通过扫描输出（ScanOut）引线送出电路并与期望的数据进行比较。<br>此时一个新的激励向量可以被同时输入。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/9992c841a2c31e9a0d895c124c6a6867.png" alt=""></p>
+<h3 id="内建自测试"><a href="#内建自测试" class="headerlink" title="内建自测试"></a>内建自测试</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/571abc9b7f9a7324d0486c51796b5646.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/6af28ea46e9b62eeea5c9d84a18a12c4.png" alt=""></p>
+<h3 id="专门测试"><a href="#专门测试" class="headerlink" title="专门测试"></a>专门测试</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed@master/2020/08/30/834946b7da49c32910baf7db6d41afab.png" alt=""></p>
+<h1 id="微处理器"><a href="#微处理器" class="headerlink" title="微处理器"></a>微处理器</h1><h2 id="什么是微处理器？"><a href="#什么是微处理器？" class="headerlink" title="什么是微处理器？"></a>什么是微处理器？</h2><p>• 微处理器由一片或少数几片大规模集成电路组成的中央处理器。</p>
+<p>• 这些电路执行控制部件和算术逻辑部件的功能。</p>
+<p>• 微处理器能完成取指令、执行指令，以及与外界存储器和逻辑部件交换信息等操作，<br>是微型计算机的运算控制部分。</p>
+<h2 id="微处理器的主要结构"><a href="#微处理器的主要结构" class="headerlink" title="微处理器的主要结构"></a>微处理器的主要结构</h2><h3 id="冯诺依曼结构"><a href="#冯诺依曼结构" class="headerlink" title="冯诺依曼结构"></a>冯诺依曼结构</h3><p>• 将程序存储和数据存储放在同一物理存储空间</p>
+<p>• 相同的总线</p>
+<p>• 硬件简单</p>
+<p><strong>组成</strong></p>
+<ul>
+<li>输入 INPUT</li>
+<li>输出 OUTPUT</li>
+<li>存储器 MEMORY</li>
+<li>微处理器 CPU</li>
+</ul>
+<h3 id="哈佛结构"><a href="#哈佛结构" class="headerlink" title="哈佛结构"></a>哈佛结构</h3><p>• 将程序存储和数据存储分别放在不同的物理存储空间</p>
+<p>• 不同的总线</p>
+<p>• 灵活、速度快</p>
+<h2 id="微处理器内部结构"><a href="#微处理器内部结构" class="headerlink" title="微处理器内部结构"></a>微处理器内部结构</h2><h3 id="控制单元"><a href="#控制单元" class="headerlink" title="控制单元"></a>控制单元</h3><ul>
+<li>用于控制数据通路的所有操作，实现微处理器运算的正确性<h3 id="数据通路"><a href="#数据通路" class="headerlink" title="数据通路"></a>数据通路</h3></li>
+<li>主要包括运算单元ALU、存储单元（寄存器）及其相互连接</li>
+</ul>
+<h2 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h2><p>专门执行一些指令集的微处理器<br>• 利用指令集编写不同的程序完成不同的处理任务</p>
+<h2 id="微处理器三个执行步骤"><a href="#微处理器三个执行步骤" class="headerlink" title="微处理器三个执行步骤"></a>微处理器三个执行步骤</h2><ul>
+<li>取指</li>
+<li>译指</li>
+<li>执行指令</li>
+</ul>
+<h2 id="微处理器指令集-ISA"><a href="#微处理器指令集-ISA" class="headerlink" title="微处理器指令集 ISA"></a>微处理器指令集 ISA</h2><ul>
+<li>指令（Instruction） <ul>
+<li>计算机语言里的单词</li>
+</ul>
+</li>
+<li>指令集（Instruction Set Architecture） <ul>
+<li>计算机的词汇</li>
+</ul>
+</li>
+<li>指令需指明要执行的操作和要使用的操作数</li>
+<li>机器语言（Machine Language）<ul>
+<li>指令编码为二进制数格式</li>
+</ul>
+</li>
+<li>汇编语言（Assembly Language）<ul>
+<li>符号格式表示各种指令</li>
+</ul>
+</li>
+<li>基本指令<ul>
+<li>加、减和跳转指令</li>
+</ul>
+</li>
+</ul>
+<h2 id="操作数"><a href="#操作数" class="headerlink" title="操作数"></a>操作数</h2><ul>
+<li>常数（Constants）和变量</li>
+<li>寄存器（register）<ul>
+<li>寄存器组（register set） + 寄存器文件（register file） </li>
+</ul>
+</li>
+<li>寄存器操作<br>$$<br>$ S_0=a,$ S_1=b,$ S_2=c</li>
+</ul>
+<p>add $S_0.$S_1.$S_2</p>
+<script type="math/tex; mode=display">
+
+
++ MIPS寄存器名称由$符号开头
++ 变量a、b和c放置在$S0、$S1和$S2
++ 该指令将存在$S1(b)和$S2(C)的32位值相加，32位结果写入$S0(a)
+
+## 立即数
++ 立即数操作</script><p>addi<br>$S_0.$S_0.4</p>
+<script type="math/tex; mode=display">
+</script><p># a=a+4</p>
+<p>$$</p>
+<ul>
+<li>立即数是一个16位二进制补码数据</li>
+<li>范围是[-32768，32767]</li>
+</ul>
+<h2 id="MIPS指令格式"><a href="#MIPS指令格式" class="headerlink" title="MIPS指令格式"></a>MIPS指令格式</h2><h3 id="R型———三个寄存器操作数格式"><a href="#R型———三个寄存器操作数格式" class="headerlink" title="R型———三个寄存器操作数格式"></a>R型———三个寄存器操作数格式</h3><p>• 用于如add和sub指令，有三个寄存器操作数</p>
+<ul>
+<li>R-type Instructions<ul>
+<li>R型是寄存器类型（register-type）的缩写</li>
+<li>32位指令</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>op</th>
+<th>rs</th>
+<th>rt</th>
+<th>rd</th>
+<th>shamt</th>
+<th>funct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6bits</td>
+<td>5bits</td>
+<td>5bits</td>
+<td>5bits</td>
+<td>5bits</td>
+<td>6bits</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>六个数字域<ul>
+<li>op，（也称为opcode或操作码），R型指令的opcode为6‘b000000</li>
+<li>rs，rt，源寄存器</li>
+<li>rd，目标寄存器</li>
+<li>shamt，只用于移位操作，其它R型指令，shamt为5’b00000</li>
+<li>funct，（也称为功能码），确定特定的R型操作</li>
+</ul>
+</li>
+<li>每个字段为5比特或6比特</li>
+</ul>
+<h3 id="I型————两个寄存器操作数格式"><a href="#I型————两个寄存器操作数格式" class="headerlink" title="I型————两个寄存器操作数格式"></a>I型————两个寄存器操作数格式</h3><p>• 用于如lw和sw指令，具有两个寄存器操作数和一个16位立即数</p>
+<ul>
+<li>I型是立即数类型（immediate-type）的缩写</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>op</th>
+<th>rs</th>
+<th>rt</th>
+<th>imm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6bits</td>
+<td>5bits</td>
+<td>5bits</td>
+<td>16bits</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>四个字段<ul>
+<li>op，操作码</li>
+<li>rs，源操作数</li>
+<li>rt，如addi和lw用作目标操作数，sw作为另一种源操作数</li>
+<li>imm，源操作立即数 </li>
+<li>rs和imm始终用作源操作数</li>
+</ul>
+</li>
+</ul>
+<h3 id="J型———-无寄存器格式"><a href="#J型———-无寄存器格式" class="headerlink" title="J型———-无寄存器格式"></a>J型———-无寄存器格式</h3><p>• 有一个26位的立即数，无寄存器</p>
+<p>J型是跳转型（jump-type）的缩写</p>
+<p>• 此格式只用跳转指令使用。</p>
+<p>• 用26位的地址操作数，addr</p>
+<p>• 用于指定一个地址</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>op</th>
+<th>addr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6bits</td>
+<td>26bits</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/08/30/digital-circle%E2%80%9C/">https://fazziekey.github.io/2020/08/30/digital-circle%E2%80%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">数字电路</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/06/xinxilun/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">信息熵</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/21/z-transformation/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">z变换</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">逻辑运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">基本公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">基本定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E5%85%A5%E5%AE%9A%E7%90%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">代入定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E6%BC%94%E5%AE%9A%E7%90%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">反演定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">逻辑函数表示方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">标准形式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E5%8C%96%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.1.</span> <span class="toc-text">转化方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E5%8C%96%E7%AE%80"><span class="toc-number">1.6.</span> <span class="toc-text">逻辑函数化简</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E6%B3%95"><span class="toc-number">1.6.1.</span> <span class="toc-text">公式法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%A1%E8%AF%BA%E5%9B%BE"><span class="toc-number">1.6.2.</span> <span class="toc-text">卡诺图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F%E9%A1%B9"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">约束项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E9%A1%B9"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">任意项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%BC%96%E7%A0%81"><span class="toc-number">1.6.3.</span> <span class="toc-text">常用编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E5%8F%8D%E7%A0%81"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">补码反码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">格雷码</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91"><span class="toc-number">2.</span> <span class="toc-text">组合逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">2.0.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">编码器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">2.1.1.</span> <span class="toc-text">普通编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">优先编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%89%87%E7%BC%96%E7%A0%81%E5%99%A8%E5%90%88%E5%B9%B6"><span class="toc-number">2.1.3.</span> <span class="toc-text">两片编码器合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%91%E7%A0%81%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">译码器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">数据选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8A%E5%8A%A0%E5%99%A8"><span class="toc-number">2.4.</span> <span class="toc-text">半加器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="toc-number">2.5.</span> <span class="toc-text">全加器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%8D%8A%E5%8A%A0%E5%99%A8%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="toc-number">2.5.1.</span> <span class="toc-text">用半加器实现全加器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">2.6.</span> <span class="toc-text">数值比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BD%8D%E6%95%B0%E5%80%BC%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">2.6.1.</span> <span class="toc-text">多位数值比较器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF%E7%9A%84%E7%AB%9E%E4%BA%89%E5%92%8C%E5%86%92%E9%99%A9"><span class="toc-number">2.6.2.</span> <span class="toc-text">组合电路的竞争和冒险</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">触发器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SR%E9%94%81%E5%AD%98%E5%99%A8"><span class="toc-number">3.1.</span> <span class="toc-text">SR锁存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%B9%B3%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">电平触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%B9%E6%B2%BF%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">3.3.</span> <span class="toc-text">边沿触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%89%E5%86%B2%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">3.4.</span> <span class="toc-text">脉冲触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB"><span class="toc-number">3.5.</span> <span class="toc-text">锁存器分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#D%E8%A7%A6%E5%8F%91%E5%99%A8%E5%AE%9E%E7%8E%B0JK%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">3.5.1.</span> <span class="toc-text">D触发器实现JK触发器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8%E5%8A%A8%E6%80%81%E7%89%B9%E6%80%A7"><span class="toc-number">3.6.</span> <span class="toc-text">触发器动态特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF"><span class="toc-number">4.</span> <span class="toc-text">时序电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.1.</span> <span class="toc-text">时序逻辑电路类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E6%96%B9%E7%A8%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text">三个方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">4.1.2.</span> <span class="toc-text">移位寄存器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-number">4.1.3.</span> <span class="toc-text">计数器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E5%99%A8%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.1.3.1.</span> <span class="toc-text">计数器设计</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8E%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E9%98%B5%E5%88%97"><span class="toc-number">5.</span> <span class="toc-text">存储器与可编程逻辑阵列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8ROM"><span class="toc-number">5.1.</span> <span class="toc-text">只读存储器ROM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BE%E8%AE%A1%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="toc-number">6.1.</span> <span class="toc-text">控制器设计基本方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">6.2.</span> <span class="toc-text">算法流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.3.</span> <span class="toc-text">控制器类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">6.4.</span> <span class="toc-text">微程序控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%91%BD%E4%BB%A4"><span class="toc-number">6.5.</span> <span class="toc-text">微命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TTL%E7%94%B5%E8%B7%AF"><span class="toc-number">7.</span> <span class="toc-text">TTL电路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1%E9%9D%9E%E9%97%A8"><span class="toc-number">7.0.1.</span> <span class="toc-text">三极管非门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TTL%E5%8F%8D%E7%9B%B8%E5%99%A8"><span class="toc-number">7.0.2.</span> <span class="toc-text">TTL反相器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CMOS"><span class="toc-number">8.</span> <span class="toc-text">CMOS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%97%A8"><span class="toc-number">8.0.1.</span> <span class="toc-text">传输门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%80%81%E9%97%A8"><span class="toc-number">8.0.2.</span> <span class="toc-text">三态门</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%89%E5%86%B2%E7%94%B5%E8%B7%AF"><span class="toc-number">9.</span> <span class="toc-text">脉冲电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%BD%E5%AF%86%E7%89%B9%E7%94%B5%E8%B7%AF"><span class="toc-number">9.1.</span> <span class="toc-text">施密特电路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="toc-number">9.1.1.</span> <span class="toc-text">作用：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%A8%B3%E6%80%81%E7%94%B5%E8%B7%AF"><span class="toc-number">9.2.</span> <span class="toc-text">单稳态电路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E7%94%B5%E8%B7%AF"><span class="toc-number">9.2.1.</span> <span class="toc-text">微分电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%AF%E5%88%86%E7%94%B5%E8%B7%AF"><span class="toc-number">9.2.2.</span> <span class="toc-text">积分电路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%B0%90%E6%8C%AF%E8%8D%A1%E5%99%A8"><span class="toc-number">9.3.</span> <span class="toc-text">多谐振荡器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%BC%8F"><span class="toc-number">9.3.1.</span> <span class="toc-text">对称式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0"><span class="toc-number">9.3.2.</span> <span class="toc-text">非对称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%BD%A2%E9%9C%87%E8%8D%A1%E5%99%A8"><span class="toc-number">9.3.3.</span> <span class="toc-text">环形震荡器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%94%B5%E6%9E%81%E5%BC%80%E8%B7%AF%E9%97%A8%E7%94%B5%E8%B7%AF%EF%BC%88OC%E9%97%A8%EF%BC%89"><span class="toc-number">9.4.</span> <span class="toc-text">集电极开路门电路（OC门）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#555%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">9.5.</span> <span class="toc-text">555定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#555%E5%81%9A%E6%96%BD%E5%AF%86%E7%89%B9%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">9.5.1.</span> <span class="toc-text">555做施密特触发器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#555%E5%81%9A%E5%8D%95%E7%A8%B3%E6%80%81"><span class="toc-number">9.5.2.</span> <span class="toc-text">555做单稳态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#555%E5%81%9A%E5%A4%9A%E8%B0%90%E6%8C%AF%E8%8D%A1"><span class="toc-number">9.5.3.</span> <span class="toc-text">555做多谐振荡</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">10.</span> <span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SA1-amp-SA0"><span class="toc-number">10.1.</span> <span class="toc-text">SA1&amp;SA0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E6%95%8F%E5%8C%96"><span class="toc-number">10.2.</span> <span class="toc-text">路径敏化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">10.3.</span> <span class="toc-text">树型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E6%B5%8B%E8%AF%95"><span class="toc-number">10.4.</span> <span class="toc-text">时序电路测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E6%B5%8B%E8%AF%95"><span class="toc-number">10.4.1.</span> <span class="toc-text">扫描测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%BB%BA%E8%87%AA%E6%B5%8B%E8%AF%95"><span class="toc-number">10.4.2.</span> <span class="toc-text">内建自测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%93%E9%97%A8%E6%B5%8B%E8%AF%95"><span class="toc-number">10.4.3.</span> <span class="toc-text">专门测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">11.</span> <span class="toc-text">微处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%9F"><span class="toc-number">11.1.</span> <span class="toc-text">什么是微处理器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%93%E6%9E%84"><span class="toc-number">11.2.</span> <span class="toc-text">微处理器的主要结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E7%BB%93%E6%9E%84"><span class="toc-number">11.2.1.</span> <span class="toc-text">冯诺依曼结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E4%BD%9B%E7%BB%93%E6%9E%84"><span class="toc-number">11.2.2.</span> <span class="toc-text">哈佛结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">11.3.</span> <span class="toc-text">微处理器内部结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83"><span class="toc-number">11.3.1.</span> <span class="toc-text">控制单元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF"><span class="toc-number">11.3.2.</span> <span class="toc-text">数据通路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="toc-number">11.4.</span> <span class="toc-text">指令集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%89%E4%B8%AA%E6%89%A7%E8%A1%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">11.5.</span> <span class="toc-text">微处理器三个执行步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E6%8C%87%E4%BB%A4%E9%9B%86-ISA"><span class="toc-number">11.6.</span> <span class="toc-text">微处理器指令集 ISA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="toc-number">11.7.</span> <span class="toc-text">操作数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MIPS%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">11.8.</span> <span class="toc-text">MIPS指令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R%E5%9E%8B%E2%80%94%E2%80%94%E2%80%94%E4%B8%89%E4%B8%AA%E5%AF%84%E5%AD%98%E5%99%A8%E6%93%8D%E4%BD%9C%E6%95%B0%E6%A0%BC%E5%BC%8F"><span class="toc-number">11.8.1.</span> <span class="toc-text">R型———三个寄存器操作数格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%E5%9E%8B%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E4%B8%A4%E4%B8%AA%E5%AF%84%E5%AD%98%E5%99%A8%E6%93%8D%E4%BD%9C%E6%95%B0%E6%A0%BC%E5%BC%8F"><span class="toc-number">11.8.2.</span> <span class="toc-text">I型————两个寄存器操作数格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#J%E5%9E%8B%E2%80%94%E2%80%94%E2%80%94-%E6%97%A0%E5%AF%84%E5%AD%98%E5%99%A8%E6%A0%BC%E5%BC%8F"><span class="toc-number">11.8.3.</span> <span class="toc-text">J型———-无寄存器格式</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

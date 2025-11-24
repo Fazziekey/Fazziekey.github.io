@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>论文解读：Lite Transformer | 摸黑干活</title><meta name="keywords" content="Deep learning,Transformer"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LITE TRANSFORMER WITH LONG-SHORT RANGE ATTENTION论文地址 代码地址 本篇文章来袭MIT 韩松的团队，我们先看摘要 摘要Transformer网络结构在自然语言处理中已经被广泛应用（如机器翻译，回答等）；然而，它需要大量的计算资源来实现高性能，硬件资源和电池容量的限制使得它很难在端侧设备部署。在本文中，我们提出了一个高效的移动NLP架构—Lite Tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文解读：Lite Transformer">
+<meta property="og:url" content="https://fazziekey.github.io/2021/12/13/Lite-Transformer/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="LITE TRANSFORMER WITH LONG-SHORT RANGE ATTENTION论文地址 代码地址 本篇文章来袭MIT 韩松的团队，我们先看摘要 摘要Transformer网络结构在自然语言处理中已经被广泛应用（如机器翻译，回答等）；然而，它需要大量的计算资源来实现高性能，硬件资源和电池容量的限制使得它很难在端侧设备部署。在本文中，我们提出了一个高效的移动NLP架构—Lite Tr">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-12-13T11:51:26.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.485Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="Deep learning">
+<meta property="article:tag" content="Transformer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2021/12/13/Lite-Transformer/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">论文解读：Lite Transformer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-13T11:51:26.000Z" title="发表于 2021-12-13 19:51:26">2021-12-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.485Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="LITE-TRANSFORMER-WITH-LONG-SHORT-RANGE-ATTENTION"><a href="#LITE-TRANSFORMER-WITH-LONG-SHORT-RANGE-ATTENTION" class="headerlink" title="LITE TRANSFORMER WITH LONG-SHORT RANGE ATTENTION"></a>LITE TRANSFORMER WITH LONG-SHORT RANGE ATTENTION</h2><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2004.11886v1">论文地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mit-han-lab/lite-transformer">代码地址</a></p>
+<p>本篇文章来袭MIT 韩松的团队，我们先看摘要</p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>Transformer网络结构在自然语言处理中已经被广泛应用（如机器翻译，回答等）；然而，它需要大量的计算资源来实现高性能，硬件资源和电池容量的限制使得它很难在端侧设备部署。在本文中，我们提出了一个高效的移动NLP架构—Lite Transformer，以便于在边缘设备上部署基于Transformer的NLP模型。其关键点是 Long Short range attention（长短程注意力，LSRA），它由两部分组成，一部分走传统的self-attention，这部分可以得到长距离的关系；另一部分使用一个精简版本的卷积神经网络，这部分来获得短距离的关系长距离关系建模（通过注意）。在三个通用NLP任务：机器翻译、抽象概括和语言建模上，Lite Transformer相比普通的transformer都有明细的性能提升。在资源受限的情况下（500M/100M MACs），Lite Transformer在数据集WMT’14的英语-法语翻译任务上的表现超过了Transformer，其BLEU分别为1.7和1.2 BLEU。Lite Transformer将transformer模型的计算量减少了2.5倍，而BLEU得分只下降了0.3。通过剪枝和量化，我们进一步将Lite Transformer的模型大小压缩了18.2倍。同时，Lite Transformer和基于AutoML的Evolved Transformer相比，BLEU得分高了0.5，却不需要花费大量的GPU资源进行参数搜索。</p>
+<h3 id="论文试图解决什么问题？"><a href="#论文试图解决什么问题？" class="headerlink" title="论文试图解决什么问题？"></a>论文试图解决什么问题？</h3><p>本篇文章的Lite Transformer模型对比了传统的Transformer模型和基于AutoML 的 Evolved Transformer，试图解决原有模型计算量大的的缺点。</p>
+<ul>
+<li>Transformer的优点</li>
+</ul>
+<p>Transformer模型因其高训练效率和捕获长距离依赖关系的优越能力，在自然语言处理中得到广泛应用。在此基础上，现在NLP各任务上的SOTA模型，如BERT，能够从未标记的文本中学习语言表征，在具有挑战性的问题回答任务上甚至超过人类的表现。</p>
+<ul>
+<li>Transformer的缺点</li>
+</ul>
+<p>Transformer良好的性能表现需要很高的计算代价。例如，一个单个的Transformer模型需要超过 10G 的 Mult-Adds 才 能翻译一个只有30个单词的句子。同样，利用AutoML搜索参数的Evolved Transformer也需要大量的搜索成本，消耗大量的GPU资源。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211213154214.png" alt=""><br>（模型参数和训练开销对比）</p>
+<p>所以对于计算能力受限的边缘设备的能力，如智能手机 和 lot 设计高效快速的Transformer结构具有重要意义，本文提出的模型Lite Transformer也正是为了解决这个问题。</p>
+<h3 id="这是否是一个新的问题？"><a href="#这是否是一个新的问题？" class="headerlink" title="这是否是一个新的问题？"></a>这是否是一个新的问题？</h3><p>是，Transformer模型出现后，各种大规模预训练模型如GPT，Bert不断出现，预训练成为NLP任务的主流方式，对于算力受限的边缘设备，设计一个轻量化的Transformer模型尤为关键。</p>
+<h3 id="这篇文章要验证一个什么科学假设？"><a href="#这篇文章要验证一个什么科学假设？" class="headerlink" title="这篇文章要验证一个什么科学假设？"></a>这篇文章要验证一个什么科学假设？</h3><p>注意力机制引入了大量的计算量。假设元素的数量（例如，语言处理中的标记符的长度、图像中的像素数等）。输入注意层为N，特征（即通道）的维数为d，点积所需的计算量为$N^2d$.对于图像和视频，N通常非常大。例如，视频网络中的中间特征图有 16帧，每帧的分辨率为 $112 \times 112$，导致 $N = 2\times 10^5$。卷积层和全连通层的计算呈$w\cdot r\cdot t\cdot N$级别的线性增长,而注意层的计算呈$w\cdot r\cdot t\cdot N$的二次增长。</p>
+<p>为了解决这一困境，通常的做法是首先在应用注意力层之前使用线性投影层减少通道数d，然后增加维数 （如图所示）。在Transformer的原始设计中，注意力模块的通道尺寸比FFN 层的小 4倍。但是它也降低了具有较小特征维度的注意层的上下文捕获能力。语言处理的情况可能更糟，因为注意力是上下文捕获的主要模块</p>
+<p>作者通过研究Transformer的计算分布，发现计算量(Mult-Adds)由前馈网络(FFN)主导。普遍存在的BottleNeck层使Transformer块效率低下。如果能把FFN层用其他计算效率更高的层替换，那么计算效率一定可以提升，更少参数的网络也可以达到同样的效果。</p>
+<p>简单来说，就是作者认为原有Transformer为了减少计算量的FFN层本身也消耗了大量计算时间，所以直接将其去掉，用一个不做维度变化的层代替。<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211213154531.png" alt=""></p>
+<h3 id="论文中提到的解决方案之关键是什么？"><a href="#论文中提到的解决方案之关键是什么？" class="headerlink" title="论文中提到的解决方案之关键是什么？"></a>论文中提到的解决方案之关键是什么？</h3><p>针对上述假设，作者提出了一种新的Long-Short Range Attention（长-短距离注意力，LSRA)的基本模块。LSRA 把 FFN 中的计算换成更广泛的注意力层。它延长了瓶颈，为注意层引入了更多的捕获依赖的能力，然后作者在保证性能不降低的情况下，缩小了Embedding层的大小，以减少了总的计算量。Lite Transformer基本的模块如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211213161953.png" alt=""></p>
+<p>可以看到整个Lite Transformer分为两个模块，一个Attention层和一个卷积层，这个设计也就是本篇文章的核心思想所在，作者认为对于翻译任务，模型需要同时捕捉全局信息和本地局部信息，原Transformer模型用了8个注意力头，也就是Multi-Head Attention去捕捉全局和局部信息，作者认为这样的设计是冗余的，所以作者设计了两个模块分别捕捉全局和局部信息。</p>
+<h4 id="卷积注意力"><a href="#卷积注意力" class="headerlink" title="卷积注意力"></a>卷积注意力</h4><p>不少文章中认为卷积神经网络用于NLP任务效果不如Transformer的原因是CNN不擅长捕捉长远的信息，因为CNN本身是通过滑窗实现的，这样的计算方式本身就更适合提取本地信息。所以作者直接将其用于提取本地信息，将注意力值可视化后结果如下，可以看出每个词对邻近词的关注度更大。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211213163627.png" alt=""></p>
+<h4 id="Attention层"><a href="#Attention层" class="headerlink" title="Attention层"></a>Attention层</h4><p>Lite Transformer的Attention层只有一个头，可视化后结果如下，可以看出Attention层的注意力分布不集中在邻近，更关注长远的注意力。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211213163613.png" alt=""></p>
+<p>综上所述，作者用一个卷积层和注意力层分别捕捉全局和局部信息，这样专业化的设置可以用更浅的网络得到同样的信息。</p>
+<h3 id="论文中的实验是如何设计的？"><a href="#论文中的实验是如何设计的？" class="headerlink" title="论文中的实验是如何设计的？"></a>论文中的实验是如何设计的？</h3><p>作者在机器翻译、文本摘要和语言建模三个任务上进行了实验和评估。具体而言，机器翻译任务使用了三个基准数据集：IWSLT’14 德语 - 英语 (De-En)、WMT 英语 - 德语 (En-De)、WMT 英语 - 法语(En-Fr)。文本摘要任务使用的是 CNN-DailyMail 数据集。语言建模任务则在 WIKITEXT-103 数据集上进行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20211213194825.png" alt=""><br>可以看出在参数量接近的情况下，LiteTransformer和效果个训练开销都更加优秀。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2021/12/13/Lite-Transformer/">https://fazziekey.github.io/2021/12/13/Lite-Transformer/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Deep-learning/">Deep learning</a><a class="post-meta__tags" href="/tags/Transformer/">Transformer</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/01/23/ddp/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Pytorch Distributed Data Parallal</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/05/xgboost-tfidf-nlp/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">基于tfidf和xgboost文本分类</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/07/18/CNN“/" title="CNN“"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">CNN“</div></div></a></div><div><a href="/2020/07/18/RNN/" title="RNN"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">RNN</div></div></a></div><div><a href="/2021/03/14/deep-learning-sum/" title="深度学习激活函数和优化"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-14</div><div class="title">深度学习激活函数和优化</div></div></a></div><div><a href="/2020/07/18/note-of-deeplearning/" title="note of deeplearning "><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-18</div><div class="title">note of deeplearning </div></div></a></div><div><a href="/2020/08/04/pytorch-basic/" title="pytorch basic"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-04</div><div class="title">pytorch basic</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LITE-TRANSFORMER-WITH-LONG-SHORT-RANGE-ATTENTION"><span class="toc-number">1.</span> <span class="toc-text">LITE TRANSFORMER WITH LONG-SHORT RANGE ATTENTION</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E8%AF%95%E5%9B%BE%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">论文试图解决什么问题？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E5%90%A6%E6%98%AF%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">这是否是一个新的问题？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E8%A6%81%E9%AA%8C%E8%AF%81%E4%B8%80%E4%B8%AA%E4%BB%80%E4%B9%88%E7%A7%91%E5%AD%A6%E5%81%87%E8%AE%BE%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">这篇文章要验证一个什么科学假设？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E4%B8%AD%E6%8F%90%E5%88%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B9%8B%E5%85%B3%E9%94%AE%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">论文中提到的解决方案之关键是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">1.5.1.</span> <span class="toc-text">卷积注意力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attention%E5%B1%82"><span class="toc-number">1.5.2.</span> <span class="toc-text">Attention层</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E5%AE%9E%E9%AA%8C%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">论文中的实验是如何设计的？</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>算法岗白给面经整理 | 摸黑干活</title><meta name="keywords" content="面经"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="寒假时开始考虑要不要去找暑期实习，因为今年去找暑研面临着比较大的不确定性，而且对于找暑研，寒假显然已经不算早了，几番思想斗争后就明确放弃找暑研，选择去找份实习，不过寒假实在是太摸鱼，leetcode也没写几道，科研也动的不多，倒是文明6可以全文明神标200T内飞天了。  三月初开学其实已经有不少同学拿到日常实习的offer了，暑期的提前批差不多刚开始，但此时我对整个过程还了解甚少，在投岗位时就面临">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法岗白给面经整理">
+<meta property="og:url" content="https://fazziekey.github.io/2021/05/01/experience-of-meeting/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="寒假时开始考虑要不要去找暑期实习，因为今年去找暑研面临着比较大的不确定性，而且对于找暑研，寒假显然已经不算早了，几番思想斗争后就明确放弃找暑研，选择去找份实习，不过寒假实在是太摸鱼，leetcode也没写几道，科研也动的不多，倒是文明6可以全文明神标200T内飞天了。  三月初开学其实已经有不少同学拿到日常实习的offer了，暑期的提前批差不多刚开始，但此时我对整个过程还了解甚少，在投岗位时就面临">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-05-01T02:35:34.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.489Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="面经">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2021/05/01/experience-of-meeting/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">算法岗白给面经整理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-01T02:35:34.000Z" title="发表于 2021-05-01 10:35:34">2021-05-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.489Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>寒假时开始考虑要不要去找暑期实习，因为今年去找暑研面临着比较大的不确定性，而且对于找暑研，寒假显然已经不算早了，几番思想斗争后就明确放弃找暑研，选择去找份实习，不过寒假实在是太摸鱼，leetcode也没写几道，科研也动的不多，倒是文明6可以全文明神标200T内飞天了。</p>
+<hr>
+<p>三月初开学其实已经有不少同学拿到日常实习的offer了，暑期的提前批差不多刚开始，但此时我对整个过程还了解甚少，在投岗位时就面临了很大的困境，如果选择开发岗，整体要求会低一点，本科生容易一点，但自己其实相关实战经验很少，OS和计网两门课都欠缺，而且java相关的岗位会多一点，如果选择算法，其实暑期实习是和研二的学生直接竞争，少部分公司会把算法的门槛直接拉到研究生，所以很可能过不了简历关，而且按知乎的论调基本是车毁人亡。</p>
+<hr>
+<p>最后基本是算法，后端，大数据混投了，以算法为主，其实不太建议这样，实习显然是 </p>
+<blockquote>
+<p>专精选手&gt;自由人</p>
+</blockquote>
+<p>不过在被社会暴打之前我基本是在乱来，也没啥经验，然后就开始了一路白给的过程</p>
+<h1 id="第一次面试-字节AML"><a href="#第一次面试-字节AML" class="headerlink" title="第一次面试-字节AML"></a>第一次面试-字节AML</h1><p>字节AML是第一个投的日常，也是比较想去的部门，部门主要以CPP和Python为主，技术栈也比较match，属于开发和算法都需要一点，不过那个时候自己也菜的离谱，写了5道leetcode就敢去给字节HR刷KPI，啥也不会，啥也不懂，面试前看了一个晚上的machine learning，结果面试问了进程线程和网络相关的一些八股，直接白给，你们可能不知道leetcode只写了五道就去面试是什么概念，我们一般只会用两个字来形容这种人—白给。</p>
+<h1 id="中期的准备和思路转化"><a href="#中期的准备和思路转化" class="headerlink" title="中期的准备和思路转化"></a>中期的准备和思路转化</h1><p>三月初第一次白给之后，才开始逐渐去了解互联网面试的一些具体要求，然后整个三月基本处于同时准备托福和笔试面试的过程中，因为中间在准备托福的原因，不敢多做笔试，一直拖到考试结束才开始做笔试，这其实错过了很多机会，因为HC到后面只会变少。这中间笔试的字节和腾讯两家，但题目写的太少基本没有ac全部的，来道hard就直接选择放弃，最后字节强化学习中台挂在笔试。</p>
+<h1 id="持续白给的过程"><a href="#持续白给的过程" class="headerlink" title="持续白给的过程"></a>持续白给的过程</h1><p>托福考完后开始了一路的笔试过程，但其实写的题还是不多，网易有道的NLP和美团的data都挂在笔试了，特别是美团直接上来三道hard，一直到阿里的笔试，算是第一次拿到一个还可以的笔试成绩，阿里笔试就两道，笔试前刚剑指完了《剑指offer》，再零零散散的写了一些，大概有80+左右的体量在，最后两道一道100Ac，一道也写出了大半，其实两道题整体难度也估计在hard到mid之间，并不简单，阿里之后的笔试就开始顺利起来，其实只要有一定题量了之后，应试的东西是最容易解决的，百度的算法也过了笔试是挺吃惊的，因为其实难度不小，华为笔试第一次三道全部AC（第一次全部AC的心情还是有点小激动的，题目不算特别难，但全部ac还是不容易的）。中间一直笔试失利其实心态挺不稳定，基本每次挂了都会去看看还有什么公司能投的，中间也投过一些独角兽（图森，旷世，依图等）不过独角兽的门槛似乎更高，基本投完就没消息的。</p>
+<p>整个4月初就一直开始笔试，笔试后开始面试，最多的一天笔试了三场，确实非常消耗精力。</p>
+<h1 id="网易"><a href="#网易" class="headerlink" title="网易"></a>网易</h1><p>网易最后拿到了雷火面试资格，然后告诉我投的岗位现在没了，转到另一个部门，当然技术方向差别也比较大，自然是没有结果了，网易互联网，互娱和雷火三个部门分开面试笔试，所以得重复笔试，最后互娱有发我笔试通知，但真的没力气再去做，干脆就放弃了。</p>
+<h1 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h1><p>腾讯其实挺尴尬，因为腾讯其实算法岗只有研究员性质的岗位，其余全是开发，然后本网瘾少年直接投了个游戏引擎开发，(寒假瞎玩过Stanford的UE4课程)，然后一个天美的老哥直接来面，结果自然也是给HR刷KPI了。</p>
+<h1 id="阿里"><a href="#阿里" class="headerlink" title="阿里"></a>阿里</h1><p>阿里其实投的最早，但我笔试拖到很晚才去做，主要是之前也没有信心，因为听说阿里笔试爆炸难（最后主要是白给多了也就不怕了，大不了再送一次）最后结果居然还可以，但是阿里部门特别多，一定要靠谱的内推，不然会被一个部门卡住，投之前一定要对部门有了解，我就被一个部门卡了三个月的简历，不给面试也不给挂。最后直接让HR给我挂了（挂人倒是巨快，5分钟就发邮件了），这之后多亏了学长的帮忙，转简历到了蚂蚁，蚂蚁的整体效率非常高了，转完第二天就面试了，但比较可惜的是蚂蚁基本以java为主，自己不是非常match，而且java方向的东西基本不会。但确实这过程还是非常得感谢蚂蚁学长的帮忙，让面试官按C++的岗位去面，过了一面，但最后可能也是HC已经不多了同时自己能力确实有所欠缺，因为阿里基本四月初就结束一轮了。阿里的整个面试还是比较友好，基本不问八股，更加考察全面的能力，对某个方向最好有比较深入的理解。</p>
+<h1 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h1><p>百度投的算法岗，面试难度确实自闭，我都感觉面试官在怀疑我的智商了，一个点会问的非常深入，问到你不会为止，我基本最多答出第三层，但面试官在大气层，面完就感觉白给了。</p>
+<h1 id="字节大数据"><a href="#字节大数据" class="headerlink" title="字节大数据"></a>字节大数据</h1><p>字节真的是算法后端大数据全挂一次，挂人的效率也是非常之高，感觉字节现在基本leetcode得200+刷透，得背熟八股文。</p>
+<h1 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h1><p>华为面试前两天收到字节挂的邮件，前一天阿里二面挂的通知，自己的心态也发生了如下转变，只想随便找个班上，实在太拉胯了，<br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20210504143919.jpg" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20210504143904.jpg" alt=""></p>
+<p>华为算是背水一战了，本来也是比较想去的，面试前一天除了复习完机器学习，顺便下了mindspore，跑了一下demo，这其实对最后面试结果帮助非常大，华为整个面试流程算是比较顺利，问了一些machine learning相关的基础知识，主要聊了一下项目经历，之后面试官在我写算法题的时候介绍了mindspore的一些工作。再后面就开始了比较随意的聊天，然后我凭借丰富的画饼吹逼经验和这几天对mindspore的了解，从前几天华为发布的通用模型盘古聊到具体的业务聊了好久，面试官问我，对汇编有没有了解，我说写过RISC-V的汇编器，ARM有简单了解，然后他居然说“你这全栈工程师啊”（前天还被挂，说基础知识不扎实，怎么到这就全栈了）我直接一脸懵逼（内心狂喜）。</p>
+<p>最后的结果自然是过了，看到结果时我直接戴上了我的战术目镜和耳机，靠着一首Future Bounce在阳台一个人蹦了30分钟</p>
+<div class="aplayer no-destroy" data-id="001dghhk1BxxxH" data-server="tencent" data-type="song" data-fixed="false" data-mini="false" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20210504231933.jpg" alt=""></p>
+<h1 id="复习总结"><a href="#复习总结" class="headerlink" title="复习总结"></a>复习总结</h1><p>下面主要是自己学过和复习用的一些觉得非常好的资料和课程，</p>
+<ul>
+<li>吴恩达深度学习：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411S78V">https://www.bilibili.com/video/BV164411S78V</a></li>
+<li>斯坦福李飞飞计算机视觉：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TJ411d7b7">https://www.bilibili.com/video/BV1TJ411d7b7</a></li>
+<li>周博磊强化学习：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1LE411G7Xj">https://www.bilibili.com/video/BV1LE411G7Xj</a></li>
+<li>斯坦福凸优化：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Pg4y187Ed">https://www.bilibili.com/video/BV1Pg4y187Ed</a></li>
+<li>动手实现深度学习：<a target="_blank" rel="noopener" href="http://zh.gluon.ai/">http://zh.gluon.ai/</a></li>
+<li>操作系统：<a target="_blank" rel="noopener" href="https://classroom.udacity.com/courses/ud189">https://classroom.udacity.com/courses/ud189</a></li>
+<li>SQL：<a target="_blank" rel="noopener" href="https://classroom.udacity.com/courses/ud198">https://classroom.udacity.com/courses/ud198</a></li>
+<li>data science：<a target="_blank" rel="noopener" href="https://www.coursera.org/specializations/jhu-data-science">https://www.coursera.org/specializations/jhu-data-science</a></li>
+<li>适合面试前复习的知识手册：<a target="_blank" rel="noopener" href="https://github.com/NLP-LOVE/ML-NLP">https://github.com/NLP-LOVE/ML-NLP</a></li>
+</ul>
+<p>Udacity和coursera都是非常好的自学网站，特别是Udacity的课程和工业界实际应用非常的接近，知识更加实用。</p>
+<h1 id="面试总结"><a href="#面试总结" class="headerlink" title="面试总结"></a>面试总结</h1><ul>
+<li>传统ML SVM，KNN，LR问到最多，boost面经讲到很多，但我没怎么碰到，可能是推荐广告的岗位问的多一点？</li>
+<li>尽可能让面试官多问项目经历，要主动诱导面试官去问项目经历，当然前提是对项目非常了解。</li>
+<li>深度这块除了有个整体认识，最好对某一个网络有深入的理解。</li>
+<li>本科去面算法就要做好准备，不会因为你本科就降低要求。</li>
+</ul>
+<p>我总共笔试了八场，面试了7场，这整个过程确实非常折磨人，但从中也确实意识到了自己的知识体系的局限性和技术能力上的不足，同时自己各方面也有所提升，从刚开始笔试0AC到后面可以全AC。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>整个找实习过程确实挺不容易，毕竟直接和研二学生对线，但最后结果还算不错，去了自己最想去的，对于AI整个行业来说，个人认为在现阶段显然是能实际落地的工程大于算法本身，数据质量大于算法。目前我将自己的方向主要聚焦于AI模型在端侧的部署和应用这样一个细分赛道，避开了CV，NLP这样比较卷的领域，对于整个</p>
+<p>我花了近一年的时间说服自己不适合做偏理论的研究，更适合做能落地的工程或产品，做不了天花板，做个吊灯还是有机会的。所以对我来说与其再做些CNN换transformer的东西，不如做点能实际落地的工程，而整个工程能力却是学校教学所欠缺的，甚至个人认为学校的工程教学，哪怕是ZJU也是和工业界应用脱节严重的，不可否认现在zju对通识教育以及微积分这种以应试为核心的课程的教学的质量还是值得肯定的，但到工程教育时，很难想象，一些课程除了把2000年创建的PPT给你念一遍，然后来一场靠记忆驱动的考试，消磨你对这个学科的兴趣，并不会提升你的核心能力，确实让人失望，个人认为工科生最终主要还是去工业界去做一些伟大的产品或系统，而不是去纠结一些理论性的东西（至少个人定位是这样），在这样的情况下，不如自己去多上上CS四大的课程，去工业界提前积累实战经验而不是沉溺于简单的猫分类。</p>
+<p>找实习期间有幸看到filestorm大神（现在已经是图森的CTO了）的上海交大生存手册，真心佩服这样可以聚焦自己热爱的方向，放下一些GPA这样一些表层的东西的大神， 大神会因为觉得考试浪费时间，而选择直接参加补考，只是因为补考简单，不需要花太多时间，我直到大三才有勇气去放弃一些原来认为很重要但实际没有意义的东西，去更加聚焦于一些更值得去做的事情（<a target="_blank" rel="noopener" href="https://survivesjtu.gitbook.io/survivesjtumanual/li-zhi-pian/zong-you-geng-zhi-de-zuo-de-shi-qing">https://survivesjtu.gitbook.io/survivesjtumanual/li-zhi-pian/zong-you-geng-zhi-de-zuo-de-shi-qing</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2021/05/01/experience-of-meeting/">https://fazziekey.github.io/2021/05/01/experience-of-meeting/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/05/10/black-white-cheese/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">蒙特卡洛搜索实现黑白棋</div></div></a></div><div class="next-post pull-right"><a href="/2021/03/14/deep-learning-sum/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">深度学习激活函数和优化</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-%E5%AD%97%E8%8A%82AML"><span class="toc-number">1.</span> <span class="toc-text">第一次面试-字节AML</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E6%9C%9F%E7%9A%84%E5%87%86%E5%A4%87%E5%92%8C%E6%80%9D%E8%B7%AF%E8%BD%AC%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">中期的准备和思路转化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E7%99%BD%E7%BB%99%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">持续白给的过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E6%98%93"><span class="toc-number">4.</span> <span class="toc-text">网易</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%85%BE%E8%AE%AF"><span class="toc-number">5.</span> <span class="toc-text">腾讯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%BF%E9%87%8C"><span class="toc-number">6.</span> <span class="toc-text">阿里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6"><span class="toc-number">7.</span> <span class="toc-text">百度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E5%A4%A7%E6%95%B0%E6%8D%AE"><span class="toc-number">8.</span> <span class="toc-text">字节大数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA"><span class="toc-number">9.</span> <span class="toc-text">华为</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">复习总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93"><span class="toc-number">11.</span> <span class="toc-text">面试总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

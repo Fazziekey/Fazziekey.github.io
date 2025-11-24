@@ -1,0 +1,369 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maxwell's Theory | 摸黑干活</title><meta name="keywords" content="手撕麦克斯韦"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Maxwell’s Theorymaxwell’s Equations微分形式麦克斯韦方程组 \begin{cases} \nabla\times\overrightarrow{E}&#x3D;\frac{\partial}{\partial t}\overrightarrow{B},\\ \nabla\times\overrightarrow{H}&#x3D;\frac{\partial}{\partial t}\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maxwell&#39;s Theory">
+<meta property="og:url" content="https://fazziekey.github.io/2020/06/18/Maxwell-s-Theory/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="Maxwell’s Theorymaxwell’s Equations微分形式麦克斯韦方程组 \begin{cases} \nabla\times\overrightarrow{E}&#x3D;\frac{\partial}{\partial t}\overrightarrow{B},\\ \nabla\times\overrightarrow{H}&#x3D;\frac{\partial}{\partial t}\">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-06-18T13:42:35.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.486Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="手撕麦克斯韦">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2020/06/18/Maxwell-s-Theory/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Maxwell's Theory</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-18T13:42:35.000Z" title="发表于 2020-06-18 21:42:35">2020-06-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.486Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E8%A1%8C%E4%BA%8E%E9%BB%91%E6%9A%97%EF%BC%8C%E4%BE%8D%E5%A5%89%E5%85%89%E6%98%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E7%94%B5%E5%B7%A5%E3%80%8B/">《行于黑暗，侍奉光明，我们是电工》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Maxwell’s-Theory"><a href="#Maxwell’s-Theory" class="headerlink" title="Maxwell’s Theory"></a>Maxwell’s Theory</h1><h2 id="maxwell’s-Equations"><a href="#maxwell’s-Equations" class="headerlink" title="maxwell’s Equations"></a>maxwell’s Equations</h2><h3 id="微分形式麦克斯韦方程组"><a href="#微分形式麦克斯韦方程组" class="headerlink" title="微分形式麦克斯韦方程组"></a>微分形式麦克斯韦方程组</h3><script type="math/tex; mode=display">
+\begin{cases} \nabla\times\overrightarrow{E}=\frac{\partial}{\partial t}\overrightarrow{B},\\
+\nabla\times\overrightarrow{H}=\frac{\partial}{\partial t}\overrightarrow{D}+\overrightarrow{J},\\
+\nabla\cdot\overrightarrow{B}=0,\\
+\nabla\cdot\overrightarrow{D}=\rho
+\end{cases}</script><blockquote>
+<ul>
+<li>1为法拉第定律或法拉第磁感应定律。</li>
+<li>2为安培定律或广义安培电路定律式</li>
+<li>3为电场的库仑定律或高斯定律。</li>
+<li>4为高斯定律或磁场的高斯定律。</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<h3 id="物质本构方程"><a href="#物质本构方程" class="headerlink" title="物质本构方程"></a>物质本构方程</h3><script type="math/tex; mode=display">
+\bar D=\epsilon_0\bar E</script><script type="math/tex; mode=display">
+\bar B=\mu_0 \bar H</script><p>其中 </p>
+<script type="math/tex; mode=display">
+\epsilon_0=8.85\times10^{-12} F/m</script><script type="math/tex; mode=display">
+\mu_0=4\pi\times10^{-7} H/m</script><h2 id="Vector-Analysis"><a href="#Vector-Analysis" class="headerlink" title="Vector Analysis"></a>Vector Analysis</h2><h3 id="向量运算重要公式"><a href="#向量运算重要公式" class="headerlink" title="向量运算重要公式"></a>向量运算重要公式</h3><script type="math/tex; mode=display">
+\bar C\cdot (\bar A\times \bar B)=\bar A\cdot (\bar B\times \bar C)=\bar B\cdot (\bar C\times \bar A)</script><script type="math/tex; mode=display">
+\bar C\times (\bar A\times \bar B)=\bar A(\bar C\cdot \bar B)-(\bar C\cdot \bar A)\bar B</script><h3 id="nabla-del-Operatoe-del-算符"><a href="#nabla-del-Operatoe-del-算符" class="headerlink" title="$\nabla$:del Operatoe(del 算符)"></a>$\nabla$:del Operatoe(del 算符)</h3><p><strong>定义</strong></p>
+<script type="math/tex; mode=display">
+\nabla=\hat{x}\frac{\partial}{\partial x}+\hat{y}\frac{\partial}{\partial y}+\hat{z}\frac{\partial}{\partial z}</script><p><strong>重要公式</strong></p>
+<script type="math/tex; mode=display">
+\nabla \cdot(\bar E\times \bar H)=\bar H \cdot(\nabla \times \bar E)-\bar E \cdot(\nabla \times \bar H)</script><script type="math/tex; mode=display">
+\nabla\cdot(\nabla \times \bar A)=0</script><script type="math/tex; mode=display">
+\nabla \times(\nabla \phi)=0</script><script type="math/tex; mode=display">
+\nabla \times(\nabla\times\bar E)=\nabla(\nabla\cdot\bar E)-\nabla^2\bar E</script><h4 id="Laplaceian-Operator（拉普拉斯算符）"><a href="#Laplaceian-Operator（拉普拉斯算符）" class="headerlink" title="Laplaceian Operator（拉普拉斯算符）"></a>Laplaceian Operator（拉普拉斯算符）</h4><script type="math/tex; mode=display">
+\nabla^2=\nabla\cdot\nabla=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}</script><h3 id="Gradient-梯度"><a href="#Gradient-梯度" class="headerlink" title="Gradient 梯度"></a>Gradient 梯度</h3><script type="math/tex; mode=display">
+\nabla\phi=\hat{x}\frac{\partial}{\partial x}\phi+\hat{y}\frac{\partial}{\partial y}\phi+\hat{z}\frac{\partial}{\partial z}\phi</script><h3 id="Divergence-散度"><a href="#Divergence-散度" class="headerlink" title="Divergence 散度"></a>Divergence 散度</h3><script type="math/tex; mode=display">
+\nabla\cdot\bar D=\frac{\partial}{\partial x}D_x+\frac{\partial}{\partial y}D_y+\frac{\partial}{\partial z}D_z</script><blockquote>
+<p>通量是单位时间通过某个曲面的量，散度是通量的强度和流量</p>
+</blockquote>
+<h3 id="Curl-旋度"><a href="#Curl-旋度" class="headerlink" title="Curl 旋度"></a>Curl 旋度</h3><script type="math/tex; mode=display">
+\nabla\times\bar D=\hat{x}(\frac{\partial}{\partial y}H_z-\frac{\partial}{\partial z}H_y)
++\hat{y}(\frac{\partial}{\partial z}H_x-\frac{\partial}{\partial x}H_z)+\hat{z}(\frac{\partial}{\partial x}H_y-\frac{\partial}{\partial y}H_x)</script><h1 id="1-2电磁波"><a href="#1-2电磁波" class="headerlink" title="1.2电磁波"></a>1.2电磁波</h1><h2 id="Wave-Equation-and-Wave-Solution-波动方程和波动解"><a href="#Wave-Equation-and-Wave-Solution-波动方程和波动解" class="headerlink" title="Wave Equation and Wave Solution(波动方程和波动解)"></a>Wave Equation and Wave Solution(波动方程和波动解)</h2><p>微分形式的麦克斯韦方程对空间中的每一点都是有效的。为了解出这个方程，我们将从研究在无源区域的麦克斯韦方程组的解开始。</p>
+<script type="math/tex; mode=display">
+\begin{cases} \nabla\times\overrightarrow{E}=-\mu_0\frac{\partial}{\partial t}\overrightarrow{H},\\
+\nabla\times\overrightarrow{H}=\epsilon_0\frac{\partial}{\partial t}\overrightarrow{H},\\
+\nabla\cdot\overrightarrow{E}=0,\\
+\nabla\cdot\overrightarrow{H}=0
+\end{cases}</script><p>两边同取旋度</p>
+<script type="math/tex; mode=display">
+\nabla\times\nabla\times\bar E=-\mu_0\epsilon_0\frac{\partial^2}{\partial t^2}\bar E</script><p><strong>亥姆霍兹方程</strong></p>
+<script type="math/tex; mode=display">
+\nabla^2\bar E-\mu_0\epsilon_0\frac{\partial^2}{\partial t^2}\bar E=0</script><p>满足该方程的解为波动解</p>
+<hr>
+<p>对于该偏微分方程，最简单的解为电场方向在x方向，传播方向只延z方向的波</p>
+<script type="math/tex; mode=display">
+\bar E=\hat{x}E_x(z,t)</script><script type="math/tex; mode=display">
+\bar E=\hat{x}E_0cos(kz-wt)</script><p>其中</p>
+<script type="math/tex; mode=display">
+k^2=w^2\mu_0\epsilon_0</script><p>该关系称为<strong>色散关系</strong></p>
+<blockquote>
+<p><strong>dispersion relation</strong>:色散关系</p>
+<p>色散关系提供了空间频率k和时间频率w之间的重要联系</p>
+<p>在研究时空变化量，如E(z,t)时，有两种观点。时间的观点是研究不同时间在空间中固定点上的变化。空间视角是研究固定时间的空间变化。</p>
+</blockquote>
+<p><strong>重要关系</strong></p>
+<script type="math/tex; mode=display">
+f=\frac{w}{2\pi}=\frac{k}{\sqrt{\mu_0\epsilon_0}}=kc</script><script type="math/tex; mode=display">
+c=\frac{w}{k}</script><p>对应磁场解</p>
+<script type="math/tex; mode=display">
+\bar H=\hat{y}E_0\frac{1}{\eta_0}cos(kz-wt)</script><p>其中<br>$\frac{1}{\eta_0}=\sqrt{\frac{\epsilon_0}{\mu_0}}$,$\eta$为自由空间阻抗</p>
+<h2 id="Unit-for-Spatial-Frequence-k"><a href="#Unit-for-Spatial-Frequence-k" class="headerlink" title="Unit for Spatial Frequence k"></a>Unit for Spatial Frequence k</h2><script type="math/tex; mode=display">
+k=\frac{2\pi}{\lambda}</script><p>k的单位定义为$K_0$</p>
+<script type="math/tex; mode=display">
+K_0=2\pi rad/m</script><h4 id="电磁波谱"><a href="#电磁波谱" class="headerlink" title="电磁波谱"></a>电磁波谱</h4><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200618231538.png" alt=""></p>
+<h3 id="相速度"><a href="#相速度" class="headerlink" title="相速度"></a>相速度</h3><script type="math/tex; mode=display">
+v_p=\frac{dz}{dt}=\frac{w}{k}=\frac{1}{\sqrt{\mu_o\epsilon_0}}</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200618231619.png" alt=""></p>
+<blockquote>
+<p>相速度可以理解为图中A点移动的速度，相位的传播，在真空中等于光速</p>
+</blockquote>
+<p><strong>相位延迟</strong></p>
+<script type="math/tex; mode=display">
+A_p=\frac{k}{w}=\sqrt{\mu_o\epsilon_0}</script><h2 id="Polarization极化"><a href="#Polarization极化" class="headerlink" title="Polarization极化"></a>Polarization极化</h2><p>对于波动方程解</p>
+<script type="math/tex; mode=display">
+\bar E(z,t)=\hat{x}E_x+\hat{y}E_y</script><script type="math/tex; mode=display">
+=\hat{x}cos(kz-wt)+\hat{y}Acos(kz-wt+\phi)</script><p>从时间域看</p>
+<ul>
+<li>线性极化</li>
+</ul>
+<p>$\phi=2m\pi$,$\phi=(2m+1)\pi$</p>
+<script type="math/tex; mode=display">
+\bar E(z,t)=\hat{x}cos(wt)\pm\hat{y}Acos(wt)</script><ul>
+<li>圆极化<br>$\phi=\pi/2,A=1$<script type="math/tex; mode=display">
+\bar E(z,t)=\hat{x}cos(wt)+\hat{y}sin(wt)</script></li>
+<li>椭圆极化<br>$\phi=\pi/2$<script type="math/tex; mode=display">
+\bar E(z,t)=\hat{x}cos(wt)+\hat{y}Asin(wt)</script><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200618231620.png" alt=""><blockquote>
+<p>$\phi=+\pi/2$右旋，<br>$\phi=-\pi/2$左旋</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>$0&lt;\phi&lt;\pi$右旋，<br>$\pi&lt;\phi=2\pi$左旋</p>
+</blockquote>
+<p><strong>空间角度看极化</strong><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200618231621.png" alt=""></p>
+<h1 id="Herztian-Waves-赫兹天线"><a href="#Herztian-Waves-赫兹天线" class="headerlink" title="Herztian Waves 赫兹天线"></a>Herztian Waves 赫兹天线</h1><p>一个赫兹偶极子是由两个相对的电荷($\pm q$)组成，它们之间隔着无穷小的距离。偶极矩p= ql有一个角频率w，使得每个点电荷在2$\pi$/w的周期内从+q变化到-q。p被定义为$l→0与q→无穷$的乘积，使p为常数。假设两个电荷位于z=±l/2处。赫兹解出了所有的电磁场用势函数称为赫兹势$\Pi$</p>
+<script type="math/tex; mode=display">
+\Pi=\frac{ql}{4\pi r}cos(kr-wt)</script><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20200618231622.png" alt=""></p>
+<ul>
+<li>$kr\gg1$<script type="math/tex; mode=display">
+\bar E=-\hat{\theta}\frac{k^2ql}{4\pi\epsilon_0r}sin\theta cos(kr-wt)</script><script type="math/tex; mode=display">
+\bar H=-\hat{\phi}\frac{wkql}{4\pi\epsilon_0r}sin\theta cos(kr-wt)</script></li>
+<li>$w=0$<script type="math/tex; mode=display">
+\bar E=\frac{ql}{4\pi\epsilon_0r^3}(\hat{\theta}sin\theta+\hat{r}2cos\theta)</script><script type="math/tex; mode=display">
+\bar H=0</script></li>
+<li>在偶极子附近<script type="math/tex; mode=display">
+\bar H=\hat{\phi}\frac{wql}{4\pi r^2}sin\theta</script></li>
+</ul>
+<h1 id="Constitutive-Relations-物质本构关系"><a href="#Constitutive-Relations-物质本构关系" class="headerlink" title="Constitutive Relations 物质本构关系"></a>Constitutive Relations 物质本构关系</h1><h3 id="Isotropic-Media各向同性介质"><a href="#Isotropic-Media各向同性介质" class="headerlink" title="Isotropic Media各向同性介质"></a>Isotropic Media各向同性介质</h3><script type="math/tex; mode=display">
+\bar D=\epsilon \bar E</script><script type="math/tex; mode=display">
+\bar B=\mu\bar H</script><h3 id="Anisotropic-Media各向异性介质"><a href="#Anisotropic-Media各向异性介质" class="headerlink" title="Anisotropic Media各向异性介质"></a>Anisotropic Media各向异性介质</h3><script type="math/tex; mode=display">
+\bar D=\bar \epsilon \bar E</script><script type="math/tex; mode=display">
+\bar B=\bar \mu\bar H</script><h3 id="Bianisotropic-Media双各向异性介质"><a href="#Bianisotropic-Media双各向异性介质" class="headerlink" title="Bianisotropic Media双各向异性介质"></a>Bianisotropic Media双各向异性介质</h3><script type="math/tex; mode=display">
+\bar D=\bar \epsilon \bar E+\bar \xi\bar H</script><script type="math/tex; mode=display">
+\bar B=\bar\zeta\bar E+ \bar \mu\bar H</script><h3 id="Biisotropic-Media手性介质"><a href="#Biisotropic-Media手性介质" class="headerlink" title="Biisotropic Media手性介质"></a>Biisotropic Media手性介质</h3><script type="math/tex; mode=display">
+\bar D= \epsilon \bar E+\tau\bar H</script><script type="math/tex; mode=display">
+\bar B=\tau\bar E+ \mu\bar H</script><h1 id="Boundary-Condition边界条件"><a href="#Boundary-Condition边界条件" class="headerlink" title="Boundary Condition边界条件"></a>Boundary Condition边界条件</h1><script type="math/tex; mode=display">
+\hat{n}\cdot(\bar{E_1}-\bar{E_2})=0</script><script type="math/tex; mode=display">
+\hat{n}\cdot(\bar{H_1}-\bar{H_2})=\bar J_s</script><script type="math/tex; mode=display">
+\hat{n}\cdot(\bar{B_1}-\bar{B_2})=0</script><script type="math/tex; mode=display">
+\hat{n}\cdot(\bar{D_1}-\bar{D_2})=\rho_s</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2020/06/18/Maxwell-s-Theory/">https://fazziekey.github.io/2020/06/18/Maxwell-s-Theory/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%8B%E6%92%95%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6/">手撕麦克斯韦</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/06/19/SIFT/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SIFT</div></div></a></div><div class="next-post pull-right"><a href="/2020/04/22/grad/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">使用pytorch进行梯度运算</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/06/19/Bianisotropic-media/" title="Bianisotropic media"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-19</div><div class="title">Bianisotropic media</div></div></a></div><div><a href="/2020/06/19/KDB/" title="KDB"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-19</div><div class="title">KDB</div></div></a></div><div><a href="/2020/06/19/Media/" title="Media"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-19</div><div class="title">Media</div></div></a></div><div><a href="/2020/06/21/Radiation/" title="Radiation"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-21</div><div class="title">Radiation</div></div></a></div><div><a href="/2020/06/21/Reflection-and-Transmission/" title="Reflection and Transmission"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-21</div><div class="title">Reflection and Transmission</div></div></a></div><div><a href="/2020/06/21/Wave-Guide/" title="Wave Guide"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-21</div><div class="title">Wave Guide</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Maxwell%E2%80%99s-Theory"><span class="toc-number">1.</span> <span class="toc-text">Maxwell’s Theory</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maxwell%E2%80%99s-Equations"><span class="toc-number">1.1.</span> <span class="toc-text">maxwell’s Equations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-number">1.1.1.</span> <span class="toc-text">微分形式麦克斯韦方程组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E8%B4%A8%E6%9C%AC%E6%9E%84%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">物质本构方程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vector-Analysis"><span class="toc-number">1.2.</span> <span class="toc-text">Vector Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97%E9%87%8D%E8%A6%81%E5%85%AC%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">向量运算重要公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nabla-del-Operatoe-del-%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.2.</span> <span class="toc-text">$\nabla$:del Operatoe(del 算符)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Laplaceian-Operator%EF%BC%88%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%AE%97%E7%AC%A6%EF%BC%89"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">Laplaceian Operator（拉普拉斯算符）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-%E6%A2%AF%E5%BA%A6"><span class="toc-number">1.2.3.</span> <span class="toc-text">Gradient 梯度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Divergence-%E6%95%A3%E5%BA%A6"><span class="toc-number">1.2.4.</span> <span class="toc-text">Divergence 散度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Curl-%E6%97%8B%E5%BA%A6"><span class="toc-number">1.2.5.</span> <span class="toc-text">Curl 旋度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2%E7%94%B5%E7%A3%81%E6%B3%A2"><span class="toc-number">2.</span> <span class="toc-text">1.2电磁波</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wave-Equation-and-Wave-Solution-%E6%B3%A2%E5%8A%A8%E6%96%B9%E7%A8%8B%E5%92%8C%E6%B3%A2%E5%8A%A8%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">Wave Equation and Wave Solution(波动方程和波动解)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit-for-Spatial-Frequence-k"><span class="toc-number">2.2.</span> <span class="toc-text">Unit for Spatial Frequence k</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E7%A3%81%E6%B3%A2%E8%B0%B1"><span class="toc-number">2.2.0.1.</span> <span class="toc-text">电磁波谱</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E9%80%9F%E5%BA%A6"><span class="toc-number">2.2.1.</span> <span class="toc-text">相速度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Polarization%E6%9E%81%E5%8C%96"><span class="toc-number">2.3.</span> <span class="toc-text">Polarization极化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Herztian-Waves-%E8%B5%AB%E5%85%B9%E5%A4%A9%E7%BA%BF"><span class="toc-number">3.</span> <span class="toc-text">Herztian Waves 赫兹天线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Constitutive-Relations-%E7%89%A9%E8%B4%A8%E6%9C%AC%E6%9E%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">Constitutive Relations 物质本构关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Isotropic-Media%E5%90%84%E5%90%91%E5%90%8C%E6%80%A7%E4%BB%8B%E8%B4%A8"><span class="toc-number">4.0.1.</span> <span class="toc-text">Isotropic Media各向同性介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anisotropic-Media%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E4%BB%8B%E8%B4%A8"><span class="toc-number">4.0.2.</span> <span class="toc-text">Anisotropic Media各向异性介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bianisotropic-Media%E5%8F%8C%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E4%BB%8B%E8%B4%A8"><span class="toc-number">4.0.3.</span> <span class="toc-text">Bianisotropic Media双各向异性介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Biisotropic-Media%E6%89%8B%E6%80%A7%E4%BB%8B%E8%B4%A8"><span class="toc-number">4.0.4.</span> <span class="toc-text">Biisotropic Media手性介质</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Boundary-Condition%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">Boundary Condition边界条件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

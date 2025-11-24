@@ -1,0 +1,842 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DQN实现机器人自动走迷宫 | 摸黑干活</title><meta name="keywords" content="DQN,RL"><meta name="author" content="Fazzie"><meta name="copyright" content="Fazzie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="问题简介 如上图所示，左上角的红色椭圆既是起点也是机器人的初始位置，右下角的绿色方块是出口。游戏规则为：从起点开始，通过错综复杂的迷宫，到达目标点(出口)。  在任一位置可执行动作包括：向上走 &#39;u&#39;、向右走 &#39;r&#39;、向下走 &#39;d&#39;、向左走 &#39;l&#39;。 执行不同的动作后，根据不同的情况会获得不同的奖励，具体而言，有以下几种情况。 撞墙">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DQN实现机器人自动走迷宫">
+<meta property="og:url" content="https://fazziekey.github.io/2021/06/15/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%87%AA%E5%8A%A8%E8%B5%B0%E8%BF%B7%E5%AE%AB/index.html">
+<meta property="og:site_name" content="摸黑干活">
+<meta property="og:description" content="问题简介 如上图所示，左上角的红色椭圆既是起点也是机器人的初始位置，右下角的绿色方块是出口。游戏规则为：从起点开始，通过错综复杂的迷宫，到达目标点(出口)。  在任一位置可执行动作包括：向上走 &#39;u&#39;、向右走 &#39;r&#39;、向下走 &#39;d&#39;、向左走 &#39;l&#39;。 执行不同的动作后，根据不同的情况会获得不同的奖励，具体而言，有以下几种情况。 撞墙">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-06-15T12:50:11.000Z">
+<meta property="article:modified_time" content="2025-11-24T06:55:57.491Z">
+<meta property="article:author" content="Fazzie">
+<meta property="article:tag" content="DQN">
+<meta property="article:tag" content="RL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fazziekey.github.io/2021/06/15/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%87%AA%E5%8A%A8%E8%B5%B0%E8%BF%B7%E5%AE%AB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-24 14:55:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">摸黑干活</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/index.html"><i class="fa-fw fas fas fa-id-card"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/CV/Maqianli_CV_EN.html"><i class="fa-fw fas fa-file-alt"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/nn/"><i class="fa-fw fas fa-network-wired"></i><span> Super Intelligence</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DQN实现机器人自动走迷宫</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-15T12:50:11.000Z" title="发表于 2021-06-15 20:50:11">2021-06-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-24T06:55:57.491Z" title="更新于 2025-11-24 14:55:57">2025-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%8A%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C%E3%80%8B/">《炼金术士修炼手册》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p><img src="https://imgbed.momodel.cn/20200914145238.png" alt="image"></p>
+<p>如上图所示，左上角的红色椭圆既是起点也是机器人的初始位置，右下角的绿色方块是出口。<br>游戏规则为：从起点开始，通过错综复杂的迷宫，到达目标点(出口)。</p>
+<ul>
+<li>在任一位置可执行动作包括：向上走 <code>&#39;u&#39;</code>、向右走 <code>&#39;r&#39;</code>、向下走 <code>&#39;d&#39;</code>、向左走 <code>&#39;l&#39;</code>。</li>
+<li>执行不同的动作后，根据不同的情况会获得不同的奖励，具体而言，有以下几种情况。<ul>
+<li>撞墙</li>
+<li>走到出口</li>
+<li>其余情况</li>
+</ul>
+</li>
+</ul>
+<p>我们分别实现了<strong>基于基础搜索算法</strong>和 <strong>Deep QLearning 算法</strong>的机器人，使机器人自动走到迷宫的出口。</p>
+<h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><h3 id="Maze-类介绍"><a href="#Maze-类介绍" class="headerlink" title="Maze 类介绍"></a>Maze 类介绍</h3><h4 id="创建迷宫"><a href="#创建迷宫" class="headerlink" title="创建迷宫"></a>创建迷宫</h4><p>通过迷宫类 Maze 可以随机创建一个迷宫。</p>
+<ol>
+<li>使用  Maze(maze_size=size)  来随机生成一个 size * size 大小的迷宫。</li>
+<li>使用 print() 函数可以输出迷宫的 size 以及画出迷宫图</li>
+<li>红色的圆是机器人初始位置</li>
+<li>绿色的方块是迷宫的出口位置</li>
+</ol>
+<pre><code>&quot;&quot;&quot; 创建迷宫并展示 &quot;&quot;&quot;
+maze = Maze(maze_size=10) # 随机生成迷宫
+print(maze)
+</code></pre><h4 id="重要的成员方法"><a href="#重要的成员方法" class="headerlink" title="重要的成员方法"></a>重要的成员方法</h4><p>在迷宫中已经初始化一个机器人，你要编写的算法实现在给定条件下控制机器人移动至目标点。</p>
+<p>Maze 类中重要的成员方法如下：</p>
+<ol>
+<li>sense_robot() ：获取机器人在迷宫中目前的位置。</li>
+</ol>
+<blockquote>
+<p>return：机器人在迷宫中目前的位置。</p>
+</blockquote>
+<ol>
+<li>move_robot(direction) ：根据输入方向移动默认机器人，若方向不合法则返回错误信息。</li>
+</ol>
+<blockquote>
+<p>direction：移动方向, 如:”u”, 合法值为： [‘u’, ‘r’, ‘d’, ‘l’]</p>
+<p>return：执行动作的奖励值</p>
+</blockquote>
+<ol>
+<li>can_move_actions(position)：获取当前机器人可以移动的方向</li>
+</ol>
+<blockquote>
+<p>position：迷宫中任一处的坐标点 </p>
+<p>return：该点可执行的动作，如：[‘u’,’r’,’d’]</p>
+</blockquote>
+<ol>
+<li>is_hit_wall(self, location, direction)：判断该移动方向是否撞墙</li>
+</ol>
+<blockquote>
+<p>location, direction：当前位置和要移动的方向，如(0,0) , “u”</p>
+<p>return：True(撞墙) / False(不撞墙)</p>
+</blockquote>
+<ol>
+<li>draw_maze()：画出当前的迷宫</li>
+</ol>
+<p><strong>随机移动机器人，并记录下获得的奖励，展示出机器人最后的位置。</strong></p>
+<pre><code>import random
+
+rewards = [] # 记录每走一步的奖励值
+actions = [] # 记录每走一步的移动方向
+
+# 循环、随机移动机器人10次，记录下奖励
+for i in range(10):
+    valid_actions = maze.can_move_actions(maze.sense_robot())
+    action = random.choice(valid_actions)
+    rewards.append(maze.move_robot(action))
+    actions.append(action)
+
+print(&quot;the history of rewards:&quot;, rewards)
+print(&quot;the actions&quot;, actions)
+
+# 输出机器人最后的位置
+print(&quot;the end position of robot:&quot;, maze.sense_robot())
+
+# 打印迷宫，观察机器人位置
+print(maze)
+</code></pre><h3 id="基础搜索算法介绍（广度优先搜索算法）"><a href="#基础搜索算法介绍（广度优先搜索算法）" class="headerlink" title="基础搜索算法介绍（广度优先搜索算法）"></a>基础搜索算法介绍（广度优先搜索算法）</h3><p>对于迷宫游戏，常见的三种的搜索算法有广度优先搜索、深度优先搜索和最佳优先搜索（A*)。</p>
+<p>在下面的代码示例中，将实现广度优先搜索算法；主要通过建立一颗搜索树并进行层次遍历实现。</p>
+<ul>
+<li>每个节点表示为以 <code>Class SearchTree</code> 实例化的对象，类属性有：<strong>当前节点位置、到达当前节点的动作、当前节点的父节点、当前节点的子节点</strong>；</li>
+<li><code>valid_actions():</code> 用以获取机器人可以行走的位置（即不能穿墙）；</li>
+<li><code>expand():</code> 对于未拓展的子节点进行拓展；</li>
+<li><code>backpropagation():</code> 回溯搜索路径。</li>
+</ul>
+<h4 id="算法具体步骤"><a href="#算法具体步骤" class="headerlink" title="算法具体步骤"></a>算法具体步骤</h4><p>首先以机器人起始位置建立根节点，并入队；接下来不断重复以下步骤直到判定条件:</p>
+<ol>
+<li>将队首节点的位置标记已访问；判断队首是否为目标位置(出口)， <strong>是</strong> 则终止循环并记录回溯路径</li>
+<li>判断队首节点是否为叶子节点，<strong>是</strong> 则拓展该叶子节点</li>
+<li>如果队首节点有子节点，则将每个子节点插到队尾</li>
+<li>将队首节点出队</li>
+</ol>
+<h4 id="实现广度优先搜索算法"><a href="#实现广度优先搜索算法" class="headerlink" title="实现广度优先搜索算法"></a>实现广度优先搜索算法</h4><pre><code>import numpy as np
+
+# 机器人移动方向
+move_map = &#123;
+    &#39;u&#39;: (-1, 0), # up
+    &#39;r&#39;: (0, +1), # right
+    &#39;d&#39;: (+1, 0), # down
+    &#39;l&#39;: (0, -1), # left
+&#125;
+
+
+# 迷宫路径搜索树
+class SearchTree(object):
+
+
+    def __init__(self, loc=(), action=&#39;&#39;, parent=None):
+        &quot;&quot;&quot;
+        初始化搜索树节点对象
+        :param loc: 新节点的机器人所处位置
+        :param action: 新节点的对应的移动方向
+        :param parent: 新节点的父辈节点
+        &quot;&quot;&quot;
+
+        self.loc = loc  # 当前节点位置
+        self.to_this_action = action  # 到达当前节点的动作
+        self.parent = parent  # 当前节点的父节点
+        self.children = []  # 当前节点的子节点
+
+    def add_child(self, child):
+        &quot;&quot;&quot;
+        添加子节点
+        :param child:待添加的子节点
+        &quot;&quot;&quot;
+        self.children.append(child)
+
+    def is_leaf(self):
+        &quot;&quot;&quot;
+        判断当前节点是否是叶子节点
+        &quot;&quot;&quot;
+        return len(self.children) == 0
+
+
+def expand(maze, is_visit_m, node):
+    &quot;&quot;&quot;
+    拓展叶子节点，即为当前的叶子节点添加执行合法动作后到达的子节点
+    :param maze: 迷宫对象
+    :param is_visit_m: 记录迷宫每个位置是否访问的矩阵
+    :param node: 待拓展的叶子节点
+    &quot;&quot;&quot;
+    can_move = maze.can_move_actions(node.loc)
+    for a in can_move:
+        new_loc = tuple(node.loc[i] + move_map[a][i] for i in range(2))
+        if not is_visit_m[new_loc]:
+            child = SearchTree(loc=new_loc, action=a, parent=node)
+            node.add_child(child)
+
+
+def back_propagation(node):
+    &quot;&quot;&quot;
+    回溯并记录节点路径
+    :param node: 待回溯节点
+    :return: 回溯路径
+    &quot;&quot;&quot;
+    path = []
+    while node.parent is not None:
+        path.insert(0, node.to_this_action)
+        node = node.parent
+    return path
+
+
+def breadth_first_search(maze):
+    &quot;&quot;&quot;
+    对迷宫进行广度优先搜索
+    :param maze: 待搜索的maze对象
+    &quot;&quot;&quot;
+    start = maze.sense_robot()
+    root = SearchTree(loc=start)
+    queue = [root]  # 节点队列，用于层次遍历
+    h, w, _ = maze.maze_data.shape
+    is_visit_m = np.zeros((h, w), dtype=np.int)  # 标记迷宫的各个位置是否被访问过
+    path = []  # 记录路径
+    while True:
+        current_node = queue[0]
+        is_visit_m[current_node.loc] = 1  # 标记当前节点位置已访问
+
+        if current_node.loc == maze.destination:  # 到达目标点
+            path = back_propagation(current_node)
+            break
+
+        if current_node.is_leaf():
+            expand(maze, is_visit_m, current_node)
+
+        # 入队
+        for child in current_node.children:
+            queue.append(child)
+
+        # 出队
+        queue.pop(0)
+
+    return path
+</code></pre><p><strong>测试广度优先搜索算法</strong></p>
+<pre><code>maze = Maze(maze_size=10)
+height, width, _ = maze.maze_data.shape
+
+path_1 = breadth_first_search(maze)
+print(&quot;搜索出的路径：&quot;, path_1)
+
+for action in path_1:
+    maze.move_robot(action)
+
+if maze.sense_robot() == maze.destination:
+    print(&quot;恭喜你，到达了目标点&quot;)
+
+print(maze)
+</code></pre><h4 id="深度优先搜索算法"><a href="#深度优先搜索算法" class="headerlink" title="深度优先搜索算法"></a>深度优先搜索算法</h4><ul>
+<li><p>输入：迷宫</p>
+</li>
+<li><p>输出：到达目标点的路径</p>
+</li>
+</ul>
+<pre><code>def my_search(maze):
+    &quot;&quot;&quot;
+    对迷宫实现深度优先搜索算法
+    :param maze: 迷宫对象
+    :return :到达目标点的路径 如：[&quot;u&quot;,&quot;u&quot;,&quot;r&quot;,...]
+    &quot;&quot;&quot;
+
+    start = maze.sense_robot()
+    root = SearchTree(loc=start)
+    h, w, _ = maze.maze_data.shape
+    is_visit_m = np.zeros((h, w), dtype=np.int)  # 标记迷宫的各个位置是否被访问过
+    path = []  # 记录路径
+    path = dfs(maze, is_visit_m, root)
+
+    return path
+
+
+def dfs(maze, is_visit_m, current_node):
+    if current_node.loc == maze.destination:  # 到达目标点
+        path = back_propagation(current_node)
+        return path
+
+    elif current_node.is_leaf():
+        expand(maze, is_visit_m, current_node)
+        for node in current_node.children:
+            is_visit_m[node.loc] = 1
+            path = dfs(maze, is_visit_m, node)
+            if not path == None:
+                return path
+
+    else:
+        return None
+</code></pre><h5 id="测试深度优先算法"><a href="#测试深度优先算法" class="headerlink" title="测试深度优先算法"></a>测试深度优先算法</h5><pre><code>maze = Maze(maze_size=10) # 从文件生成迷宫
+
+path_2 = my_search(maze)
+print(&quot;搜索出的路径：&quot;, path_2)
+
+for action in path_2:
+    maze.move_robot(action)
+
+
+if maze.sense_robot() == maze.destination:
+    print(&quot;恭喜你，到达了目标点&quot;)
+</code></pre><h3 id="强化学习算法介绍"><a href="#强化学习算法介绍" class="headerlink" title="强化学习算法介绍"></a>强化学习算法介绍</h3><p>强化学习作为机器学习算法的一种，其模式也是让智能体在“训练”中学到“经验”，以实现给定的任务。但不同于监督学习与非监督学习，在强化学习的框架中，我们更侧重通过智能体与环境的<strong>交互</strong>来学习。通常在监督学习和非监督学习任务中，智能体往往需要通过给定的训练集，辅之以既定的训练目标（如最小化损失函数），通过给定的学习算法来实现这一目标。然而在强化学习中，智能体则是通过其与环境交互得到的奖励进行学习。这个环境可以是虚拟的（如虚拟的迷宫），也可以是真实的（自动驾驶汽车在真实道路上收集数据）。</p>
+<p>在强化学习中有五个核心组成部分，它们分别是：<strong>环境（Environment）</strong>、<strong>智能体（Agent）</strong>、<strong>状态（State）</strong>、<strong>动作（Action）</strong>和<strong>奖励（Reward）</strong>。</p>
+<p>在某一时间节点 $t$：</p>
+<ul>
+<li>智能体在从环境中感知其所处的状态 $s_t$</li>
+<li>智能体根据某些准则选择动作 $a_t$</li>
+<li>环境根据智能体选择的动作，向智能体反馈奖励 $r_{t+1}$</li>
+</ul>
+<p>通过合理的学习算法，智能体将在这样的问题设置下，成功学到一个在状态 $s_t$ 选择动作 $a_t$ 的策略 $\pi (s_t) = a_t$。</p>
+<p><img src="https://imgbed.momodel.cn/20200914153419.png" alt=""></p>
+<h3 id="QLearning-算法"><a href="#QLearning-算法" class="headerlink" title="QLearning 算法"></a>QLearning 算法</h3><p>Q-Learning 是一个值迭代（Value Iteration）算法。<br>与策略迭代（Policy Iteration）算法不同，值迭代算法会计算每个”状态“或是”状态-动作“的值（Value）或是效用（Utility），然后在执行动作的时候，会设法最大化这个值。<br>因此，对每个状态值的准确估计，是值迭代算法的核心。<br>通常会考虑<strong>最大化动作的长期奖励</strong>，即不仅考虑当前动作带来的奖励，还会考虑动作长远的奖励。</p>
+<h4 id="Q-值的计算与迭代"><a href="#Q-值的计算与迭代" class="headerlink" title="Q 值的计算与迭代"></a>Q 值的计算与迭代</h4><p>Q-learning 算法将状态（state）和动作（action）构建成一张 Q_table 表来存储 Q 值，Q 表的行代表状态（state），列代表动作（action）：</p>
+<p><img src="https://imgbed.momodel.cn/20200914161241.png" alt=""></p>
+<p>在 Q-Learning 算法中，将这个长期奖励记为 Q 值，其中会考虑每个 ”状态-动作“ 的 Q 值，具体而言，它的计算公式为：</p>
+<script type="math/tex; mode=display">
+Q(s_{t},a) = R_{t+1} + \gamma \times\max_a Q(a,s_{t+1})</script><p>也就是对于当前的“状态-动作” $(s<em>{t},a)$，考虑执行动作 $a$ 后环境奖励 $R</em>{t+1}$，以及执行动作 $a$ 到达 $s<em>{t+1}$后，执行任意动作能够获得的最大的Q值 $\max_a Q(a,s</em>{t+1})$，$\gamma$ 为折扣因子。</p>
+<p>计算得到新的 Q 值之后，一般会使用更为保守地更新 Q 表的方法，即引入松弛变量 $alpha$ ，按如下的公式进行更新，使得 Q 表的迭代变化更为平缓。</p>
+<script type="math/tex; mode=display">
+Q(s_{t},a) = (1-\alpha) \times Q(s_{t},a) + \alpha \times(R_{t+1} + \gamma \times\max_a Q(a,s_{t+1}))</script><h4 id="机器人动作的选择"><a href="#机器人动作的选择" class="headerlink" title="机器人动作的选择"></a>机器人动作的选择</h4><p>在强化学习中，<strong>探索-利用</strong> 问题是非常重要的问题。<br>具体来说，根据上面的定义，会尽可能地让机器人在每次选择最优的决策，来最大化长期奖励。<br>但是这样做有如下的弊端：    </p>
+<ol>
+<li>在初步的学习中，Q 值是不准确的，如果在这个时候都按照 Q 值来选择，那么会造成错误。</li>
+<li>学习一段时间后，机器人的路线会相对固定，则机器人无法对环境进行有效的探索。</li>
+</ol>
+<p>因此需要一种办法，来解决如上的问题，增加机器人的探索。<br>通常会使用 <strong>epsilon-greedy</strong> 算法：</p>
+<ol>
+<li>在机器人选择动作的时候，以一部分的概率随机选择动作，以一部分的概率按照最优的 Q 值选择动作。</li>
+<li>同时，这个选择随机动作的概率应当随着训练的过程逐步减小。</li>
+</ol>
+<p><img src="http://imgbed.momodel.cn/20200602153554.png" width=400><br><img src="http://imgbed.momodel.cn/20200601144827.png" width=400></p>
+<h4 id="Q-Learning-算法的学习过程"><a href="#Q-Learning-算法的学习过程" class="headerlink" title="Q-Learning 算法的学习过程"></a>Q-Learning 算法的学习过程</h4><p><img src="http://imgbed.momodel.cn/20200601170657.png" width=900></p>
+<h3 id="QRobot-类"><a href="#QRobot-类" class="headerlink" title="QRobot 类"></a>QRobot 类</h3><p> QRobot 类，其中实现了 Q 表迭代和机器人动作的选择策略，可通过 <code>from QRobot import QRobot</code> 导入使用。</p>
+<p><strong>QRobot 类的核心成员方法</strong></p>
+<ol>
+<li>sense_state()：获取当前机器人所处位置</li>
+</ol>
+<blockquote>
+<p>return：机器人所处的位置坐标，如： (0, 0)</p>
+</blockquote>
+<ol>
+<li>current_state_valid_actions()：获取当前机器人可以合法移动的动作</li>
+</ol>
+<blockquote>
+<p>return：由当前合法动作组成的列表，如： [‘u’,’r’]</p>
+</blockquote>
+<ol>
+<li>train_update()：以<strong>训练状态</strong>，根据 QLearning 算法策略执行动作</li>
+</ol>
+<blockquote>
+<p>return：当前选择的动作，以及执行当前动作获得的回报, 如： ‘u’, -1</p>
+</blockquote>
+<ol>
+<li>test_update()：以<strong>测试状态</strong>，根据 QLearning 算法策略执行动作</li>
+</ol>
+<blockquote>
+<p>return：当前选择的动作，以及执行当前动作获得的回报, 如：’u’, -1</p>
+</blockquote>
+<ol>
+<li>reset()</li>
+</ol>
+<blockquote>
+<p>return：重置机器人在迷宫中的位置</p>
+</blockquote>
+<pre><code>from QRobot import QRobot
+from Maze import Maze
+
+maze = Maze(maze_size=5) # 随机生成迷宫
+
+robot = QRobot(maze) # 记得将 maze 变量修改为你创建迷宫的变量名
+
+action, reward = robot.train_update() # QLearning 算法一次Q值迭代和动作选择
+
+print(&quot;the choosed action: &quot;, action)
+print(&quot;the returned reward: &quot;, action)
+</code></pre><h3 id="Runner-类"><a href="#Runner-类" class="headerlink" title="Runner 类"></a>Runner 类</h3><p>QRobot 类实现了 QLearning 算法的 Q 值迭代和动作选择策略。在机器人自动走迷宫的训练过程中，需要不断的使用 QLearning 算法来迭代更新 Q 值表，以达到一个“最优”的状态，因此封装好了一个类 Runner 用于机器人的训练和可视化。可通过 <code>from Runner import Runner</code> 导入使用。</p>
+<p><strong>Runner 类的核心成员方法：</strong></p>
+<ol>
+<li>run_training(training_epoch, training_per_epoch=150): 训练机器人，不断更新 Q 表，并讲训练结果保存在成员变量 train_robot_record 中</li>
+</ol>
+<blockquote>
+<p>training_epoch, training_per_epoch: 总共的训练次数、每次训练机器人最多移动的步数</p>
+</blockquote>
+<ol>
+<li><p>run_testing()：测试机器人能否走出迷宫</p>
+</li>
+<li><p>generate_gif(filename)：将训练结果输出到指定的 gif 图片中</p>
+</li>
+</ol>
+<blockquote>
+<p>filename：合法的文件路径,文件名需以 <code>.gif</code> 为后缀</p>
+</blockquote>
+<ol>
+<li>plot_results()：以图表展示训练过程中的指标：Success Times、Accumulated Rewards、Runing Times per Epoch</li>
+</ol>
+<p><strong>设定训练参数、训练、查看结果</strong></p>
+<pre><code>from QRobot import QRobot
+from Maze import Maze
+from Runner import Runner
+
+&quot;&quot;&quot;  Qlearning 算法相关参数： &quot;&quot;&quot;
+
+epoch = 10  # 训练轮数
+epsilon0 = 0.5  # 初始探索概率
+alpha = 0.5  # 公式中的 ⍺
+gamma = 0.9  # 公式中的 γ
+maze_size = 5  # 迷宫size
+
+&quot;&quot;&quot; 使用 QLearning 算法训练过程 &quot;&quot;&quot;
+
+g = Maze(maze_size=maze_size)
+r = QRobot(g, alpha=alpha, epsilon0=epsilon0, gamma=gamma)
+
+runner = Runner(r)
+runner.run_training(epoch, training_per_epoch=int(maze_size * maze_size * 1.5))
+
+# 生成训练过程的gif图, 建议下载到本地查看；也可以注释该行代码，加快运行速度。
+runner.generate_gif(filename=&quot;results/size5.gif&quot;)
+
+runner.plot_results() # 输出训练结果，可根据该结果对您的机器人进行分析。
+</code></pre><h3 id="实现-Deep-QLearning-算法"><a href="#实现-Deep-QLearning-算法" class="headerlink" title="实现 Deep QLearning 算法"></a>实现 Deep QLearning 算法</h3><h4 id="DQN-算法介绍"><a href="#DQN-算法介绍" class="headerlink" title="DQN 算法介绍"></a>DQN 算法介绍</h4><p>强化学习是一个反复迭代的过程，每一次迭代要解决两个问题：给定一个策略求值函数，和根据值函数来更新策略。而 DQN 算法使用神经网络来近似值函数。(<a target="_blank" rel="noopener" href="https://files.momodel.cn/Playing%20Atari%20with%20Deep%20Reinforcement%20Learning.pdf">DQN 论文地址</a>)</p>
+<ul>
+<li><strong>DQN 算法流程</strong></li>
+</ul>
+<p><img src="https://imgbed.momodel.cn/20200918101051.png" alt=""></p>
+<ul>
+<li><strong>DQN 算法框架图</strong></li>
+</ul>
+<p><img src="https://imgbed.momodel.cn/20200918101137.png" alt=""></p>
+<h4 id="完成-DQN-算法"><a href="#完成-DQN-算法" class="headerlink" title="完成 DQN 算法"></a>完成 DQN 算法</h4><p><strong>ReplayDataSet 类的核心成员方法</strong></p>
+<ul>
+<li>add(self, state, action_index, reward, next_state, is_terminal) 添加一条训练数据</li>
+</ul>
+<blockquote>
+<p>state: 当前机器人位置</p>
+<p>action_index: 选择执行动作的索引</p>
+<p>reward： 执行动作获得的回报</p>
+<p>next_state：执行动作后机器人的位置</p>
+<p>is_terminal：机器人是否到达了终止节点（到达终点或者撞墙）</p>
+</blockquote>
+<ul>
+<li>random_sample(self, batch_size)：从数据集中随机抽取固定batch_size的数据</li>
+</ul>
+<blockquote>
+<p>batch_size: 整数，不允许超过数据集中数据的个数</p>
+</blockquote>
+<ul>
+<li><strong>build_full_view(self, maze)：开启金手指，获取全图视野</strong></li>
+</ul>
+<blockquote>
+<p>maze: 以 Maze 类实例化的对象</p>
+</blockquote>
+<pre><code>&quot;&quot;&quot;ReplayDataSet 类的使用&quot;&quot;&quot;
+
+from ReplayDataSet import ReplayDataSet
+
+test_memory = ReplayDataSet(max_size=1e3) # 初始化并设定最大容量
+actions = [&#39;u&#39;, &#39;r&#39;, &#39;d&#39;, &#39;l&#39;]  
+test_memory.add((0,1), actions.index(&quot;r&quot;), -10, (0,1), 1)  # 添加一条数据（state, action_index, reward, next_state）
+print(test_memory.random_sample(1)) # 从中随机抽取一条（因为只有一条数据）
+</code></pre><h4 id="实现DQNRobot"><a href="#实现DQNRobot" class="headerlink" title="实现DQNRobot"></a>实现DQNRobot</h4><ul>
+<li><strong>输入:</strong> 由 Maze 类实例化的对象 maze</li>
+</ul>
+<pre><code>from QRobot import QRobot
+
+class Robot(QRobot):
+valid_action = [&#39;u&#39;, &#39;r&#39;, &#39;d&#39;, &#39;l&#39;]
+
+&#39;&#39;&#39; QLearning parameters&#39;&#39;&#39;
+epsilon0 = 0.5  # 初始贪心算法探索概率
+gamma = 0.94  # 公式中的 γ
+
+EveryUpdate = 1  # the interval of target model&#39;s updating
+
+&quot;&quot;&quot;some parameters of neural network&quot;&quot;&quot;
+target_model = None
+eval_model = None
+batch_size = 32
+learning_rate = 1e-2
+TAU = 1e-3
+step = 1  # 记录训练的步数
+
+&quot;&quot;&quot;setting the device to train network&quot;&quot;&quot;
+device = torch.device(&quot;cuda:0&quot;) if torch.cuda.is_available() else torch.device(&quot;cpu&quot;)
+
+def __init__(self, maze):
+    &quot;&quot;&quot;
+    初始化 Robot 类
+    :param maze:迷宫对象
+    &quot;&quot;&quot;
+    super(Robot, self).__init__(maze)
+    maze.set_reward(reward=&#123;
+        &quot;hit_wall&quot;: 10.,
+        &quot;destination&quot;: -50.,
+        &quot;default&quot;: 1.,
+    &#125;)
+    self.maze = maze
+    self.maze_size = maze.maze_size
+
+    &quot;&quot;&quot;build network&quot;&quot;&quot;
+    self.target_model = None
+    self.eval_model = None
+    self._build_network()
+
+    &quot;&quot;&quot;create the memory to store data&quot;&quot;&quot;
+    max_size = max(self.maze_size ** 2 * 3, 1e4)
+    self.memory = ReplayDataSet(max_size=max_size)
+
+def _build_network(self):
+    seed = 0
+    random.seed(seed)
+
+    &quot;&quot;&quot;build target model&quot;&quot;&quot;
+    self.target_model = QNetwork(state_size=2, action_size=4, seed=seed).to(self.device)
+
+    &quot;&quot;&quot;build eval model&quot;&quot;&quot;
+    self.eval_model = QNetwork(state_size=2, action_size=4, seed=seed).to(self.device)
+
+    &quot;&quot;&quot;build the optimizer&quot;&quot;&quot;
+    self.optimizer = optim.Adam(self.eval_model.parameters(), lr=self.learning_rate)
+
+def target_replace_op(self):
+    &quot;&quot;&quot;
+        Soft update the target model parameters.
+        θ_target = τ*θ_local + (1 - τ)*θ_target
+    &quot;&quot;&quot;
+
+    # for target_param, eval_param in zip(self.target_model.parameters(), self.eval_model.parameters()):
+    #     target_param.data.copy_(self.TAU * eval_param.data + (1.0 - self.TAU) * target_param.data)
+
+    &quot;&quot;&quot; replace the whole parameters&quot;&quot;&quot;
+    self.target_model.load_state_dict(self.eval_model.state_dict())
+
+def _choose_action(self, state):
+    state = np.array(state)
+    state = torch.from_numpy(state).float().to(self.device)
+    if random.random() &lt; self.epsilon:
+        action = random.choice(self.valid_action)
+    else:
+        self.eval_model.eval()
+        with torch.no_grad():
+            q_next = self.eval_model(state).cpu().data.numpy()  # use target model choose action
+        self.eval_model.train()
+
+        action = self.valid_action[np.argmin(q_next).item()]
+    return action
+
+def _learn(self, batch: int = 16):
+    if len(self.memory) &lt; batch:
+        print(&quot;the memory data is not enough&quot;)
+        return
+    state, action_index, reward, next_state, is_terminal = self.memory.random_sample(batch)
+
+    &quot;&quot;&quot; convert the data to tensor type&quot;&quot;&quot;
+    state = torch.from_numpy(state).float().to(self.device)
+    action_index = torch.from_numpy(action_index).long().to(self.device)
+    reward = torch.from_numpy(reward).float().to(self.device)
+    next_state = torch.from_numpy(next_state).float().to(self.device)
+    is_terminal = torch.from_numpy(is_terminal).int().to(self.device)
+
+    self.eval_model.train()
+    self.target_model.eval()
+
+    &quot;&quot;&quot;Get max predicted Q values (for next states) from target model&quot;&quot;&quot;
+    Q_targets_next = self.target_model(next_state).detach().min(1)[0].unsqueeze(1)
+
+    &quot;&quot;&quot;Compute Q targets for current states&quot;&quot;&quot;
+    Q_targets = reward + self.gamma * Q_targets_next * (torch.ones_like(is_terminal) - is_terminal)
+
+    &quot;&quot;&quot;Get expected Q values from local model&quot;&quot;&quot;
+    self.optimizer.zero_grad()
+    Q_expected = self.eval_model(state).gather(dim=1, index=action_index)
+
+    &quot;&quot;&quot;Compute loss&quot;&quot;&quot;
+    loss = F.mse_loss(Q_expected, Q_targets)
+    loss_item = loss.item()
+
+    &quot;&quot;&quot; Minimize the loss&quot;&quot;&quot;
+    loss.backward()
+    self.optimizer.step()
+
+    &quot;&quot;&quot;copy the weights of eval_model to the target_model&quot;&quot;&quot;
+    self.target_replace_op()
+    return loss_item
+
+def train_update(self):
+    &quot;&quot;&quot;
+    以训练状态选择动作并更新Deep Q network的相关参数
+    :return :action, reward 如：&quot;u&quot;, -1
+    &quot;&quot;&quot;
+    state = self.sense_state()
+    action = self._choose_action(state)
+    reward = self.maze.move_robot(action)
+    next_state = self.sense_state()
+    is_terminal = 1 if next_state == self.maze.destination or next_state == state else 0
+
+    self.memory.add(state, self.valid_action.index(action), reward, next_state, is_terminal)
+
+    &quot;&quot;&quot;--间隔一段时间更新target network权重--&quot;&quot;&quot;
+    if self.step % self.EveryUpdate == 0:
+        self._learn(batch=32)
+
+    &quot;&quot;&quot;---update the step and epsilon---&quot;&quot;&quot;
+    self.step += 1
+    self.epsilon = max(0.01, self.epsilon * 0.995)
+
+    return action, reward
+
+def test_update(self):
+    &quot;&quot;&quot;
+    以测试状态选择动作并更新Deep Q network的相关参数
+    :return : action, reward 如：&quot;u&quot;, -1
+    &quot;&quot;&quot;
+    state = np.array(self.sense_state(), dtype=np.int16)
+    state = torch.from_numpy(state).float().to(self.device)
+
+    self.eval_model.eval()
+    with torch.no_grad():
+        q_value = self.eval_model(state).cpu().data.numpy()
+
+    action = self.valid_action[np.argmin(q_value).item()]
+    reward = self.maze.move_robot(action)
+    return action, reward
+</code></pre><h4 id="测试-DQN-算法"><a href="#测试-DQN-算法" class="headerlink" title="测试 DQN 算法"></a>测试 DQN 算法</h4><pre><code>from QRobot import QRobot
+from Maze import Maze
+from Runner import Runner
+
+&quot;&quot;&quot;  Deep Qlearning 算法相关参数： &quot;&quot;&quot;
+
+epoch = 10  # 训练轮数
+maze_size = 5  # 迷宫size
+training_per_epoch=int(maze_size * maze_size * 1.5)
+
+&quot;&quot;&quot; 使用 DQN 算法训练 &quot;&quot;&quot;
+
+g = Maze(maze_size=maze_size)
+r = Robot(g)
+runner = Runner(r)
+runner.run_training(epoch, training_per_epoch)
+
+# 生成训练过程的gif图, 建议下载到本地查看；也可以注释该行代码，加快运行速度。
+runner.generate_gif(filename=&quot;results/dqn_size10.gif&quot;)
+</code></pre><h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><h3 id="基础搜索算法"><a href="#基础搜索算法" class="headerlink" title="基础搜索算法"></a>基础搜索算法</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20210628212105.png" alt=""></p>
+<h3 id="深度强化学习算法"><a href="#深度强化学习算法" class="headerlink" title="深度强化学习算法"></a>深度强化学习算法</h3><p><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20210628212103.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Fazziekey/image-bed/img/20210628212106.png" alt=""></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fazzie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fazziekey.github.io/2021/06/15/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%87%AA%E5%8A%A8%E8%B5%B0%E8%BF%B7%E5%AE%AB/">https://fazziekey.github.io/2021/06/15/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%87%AA%E5%8A%A8%E8%B5%B0%E8%BF%B7%E5%AE%AB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Fazziekey.github.io" target="_blank">摸黑干活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DQN/">DQN</a><a class="post-meta__tags" href="/tags/RL/">RL</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/29/Cmake/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Cmake入门和MindsporeLite Cmake文件分析</div></div></a></div><div class="next-post pull-right"><a href="/2021/06/14/DQN/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献笔记：Playing Atari with Deep Reinforcement Learning</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/06/14/DQN/" title="文献笔记：Playing Atari with Deep Reinforcement Learning"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-14</div><div class="title">文献笔记：Playing Atari with Deep Reinforcement Learning</div></div></a></div><div><a href="/2020/11/23/RL-model-free/" title="RL:model free"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-23</div><div class="title">RL:model free</div></div></a></div><div><a href="/2020/11/23/RL-base/" title="强化学习基础和马尔科夫决策过程"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-23</div><div class="title">强化学习基础和马尔科夫决策过程</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fazzie</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fazziekey"><i class="fab fa-github"></i><span>Fork Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:3180104413@zju.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/qianli-ma-313272207/" target="_blank" title=""><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://www.zhihu.com/people/fazzie" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">talk is cheap, let's go fish</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">问题简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="toc-number">2.</span> <span class="toc-text">设计思想</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maze-%E7%B1%BB%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">Maze 类介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%B7%E5%AE%AB"><span class="toc-number">2.1.1.</span> <span class="toc-text">创建迷宫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.2.</span> <span class="toc-text">重要的成员方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D%EF%BC%88%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">基础搜索算法介绍（广度优先搜索算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.2.1.</span> <span class="toc-text">算法具体步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.2.</span> <span class="toc-text">实现广度优先搜索算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.3.</span> <span class="toc-text">深度优先搜索算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">测试深度优先算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.</span> <span class="toc-text">强化学习算法介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QLearning-%E7%AE%97%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">QLearning 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Q-%E5%80%BC%E7%9A%84%E8%AE%A1%E7%AE%97%E4%B8%8E%E8%BF%AD%E4%BB%A3"><span class="toc-number">2.4.1.</span> <span class="toc-text">Q 值的计算与迭代</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E4%BD%9C%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">2.4.2.</span> <span class="toc-text">机器人动作的选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Q-Learning-%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B"><span class="toc-number">2.4.3.</span> <span class="toc-text">Q-Learning 算法的学习过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QRobot-%E7%B1%BB"><span class="toc-number">2.5.</span> <span class="toc-text">QRobot 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Runner-%E7%B1%BB"><span class="toc-number">2.6.</span> <span class="toc-text">Runner 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-Deep-QLearning-%E7%AE%97%E6%B3%95"><span class="toc-number">2.7.</span> <span class="toc-text">实现 Deep QLearning 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DQN-%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.7.1.</span> <span class="toc-text">DQN 算法介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E6%88%90-DQN-%E7%AE%97%E6%B3%95"><span class="toc-number">2.7.2.</span> <span class="toc-text">完成 DQN 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0DQNRobot"><span class="toc-number">2.7.3.</span> <span class="toc-text">实现DQNRobot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-DQN-%E7%AE%97%E6%B3%95"><span class="toc-number">2.7.4.</span> <span class="toc-text">测试 DQN 算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">基础搜索算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">深度强化学习算法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/big-model/" title="超大模型加载转换Trick"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="超大模型加载转换Trick"/></a><div class="content"><a class="title" href="/2024/05/20/big-model/" title="超大模型加载转换Trick">超大模型加载转换Trick</a><time datetime="2024-05-20T06:15:55.000Z" title="发表于 2024-05-20 14:15:55">2024-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/MLsys/" title="ML system 入坑指南"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML system 入坑指南"/></a><div class="content"><a class="title" href="/2023/02/21/MLsys/" title="ML system 入坑指南">ML system 入坑指南</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="流水线并行论文总结"/></a><div class="content"><a class="title" href="/2023/02/21/pipeline-paralism/" title="流水线并行论文总结">流水线并行论文总结</a><time datetime="2023-02-21T07:49:43.000Z" title="发表于 2023-02-21 15:49:43">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/amp/" title="Mixed Precision Training"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixed Precision Training"/></a><div class="content"><a class="title" href="/2022/03/11/amp/" title="Mixed Precision Training">Mixed Precision Training</a><time datetime="2022-03-11T15:47:22.000Z" title="发表于 2022-03-11 23:47:22">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM"/></a><div class="content"><a class="title" href="/2022/01/23/OPTIMIZER-FUSION/" title="论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM">论文解读：OPTIMIZER FUSION - EFFICIENT TRAINING WITH BETTER LOCALITY AND PARALLELISM</a><time datetime="2022-01-23T06:53:08.000Z" title="发表于 2022-01-23 14:53:08">2022-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Fazzie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome  to  my  <a  target="_blank" rel="noopener" href="https://fazzie-key.cool/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fxFSTfaEl7rHVkn2JI1Ygud7-gzGzoHsz',
+      appKey: 'l5dJNsod5s2Yf9XDYqWuFPwh',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7909210123" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
